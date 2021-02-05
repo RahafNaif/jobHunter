@@ -1,0 +1,236 @@
+.header{
+    background-color: #EAF3FA;
+    width: 100%;
+    height: 600px;
+}
+
+.navbar {
+    overflow: hidden;
+    display: inline;
+    background-color: white;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+  
+.navbar-item {
+    text-align: center;
+    color: #192D50;
+    display:inline-flex;
+    padding: 14px 30px;
+    text-decoration: none;
+}
+
+.navbar-item span{
+    margin-left: 90px;
+}
+  
+.navbar-item:hover {
+    background-color: #FA9746;
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+}
+
+.navbar-item:focus{
+    background-color: #FA9746;
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+}
+
+.navbar .logo img{ 
+    position:absolute;
+    height: 90px;
+    width: 165px;
+}
+
+.navbar .logo{
+    padding-left: 40px;
+}
+
+.navbar-items{
+    position: absolute;
+    margin-left: 500px;
+    padding-top: 20px;
+}
+
+.custom-shape-divider-top-1612286857 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.custom-shape-divider-top-1612286857 svg {
+    position: relative;
+    display: block;
+    width: calc(214% + 1.3px);
+    height: 500px;
+    transform: rotateY(180deg);
+}
+
+.custom-shape-divider-top-1612286857 .shape-fill {
+    fill: #8CB3F4;
+}
+
+.home-img {
+    margin-left: 760px;
+    margin-top: 40px;
+    height: 350px;
+    width: 550px;
+    position: absolute;
+}
+
+.join {
+    position: absolute;
+    margin-top: 440px;
+    margin-left: 260px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #192D50;
+    font-size: 20px;
+    
+}
+
+.join button {
+    height: 50px;
+    width: 100px;
+    border-radius: 50px;
+    background-color: #FA9746;
+    outline: none;
+    border-style: none;
+    color: white;
+    font-size: 18px;
+}
+
+.join .join-button{
+    margin-left: 90px;
+}
+
+.jobs, .employees {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 24px;
+    text-align: center;
+    color: #192D50;
+}
+
+.line {
+    background-color: #FA9746;
+    width: 170px;
+    height: 2px;
+    margin-left: 630px;;
+}
+
+.post {
+    display: inline-block;
+    list-style: none;
+    width: 350px;
+    height: 500px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 20px;
+    font-size: 16px;
+    margin: 5px;
+    padding: 10px;
+}
+
+.post-img {
+    fill: #2B468B;
+    height: 150px;
+    width: 150px;
+    padding-top: 5px;
+}
+
+.location-icon {
+    fill: #FA9746;
+    height: 25px;
+    width: 25px;
+    margin-left: -20px;
+    margin-right: 5px;
+}
+
+.major-icon {
+    fill: #FA9746;
+    height: 25px;
+    width: 25px;
+    margin-left: -18px;
+    margin-right: 5px;
+}
+
+h5{
+    text-align: left;
+}
+
+.salary {
+    text-align: left;
+    font-weight: bold;
+}
+
+.job-content {
+    background-color:#FA9746;
+    outline: none;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    height: 50px;
+    width: 150px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.descrption {
+    text-align: left;
+}
+
+.job-link {
+    color:#2B468B;
+    font-size: 18px;
+    text-decoration: none;
+    display: inline-flex;
+    margin-right: -60%;
+}
+
+.advices {
+    margin-top: 20px;
+    height: 400px;
+    background-color: #EAF3FA;
+    width: 100%;
+    left: 0;
+    right: 0;
+}
+
+.custom-shape-divider-bottom-1612535207 {
+    position: absolute;
+    
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1612535207 svg {
+    position: relative;
+    display: block;
+    width: calc(222% + 1.3px);
+    height: 218px;
+    transform: rotateY(180deg);
+}
+
+.custom-shape-divider-bottom-1612535207 .shape-fill {
+    fill: #8CB3F4;
+}
+
+.footer {
+    bottom: 0;
+    background-color: #EAF3FA;
+    width: 100%;
+}
+
+
+
+
+
+
+
+
+

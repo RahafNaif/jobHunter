@@ -200,7 +200,6 @@ h5{
 
 .custom-shape-divider-bottom-1612535207 {
     position: absolute;
-    
     left: 0;
     width: 100%;
     overflow: hidden;
@@ -220,12 +219,29 @@ h5{
     fill: #8CB3F4;
 }
 
-.footer {
-    bottom: 0;
-    background-color: #EAF3FA;
-    width: 100%;
+
+
+.footer-content {
+    
+    position: absolute;
+    padding-left: 100px;
+    padding-top: 100px;
+    
 }
 
+.footer {
+    display: inline-block;
+}
+
+.company-icon {
+    fill:#2B468B;
+    margin-top: 10px;
+    margin-left: -190px;
+}
+
+.company {
+    text-align: left;
+}
 
 
 

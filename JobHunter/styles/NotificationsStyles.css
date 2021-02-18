@@ -1,0 +1,63 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+}
+
+/*Content*/
+main {
+    position: absolute;
+    margin-top: 0;
+    top: 10%;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+.notificationList .notificationRow {
+    background: #EAF3FA;
+    border-radius: 5px 70px 70px 70px;
+    margin-bottom: 10px;
+    padding: 5px;
+}
+
+h1,
+h2,
+p,
+h3 {
+    color: #192D50;
+    text-align: left;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+h1 {
+    padding: 15px 15px 15px 0;
+    font-size: 25px;
+    font-weight: 600;
+}
+
+
+.notificationRow {
+    list-style-type: none;
+}
+
+.notificationList h3,
+p {
+    padding: 0px 0 0px 35px;
+}
+
+p {
+    padding-left: 35px;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    font-size: 14px;
+    font-weight: 400;
+    font-style: oblique;
+}
+
+.notificationIcon {
+    position: relative;
+    left: 5px;
+    top: 25px;
+    fill: orange;
+}

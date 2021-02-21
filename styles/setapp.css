@@ -1,0 +1,154 @@
+.header{
+    width: 100%;
+}
+
+.navbar {
+    overflow: hidden;
+    display: inline;
+    background-color: white;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+  
+.navbar-item {
+    text-align: center;
+    color: #192D50;
+    display:inline-flex;
+    padding: 14px 30px;
+    text-decoration: none;
+}
+
+.navbar-item span{
+    margin-left: 90px;
+}
+  
+.navbar-item:hover {
+    background-color: #FA9746;
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+}
+
+.navbar-item:focus{
+    background-color: #FA9746;
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+}
+
+.navbar .logo img{ 
+    position:absolute;
+    height: 90px;
+    width: 165px;
+}
+
+.navbar .logo{
+    padding-left: 40px;
+}
+
+.navbar-items{
+    position: absolute;
+    margin-left: 500px;
+    padding-top: 20px;
+}
+
+.custom-shape-divider-top-1613891595 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.custom-shape-divider-top-1613891595 svg {
+    position: relative;
+    display: block;
+    width: calc(265% + 1.3px);
+    height: 142px;
+    transform: rotateY(180deg);
+}
+
+.custom-shape-divider-top-1613891595 .shape-fill {
+    fill: #8CB3F4;
+}
+
+.set-app {
+    color: #192D50;
+    text-align: center;
+    padding-top: 120px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.mytabs {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 900px;
+    margin-top: 10px;
+    margin-left: 24%;
+    padding: 25px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #192D50;
+    
+}
+.mytabs input[type="radio"] {
+    display: none;
+}
+.mytabs label {
+    padding: 25px 55px 25px 55px;
+    border-bottom: 2px solid #EAF3FA;
+    font-weight: bold;
+}
+
+.mytabs .tab {
+    width: 100%;
+    padding: 20px;
+    order: 1;
+    display: none;
+}
+.mytabs .tab h2 {
+    font-size: 3em;
+}
+
+.mytabs input[type='radio']:checked + label + .tab {
+    display: block;
+}
+
+.mytabs input[type="radio"]:checked + label {
+    border-bottom: 3px solid #FA9746;
+}
+
+.items {
+    overflow: scroll;
+    height: 350px;
+    width: 700px;
+}
+
+.item {
+    background-color: #EAF3FA;
+    height: 60px;
+    width: 400px;
+    border-radius: 15px;
+    display: inline-flex;
+    margin-left: 90px;
+    margin-top: 20px;
+    /* padding: 5px; */
+}
+
+.item-content {
+    padding: 5px 25px 5px 25px;
+    margin-left: 20px;
+}
+
+.add button{
+    background-color: #FA9746;
+    height: 50px;
+    width: 170px;
+    font-size: 16px;
+    color: white;
+    border-style: none;
+    border-radius: 20px;
+    margin-left: 80%;
+    margin-top: -130px;
+    position: absolute;
+    cursor: pointer;
+}

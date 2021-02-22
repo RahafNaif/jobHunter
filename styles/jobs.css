@@ -19,11 +19,16 @@
     text-decoration: none;
 }
 
-.navbar-item span{
+.navbar-item-span {
+    text-align: center;
+    color: #192D50;
+    display:inline-flex;
+    padding: 14px 30px;
+    text-decoration: none;
     margin-left: 90px;
 }
   
-.navbar-item:hover {
+.navbar-item:hover, .navbar-item-span:hover {
     background-color: #FA9746;
     color: white;
     text-decoration: none;

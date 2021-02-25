@@ -32,28 +32,38 @@
 .navbar-item {
     text-align: center;
     color: #192D50;
+    font-size: 18px;
     display:inline-flex;
     padding: 14px 30px;
     text-decoration: none;
 }
 
-.navbar-item span{
+.navbar-item-span {
+    text-align: center;
+    color: #192D50;
+    font-size: 18px;
+    display:inline-flex;
+    padding: 14px 30px;
+    text-decoration: none;
     margin-left: 90px;
 }
   
-.navbar-item:hover {
-    background-color: #FA9746;
-    color: white;
+.navbar-item:hover, .navbar-item-span:hover {
+    /* background-color: #FA9746; */
+    /* color: white; */
     text-decoration: none;
-    border-radius: 50px;
+    color: #EAF3FA;
+    font-size: 18px;
+    transition: 0.3s ease-in;
+    /* border-radius: 50px; */
 }
 
-.navbar-item:focus{
+/* .navbar-item:focus{
     background-color: #FA9746;
     color: white;
     text-decoration: none;
     border-radius: 50px;
-}
+} */
 
 .navbar .logo img{ 
     position:absolute;

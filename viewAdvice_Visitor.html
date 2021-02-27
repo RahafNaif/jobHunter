@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="img/icon.png" type="image/icon type">
+    <title></title>
+    <style>
+        * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/*
+      advice-container
+        advice-slide h2 p p.writtenBy
+        button.prevBtn
+        Button.nextBtn 
+        input.rAdvice -radio buttons-
+        input.likeBtn
+        input.dislikeBtn
+        
+        
+       Light Blue: #EAF3FA
+       medim blue: #8CB3F4
+       Dark blue: #2B468B
+       darker blue : #192D50
+       Orange : #FA9746
+    
+    */
+.advice-container {
+  background-color: #eaf3fa;
+  width: 70%;
+  margin: 0 auto;
+  padding: 2rem 7rem;
+  position: relative;
+  height: 60%;
+}
+.advice-slide {
+  position: relative;
+}
+.advice-slide p {
+  text-align: justify;
+  font-size: large;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Verdana, sans-serif;
+  padding-left: 0.5rem;
+  color: #192d50;
+}
+.advice-slide h2 {
+  padding: 2rem 0.5rem;
+  text-align: left;
+}
+p.writtenBy {
+  text-align: end;
+  margin-top: 3rem;
+}
+p.writtenBy a {
+  color: #2b468b;
+  text-decoration: none;
+}
+p.writtenBy a:hover {
+  color: #8cb3f4;
+}
+.prevBtn,
+.nextBtn{
+  border: none;
+  background-color: #eaf3fa;
+  position: absolute;
+  cursor: pointer;
+}
+.prevBtn {
+  left: 2rem;
+  right: 20%;
+  bottom: 50%;
+  top: 50%;
+}
+.nextBtn {
+  left: 100%;
+  bottom: 50%;
+  top: 50%;
+}
+
+/*radio 
+from:
+https://stackoverflow.com/questions/4253920/how-do-i-change-the-color-of-radio-buttons
+*/
+
+input[type="radio"]:after {
+  border: 0.1rem solid #192d50;
+  width: 14px;
+  height: 14px;
+  border-radius: 15px;
+  top: -2px;
+  left: -1px;
+  position: relative;
+  background-color: #eaf3fa;
+  content: "";
+  display: inline-block;
+  visibility: visible;
+}
+
+input[type="radio"]:checked:after {
+  position: relative;
+  background-color: #192d50;
+
+  display: inline-block;
+  visibility: visible;
+  border: none;
+}
+/* end of radio */
+/* Like and disLike */
+.likeBtn,
+.dislikeBtn {
+  display: inline-block;
+  position: absolute;
+  bottom: 5rem;
+}
+.likeBtn {
+  right: 11rem;
+}
+.dislikeBtn {
+  right: 7rem;
+}
+
+
+    </style>
+      
+</head>
+
+
+<body>
+<!-- 
+    advice-container
+      advice-slide h2 p p.writtenBy
+      button.prevBtn
+      Button.nextBtn 
+ -->
+<div class="advice-container">
+        <div class="advice-slide">
+            <h2>Customize your resume.</h2>
+            <p>
+                Adapt your resume to each job you apply for. Study the job 
+                description to determine why you are a great fit. Then, add your skills, 
+                experience and measurable achievements that are relevant to that position. Hiring 
+                managers who look through many resumes should be able to read yours and quickly know 
+                you have the skills for the position.
+                
+                To simplify this step, have templates of your resume 
+                and cover letter ready to customize. Keep key sections such as your education and 
+                contact information the same, but personalize your abilities or past job duties to fit
+                 the job you are applying for. </p>
+
+            <p class="writtenBy">
+                written by <a href="#">Ali Mohammed</a>
+            </p>    
+        </div>
+        <!-- end of  advice-slide-->
+        <!-- Buttons -->
+         <button class="prevBtn">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M11.67 3.87L9.9 2.1 0 12l9.9 9.9 1.77-1.77L3.54 12z"/></svg>
+        </button>
+        <button class="nextBtn">
+            <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24"><g><path d="M0,0h24v24H0V0z" fill="none"/></g><g><polygon points="6.23,20.23 8,22 18,12 8,2 6.23,3.77 14.46,12"/></g></svg>
+        </button>    
+        <!-- radio buttons -->
+        <input type="radio" name="advice" checked  class="rAdvice">
+        <input type="radio" name="advice"  class="rAdvice">
+        <input type="radio" name="advice" class="rAdvice">
+        <!-- Like  dislike -->
+
+    </div> 
+    <!-- end of advice-container -->
+
+
+
+</body>
+
+
+</html>
+

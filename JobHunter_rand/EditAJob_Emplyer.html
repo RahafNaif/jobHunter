@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <link type="text/css" href="/Style.css" rel="stylesheet" />
+    <link rel="icon" href="img/icon.png">
+
+    <title> Employer | Edit A Job</title>
+</head>
+
+
+<body>
+
+
+    <form action="" method="POST">
+        <fieldset>
+
+            <legend class="postLegend"> Edit A Job</legend>
+
+
+            <div class="inputDiv">
+                <label class="theTitle" for="jobTitle">
+                    Job Title
+                </label>
+                <input id="jobTitle" type="text" value="Software Engineer" />
+
+            </div>
+
+
+
+            <div class="inputDiv">
+                <label for="major">
+                    Major
+                </label>
+                <select id="major">
+                    <option > Select a major</option>
+                    <option> Accounting & Finance</option>
+                    <option> Agriculture & Forestry</option>
+                    <option> Archaeology</option>
+                    <option> Architecture</option>
+                    <option> Art</option>
+                    <option> Biological Sciences</option>
+                    <option> Business & Management</option>
+                    <option> Chemical Engineering</option>
+                    <option> Chemistry</option>
+                    <option> Civil Engineering</option>
+                    <option> Communication & Media Studies</option>
+                    <option selected> Computer Science</option>
+                    <option> Economics & Econometrics</option>
+                    <option> Education</option>
+                    <option> Electrical & Electronic Engineering</option>
+                    <option> General Engineering</option>
+                    <option> Geography</option>
+                    <option> Geology, Environmental, Earth & Marine Sciences</option>
+                    <option> Law</option>
+                    <option> Mathematics & Statistics</option>
+                    <option> Mechanical & Aerospace Engineering</option>
+                    <option> Medicine & Dentistry</option>
+                    <option> Other</option>
+
+
+
+                </select>
+
+            </div>
+
+
+            <div class="inputDiv">
+
+                <label for="position"> Position</label>
+                <input id="position" type="text" value="Software Engineer" />
+            </div>
+
+
+            <div class="inputDiv">
+                <label for="jobDescription"> Job Description</label>
+                <textarea id="jobDescription">A great Software Engineer</textarea>
+            </div>
+
+            <div class="inputDiv">
+                <label for="requiredSkills"> Required Skills</label>
+                <textarea id="requiredSkills" >solving problems skills</textarea>
+            </div>
+
+
+            <div class="inputDiv">
+                <label for="requiredQ"> Rrequired Qualifications</label>
+                <textarea id="requiredQ" >Bachelor of computer science</textarea>
+            </div>
+
+
+            <div class="inputDiv">
+                <label for="location"> Location</label>
+                <input id="location" type="text" value="Riyadh" />
+            </div>
+
+            <fieldset>
+                <legend class="notFormHeader"> Job Type</legend>
+
+                <label class="rLabel">
+                    <input type="radio" name="jobType" checked="checked" />
+                    Full-time
+                </label>
+
+
+                <label class="rLabel">
+                    <input type="radio" name="jobType" />
+                    Part-time
+                </label>
+
+
+            </fieldset>
+
+            
+
+            <fieldset>
+                <legend > Gender</legend>
+
+                <label class="rLabel">
+                    <input type="radio" name="gender" checked="checked" />
+                    Female
+                </label>
+
+
+                <label class="rLabel" id="Male">
+                    <input type="radio" name="gender" />
+                    Male
+                </label>
+
+
+            </fieldset>
+
+            <div class="inputDiv">
+                <label for="salaryInput" id="SalaryL"> Salary Starts From
+                    
+                </label>
+                <input type="number" min="0" id="salaryInput" value="14000" />
+                <!--https://stackoverflow.com/questions/7372067/is-there-any-way-to-prevent-input-type-number-getting-negative-values -->
+            </div>
+
+            <input type="button" value="Cancel" />
+            <input type="submit" value="Save" />
+
+
+        </fieldset>
+    </form>
+
+</body>
+
+</html>

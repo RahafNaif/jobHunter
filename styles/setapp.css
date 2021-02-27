@@ -1,7 +1,30 @@
 * {
     margin: 0;
     padding: 0;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: 400;
 }
+
+/* SCROLL BAR */
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollable-thumb {
+    background: #FA9746;
+    border-radius: 5px
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #FA9746;
+    border-radius: 5px
+}
+
 
 header {
     position: absolute;
@@ -298,11 +321,6 @@ ul li:hover ul {
 
 .mytabs input[type="radio"]:checked + label {
     border-bottom: 3px solid #FA9746;
-}
-
-.mytabs input[type="radio"]:hover + label{
-    border-bottom: 3px solid #FA9746;
-    cursor: pointer;
 }
 
 .items {

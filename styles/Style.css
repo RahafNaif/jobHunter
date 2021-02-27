@@ -1,3 +1,31 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-weight: 400;
+}
+
+/* SCROLL BAR */
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollable-thumb {
+  background: #FA9746;
+  border-radius: 5px
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #FA9746;
+  border-radius: 5px
+}
+
+
 form {
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
@@ -134,3 +162,62 @@ Job Details */
    Orange : #FA9746
 
 */
+
+
+
+/*FOOTER*/
+.footer {
+  position: absolute;
+  top: auto;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  display: inline-block;
+  overflow-x: hidden;
+}
+
+.shape-footer {
+  transform: rotateX(180deg);
+}
+
+.footer-content {
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  margin-top: 95px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 16px;
+  color: #192D50;
+  left: 40%;
+  right: 40%;
+  display: inline-flex;
+}
+
+.footer-content p {
+  display: block;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: #192D50;
+}
+
+.footer-content h4 {
+  position: absolute;
+  top: 30px;
+  font-size: 16px;
+  font-weight: 400;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.footer-content span {
+  margin: 0;
+  padding-left: 10px;
+  text-decoration: none;
+  color: #192D50;
+}
+
+.footer-content span:hover {
+  color: #EAF3FA;
+  transform: scale(1.1);
+  transition: 0.3s ease-in;
+}

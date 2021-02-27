@@ -300,6 +300,11 @@ ul li:hover ul {
     border-bottom: 3px solid #FA9746;
 }
 
+.mytabs input[type="radio"]:hover + label{
+    border-bottom: 3px solid #FA9746;
+    cursor: pointer;
+}
+
 .items {
     overflow: scroll;
     height: 350px;

@@ -127,7 +127,7 @@
     list-style: none;
     width: 350px;
     height: 250px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 5px 3px 3px 5px rgba(43, 70, 139, 0.1);
     border-radius: 20px;
     font-size: 16px;
     margin: 15px;
@@ -243,7 +243,7 @@ ul {
     width: 800px;
     height: 50px;
     border-radius: 35px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 5px 3px 3px rgba(43, 70, 139, 0.1);
     padding: 10px;
     display: flex;
 }

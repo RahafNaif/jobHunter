@@ -140,11 +140,19 @@ h5{
     outline: none;
     color: white;
     border: none;
-    border-radius: 10px;
+    border-radius: 30px;
     height: 50px;
     width: 150px;
     cursor: pointer;
     font-size: 16px;
+}
+
+.job-content:hover{
+    transition: 0.3s ease-in;
+    background: transparent;
+    border: 1px solid rgb(138, 177, 244);
+    color: #8CB3F4;
+    transform: scale(1.1);
 }
 
 .descrption {

@@ -6,7 +6,7 @@
 }
 
 /* SCROLL BAR */
-/* ::-webkit-scrollbar {
+::-webkit-scrollbar {
     width: 0px;
     background: transparent;
 }
@@ -23,7 +23,7 @@
 ::-webkit-scrollbar-thumb:hover {
     background: #FA9746;
     border-radius: 5px
-} */
+}
 
 
 .header{

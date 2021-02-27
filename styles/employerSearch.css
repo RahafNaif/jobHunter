@@ -156,7 +156,7 @@ ul {
 
 .search-box span {
     color: #2B468B;
-    margin-top: 13px;
+    margin-top: 10px;
 }
 
 .search-box .input {
@@ -166,7 +166,7 @@ ul {
     height: 100%;
     position: relative;
     border: 0;
-    background-color: #EAF3FA;
+    background-color: transparent;
     color: #192D50;
     padding-left: 10px;
 }

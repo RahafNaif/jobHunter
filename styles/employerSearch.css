@@ -280,7 +280,7 @@ ul {
 
 .search-box span {
     color: #2B468B;
-    margin-top: 13px;
+    margin-top: 10px;
 }
 
 .search-box .input {
@@ -290,7 +290,7 @@ ul {
     height: 100%;
     position: relative;
     border: 0;
-    background-color: #EAF3FA;
+    background-color: transparent;
     color: #192D50;
     padding-left: 10px;
 }
@@ -382,7 +382,7 @@ ul {
 .search-box .dropdown::before, .search-box .dropdown2::before {
     content: "";
     position: absolute;
-    margin-left: 75px;
+    margin-left: 85px;
     margin-top: 6px;
     border: 8px solid;
     border-color: #2B468B transparent transparent transparent;

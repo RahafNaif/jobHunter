@@ -4,8 +4,8 @@
 
 .navbar {
  overflow: scroll;
- 
-    
+
+
     display: inline;
     background-color: white;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -48,7 +48,7 @@
 .navbar-item span{
     margin-left: 90px;
 }
-  
+
 .navbar-item:hover {
     background-color: #FA9746;
     color: white;
@@ -63,7 +63,7 @@
     border-radius: 50px;
 }
 
-.navbar .logo img{ 
+.navbar .logo img{
     position:absolute;
     height: 90px;
     width: 165px;
@@ -84,7 +84,7 @@
     top: 0;
     left: 0;
     width: 100%;
-   
+
     line-height: 0;
 }
 
@@ -116,7 +116,7 @@
     padding: 15px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color: #192D50;
-    
+
 }
 .mytabs input[type="radio"] {
     display: none;
@@ -158,7 +158,7 @@
     width: 450px;
     border-radius: 15px;
     display: inline-flex;
-    margin-left: 60px;
+    margin-left: 125px;
     margin-top: 20px;
     /* padding: 5px; */
     box-shadow: 5px 3px 3px rgba(43, 70, 139, 0.1);
@@ -168,7 +168,7 @@
 .item-content {
     padding: 5px 25px 5px 25px;
     margin-left: 20px;
-   
+
 }
 
 
@@ -177,11 +177,11 @@
     color: #192D50;
     cursor: pointer;
     background-color: transparent;
-   
+
 
 }
 .aitem:hover {
-    
+
     background:#c7dff1;
     cursor: pointer;
     color: #FA9746;
@@ -189,16 +189,14 @@
     background-color: transparent;
     transition: 0.3s ease-in;
     transform: scale(1.2);
-    
+
 }
 
 .line{
-   text-decoration:  underline orange ;
-   
+   text-decoration:  underline #2B468B ;
+
 }
-.mytabs label:hover{
-    color: orange;
-}
+
 
 
 svg {
@@ -206,21 +204,21 @@ svg {
     .closeIcon{
         position: relative;
         top: 205px;
-        left: 18%;
-      
+        left: 75%;
+
     }
     .closeIcon a:hover{
         color: rgb(243, 170, 13);
-        
+
     }
     svg:hover{
         fill: rgb(247, 153, 12);
     }
      .item:hover{
          background-color: rgb(212, 229, 245);
-        
+
      }
-    
+
   /*-------*/
 #fotter{
     margin-top: 70px;
@@ -237,7 +235,7 @@ svg {
      height: 90px;
      text-align: center;
      background-color: #8cb2f4a6;
-    
+
  }
  h5{
      text-align: center;
@@ -246,30 +244,30 @@ svg {
      width: 40%;
     margin-left: 50px;
      color: #ffffff;
-     
+
  }
  .about{
      width: 40%;
      color: #192D50;
-    
+
  }
  #contact{
-     
-     
+
+
      width: 40%;
      margin-left: 50%;
-     
+
  position: absolute;
  color: white;
-     
-    
+
+
  }
- 
+
  .email{
      color: #192D50;
      font-size: x-large;
      text-decoration: none;
-  
+
  }
  .email:hover{
      color: white;
@@ -290,4 +288,4 @@ svg {
  }
 footer{
     top: auto;
-} 
+}

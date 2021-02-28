@@ -101,7 +101,7 @@ div svg {
     display: block;
     margin-left: 500px;
     margin-bottom: 90%;
-
+ width: 900px;
     position: absolute;
     float: right;
 }

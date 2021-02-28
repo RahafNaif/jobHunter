@@ -291,7 +291,44 @@ a {
     transform: scale(1.1);
     transition: 0.3s ease-in;
 }
+  .imgjobseekerz {
+    
+    margin-left: 20px;
+  
 
+
+  
+  
+    
+  
+  }
+  .imgemployeerz {
+      padding-right: 150px;
+      padding-left: 200px;
+    padding-bottom: 90px;
+    margin-left: 80px;
+
+
+  
+
+    
+  
+  }
+  a , a:hover  , a:visited{
+      color: none;
+     
+    text-decoration: none;
+
+  }
+  a:visited {
+    color: #2B468B;
+  }
+  
+  /* mouse over link */
+  a:hover {
+    color:#FA9746;
+  }
+  
 /* POPUP*/
 .popup {
     opacity: 0;

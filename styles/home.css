@@ -178,6 +178,10 @@ h5{
     right: 0;
 }
 
+.advices h2 {
+    color: #192D50;
+}
+
 .custom-shape-divider-bottom-1612535207 {
     position: absolute;
     left: 0;
@@ -360,7 +364,7 @@ transform: translateY(150%);
 .likeBtn svg, .dislikeBtn svg{
     fill: #EAF3FA;
     stroke: #192D50;
-    
+    margin-top: 10px;
 }
 
 .likeBtn svg:hover, .dislikeBtn svg:hover {

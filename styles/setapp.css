@@ -51,13 +51,13 @@ header {
 /* Navigation 1*/
 .navLinks1 {
     position: absolute;
-    left: 0;
+    left: -10%;
     top: 25%;
     bottom: 25%;
     list-style: none;
 }
 
-.navLinks1 a {
+/* .navLinks1 a {
     vertical-align: text-bottom;
     font-weight: 500;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -77,10 +77,10 @@ header {
     color: #EAF3FA;
     font-size: 18px;
     transition: 0.3s ease-in;
-}
+} */
 
 /* Dropdown */
-.navLinks1 ul li ul {
+/* .navLinks1 ul li ul {
     list-style-type: none;
     display: none;
     position: absolute;
@@ -107,10 +107,10 @@ header {
     padding: 5px;
     display: list-item;
     position: relative;
-}
+} */
 
 /* Dropdown */
-.navLinks1 li ul li a {
+/* .navLinks1 li ul li a {
     font-size: 16px;
     vertical-align: text-top;
     margin: 0;
@@ -132,11 +132,11 @@ header {
     color: #FA9746;
     transition: 0.3s ease-in;
     font-size: 16px;
-}
+} */
 
 
 /* Navigation2 */
-.navLinks2 {
+/* .navLinks2 {
     position: absolute;
     right: 0;
     top: 25%;
@@ -170,120 +170,20 @@ header {
 
 .navLinks2 li a {
     padding: 10px
-}
-
-/* Dropdown */
-ul li ul {
-    list-style-type: none;
-    display: none;
-    position: absolute;
-    top: 40px;
-}
-
-ul li:hover ul {
-    display: block;
-}
-
-.navLinks2 ul {
-    margin-left: 25px;
-    padding: 5px;
-    border-radius: 0 25% 25% 25%;
-    backdrop-filter: blur(0.5rem);
-    background: rgba(239, 247, 252, 0.5);
-    box-shadow: 5px 3px 3px rgba(43, 70, 139, 0.1);
-}
-
-.navLinks2 ul li {
-    float: none;
-    padding: 5px;
-    display: list-item;
-    position: relative;
-
-}
-
-.navLinks2 ul li :hover {
-    transition: 0.3s ease-in;
-    color: #FA9746;
-}
-
-/* .header{
-    width: 100%;
-}
-
-.navbar {
-    overflow: hidden;
-    display: inline;
-    background-color: white;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-  
-.navbar-item {
-    text-align: center;
-    color: #192D50;
-    display:inline-flex;
-    padding: 14px 30px;
-    text-decoration: none;
-}
-
-.navbar-item span{
-    margin-left: 90px;
-}
-  
-.navbar-item:hover {
-    background-color: #FA9746;
-    color: white;
-    text-decoration: none;
-    border-radius: 50px;
-}
-
-.navbar-item:focus{
-    background-color: #FA9746;
-    color: white;
-    text-decoration: none;
-    border-radius: 50px;
-}
-
-.navbar .logo img{ 
-    position:absolute;
-    height: 90px;
-    width: 165px;
-}
-
-.navbar .logo{
-    padding-left: 40px;
-}
-
-.navbar-items{
-    position: absolute;
-    margin-left: 500px;
-    padding-top: 20px;
-}
-
-.custom-shape-divider-top-1613891595 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-    line-height: 0;
-}
-
-.custom-shape-divider-top-1613891595 svg {
-    position: relative;
-    display: block;
-    width: calc(265% + 1.3px);
-    height: 142px;
-    transform: rotateY(180deg);
-}
-
-.custom-shape-divider-top-1613891595 .shape-fill {
-    fill: #8CB3F4;
 } */
 
 .set-app {
     color: #192D50;
     text-align: center;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.line {
+    background-color: #FA9746;
+    width: 200px;
+    height: 2px;
+    margin-top: 10px;
+    margin-left: 43%;
 }
 
 .mytabs {
@@ -394,3 +294,70 @@ ul li:hover ul {
     transition: 0.3s ease-in;
 }
 
+.popup {
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.4s;
+    top: 40px;
+    right: 140px;
+    bottom: 0;
+    z-index: 99;
+    display: flex;
+    padding: 10px;
+    position: fixed;
+}
+
+.popup-inner {
+    overflow: scroll;
+    overflow-x: hidden;
+    background-color: #FFF;
+    padding: 10px;
+    max-width: 400px;
+    max-height: 400px;
+    border-radius: 16px 0 16px 16px;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.popup:target {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.notificationIcon {
+    position: relative;
+    left: 0.7vh;
+    top: 2.5vh;
+    fill: orange;
+}
+
+.notificationList h3,
+.notificationList p {
+    padding: 2.5px;
+}
+
+.content h3 {
+    height: 16px;
+    overflow: hidden;
+    margin-left: 30px;
+    font-size: 14px;
+    color: #192D50;
+}
+
+.notificationRow {
+    padding: 0;
+    min-height: 80px;
+    list-style-type: none;
+    background: rgba(234, 243, 250, 0.8);
+    border-radius: 2.5vh;
+}
+
+.notificationList .notificationRow {
+    margin-bottom: 5px; 
+}
+
+.date {
+    margin-left: 40px;
+    font-size: 10px;
+    font-style: oblique;
+    font-weight: 500;
+}

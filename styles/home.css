@@ -351,14 +351,21 @@ input[type="radio"]:checked:after {
 .likeBtn, .dislikeBtn {
     display: inline-block;
     position: absolute;
-    bottom: 5rem;
+transform: translateY(150%);
     border: none;
     background-color: transparent;
     cursor: pointer;   
 }
 
-.likeBtn:hover, .dislikeBtn:hover {
+.likeBtn svg, .dislikeBtn svg{
     fill: #EAF3FA;
+    stroke: #192D50;
+    
+}
+
+.likeBtn svg:hover, .dislikeBtn svg:hover {
+    fill: #192D50;
+
 }
 
 .likeBtn {
@@ -370,5 +377,7 @@ input[type="radio"]:checked:after {
     right: 7rem;
     bottom: 0;
 }
+
+
 
 

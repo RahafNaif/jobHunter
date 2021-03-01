@@ -12,9 +12,9 @@
   <path fill="#fa9746" id="svg_2" d="m43,24.363636l0,18a1,1 0 0 1 -1,1l-14,0l0,-20l14,0a1,1 0 0 1 1,1z" class="cls-2"/>
   <path fill="#a2c1ef" id="svg_3" d="m39,18.363636l0,25l-22,0l0,-29a1,1 0 0 1 0.37,-0.77a1,1 0 0 1 0.83,-0.23l20,4a1,1 0 0 1 0.8,1z" class="cls-3"/>
   <path fill="#8cb3f2" id="svg_4" d="m39,18.363636l0,25l-11,0l0,-28l10.2,2a1,1 0 0 1 0.8,1z" class="cls-4"/>
-  <path fill="#eaf3fa" id="svg_5" d="m31,34.363636l-6,0a1,1 0 0 0 -1,1l0,8l8,0l0,-8a1,1 0 0 0 -1,-1z" class="cls-5"/>
-  <rect fill="#eaf3fa" id="svg_6" y="19.363636" x="21.5" width="6" ry="1" rx="1" height="6" class="cls-5"/>
-  <rect fill="#eaf3fa" id="svg_7" y="26.363636" x="21.5" width="6" ry="1" rx="1" height="6" class="cls-5"/>
+  <path fill="rgba(234, 243, 250, 0.8)" id="svg_5" d="m31,34.363636l-6,0a1,1 0 0 0 -1,1l0,8l8,0l0,-8a1,1 0 0 0 -1,-1z" class="cls-5"/>
+  <rect fill="rgba(234, 243, 250, 0.8)" id="svg_6" y="19.363636" x="21.5" width="6" ry="1" rx="1" height="6" class="cls-5"/>
+  <rect fill="rgba(234, 243, 250, 0.8)" id="svg_7" y="26.363636" x="21.5" width="6" ry="1" rx="1" height="6" class="cls-5"/>
   <rect fill="#eef5fd" id="svg_8" y="19.363636" x="28.5" width="6" ry="1" rx="1" height="6" class="cls-5"/>
   <rect fill="#eef5fd" id="svg_9" y="26.363636" x="28.5" width="6" ry="1" rx="1" height="6" class="cls-5"/>
   <path fill="#d7e2f2" id="svg_10" d="m32,35.363636l0,8l-4,0l0,-9l3,0a1,1 0 0 1 1,1z" class="cls-6"/>

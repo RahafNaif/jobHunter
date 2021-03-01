@@ -1,11 +1,11 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   font-weight: 400;
   box-sizing: border-box;
 }
-
 
 /* SCROLL BAR */
 ::-webkit-scrollbar {
@@ -18,13 +18,13 @@
 }
 
 ::-webkit-scrollable-thumb {
-  background: #FA9746;
-  border-radius: 5px
+  background: #fa9746;
+  border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #FA9746;
-  border-radius: 5px
+  background: #fa9746;
+  border-radius: 5px;
 }
 
 body {
@@ -32,7 +32,6 @@ body {
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   color: #192d50;
 }
-
 
 #companySVG,
 .companySVG {
@@ -69,16 +68,15 @@ main {
   margin-top: 1.25rem;
   position: absolute;
   margin-left: 1rem;
-  background-color: #EAF3FA;
+  background-color: rgba(234, 243, 250, 0.8);
   text-align: justify;
-  
 }
 .details ol,
 .details ul {
   margin: 0.2rem;
   list-style-position: inside;
 }
-.details li{
+.details li {
   text-align: justify;
   width: 80%;
   margin-bottom: 1.1rem;
@@ -95,91 +93,87 @@ main {
   margin: 16px;
   padding: 15px;
   margin-top: 20px;
-  background-color: #EAF3FA;
+  background-color: rgba(234, 243, 250, 0.8);
   right: 0;
   margin-right: 0;
   width: 35%;
 }
-.titleAndValueDiv{
-    margin: 2rem 0.2rem;
+.titleAndValueDiv {
+  margin: 2rem 0.2rem;
 }
-.titleAndValueDiv h5{
-    font-size: smaller;
-    font-weight: 400;
-    padding-bottom: 0.2rem;
+.titleAndValueDiv h5 {
+  font-size: smaller;
+  font-weight: 400;
+  padding-bottom: 0.2rem;
 }
-.titleAndValueDiv , .details h6{
-    font-size: large;
-    font-weight: bold;
-
+.titleAndValueDiv,
+.details h6 {
+  font-size: large;
+  font-weight: bold;
 }
-.details h4{
-    font-size: larger;
-    padding-bottom: 2rem;
-}
-
-
-.applyBtn button{
-    
-    background-color: burlywood;
-    margin-top: 2rem;
-    padding: 1rem;
-    margin-left: 70%;
-    margin-bottom: 3%;
-    height: 50px;
-    width: 100px;
-    border-radius: 50px;
-    background-color: #FA9746;
-    outline: none;
-    border-style: none;
-    color: white;
-    font-size: 18px;
-
+.details h4 {
+  font-size: larger;
+  padding-bottom: 2rem;
 }
 
-    li {
-        text-indent: -1.3em;
-        padding-left: 3em;
-    }
-    
-    button {
-        position: relative;
-        margin: 10px;
-        margin-left: 80px;
-        margin-right: 10px;
-        border-radius: 20px;
-        width: 100px;
-        height: 30px;
-        font-size: 12px;
-        color: rgb(234, 243, 250);
-        cursor: pointer;
-        border: none;
-        outline: none;
-        background: #FA9746;
-        overflow: hidden;
-    }
-    
-    button:hover {
-        transition: 0.3s ease-in;
-        background: transparent;
-        border: 1px solid rgb(138, 177, 244);
-        color: #8CB3F4;
-        transform: scale(1.2);
-    }
-    
-    button:focus {
-        color: #8CB3F4;
-        border: 1px solid #8CB3F4;
-        background: #EAF3FA;
-    }
-    .details h6{
-      font-weight: 400;
-    }
-/* Light Blue: #EAF3FA
+.applyBtn button {
+  background-color: burlywood;
+  margin-top: 2rem;
+  padding: 1rem;
+  margin-left: 70%;
+  margin-bottom: 3%;
+  height: 50px;
+  width: 100px;
+  border-radius: 50px;
+  background-color: #fa9746;
+  outline: none;
+  border-style: none;
+  color: white;
+  font-size: 18px;
+}
+
+li {
+  text-indent: -1.3em;
+  padding-left: 3em;
+}
+
+button {
+  position: relative;
+  margin: 10px;
+  margin-left: 80px;
+  margin-right: 10px;
+  border-radius: 20px;
+  width: 100px;
+  height: 30px;
+  font-size: 12px;
+  color: rgb(234, 243, 250);
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: #fa9746;
+  overflow: hidden;
+}
+
+button:hover {
+  transition: 0.3s ease-in;
+  background: transparent;
+  border: 1px solid rgb(138, 177, 244);
+  color: #8cb3f4;
+  transform: scale(1.2);
+}
+
+button:focus {
+  color: #8cb3f4;
+  border: 1px solid #8cb3f4;
+  background: rgba(234, 243, 250, 0.8);
+}
+.details h6 {
+  font-weight: 400;
+}
+/* Light Blue: rgba(234, 243, 250, 0.8)
    medim blue: #8CB3F4
    Dark blue: #2B468B
    darker blue : #192D50
    Orange : #FA9746
 
 */
-

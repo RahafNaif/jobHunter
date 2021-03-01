@@ -21,7 +21,7 @@ main {
 .list {
   display: flex;
   width: 500px;
-  background: #eaf3fa;
+  background: rgba(234, 243, 250, 0.8);
   padding: 20px;
   margin-top: 0px;
   border-radius: 50px;
@@ -179,12 +179,12 @@ button:hover {
 button:focus {
   color: #8cb3f4;
   border: 1px solid #8cb3f4;
-  background: #eaf3fa;
+  background: rgba(234, 243, 250, 0.8);
 }
 
 .applicants {
   text-decoration: none;
-  color: #eaf3fa;
+  color: rgba(234, 243, 250, 0.8);
 }
 
 .jobInfo {

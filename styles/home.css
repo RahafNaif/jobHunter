@@ -26,7 +26,7 @@
   border-radius: 5px;
 }
 .header {
-  background-color: #eaf3fa;
+  background-color: rgba(234, 243, 250, 0.8);
   width: 100%;
   height: 600px;
 }
@@ -184,7 +184,7 @@ h5 {
 .advices {
   margin-top: 20px;
   height: 400px;
-  background-color: #eaf3fa;
+  background-color: rgba(234, 243, 250, 0.8);
   width: 100%;
   left: 0;
   right: 0;
@@ -267,13 +267,13 @@ h5 {
 }
 
 .footer-content span:hover {
-  color: #eaf3fa;
+  color: rgba(234, 243, 250, 0.8);
   transform: scale(1.1);
   transition: 0.3s ease-in;
 }
 
 .advice-container {
-  background-color: #eaf3fa;
+  background-color: rgba(234, 243, 250, 0.8);
   width: 70%;
   margin: 0 auto;
   padding: 2rem 7rem;
@@ -316,7 +316,7 @@ p.writtenBy a:hover {
 .prevBtn,
 .nextBtn {
   border: none;
-  background-color: #eaf3fa;
+  background-color: rgba(234, 243, 250, 0.8);
   position: absolute;
   cursor: pointer;
 }
@@ -347,7 +347,7 @@ input[type="radio"]:after {
   top: -2px;
   left: -1px;
   position: relative;
-  background-color: #eaf3fa;
+  background-color: rgba(234, 243, 250, 0.8);
   content: "";
   display: inline-block;
   visibility: visible;
@@ -374,7 +374,7 @@ input[type="radio"]:checked:after {
 
 .likeBtn svg,
 .dislikeBtn svg {
-  fill: #eaf3fa;
+  fill: rgba(234, 243, 250, 0.8);
   stroke: #192d50;
   margin-top: 10px;
 }

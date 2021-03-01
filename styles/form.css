@@ -1,13 +1,26 @@
+* {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color: #2B468B;
+}
+
+#employerReg {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #2B468B;
+}
+
 input[type=text],
 input[type=number],
-input[type=password] {
-  width: 100%;
+input[type=password],
+textarea {
+  width: 400px;
   padding: 12px 20px;
-  margin: 8px 0;
+  margin-top: 10px;
+  margin-bottom: 10px;
   display: inline-block;
   border: 1px solid #ccc;
   border-radius: 4px;
-  box-sizing: border-box;
 }
 
 input[type=submit] {
@@ -23,8 +36,4 @@ input[type=submit] {
 
 input[type=submit]:hover {
   background-color: #45a049;
-}
-
-#f-div {
-  border-radius: 5px;
 }

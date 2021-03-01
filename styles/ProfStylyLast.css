@@ -183,16 +183,16 @@ main {
 }
 
 
-.applyBtn button{
-  height: 60px;
-  width: 120px;
-  margin-top: 10px;
+.applyBtn{
+  height: 30px;
+  width: 125px;
+  margin-top: 20px;
   border-radius: 50px;
   background-color: #FA9746;
   outline: none;
   border-style: none;
   color: white;
-  font-size: 20px;
+  font-size: 14px;
   cursor: pointer;
 }
 
@@ -203,11 +203,16 @@ main {
   color: #8CB3F4;
 }
 
+.profile-buttons {
+  display: inline;
+ 
+}
+
     li {
         text-indent: -1.3em;
         padding-left: 3em;
     }
-    button {
+    /* button {
         transform: translateX(-130%);
         position: relative;
         margin: 20px;
@@ -222,7 +227,7 @@ main {
         outline: none;
         background: #FA9746;
         overflow: hidden;
-    }
+    } */
     
     /* button:hover {
         transition: 0.3s ease-in;
@@ -521,8 +526,4 @@ a.text-info:hover, a.text-info:focus {
 
 .shape-footer {
   width: 100%;
-}
-
-.profile-buttons {
-  display: inline-flex;
 }

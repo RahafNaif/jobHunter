@@ -32,7 +32,7 @@
 
 .post {
     position: relative;
-    left: 3%;
+    left: 7%;
     display: inline-block;
     list-style: none;
     width: 350px;
@@ -128,7 +128,7 @@ ul {
     text-align: left;
 }
 
-#industry{
+#industry {
     margin: 5px;
     margin-top: 10px;
     margin-bottom: 30px;

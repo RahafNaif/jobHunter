@@ -172,6 +172,9 @@ main {
         border: 1px solid #8CB3F4;
         background: #EAF3FA;
     }
+    .details h6{
+      font-weight: 400;
+    }
 /* Light Blue: #EAF3FA
    medim blue: #8CB3F4
    Dark blue: #2B468B

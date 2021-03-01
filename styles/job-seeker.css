@@ -247,13 +247,18 @@ ul {
 }
 
 .search-box .dropdown .city-form input {
-    margin-left: 100px;
+    margin-left: 20px;
     border-radius: 5px;
     height: 30px;
     width: 180px;
     border: 1px solid #2B468B;
     outline: none;
     border-style: solid;
+}
+
+.form-content {
+    display: inline-flex;
+    padding-bottom: 10px;
 }
 
 .search-box .dropdown .city-form button {

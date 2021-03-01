@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="UTF-8" />
-    <title>Applicants</title>
+    <title>Employer Registration</title>
     <link rel="stylesheet" href="styles\JobListingStylesFay.css" />
     <link rel="icon" href="img/icon.png">
     <link rel="stylesheet" href="styles\NavbarStyles.css" />
@@ -23,7 +23,8 @@
         <nav>
             <ul class="navLinks1">
                 <li><a href="home.html">Home</a></li>
-                <li><a href="employerSearch.html">Search</a></li>
+                <li><a href="job-seeker.html">Job Seekers</a></li>
+                <li><a href="WhoIsYou.html">Registeration</a></li>
             </ul>
         </nav>
     </header>
@@ -32,18 +33,17 @@
         <section class="background">
             <div class="lists">
                 <div class="list">
-                    <img class="regimg" src="img/undraw_skateboard_d6or.png" alt="v">
+                    <img class="regimg" src="img/6671.jpg" alt="v">
                     <div class="jobInfo">
-                        <h2>Employer Regstration </h2> <br>
-                        <div id="f-div">
+                        <h2 id=employerReg>Employer Regstration </h2>
+                        <form>
                             <label for="first_name">Company's name</label>
                             <input type="text" class="form-input" name="COMPANY'S NAME" id="fCOMPANY'S NAME"
-                                placeholder="COMPANY'S NAME.. " />
-                            <br>
+                                placeholder="Company's name.. " />
                             <label for="phone">Phone number</label>
                             <input type="text" class="form-input" name="phone" id="phone"
                                 placeholder="Your phone number" />
-                            <br> <label for="password">Password</label>
+                            <label for="password">Password</label>
                             <input type="password" class="form-input" name="password" id="password"
                                 placeholder="Your password" />
                             <label for="re_password">Repeat your password</label>
@@ -52,25 +52,22 @@
                             <label for="last_name">Email</label>
                             <input type="text" class="form-input" name="last_name" id="last_name"
                                 placeholder="Your email..." />
-                            <label for="last_name">Adress</label>
+                            <label for="last_name">Address</label>
                             <input type="text" class="form-input" name="last_name" id="last_name"
-                                placeholder="Your nationality..." />
-
+                                placeholder="Your headquarter's address" />
                             <label for="last_name">Description of Company</label>
-                            <input type="text" class="form-input" name="last_name" id="last_name"
-                                placeholder="Your current job..." />
+                            <textarea rows="4" cols="53" placeholder="Enter a brief description.."></textarea>
                             <label for="last_name">Mission</label>
                             <input type="text" class="form-input" name="last_name" id="last_name"
-                                placeholder="Your major..." />
+                                placeholder="List your company's mission.." />
                             <label for="last_name">Vision</label>
                             <input type="text" class="form-input" name="last_name" id="last_name"
-                                placeholder="Your experience..." />
-                            </form>
-                            <div class="buttons">
-                                <a href="applicants.html">
-                                    <button class="applicants">submit</button>
-                                </a>
-                            </div>
+                                placeholder="List your company's vision.." />
+                        </form>
+                        <div class="buttons">
+                            <a href="applicants.html">
+                                <button class="applicants">submit</button>
+                            </a>
                         </div>
                     </div>
                 </div>

@@ -1,397 +1,395 @@
 * {
-    margin: 0;
-    padding: 0;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-weight: 400;
+  margin: 0;
+  padding: 0;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-weight: 400;
 }
 
 /* SCROLL BAR */
 ::-webkit-scrollbar {
-    width: 0px;
-    background: transparent;
+  width: 0px;
+  background: transparent;
 }
 
 ::-webkit-scrollbar-track {
-    background: transparent;
+  background: transparent;
 }
 
 ::-webkit-scrollable-thumb {
-    background: #FA9746;
-    border-radius: 5px
+  background: #fa9746;
+  border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #FA9746;
-    border-radius: 5px
+  background: #fa9746;
+  border-radius: 5px;
 }
-.header{
-    background-color: #EAF3FA;
-    width: 100%;
-    height: 600px;
+.header {
+  background-color: #eaf3fa;
+  width: 100%;
+  height: 600px;
 }
 
 .navLinks2 {
-    margin-right: 7%;
+  margin-right: 7%;
 }
 
 .home-img {
-    margin-left: 750px;
-    margin-top: 195px;
-    height: 450px;
-    width: 650px;
-    position: absolute;
+  margin-left: 750px;
+  margin-top: 195px;
+  height: 450px;
+  width: 650px;
+  position: absolute;
 }
 
 .join {
-    position: absolute;
-    margin-top: 440px;
-    margin-left: 260px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    color: #192D50;
-    font-size: 20px;
-    
+  position: absolute;
+  margin-top: 440px;
+  margin-left: 260px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  color: #192d50;
+  font-size: 20px;
 }
 
 .join button {
-    height: 40px;
-    width: 120px;
-    margin-top: 10px;
-    border-radius: 50px;
-    background-color: #FA9746;
-    outline: none;
-    border-style: none;
-    color: white;
-    font-size: 18px;
-    cursor: pointer;
+  height: 40px;
+  width: 120px;
+  margin-top: 10px;
+  border-radius: 50px;
+  background-color: #fa9746;
+  outline: none;
+  border-style: none;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
 }
 
-.join button:hover{
-    transition: 0.3s ease-in;
-    background: transparent;
-    border: 1px solid rgb(138, 177, 244);
-    color: #8CB3F4;
-    /* transform: scale(1.1); */
+.join button:hover {
+  transition: 0.3s ease-in;
+  background: transparent;
+  border: 1px solid rgb(138, 177, 244);
+  color: #8cb3f4;
+  /* transform: scale(1.1); */
 }
 
-.join .join-button{
-    margin-left: 90px;
+.join .join-button {
+  margin-left: 90px;
 }
 
-.jobs, .employees {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-size: 24px;
-    text-align: center;
-    padding-top: 25px;
-    color: #192D50;
+.jobs,
+.Employers {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-size: 24px;
+  text-align: center;
+  padding-top: 25px;
+  color: #192d50;
 }
 
 .line {
-    background-color: #FA9746;
-    width: 170px;
-    height: 2px;
-    margin-top: 10px;
-    margin-left: 44%;
+  background-color: #fa9746;
+  width: 170px;
+  height: 2px;
+  margin-top: 10px;
+  margin-left: 44%;
 }
 
 .post {
-    display: inline-block;
-    list-style: none;
-    width: 350px;
-    height: 400px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    border-radius: 20px;
-    font-size: 16px;
-    margin: 5px;
-    padding: 15px;
-    margin-top: 20px;
+  display: inline-block;
+  list-style: none;
+  width: 350px;
+  height: 400px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 20px;
+  font-size: 16px;
+  margin: 5px;
+  padding: 15px;
+  margin-top: 20px;
 }
 
 .post-img {
-    fill: #2B468B;
-    height: 150px;
-    width: 150px;
-    padding-top: 5px;
+  fill: #2b468b;
+  width: 150px;
+  padding-top: 5px;
 }
 
 .location-icon {
-    fill: #FA9746;
-    height: 25px;
-    width: 25px;
-    margin-left: -20px;
-    margin-right: 5px;
+  fill: #fa9746;
+  height: 25px;
+  width: 25px;
+  margin-left: -20px;
+  margin-right: 5px;
 }
 
 .major-icon {
-    fill: #FA9746;
-    height: 25px;
-    width: 25px;
-    margin-left: -18px;
-    margin-right: 5px;
+  fill: #fa9746;
+  height: 25px;
+  width: 25px;
+  margin-left: -18px;
+  margin-right: 5px;
 }
 
-h5{
-    text-align: left;
-    padding-top: 10px;
+h5 {
+  text-align: left;
+  padding-top: 10px;
 }
 
 .salary {
-    text-align: left;
-    font-weight: bold;
-    padding-top: 10px;
+  text-align: left;
+  font-weight: bold;
+  padding-top: 10px;
 }
 
 .about {
-    text-align: left;
-    padding-top: 10px;
+  text-align: left;
+  padding-top: 10px;
 }
 
 .job-content {
-    background-color:#FA9746;
-    outline: none;
-    color: white;
-    border: none;
-    border-radius: 30px;
-    height: 50px;
-    width: 150px;
-    cursor: pointer;
-    font-size: 16px;
+  background-color: #fa9746;
+  outline: none;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  height: 50px;
+  width: 150px;
+  cursor: pointer;
+  font-size: 16px;
 }
 
-.job-content:hover{
-    transition: 0.3s ease-in;
-    background: transparent;
-    border: 1px solid rgb(138, 177, 244);
-    color: #8CB3F4;
-    /* transform: scale(1.1); */
+.job-content:hover {
+  transition: 0.3s ease-in;
+  background: transparent;
+  border: 1px solid rgb(138, 177, 244);
+  color: #8cb3f4;
+  /* transform: scale(1.1); */
 }
 
 .descrption {
-    text-align: left;
-    padding-left: 5px;
-    padding-top: 3px;
+  text-align: left;
+  padding-left: 5px;
+  padding-top: 3px;
 }
 
 .job-link {
-    color:#2B468B;
-    font-size: 18px;
-    text-decoration: none;
-    display: inline-flex;
-    margin-right: -60%;
+  color: #2b468b;
+  font-size: 18px;
+  text-decoration: none;
+  display: inline-flex;
+  margin-right: -60%;
 }
 
 .advices {
-    margin-top: 20px;
-    height: 400px;
-    background-color: #EAF3FA;
-    width: 100%;
-    left: 0;
-    right: 0;
+  margin-top: 20px;
+  height: 400px;
+  background-color: #eaf3fa;
+  width: 100%;
+  left: 0;
+  right: 0;
 }
 
 .advices h2 {
-    color: #192D50;
+  color: #192d50;
 }
 
 .custom-shape-divider-bottom-1612535207 {
-    position: absolute;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-    line-height: 0;
-    transform: rotate(180deg);
+  position: absolute;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
 }
 
 .custom-shape-divider-bottom-1612535207 svg {
-    position: relative;
-    display: block;
-    width: calc(222% + 1.3px);
-    height: 218px;
-    transform: rotateY(180deg);
+  position: relative;
+  display: block;
+  width: calc(222% + 1.3px);
+  height: 218px;
+  transform: rotateY(180deg);
 }
 
 .custom-shape-divider-bottom-1612535207 .shape-fill {
-    fill: #8CB3F4;
+  fill: #8cb3f4;
 }
 
-
-
 .footer-content {
-    
-    position: absolute;
-    padding-left: 100px;
-    padding-top: 100px;
-    
+  position: absolute;
+  padding-left: 100px;
+  padding-top: 100px;
 }
 
 .footer {
-    display: inline-block;
+  display: inline-block;
 }
 
 .company-icon {
-    fill:#2B468B;
-    margin-top: 10px;
-    margin-left: -190px;
+  fill: #2b468b;
+  margin-top: 10px;
+  margin-left: -190px;
 }
 
 .company {
-    text-align: left;
-    padding-top: 8px;
-    padding-left: 10px;
+  text-align: left;
+  padding-top: 8px;
+  padding-left: 10px;
 }
 
-.shape-footer{
-    transform: rotateX(180deg);
-    width: 100%;
-    position: absolute;
+.shape-footer {
+  transform: rotateX(180deg);
+  width: 100%;
+  position: absolute;
 }
 
-*{
-    padding: 0;
-    margin: 0;
+* {
+  padding: 0;
+  margin: 0;
 }
 
-.footer-content{
-    position: absolute;
-    z-index: 3;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-size: 16px;
-    color: #192D50;
-    /* margin-top: 5px; */
-    margin-left: 35%;
-    display: inline-flex;
+.footer-content {
+  position: absolute;
+  z-index: 3;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-size: 16px;
+  color: #192d50;
+  /* margin-top: 5px; */
+  margin-left: 35%;
+  display: inline-flex;
 }
 
-.footer-content span{
-    padding-left: 10px;
-    text-decoration: none;
-    color: #192D50;
+.footer-content span {
+  padding-left: 10px;
+  text-decoration: none;
+  color: #192d50;
 }
 
-.footer-content span:hover{
-    color: #EAF3FA;
-    transform: scale(1.1);
-    transition: 0.3s ease-in;
+.footer-content span:hover {
+  color: #eaf3fa;
+  transform: scale(1.1);
+  transition: 0.3s ease-in;
 }
 
 .advice-container {
-    background-color: #eaf3fa;
-    width: 70%;
-    margin: 0 auto;
-    padding: 2rem 7rem;
-    position: relative;
-    height: 60%;
+  background-color: #eaf3fa;
+  width: 70%;
+  margin: 0 auto;
+  padding: 2rem 7rem;
+  position: relative;
+  height: 60%;
 }
 
 .advice-slide {
-    position: relative;
+  position: relative;
 }
 
 .advice-slide p {
-    text-align: justify;
-    font-size: large;
-    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-      "Lucida Sans Unicode", Verdana, sans-serif;
-    padding-left: 0.5rem;
-    color: #192d50;
+  text-align: justify;
+  font-size: large;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Verdana, sans-serif;
+  padding-left: 0.5rem;
+  color: #192d50;
 }
-  
+
 .advice-slide h2 {
-    padding: 2rem 0.5rem;
-    text-align: left;
+  padding: 2rem 0.5rem;
+  text-align: left;
 }
 
 p.writtenBy {
-    text-align: end;
-    margin-top: 4rem;
+  text-align: end;
+  margin-top: 4rem;
 }
 
 p.writtenBy a {
-    color: #2b468b;
-    text-decoration: none;
+  color: #2b468b;
+  text-decoration: none;
 }
-  
+
 p.writtenBy a:hover {
-    color: #8cb3f4;
+  color: #8cb3f4;
 }
-  
-.prevBtn, .nextBtn {
-    border: none;
-    background-color: #eaf3fa;
-    position: absolute;
-    cursor: pointer;
-}
-  
-.prevBtn {
-    left: 2rem;
-    right: 20%;
-    bottom: 50%;
-    top: 50%;
-}
-  
+
+.prevBtn,
 .nextBtn {
-    left: 100%;
-    bottom: 50%;
-    top: 50%;
+  border: none;
+  background-color: #eaf3fa;
+  position: absolute;
+  cursor: pointer;
 }
-  
-  /*radio 
+
+.prevBtn {
+  left: 2rem;
+  right: 20%;
+  bottom: 50%;
+  top: 50%;
+}
+
+.nextBtn {
+  left: 100%;
+  bottom: 50%;
+  top: 50%;
+}
+
+/*radio 
   from:
   https://stackoverflow.com/questions/4253920/how-do-i-change-the-color-of-radio-buttons
   */
-  
+
 input[type="radio"]:after {
-    border: 0.1rem solid #192d50;
-    width: 14px;
-    height: 14px;
-    border-radius: 15px;
-    top: -2px;
-    left: -1px;
-    position: relative;
-    background-color: #eaf3fa;
-    content: "";
-    display: inline-block;
-    visibility: visible;
+  border: 0.1rem solid #192d50;
+  width: 14px;
+  height: 14px;
+  border-radius: 15px;
+  top: -2px;
+  left: -1px;
+  position: relative;
+  background-color: #eaf3fa;
+  content: "";
+  display: inline-block;
+  visibility: visible;
 }
-  
+
 input[type="radio"]:checked:after {
-    position: relative;
-    background-color: #192d50;
-    display: inline-block;
-    visibility: visible;
-    border: none;
+  position: relative;
+  background-color: #192d50;
+  display: inline-block;
+  visibility: visible;
+  border: none;
 }
-  /* end of radio */
-  /* Like and disLike */
-.likeBtn, .dislikeBtn {
-    display: inline-block;
-    position: absolute;
-transform: translateY(150%);
-    border: none;
-    background-color: transparent;
-    cursor: pointer;   
-}
-
-.likeBtn svg, .dislikeBtn svg{
-    fill: #EAF3FA;
-    stroke: #192D50;
-    margin-top: 10px;
+/* end of radio */
+/* Like and disLike */
+.likeBtn,
+.dislikeBtn {
+  display: inline-block;
+  position: absolute;
+  transform: translateY(150%);
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
 }
 
-.likeBtn svg:hover, .dislikeBtn svg:hover {
-    fill: #192D50;
+.likeBtn svg,
+.dislikeBtn svg {
+  fill: #eaf3fa;
+  stroke: #192d50;
+  margin-top: 10px;
+}
 
+.likeBtn svg:hover,
+.dislikeBtn svg:hover {
+  fill: #192d50;
 }
 
 .likeBtn {
-    right: 11rem;
-    bottom: 0px;
+  right: 11rem;
+  bottom: 0px;
 }
 
 .dislikeBtn {
-    right: 7rem;
-    bottom: 0;
+  right: 7rem;
+  bottom: 0;
 }
-
-
-
-

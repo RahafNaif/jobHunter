@@ -3,15 +3,14 @@
     padding: 0;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
+
 main {
     position: absolute;
     margin-top: 0;
     top: 10%;
     margin-right: 950px;
     margin-left: 10%;
-    
 }
-
 
 .lists {
     display: flex;
@@ -21,18 +20,15 @@ main {
     justify-content: space-evenly;
 }
 
-
 .list {
     display: flex;
-    background:rgba(234, 243, 250, 0.6);
+    background: rgba(234, 243, 250, 0.6);
     padding: 10px;
     margin-top: 20px;
     border-radius: 50px;
     justify-content: space-between;
     text-align: left;
 }
-
-/******** Job Description ********/
 
 h2,
 p,
@@ -100,94 +96,78 @@ div svg {
     margin-right: 25px;
     width: 150px;
 }
+
 .imglogin {
     display: block;
-    margin-left:500px;
-   margin-bottom: 90%;
+    margin-left: 500px;
+    margin-bottom: 90%;
 
     position: absolute;
-    float:right;
- }
- .regimg {
-    display: block;
-    margin-left:500px;
-   margin-bottom: 90%;
-   width: 1000px;
-   margin-top: 200px;
+    float: right;
+}
+
+.regimg {
+    z-index: -1;
+    margin-left: 500px;
+    margin-bottom: 90%;
+    width: 700px;
+    margin-top: 200px;
     position: absolute;
-    float:right;
- }
-  .imgseeker {
+    float: right;
+}
+
+.imgseeker {
     display: block;
     margin-top: 150px;
     margin-left: 500px;
     margin-bottom: 8000px;
- position: absolute;
-    float:right;
-    width: 1040px ;
+    position: absolute;
+    float: right;
+    width: 1040px;
     height: 900px;
-    
-  
-  }
-  h3 , div.relative {
-   
+}
+
+h3,
+div.relative {
     position: fixed;
     left: 1200px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  
-  }
-  .imgemployer {
+}
+
+.imgemployer {
     display: block;
     margin-left: 300px;
     margin-bottom: 5000px;
+    position: absolute;
+    float: right;
+}
 
- position: absolute;
-  
-    float:right;
-    
-  
-  }
-  .imgjobseekerz {
-    
+.imgjobseekerz {
     margin-left: 20px;
-  
+}
 
-
-  
-  
-    
-  
-  }
-  .imgemployeerz {
-      padding-right: 150px;
-      padding-left: 200px;
+.imgemployeerz {
+    padding-right: 150px;
+    padding-left: 200px;
     padding-bottom: 90px;
     margin-left: 80px;
+}
 
-
-  
-
-    
-  
-  }
-
-  a , a:hover  , a:visited{
-      color: none;
-     
-    text-decoration: none;
-
-  }
-  a:visited {
+a,
+a:hover,
+a:visited {
     color: #2B468B;
-  }
-  
-  /* mouse over link */
-  a:hover {
-    color:#FA9746;
-  }
-  
-  
-/******** Buttons ********/
+    color: none;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #2B468B;
+}
+
+a:hover {
+    color: #FA9746;
+}
 
 button {
     position: relative;
@@ -210,7 +190,6 @@ button:hover {
     background: transparent;
     border: 1px solid rgb(138, 177, 244);
     color: #8CB3F4;
-    transform: scale(1.2);
 }
 
 button:focus {
@@ -224,62 +203,7 @@ button:focus {
     color: #EAF3FA;
 }
 
-
-.footer-content {
-    
-    position: absolute;
-    padding-left: 100px;
-    padding-top: 100px;
-    
+.jobInfo {
+    width: 400px;
+    padding: 15px;
 }
-
-.footer {
-    display: inline-block;
-}
-
-.company-icon {
-    fill:#2B468B;
-    margin-top: 10px;
-    margin-left: -190px;
-}
-
-.company {
-    text-align: left;
-}
-
-.shape-footer{
-    transform: rotateX(180deg);
-    width: 100%;
-    position: absolute;
-}
-
-*{
-    padding: 0;
-    margin: 0;
-}
-
-.footer-content{
-    position: absolute;
-    z-index: 3;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-size: 16px;
-    color: #192D50;
-    margin-top: -5px;
-    margin-left: 40%;
-    display: inline-flex;
-}
-
-.footer-content span{
-    padding-left: 10px;
-    text-decoration: none;
-    color: #192D50;
-}
-
-.footer-content span:hover{
-    color: #EAF3FA;
-    transform: scale(1.1);
-    transition: 0.3s ease-in;
-}
-
-
-/******** Footer ********/

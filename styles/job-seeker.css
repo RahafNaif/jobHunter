@@ -225,6 +225,7 @@ ul {
 .search-box .dropdown {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color: #192D50;
+    z-index: 100;
     padding-top: 15px;
     padding-left: 20px;
     width: 100px;
@@ -275,6 +276,7 @@ ul {
 }
 
 .search-box .dropdown2 {
+    z-index: 100;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color: #192D50;
     padding-top: 15px;

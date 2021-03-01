@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Add new advice form</title>
+
+    <style>
+        *{
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+        }
+    svg{
+        fill: darkorange;
+    }
+    a{
+        text-decoration: none;
+
+    }
+
+    div{
+        width: 40%;
+        height: 70%;
+        background-color: rgb(230, 247, 253);
+        position: absolute;
+        top: 20%;
+        left: 30%;
+        border-radius: 12px;
+        box-shadow: black;
+
+    }
+.tybe{
+    position: relative;
+    left: 35%;
+    top: 8%;
+    color: darkblue;
+
+    text-shadow: black;
+    font-size: x-large;
+    font-weight: bolder;
+
+}
+
+.user{
+    position: absolute;
+    top:67%;
+    left: 30%;
+    cursor: pointer;
+
+    font-size: large;
+    font-weight: bolder;  }
+
+/* Buttons */
+
+button {
+    position: relative;
+    margin: 20px;
+    margin-left: 40%;
+    border-radius: 20px;
+    width: 120px;
+    height: 40px;
+    font-size: 12px;
+    color: #EAF3FA;
+    cursor: pointer;
+
+    border: none;
+    outline: none;
+    background: #FA9746;
+    overflow: hidden;
+}
+
+button:hover {
+    background: transparent;
+    border: 1px solid #8CB3F4;
+    color: #8CB3F4;
+
+}
+
+button:focus {
+    color: #8CB3F4;
+    border: 1px solid #8CB3F4;
+    background: #EAF3FA;
+}
+
+.closeIcon{
+    position: absolute;
+    top: 22%;
+    left:67%;
+    z-index: 1;
+}
+.closeIcon:hover{
+    fill: rgb(4, 4, 71);
+}
+.line{
+    width: 34%;
+    border-bottom:solid darkorange;
+    position: relative;
+    top: 3%;
+    left: 33%;
+    height: 1px;
+
+}
+form{
+    position: relative;
+    left: 30%;
+    top: 5%;
+}
+label{
+    color: rgb(6, 6, 100);
+    font-weight: bold;
+}
+svg:hover{
+        cursor: pointer;
+       fill: rgb(6, 6, 116)
+    }
+    input{
+        border: thin  solid rgb(11, 11, 119);
+        border-radius: 7px;
+        height: 25px;
+    }
+    textarea{
+        border: thin  solid rgb(11, 11, 119);
+        border-radius: 7px;
+    }
+    .Decrebtion{
+        position: absolute;
+        top: 30%;
+    }
+    </style>
+</head>
+<body>
+    <a href="myAdvices_Emplyer.html" class="closeIcon"><svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24"
+        height="24" viewBox="0 0 24 24" width="30">
+        <g>
+            <path d="M0,0h24v24H0V0z" fill="none" />
+        </g>
+        <g>
+            <g>
+                <path
+                    d="M18.3,5.71L18.3,5.71c-0.39-0.39-1.02-0.39-1.41,0L12,10.59L7.11,5.7c-0.39-0.39-1.02-0.39-1.41,0l0,0 c-0.39,0.39-0.39,1.02,0,1.41L10.59,12L5.7,16.89c-0.39,0.39-0.39,1.02,0,1.41l0,0c0.39,0.39,1.02,0.39,1.41,0L12,13.41l4.89,4.89 c0.39,0.39,1.02,0.39,1.41,0l0,0c0.39-0.39,0.39-1.02,0-1.41L13.41,12l4.89-4.89C18.68,6.73,18.68,6.09,18.3,5.71z" />
+            </g>
+        </g>
+    </svg></a>
+    <div>
+        <p class="tybe">New advice</p>
+        <div class="line"></div> <br> <br>
+       <form action="post">
+           <label for="">Title:</label>  <input type="text"> <br> <br> <br>
+           <label class="Decrebtion"for="">Decrebtion:</label>  <textarea name="" id="" cols="30" rows="5"></textarea>
+
+       </form>
+       <a class= "user" href="myAdvices_Emplyer.html"><button>Add new advice </button></a>
+
+
+    </div>
+</body>
+</html>

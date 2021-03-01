@@ -523,3 +523,6 @@ a.text-info:hover, a.text-info:focus {
   width: 100%;
 }
 
+.profile-buttons {
+  display: inline-flex;
+}

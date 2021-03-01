@@ -527,3 +527,75 @@ a.text-info:hover, a.text-info:focus {
 .shape-footer {
   width: 100%;
 }
+
+.popup {
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.4s;
+  top: 40px;
+  right: 140px;
+  bottom: 0;
+  z-index: 99;
+  display: flex;
+  padding: 10px;
+  position: fixed;
+}
+
+.popup-inner {
+  overflow: scroll;
+  overflow-x: hidden;
+  background-color: #FFF;
+  padding: 10px;
+  max-width: 400px;
+  max-height: 400px;
+  border-radius: 16px 0 16px 16px;
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.popup:target {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.notificationIcon {
+  position: relative;
+  left: 0.7vh;
+  top: 2.5vh;
+  fill: orange;
+}
+
+.notificationList h3,
+.notificationList p {
+  padding: 2.5px;
+}
+
+.content h3 {
+  height: 16px;
+  overflow: hidden;
+  margin-left: 30px;
+  font-size: 14px;
+  color: #192D50;
+}
+
+.notificationRow {
+  padding: 0;
+  min-height: 80px;
+  list-style-type: none;
+  background: rgba(234, 243, 250, 0.8);
+  border-radius: 2.5vh;
+}
+
+.notificationList .notificationRow {
+  margin-bottom: 5px; 
+}
+
+.date {
+  margin-left: 40px;
+  font-size: 10px;
+  font-style: oblique;
+  font-weight: 500;
+}
+
+.navLinks2 {
+  margin-right: 7%;
+}

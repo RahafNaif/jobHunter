@@ -58,8 +58,6 @@ main {
 }
 .details {
   position: absolute;
-   
-  position: absolute;
   list-style: none;
   width: 30%;
   height: fit-content;
@@ -72,7 +70,7 @@ main {
   position: absolute;
   margin-left: 1rem;
   background-color: #EAF3FA;
- 
+  text-align: center;
   height: 350px;
   
 }
@@ -81,13 +79,14 @@ main {
     list-style: none;
     width: 30%;
     height: fit-content;
+    height: 320px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 1.25rem;
     font-size: 1rem;
     margin: 10rem;
     padding: 1rem;
     margin-right: 20px;
- margin-bottom: 10px;
+  margin-bottom: 10px;
     margin-top: 25rem;
     position: absolute;
     margin-left: 1rem;
@@ -142,9 +141,11 @@ main {
   margin-top: 20px;
   background-color: #EAF3FA;
   right: 0;
-  margin-right: 400px;
+  /* margin-right: 400px; */
+  margin-right: 34%;
   width: 30%;
 }
+
 .sideBar1 {
     display: inline-block;
     position: absolute;
@@ -154,14 +155,15 @@ main {
     border-radius: 20px;
     font-size: 16px;
     margin: 1px;
-    padding: 10px;
+    /* padding: 10px; */
     margin-top: 20px;
     background-color: #EAF3FA;
     right: 0;
     margin-right: 1px;
     margin-left:20px ;
     width: 30%;
-  }
+}
+
 .titleAndValueDiv{
     margin: 2rem 0.2rem;
 }
@@ -177,26 +179,28 @@ main {
 }
 .details h4{
     font-size: larger;
-    padding-bottom: 2rem;
+    padding-bottom: 0.5rem;
 }
 
 
 .applyBtn button{
-    
-    background-color: burlywood;
-    margin-top: 2rem;
-    padding: 1rem;
-    margin-left: 70%;
-    margin-bottom: 3%;
-    height: 50px;
-    width: 100px;
-    border-radius: 50px;
-    background-color: #FA9746;
-    outline: none;
-    border-style: none;
-    color: white;
-    font-size: 18px;
+  height: 60px;
+  width: 120px;
+  margin-top: 10px;
+  border-radius: 50px;
+  background-color: #FA9746;
+  outline: none;
+  border-style: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
 
+.applyBtn:hover {
+  transition: 0.3s ease-in;
+  background: transparent;
+  border: 1px solid rgb(138, 177, 244);
+  color: #8CB3F4;
 }
 
     li {
@@ -220,7 +224,7 @@ main {
         overflow: hidden;
     }
     
-    button:hover {
+    /* button:hover {
         transition: 0.3s ease-in;
         background: transparent;
         border: 1px solid rgb(138, 177, 244);
@@ -232,7 +236,7 @@ main {
         color: #8CB3F4;
         border: 1px solid #8CB3F4;
         background: #EAF3FA;
-    }
+    } */
     
     .applicants {
         text-decoration: none;
@@ -327,6 +331,7 @@ main {
 .gray-color 
 {
   color: #6c757d !important;
+  padding-top: 5px;
 }
 
 .margin-bottom-1
@@ -514,3 +519,10 @@ a.text-info:hover, a.text-info:focus {
 
 */
 
+.shape-footer {
+  width: 100%;
+}
+
+.profile-buttons {
+  display: inline-flex;
+}

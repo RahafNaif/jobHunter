@@ -108,14 +108,13 @@ main {
     margin-bottom: 20px;
     border-radius: 25px;
     box-shadow: 5px 3px 3px rgba(43, 70, 139, 0.1);
-    padding: 3rem;
+    padding: 1rem;
 }
 
 
 /*JOB DESCRIPTION*/
 .jonInfo {
     float: left;
-    padding-bottom: 25px;
 }
 
 h2,
@@ -124,6 +123,10 @@ h6,
 h5 {
     color: #192D50;
     text-align: left;
+    padding-bottom: 4px;
+}
+p.jobDescription{
+    padding-bottom:10px;
 }
 
 .jobDescription {

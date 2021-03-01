@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=, initial-scale=1.0">
-    <title>Set Appointment form</title>
+    <title>Add new advice form</title>
       <link rel="icon" href="img/icon.png">
 
     <style>
@@ -22,7 +22,7 @@
 
     div{
         width: 40%;
-        height: 50%;
+        height: 70%;
         background-color: rgb(230, 247, 253);
         position: absolute;
         top: 20%;
@@ -60,7 +60,7 @@ button {
     margin-left: 40%;
     border-radius: 20px;
     width: 120px;
-    height: 37px;
+    height: 40px;
     font-size: 12px;
     color: #EAF3FA;
     cursor: pointer;
@@ -98,7 +98,7 @@ button:focus {
     border-bottom:solid darkorange;
     position: relative;
     top: 3%;
-    left: 36%;
+    left: 33%;
     height: 1px;
 
 }
@@ -120,10 +120,18 @@ svg:hover{
         border-radius: 7px;
         height: 25px;
     }
+    textarea{
+        border: thin  solid rgb(11, 11, 119);
+        border-radius: 7px;
+    }
+    .Decrebtion{
+        position: absolute;
+        top: 30%;
+    }
     </style>
 </head>
 <body>
-    <a href="setAppointment.html" class="closeIcon"><svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24"
+    <a href="myAdvices_Emplyer.html" class="closeIcon"><svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24"
         height="24" viewBox="0 0 24 24" width="30">
         <g>
             <path d="M0,0h24v24H0V0z" fill="none" />
@@ -136,14 +144,14 @@ svg:hover{
         </g>
     </svg></a>
     <div>
-        <p class="tybe">Set Appointment</p>
+        <p class="tybe">New advice</p>
         <div class="line"></div> <br> <br>
        <form action="post">
-           <label for="">Select Date:</label>  <input type="date"> <br> <br>
-           <label for="">Select Time:</label>  <input type="time" name="" id="">
+           <label for="">Title:</label>  <input type="text"> <br> <br> <br>
+           <label class="Decrebtion"for="">Decrebtion:</label>  <textarea name="" id="" cols="30" rows="5"></textarea>
 
        </form>
-       <a class= "user" href="setAppointment.html"><button>Add Appointment </button></a>
+       <a class= "user" href="myAdvices_Emplyer.html"><button>Add new advice </button></a>
 
 
     </div>

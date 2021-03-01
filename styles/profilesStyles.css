@@ -389,3 +389,11 @@ a.text-info:hover, a.text-info:focus {
 .shadow-none {
     box-shadow: none!important;
 }
+.column-9 input[type="text"]{
+  font-size: medium;
+  border: none;
+}
+.column-9 input[type="text"]:focus {
+  padding: 2px;
+
+}

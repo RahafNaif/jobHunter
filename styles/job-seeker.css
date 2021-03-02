@@ -27,7 +27,7 @@
 }
 
 .header {
-  background-color: rgba(234, 243, 250, 0.8);
+  background-color: #EAF3FA;
   width: 100%;
   height: 600px;
 }
@@ -197,7 +197,7 @@ ul {
 } */
 
 .search-box {
-  background-color: rgba(234, 243, 250, 0.8);
+  background-color: #EAF3FA;
   width: 800px;
   height: 50px;
   border-radius: 35px;
@@ -218,7 +218,7 @@ ul {
   height: 100%;
   position: relative;
   border: 0;
-  background-color: rgba(234, 243, 250, 0.8);
+  background-color: #EAF3FA;
   color: #192d50;
   padding-left: 10px;
 }
@@ -238,7 +238,7 @@ ul {
 .search-box .dropdown .city-form {
   display: none;
   position: absolute;
-  background: rgba(234, 243, 250, 0.8);
+  background: #EAF3FA;
   width: 300px;
   height: 150px;
   padding: 15px;
@@ -297,7 +297,7 @@ ul {
 .search-box .dropdown2 ul {
   display: none;
   position: absolute;
-  background: rgba(234, 243, 250, 0.8);
+  background: #EAF3FA;
   width: 240px;
   border-radius: 5px;
   margin-top: 20px;

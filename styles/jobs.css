@@ -183,7 +183,7 @@ ul {
 } */
 
 .search-box {
-  background-color: rgba(234, 243, 250, 0.8);
+  background-color: #EAF3FA;
   width: 800px;
   height: 50px;
   border-radius: 35px;
@@ -223,7 +223,7 @@ ul {
 .search-box .dropdown .city-form {
   display: none;
   position: absolute;
-  background: rgba(234, 243, 250, 0.8);
+  background: #EAF3FA;
   width: 250px;
   height: 80px;
   padding: 15px;
@@ -265,11 +265,10 @@ ul {
   cursor: pointer;
 }
 
-.search-box .dropdown ul,
-.search-box .dropdown2 ul {
+.search-box .dropdown ul, .search-box .dropdown2 ul {
   display: none;
   position: absolute;
-  background: rgba(234, 243, 250, 0.8);
+  background: #EAF3FA;
   width: 140px;
   border-radius: 5px;
   margin-top: 20px;

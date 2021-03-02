@@ -273,7 +273,8 @@ h5 {
 }
 
 .advice-container {
-  background-color: rgba(234, 243, 250, 0.8);
+  /* background-color: rgba(234, 243, 250, 0.8); */
+  /* rgba(234, 243, 250, 0.8); */
   width: 70%;
   margin: 0 auto;
   padding: 2rem 7rem;

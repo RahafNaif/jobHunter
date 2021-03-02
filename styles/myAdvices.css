@@ -218,12 +218,7 @@ button:focus {
   background: rgba(234, 243, 250, 0.8);
 }
 
-.applicants,
-.accept {
-  margin-top: 75px;
-  text-decoration: none;
-  color: rgba(234, 243, 250, 0.8);
-}
+
 
 a {
   text-decoration: none;

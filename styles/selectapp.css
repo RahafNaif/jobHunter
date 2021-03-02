@@ -123,7 +123,7 @@
   transform: scale(1.2);
 }
 
-/* 
+/*
 .mytabs label:hover{
     color: orange;
 } */
@@ -131,7 +131,7 @@
 svg {
   fill: #2b468b;
 }
-.closeIcon {
+.closeIcon1 {
   position: relative;
   top: 60px;
   left: 78%;

@@ -14,7 +14,7 @@
         }
 
         svg {
-            fill: darkorange;
+            fill: #FA9746;
         }
 
         a {
@@ -24,7 +24,7 @@
         div {
             width: 40%;
             height: 70%;
-            background-color: rgba(234, 243, 250, 0.8);
+            background-color: #EAF3FA;
             position: absolute;
             top: 20%;
             left: 30%;
@@ -36,7 +36,7 @@
             position: relative;
             left: 35%;
             top: 8%;
-            color: darkblue;
+            color: #192D50;
 
             text-shadow: black;
             font-size: x-large;
@@ -46,7 +46,7 @@
 
         .user {
             position: absolute;
-            top: 67%;
+            top: 80%;
             left: 30%;
             cursor: pointer;
             font-size: large;
@@ -63,7 +63,7 @@
             width: 120px;
             height: 40px;
             font-size: 12px;
-            color: rgba(234, 243, 250, 0.8);
+            color: #EAF3FA;
             cursor: pointer;
             border: none;
             outline: none;
@@ -80,7 +80,7 @@
         button:focus {
             color: #8CB3F4;
             border: 1px solid #8CB3F4;
-            background: rgba(234, 243, 250, 0.8);
+            background: #EAF3FA;
         }
 
         .closeIcon {
@@ -96,7 +96,7 @@
 
         .line {
             width: 28%;
-            border-bottom: solid darkorange;
+            border-bottom: solid #FA9746;
             position: relative;
             top: 5%;
             left: 35%;
@@ -105,28 +105,28 @@
 
         form {
             position: relative;
-            left: 30%;
+            left: 20%;
             top: 5%;
         }
 
         label {
-            color: rgb(6, 6, 100);
+            color: #192D50;
             font-weight: bold;
         }
 
         svg:hover {
             cursor: pointer;
-            fill: rgb(6, 6, 116)
+            fill: #192D50
         }
 
         input {
-            border: thin solid rgb(11, 11, 119);
+            border: thin solid #2B468B;
             border-radius: 7px;
             height: 25px;
         }
 
         textarea {
-            border: thin solid rgb(11, 11, 119);
+            border: thin solid #2B468B;
             border-radius: 7px;
             resize: none;
         }
@@ -155,8 +155,10 @@
         <p class="tybe">New advice</p>
         <div class="line"></div> <br> <br>
         <form action="post" >
-            <label for="">Title:</label> <input type="text"> <br> <br> <br>
-            <label class="Decrebtion" for="">Description:</label> <textarea style="resize: none; " name="" id="" cols="30" rows="5"></textarea>
+            <label for="">Title:</label> <br>
+            <input type="text"> <br> <br> <br>
+            <label class="Decrebtion">Description:</label> <br>
+            <textarea cols="40" rows="10"></textarea>
         </form>
         <a class="user" href="myAdvices_Emplyer.html"><button>Add new advice </button></a>
     </div>

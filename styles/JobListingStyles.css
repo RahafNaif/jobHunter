@@ -125,19 +125,17 @@ div svg {
 .work {
   display: inline-block;
   clear: both;
-}
-
-.workIcon {
-  margin-left: 3%;
+  vertical-align: middle;
 }
 
 .location {
   margin-right: 20px;
+  vertical-align: middle;
 }
 
 .work {
   margin: 0;
-  vertical-align: text-top;
+  vertical-align: middle;
   font-size: 14px;
 }
 
@@ -181,4 +179,9 @@ a {
   color: #192d50;
 }
 
-
+.material-icons{
+  color: #fa9746;
+  vertical-align: bottom;
+  font-size: 10px;
+  margin-left: 10px;
+}

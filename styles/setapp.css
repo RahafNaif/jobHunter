@@ -362,3 +362,124 @@ header {
   font-style: oblique;
   font-weight: 500;
 }
+
+/* add form */
+
+.addForm-parent {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: none;
+}
+
+.addForm{
+  background-color: #EAF3FA;
+  width: 46%;
+  height: 250px;
+  padding: 30px;
+  border-radius: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.addForm .tybe{
+  position: relative;
+  left: 35%;
+  top: 8%;
+  color: #192D50;
+  font-size: x-large;
+  font-weight: bolder;
+}
+
+.addForm svg{
+  fill: #FA9746;
+}
+.addForm a{
+  text-decoration: none;
+
+}
+
+.addForm .user{
+position: absolute;
+top:67%;
+left: 30%;
+cursor: pointer;
+
+font-size: large;
+font-weight: bolder;  }
+
+/* Buttons */
+
+.addForm button {
+position: relative;
+margin: 20px;
+margin-left: 45%;
+border-radius: 20px;
+width: 140px;
+height: 40px;
+font-size: 14px;
+color: white;
+cursor: pointer;
+border: none;
+outline: none;
+background: #FA9746;
+overflow: hidden;
+}
+
+.addForm button:hover {
+background: transparent;
+border: 1px solid #8CB3F4;
+color: #8CB3F4;
+
+}
+
+/* .addForm button:focus {
+color: #8CB3F4;
+border: 1px solid #8CB3F4;
+background: rgba(234, 243, 250, 0.8);
+} */
+
+.addForm .closeIcon{
+position: absolute;
+right: 20px;
+top: 10px;
+z-index: 1;
+}
+
+.addForm .closeIcon:hover{
+fill: #192D50;
+}
+
+.addForm .line{
+width: 34%;
+border-bottom:solid #FA9746;
+position: relative;
+top: 3%;
+margin-left: 34%;
+height: 1px;
+
+}
+.addForm form{
+position: relative;
+left: 30%;
+top: 5%;
+}
+.addForm label{
+color: #192D50;
+font-weight: bold;
+}
+.addForm svg:hover{
+  cursor: pointer;
+ fill : #192D50;
+}
+.addForm input{
+  border: thin  solid #192D50;
+  border-radius: 7px;
+  height: 25px;
+  outline: none;
+  margin-left: 10px;
+} 

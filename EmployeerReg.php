@@ -14,11 +14,28 @@
 
 <body>
     <?php
-        if($_POST['create']){
+        if (!( $database = mysqli_connect( "localhost", "root", "" )))
+            die( "<p>Could not connect to database</p>" );
+
+        if (!mysqli_select_db( $database, "JobHunter" ))
+            die( "<p>Could not open URL database</p>" );
+
+        if(isset($_POST['create'])){
             $name = $_POST['name'];
             $scope = $_POST['scope'];
             $phone = $_POST['phone'];
             $password = $_POST['password'];
+            $re_pass = $_POST['re_password'];
+            $email = $_POST['email'];
+            $address = $_POST['address'];
+            $des = $_POST['des'];
+            $mission = $_POST['mission'];
+            $vision = $_POST['vision'];
+
+            $test = "INSERT INTO employer(name, scope, phone, password, email, address, des, mission, vision) VALUES('".$name."', '".$scope."', '".$phone."', '".$password."', '".$email."', '".$address."', '".$des."', '".$mission."', '".$vision."');";
+            $res=mysqli_query($database,$test);
+            if($res)
+                header("Location: home.html");
         }
     ?>
     <span class="logo"><img src="img/logo.PNG" alt="logo"></span>
@@ -60,18 +77,18 @@
                             <input type="password" class="form-input" name="re_password" id="re_password"
                                 placeholder="Repeat your password" required />
                             <label for="last_name">Email</label>
-                            <input type="text" class="form-input" name="last_name" id="last_name"
+                            <input type="email" class="form-input" name="email" id="last_name"
                                 placeholder="Your email..." required />
                             <label for="last_name">Address</label>
-                            <input type="text" class="form-input" name="last_name" id="last_name"
+                            <input type="text" class="form-input" name="address" id="last_name"
                                 placeholder="Your headquarter's address" required />
                             <label for="last_name">Description of Company</label>
-                            <textarea  style="resize: none; " rows="4" cols="53" placeholder="Enter a brief description.."></textarea>
+                            <textarea  style="resize: none; " rows="4" cols="53" placeholder="Enter a brief description.." name="des"></textarea>
                             <label for="last_name">Mission</label>
-                            <input type="text" class="form-input" name="last_name" id="last_name"
+                            <input type="text" class="form-input" name="mission" id="last_name"
                                 placeholder="List your company's mission.." required />
                             <label for="last_name">Vision</label>
-                            <input type="text" class="form-input" name="last_name" id="last_name"
+                            <input type="text" class="form-input" name="vision" id="last_name"
                                 placeholder="List your company's vision.." required />
                             <input type="submit" class="applicants" name="create">
                         </form>

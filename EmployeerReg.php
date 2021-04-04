@@ -32,10 +32,12 @@
             $mission = $_POST['mission'];
             $vision = $_POST['vision'];
 
+
             $test = "INSERT INTO employer(name, scope, phone, password, email, address, des, mission, vision) VALUES('".$name."', '".$scope."', '".$phone."', '".$password."', '".$email."', '".$address."', '".$des."', '".$mission."', '".$vision."');";
             $res=mysqli_query($database,$test);
             if($res)
                 header("Location: home.html");
+            
         }
     ?>
     <span class="logo"><img src="img/logo.PNG" alt="logo"></span>
@@ -64,32 +66,32 @@
                         <h2 id=employerReg>Employer Regstration </h2>
                         <form method="post" action="EmployeerReg.php">
                             <label for="first_name">Company's name</label>
-                            <input type="text" class="form-input" name="name" id="fCOMPANY'S NAME" placeholder="Company's name.. " required />
+                            <input type="text" class="form-input" name="name" id="fCOMPANY'S NAME" placeholder="Company's name.. "/>
                             <label for="first_name">Company's scope</label>
-                            <input type="text" class="form-input" name="scope" id="fCOMPANY'S NAME" placeholder="Company's name.. " required />
+                            <input type="text" class="form-input" name="scope" id="fCOMPANY'S NAME" placeholder="Company's name.. "/>
                             <label for="phone">Phone number</label>
                             <input type="text" class="form-input" name="phone" id="phone"
-                                placeholder="Your phone number" required />
+                                placeholder="Your phone number"/>
                             <label for="password">Password</label>
                             <input type="password" class="form-input" name="password" id="password"
-                                placeholder="Your password" required />
+                                placeholder="Your password"/>
                             <label for="re_password">Repeat your password</label>
                             <input type="password" class="form-input" name="re_password" id="re_password"
-                                placeholder="Repeat your password" required />
+                                placeholder="Repeat your password"/>
                             <label for="last_name">Email</label>
                             <input type="email" class="form-input" name="email" id="last_name"
-                                placeholder="Your email..." required />
+                                placeholder="Your email..."/>
                             <label for="last_name">Address</label>
                             <input type="text" class="form-input" name="address" id="last_name"
-                                placeholder="Your headquarter's address" required />
+                                placeholder="Your headquarter's address"/>
                             <label for="last_name">Description of Company</label>
                             <textarea  style="resize: none; " rows="4" cols="53" placeholder="Enter a brief description.." name="des"></textarea>
                             <label for="last_name">Mission</label>
                             <input type="text" class="form-input" name="mission" id="last_name"
-                                placeholder="List your company's mission.." required />
+                                placeholder="List your company's mission.."/>
                             <label for="last_name">Vision</label>
                             <input type="text" class="form-input" name="vision" id="last_name"
-                                placeholder="List your company's vision.." required />
+                                placeholder="List your company's vision.."/>
                             <input type="submit" class="applicants" name="create">
                         </form>
                         <!-- <div class="buttons">

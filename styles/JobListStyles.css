@@ -515,7 +515,13 @@ background: linear-gradient(90deg, #ffffff  20%, #d7eefc 60%);
   top: 17%;
 }
 
- 
+.content {
+  padding-bottom: 2.5rem;    /* Footer height */
+}
+.page{
+  position: relative;
+  min-height: 100vh;
+}
 
 
 

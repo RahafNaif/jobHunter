@@ -13,7 +13,27 @@
     <script src="js/Notification.js"></script>
     <link rel="icon" href="img/icon.png">
     <meta lang="en">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script>
+        
+
+
+$(document).ready(function(){
+
+$('.applicants').click(function () { 
+    $('.modal').css('display','block');
+   
+});
+
+$('.close').click(function(){
+    $('.modal').css('display','none');
+   
+});
+
+});
+
+    </script>
 
 </head>
 
@@ -140,9 +160,9 @@
                 </div>
                 <!-- buttons  -->
                 <div class="buttons">
-                    <a href="selectAppointment.html">
-                        <button class="applicants">Select Appointment</button>
-                    </a>
+                    
+                        <button  class="applicants" >Select Appointment</button>
+                    
                     <a href="#">
                         <button class="edit">Cancel</button>
                     </a>
@@ -205,15 +225,52 @@
                 </div>
                 <!-- buttons  -->
                 <div class="buttons">
-                    <a href="selectAppointment.html">
-                        <button class="applicants">Select Appointment</button>
-                    </a>
-                    <a href="#">
+                   
+                        <button  class="applicants">Select Appointment</button>
+                   
+                   
                         <button class="edit">Cancel</button>
-                    </a>
+                    
                 </div>
             </div>
         </div>
+
+        <div id="myModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <div class="lineapp"></div>
+              <span class="close">&times;</span>
+              
+                    <div id="head">   Select Appointment    </div>
+                    
+                    <a class="box"> 
+                    <div id="date"><h4> 2/5/2020</h4></div>
+                    <div id="title">Availabale appointment </div>
+                    <div id="book"><h4> Book</h4></div> </a>
+          
+                    
+                    
+                        <a class="box"> 
+                         <div id="date"><h4> 2/5/2020</h4></div>
+                         <div id="title">Availabale appointment </div>
+                          <div id="book"><h4> Book</h4></div> </a>
+                           
+                    <a class="box"> 
+                        <div id="date"><h4> 2/5/2020</h4></div>
+                        <div id="title">Availabale appointment </div>
+                        <div id="book"><h4> Book</h4></div> </a>
+              
+                               
+                  
+                          
+                           
+                                                                                                                    
+             
+                  </div>
+              </div>
+          
+          </div>
     </main>
     <!-- Footer -->
     <div class="footer">

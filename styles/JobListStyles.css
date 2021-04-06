@@ -453,7 +453,7 @@ background: linear-gradient(90deg, #ffffff  20%, #d7eefc 60%);
 
 #date{
   width: 100px;
-  height: 25px;
+  height: 30px;
   
   background-color: #8CB3F4;
   color: white;
@@ -461,7 +461,8 @@ background: linear-gradient(90deg, #ffffff  20%, #d7eefc 60%);
   border: radius right 12px; ;
   border-top-right-radius: 12px; 
   margin-top: -21px;
-  font-size: medium;
+  font-size:11px;
+
   text-align: center;
 }
 #book{
@@ -474,7 +475,23 @@ background: linear-gradient(90deg, #ffffff  20%, #d7eefc 60%);
   border: radius right 12px; ;
  
   border-bottom-right-radius: 12px;
-  margin-top: 40px;
+  margin-top: 33px;
+  font-size: medium;
+  text-align: center;
+  
+
+}
+#timeAp{
+  width: 100px;
+  height: 25px;
+  
+  background-color: #8CB3F4;
+  color: white;
+  
+ 
+ 
+  
+  margin-top:20px;
   font-size: medium;
   text-align: center;
   
@@ -483,7 +500,7 @@ background: linear-gradient(90deg, #ffffff  20%, #d7eefc 60%);
 #title{
   color:#2B468B ;
   text-align: center;
-  font-size: small;
+  font-size: medium;
   font-weight: bold;
   margin-top: 30px;
   

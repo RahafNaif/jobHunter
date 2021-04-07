@@ -1,20 +1,17 @@
 button {
   display: block;
   position: relative;
-  max-width: max-content;
-  min-width: 110px;
-  min-height: 30px;
-  max-height: max-content;
+  width: 120px;
+  height: 35px;
   margin: 10px 20px 0px 90px;
   border-radius: 50px;
-  font-size: 14px;
+  font-size: 13px;
   color: white;
   border: none;
   outline: none;
   font-weight: bold;
   background: #fa9746;
   cursor: pointer;
-  padding: 5px;
 }
 
 button:hover {

@@ -97,14 +97,39 @@ if (!isset($_SESSION['email'])) {
             </ul>
         </nav>
     </header>
-
     <main>
+        <?php
+        if (!($database = mysqli_connect("localhost", "root", "")))
+            die("<p>Could not connect to database</p>");
+
+        if (!mysqli_select_db($database, "jobhunter"))
+            die("<p>Could not open URL database</p>");
+        $email = $_SESSION['email'];
+        $query = "select * from employer WHERE email='$email'";
+
+        $result = mysqli_query($database, $query);
+
+        if ($result) {
+            while ($data = mysqli_fetch_assoc($result)) {
+                $name = $data['name'];
+                $address = $data['address'];
+                $scope = $data['scope'];
+                $phone = $data['phone'];
+                $description = $data['description'];
+                $mission = $data['mission'];
+                $vision = $data['vision'];
+            }
+        } else {
+            echo "There are no info.";
+            exit();
+        }
+        ?>
         <div class="company-card">
             <img class="company-logo" src="img/company.svg">
             <div class="company-account">
-                <h2><?php echo $_SESSION['name'] ?> </h2>
-                <h5><?php echo $_SESSION['address'] ?></h5>
-                <h5><?php echo $_SESSION['scope'] ?></h5>
+                <h2><?php echo $name; ?> </h2>
+                <h5><?php echo $address; ?></h5>
+                <h5><?php echo $scope; ?></h5>
                 <div class="socials">
                     <br>
                     <a href="mailto: <?php echo $_SESSION['email'] ?>"> <i class="material-icons">email</i> </a>
@@ -119,13 +144,13 @@ if (!isset($_SESSION['email'])) {
         </div>
         <div class="company-info-card">
             <h3>Phone</h3>
-            <p><?php echo $_SESSION['phone'] ?></p>
+            <p><?php echo $phone; ?></p>
             <h3>Descripition of Company</h3>
-            <p><?php echo $_SESSION['description'] ?></p>
+            <p><?php echo $description; ?></p>
             <h3>Mission</h3>
-            <p><?php echo $_SESSION['mission'] ?></p>
+            <p><?php echo $mission; ?></p>
             <h3>Vision</h3>
-            <p><?php echo $_SESSION['vision'] ?></p>
+            <p><?php echo $vision; ?></p>
         </div>
     </main>
     <!-- Footer -->

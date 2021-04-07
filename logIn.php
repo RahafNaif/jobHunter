@@ -1,11 +1,14 @@
 <?php  
     session_start();
-    //if(isset($_SESSION['email']))
-    
+    if(isset($_SESSION['email'])){
+
+        if($_SESSION['role'] == 1)
+        header("Location:JobSeekerViewProf.php");
+       
+        if($_SESSION['role'] == 2)
+        header("Location: EmployerProfile.php");
         
-        //header("Location: em.php");
-        
-        // header() is used to send a raw HTTP header. It must be called before any actual output is sent.
+    } 
        
 
 ?>
@@ -123,10 +126,13 @@
     if($numm > 0){
         $_SESSION['email'] = $email;
         $_SESSION['value'] = $tybe;
-        if($tybe==1)
-        header("Location:JobSeekerViewProf.php");
-        if($tybe==2)
-        header("Location: EmployerProfile.php");
+
+        if($tybe==1){
+        $_SESSION['role'] = 1;
+        header("Location:JobSeekerViewProf.php");}
+        if($tybe==2){
+        $_SESSION['role'] = 2;
+        header("Location: EmployerProfile.php");}
 
     }
     else {

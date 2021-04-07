@@ -91,7 +91,8 @@ if (!isset($_SESSION['email'])) {
                     <a href="#"><i class="material-icons">person</i></a>
                     <ul>
                         <li><a href="EmployerProfile_Eidt.html">Profile</a></li>
-                        <a href="http:signout.php">logout</a>
+                        <li><a href="http:signout.php">logout</a></li>
+                        
                     </ul>
                 </li>
             </ul>

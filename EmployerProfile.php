@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['email'])) {
+    header("location: LogIn.php");
+    exit();
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,8 +31,7 @@
     <!-- popup for notifications -->
     <div class="popup" id="popup">
         <div class="popup-inner" id="popup-inner">
-            <a href="#" id="closeIcon" class="closeIcon" onclick="hideNotification()"><i
-                    class="material-icons">close</i></a>
+            <a href="#" id="closeIcon" class="closeIcon" onclick="hideNotification()"><i class="material-icons">close</i></a>
             <div class="notificationList">
                 <ul>
                     <li class="notificationRow">
@@ -57,8 +65,7 @@
     <span class="logo"><img src="img/logo.PNG" alt="logo" /></span>
     <div style="height: 150px; overflow: hidden">
         <svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%">
-            <path d="M-15.58,-15.49 C-16.70,110.81 186.45,57.52 502.48,59.50 L500.00,0.00 L0.00,0.00 Z"
-                style="stroke: none; fill: #8cb3f4"></path>
+            <path d="M-15.58,-15.49 C-16.70,110.81 186.45,57.52 502.48,59.50 L500.00,0.00 L0.00,0.00 Z" style="stroke: none; fill: #8cb3f4"></path>
         </svg>
     </div>
     <header>
@@ -78,29 +85,55 @@
             </ul>
             <ul class="navLinks2">
                 <li>
-                    <a href="#" id="notification" class="notificationIcon" onclick="showNotifications()"><i
-                            class="material-icons">notifications</i></a>
+                    <a href="#" id="notification" class="notificationIcon" onclick="showNotifications()"><i class="material-icons">notifications</i></a>
                 </li>
                 <li>
                     <a href="#"><i class="material-icons">person</i></a>
                     <ul>
                         <li><a href="EmployerProfile_Eidt.html">Profile</a></li>
-                        <li><a href="home.html">Log out</a></li>
+                        <li><a href="http:signout.php">logout</a></li>
+                        
                     </ul>
                 </li>
             </ul>
         </nav>
     </header>
     <main>
+        <?php
+        if (!($database = mysqli_connect("localhost", "root", "")))
+            die("<p>Could not connect to database</p>");
+
+        if (!mysqli_select_db($database, "jobhunter"))
+            die("<p>Could not open URL database</p>");
+        $email = $_SESSION['email'];
+        $query = "select * from employer WHERE email='$email'";
+
+        $result = mysqli_query($database, $query);
+
+        if ($result) {
+            while ($data = mysqli_fetch_assoc($result)) {
+                $name = $data['name'];
+                $address = $data['address'];
+                $scope = $data['scope'];
+                $phone = $data['phone'];
+                $description = $data['description'];
+                $mission = $data['mission'];
+                $vision = $data['vision'];
+            }
+        } else {
+            echo "There are no info.";
+            exit();
+        }
+        ?>
         <div class="company-card">
             <img class="company-logo" src="img/company.svg">
             <div class="company-account">
-                <h2>STC</h2>
-                <h5>Riyadh, Saudi Arabia</h5>
-                <h5>IT/Telecommunications</h5>
+                <h2><?php echo $name; ?> </h2>
+                <h5><?php echo $address; ?></h5>
+                <h5><?php echo $scope; ?></h5>
                 <div class="socials">
                     <br>
-                    <i class="fab fa-twitter"></i>
+                    <a href="mailto: <?php echo $_SESSION['email'] ?>"> <i class="material-icons">email</i> </a>
                     <i class="fab fa-facebook"></i>
                     <i class="fab fa-linkedin"></i>
                 </div>
@@ -112,32 +145,29 @@
         </div>
         <div class="company-info-card">
             <h3>Phone</h3>
-            <p>011 225 8000</p>
+            <p><?php echo $phone; ?></p>
             <h3>Descripition of Company</h3>
-            <p>Saudi Telecom Company, is a Saudi Arabia-based Digital Company that offers telecommunications services,
-                landline, mobile, Internet services, enterprise digital solutions, entertainment, fintech, and computer
-                networks.</p>
+            <p><?php echo $description; ?></p>
             <h3>Mission</h3>
-            <p>Our mission is to responsibly provide quality products and services through innovation.</p>
+            <p><?php echo $mission; ?></p>
             <h3>Vision</h3>
-            <p>Our vision is to be the preferred world leader in chemicals.</p>
+            <p><?php echo $vision; ?></p>
         </div>
     </main>
-  <!-- Footer -->
-<footer>
-    <div class="footer-content">
-      <p>Contact us</p>
-      <span class="material-icons">facebook</span>
-      <a href="mailto:jobhunter@ksu.com"><span class="material-icons">email</span></a>
-    </div>
-    <div class="shape-footer" style="height: 150px; overflow: hidden">
-      <svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%">
-        <path d="M-15.58,-15.49 C-16.70,110.81 186.45,57.52 502.48,59.50 L500.00,0.00 L0.00,0.00 Z"
-          style="stroke: none; fill: #8cb3f4"></path>
-      </svg>
-    </div>
-  </div>
-</footer>
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>Contact us</p>
+            <span class="material-icons">facebook</span>
+            <a href="mailto:jobhunter@ksu.com"><span class="material-icons">email</span></a>
+        </div>
+        <div class="shape-footer" style="height: 150px; overflow: hidden">
+            <svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%">
+                <path d="M-15.58,-15.49 C-16.70,110.81 186.45,57.52 502.48,59.50 L500.00,0.00 L0.00,0.00 Z" style="stroke: none; fill: #8cb3f4"></path>
+            </svg>
+        </div>
+        </div>
+    </footer>
 </body>
 
 </html>

@@ -441,11 +441,7 @@ transform: translate(-50%,-50%);
   width: 100px;
   height: 25px;
 }
-body {
-height: 100%;
-background: linear-gradient(90deg, #ffffff  20%, #d7eefc 60%);
 
-}
 
 
 
@@ -515,7 +511,13 @@ background: linear-gradient(90deg, #ffffff  20%, #d7eefc 60%);
   top: 17%;
 }
 
- 
+.content {
+  padding-bottom: 2.5rem;    /* Footer height */
+}
+.page{
+  position: relative;
+  min-height: 100vh;
+}
 
 
 

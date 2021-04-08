@@ -28,12 +28,12 @@
             $re_pass = $_POST['re_password'];
             $email = $_POST['email'];
             $address = $_POST['address'];
-            $des = $_POST['des'];
+            $description = $_POST['des'];
             $mission = $_POST['mission'];
             $vision = $_POST['vision'];
 
 
-            $test = "INSERT INTO employer(name, scope, phone, password, email, address, des, mission, vision) VALUES('".$name."', '".$scope."', '".$phone."', '".$password."', '".$email."', '".$address."', '".$des."', '".$mission."', '".$vision."');";
+            $test = "INSERT INTO employer(name, email, password, phone,address, scope, description, mission, vision) VALUES('".$name."','".$email."','".$password."','".$phone."','".$address."', '".$scope."',  '".$description."', '".$mission."', '".$vision."');";
             $res=mysqli_query($database,$test);
             if($res)
                 header("Location: home.html");

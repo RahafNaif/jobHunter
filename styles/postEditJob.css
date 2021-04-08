@@ -33,15 +33,16 @@ form {
   color: #192d50;
   display: block;
   background-color: rgba(234, 243, 250, 0.8);
-  border: 1px solid rgba(234, 243, 250, 0.8);
-  width: 45%;
-  padding: 1.5em;
+  border: 2px solid rgba(234, 243, 250, 0.8);
+  width: 65%;
+  padding: 1.6em;
   text-align: justify;
-
-  padding-left: 1.5em;
-  border-radius: 2.5em;
+  font-size: larger;
+  padding-left: 2em;
+  border-radius: 3em;
   margin-left: auto;
   margin-right: auto;
+  height: fit-content;
 }
 
 fieldset {
@@ -58,17 +59,20 @@ textarea {
   display: block;
   position: relative;
   resize: none;
-  height: 5em;
+  height: fit-content;
   width: 100%;
   resize: none;
 }
 
 fieldset {
   border: none;
+  margin-bottom: .7em;
 }
-
+fieldset label{
+  margin-bottom: .3em;;
+}
 .inputDiv {
-  margin-bottom: 0.65em;
+  margin-bottom: 1.3em;
 }
 
 input[type="text"],
@@ -77,20 +81,21 @@ select,
 input[type="number"],
 option {
   width: 100%;
-  padding: 0.2em;
+  padding: 0.6em;
   border: 0px;
   border-radius: 0.4em;
+  height: fit-content;
 }
 
 label {
   display: block;
-  margin-bottom: 0.25em;
+  margin-bottom: 0.45em;
   font-weight: 500;
 }
 
 label.rLabel {
   display: inline;
-  margin: 0 0.34em;
+  margin: 0 0.64em;
   font-weight: 400;
 }
 
@@ -111,38 +116,41 @@ legend {
   font-weight: 500;
   margin: 0;
   padding: 0;
-  margin-bottom: 0.1em;
+  margin-bottom: 0.2em;
 }
 
 INPUT[TYPE="button"],
 input[type="submit"] {
-  position: relative;
   display: inline;
-  border-radius: 20px;
+  position: relative;
   width: 41%;
+  height: 35px;
   margin-left: 5%;
-  height: 30px;
-  font-size: 12px;
-  color: rgb(234, 243, 250);
-  cursor: pointer;
+  border-radius: 50px;
+  font-size: 15px;
+  color: white;
   border: none;
   outline: none;
+  font-weight: bold;
   background: #fa9746;
+  cursor: pointer;
   overflow: hidden;
 }
 
 input[type="button"]:hover,
 input[type="submit"]:hover {
-  transition: 0.3s ease-in;
+  transition: all 0.3s ease-in-out;
   background: transparent;
-  border: 1px solid rgb(138, 177, 244);
+  border: 3px solid #8cb3f4;
   color: #8cb3f4;
+  transform: scale(1.05);
+  cursor: pointer;
 }
 
 INPUT[TYPE="button"]:focus,
 input[type="submit"]:focus {
   color: #8cb3f4;
-  border: 1px solid #8cb3f4;
+  border: 3px solid #8cb3f4;
   background: rgba(234, 243, 250, 0.8);
 }
 

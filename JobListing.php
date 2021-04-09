@@ -1,10 +1,11 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['email'])) {
-  header("location: login.php");
-  exit();
+if (!isset($_SESSION['email']) || $_SESSION['role'] == 1) { 
+    header("location: LogIn.php");
+    exit();
 }
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -98,29 +99,29 @@ if (!isset($_SESSION['email'])) {
   <main>
     <?php
     if (!($database = mysqli_connect("localhost", "root", "")))
-      die("<p>Could not connect to database</p>");
+        die("<p>Could not connect to database</p>");
 
-    if (!mysqli_select_db($database, "JobHunter"))
-      die("<p>Could not open URL database</p>");
+    if (!mysqli_select_db($database, "jobhunter"))
+        die("<p>Could not open URL database</p>");
 
-    $name  = $_SESSION['name'];
-    $query = "SELECT * FROM job WHERE companyName = " .$name. ";" ; //retreive all jobs for the current employer
+    $email = $_SESSION['email'];
+    $query = "select * from job WHERE employer_email='$email'";
     $result = mysqli_query($database, $query);
 
     if ($result) {
       print '<div class="lists">';
-      while ($data = mysqli_fetch_row($result)) {
+      while ($data = mysqli_fetch_assoc($result)) {
         print '<div class="list">';
         print '<div> <img src="img/company.svg" alt="company default logo" class="defaultCompany" /></div>';
-        print '<div class="jobInfo"> <h2>' . $data[3] . '</h2> <i class="material-icons">location_on</i>';
-        print '<h6 class="location"> ' . $data[1] . '</h6>';
-        print '<i class="material-icons">book</i> <h6 class="major"> ' . $data[2] . '</h6>';
-        print '<p class="jobDescription">' . $data[7] . '</p>';
-        print '<h5>Starting salary <span class="salary">' . $data[12] . '</span></h5> <i class="material-icons">work</i>';
-        print '<h6 class="work">' . $data[4] . '</h6>';
-        print '/div>';
+        print '<div class="jobInfo"> <h2>' . $data['position'] . '</h2> <i class="material-icons">location_on</i>';
+        print '<h6 class="location"> ' . $data['city'] . '</h6>';
+        print '<i class="material-icons">book</i> <h6 class="major"> ' . $data['major'] . '</h6>';
+        print '<p class="jobDescription">' . $data['description'] . '</p>';
+        print '<h5>Starting salary <span class="salary">' . $data['salary'] . '</span></h5> <i class="material-icons">work</i>';
+        print '<h6 class="work">' . $data['jobType'] . '</h6>';
+        print '</div>';
         print '<div class="buttons"> <a href="applicants.html"> <button class="applicants">Applicants</button></a> <a href="EditAJob.html"> <button class="edit">Edit</button></a></div>';
-        print '/div>';
+        print '</div>';
       }
       print '</div>';
     } else

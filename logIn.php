@@ -33,8 +33,8 @@ if (isset($_SESSION['email'])) {
     <header>
         <nav>
             <ul class="navLinks1">
-                <li><a href="home.html">Home</a></li>
-                <li><a href="jobSearch.html">Job</a></li>
+                <li><a href="home.php">Home</a></li>
+                <li><a href="jobSearch.php">Job</a></li>
                 <li><a href="EmployerSearch.html">Employers</a>
 
                 </li>
@@ -60,19 +60,22 @@ if (isset($_SESSION['email'])) {
                                     <option value="1">job seeker</option>
                                 </select> <br> <br>
                                 <label for="first_name">Email</label>
-                                <input type="email" class="form-input" name="email" id="first_name" placeholder="Your email.. " required autofocus />
+                                <input type="email" class="form-input" name="email" id="first_name" placeholder="Your email.. " required autofocus /><br> <br>
                                 <label for="password">Password</label>
-                                <input type="password" class="form-input" name="password" id="password" placeholder="Your password" required />
-                                <h4>Don't have an account yet? <a href="/WhoIsYou.html">Sign Up </a> </h4>
+                                <input type="password" class="form-input" name="password" id="password" placeholder="Your password"  required /> <br> <br>
+                                <h4>Don't have an account yet? <a href="WhoIsYou.html">Sign Up </a> </h4>
                                 <br>
                                 <button name="login" class="applicants">Log in</button>
                             </form>
+                            
                         </div>
                     </div>
                 </div>
             </div>
+            <br> <br>
         </section>
     </main>
+    
 </body>
 
 </html>
@@ -88,8 +91,10 @@ if (isset($_POST['login'])) {
     $tybe = $_POST['tybeuser'];
     $email = $_POST['email'];
     $password = $_POST['password'];
-    if ($_POST['email'] == "" || $_POST['password'] == "")
-        header("Location: login.php?error=Wrong enter email and password");
+    if ( empty( $_POST['email']) || empty($_POST['password'])){
+        header("Location: login.php?error=email and password are required");
+        exit();
+    }
 
     $query;
     if ($tybe == 2)

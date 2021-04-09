@@ -123,8 +123,10 @@ $('.close').click(function(){
         $query = "SELECT * FROM jobseeker_apply_job,jobseeker,job  WHERE email='$email' AND JobSeeker_email=email AND Job_ID=ID ";
          
         $result = mysqli_query($database, $query);
-
+        
         if ($result) {
+            $applay=0;
+            
             while ($data = mysqli_fetch_assoc($result)) {
                 $name = $data['position'];
                 $companyName = $data['companyName'];
@@ -133,7 +135,8 @@ $('.close').click(function(){
                 $description = $data['description'];
                 $salary = $data['salary'];
                 $applay_job=$data['applay_ID'];
-                
+                $applay=1;
+               
                 ?>
        
         <div class="lists">
@@ -204,6 +207,20 @@ $('.close').click(function(){
                     
                 </div>
             </div></a>    
+       <?php }  if($applay ==0) {?>
+        <div class="lists">
+            <!-- Job List -->
+            <br> <br>  
+            <div class="listno">  you don't have any applications job!! </div></div> 
+
+       <?php
+}}
+
+
+else echo "you don't have any applications job!!";
+    
+?>
+
 
         <div id="myModal" class="modal">
 
@@ -250,17 +267,7 @@ $('.close').click(function(){
           
           
     </main> </div> 
-    <?php
-}}  if(!$data){
     
-?>
-
-<div class="lists">
-            <!-- Job List -->
-            <br> <br> <br>
-            <div class="list"> <center> <h1 color="lightgray" > NO Applicant list</h1></center> </div></div> </main>
-
-<?php } ?>
     <!-- Footer -->
     <div class="footer">
         <div class="footer-content">

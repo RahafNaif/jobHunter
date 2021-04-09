@@ -518,7 +518,16 @@ transform: translate(-50%,-50%);
   position: relative;
   min-height: 100vh;
 }
+.listno{
+  width: 1000px;
+  height: 130px;
+  background-color: transparent;
+  color: #aaaaaa;
+  text-align: center;
+  padding: 2.2%;
+  font-size: xx-large;
 
+}
 
 
 

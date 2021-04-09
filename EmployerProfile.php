@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['email'])||$_SESSION['role']==1) {//i edit this one to restrict jobsseker from enter the emplyer page
+if (!isset($_SESSION['email']) || $_SESSION['role'] == 1) { //i edit this one to restrict jobsseker from enter the emplyer page
     header("location: LogIn.php");
     exit();
 }
@@ -92,7 +92,7 @@ if (!isset($_SESSION['email'])||$_SESSION['role']==1) {//i edit this one to rest
                     <ul>
                         <li><a href="EmployerProfile_Eidt.html">Profile</a></li>
                         <li><a href="http:signout.php">logout</a></li>
-                        
+
                     </ul>
                 </li>
             </ul>
@@ -105,9 +105,9 @@ if (!isset($_SESSION['email'])||$_SESSION['role']==1) {//i edit this one to rest
 
         if (!mysqli_select_db($database, "jobhunter"))
             die("<p>Could not open URL database</p>");
+
         $email = $_SESSION['email'];
         $query = "select * from employer WHERE email='$email'";
-
         $result = mysqli_query($database, $query);
 
         if ($result) {
@@ -134,8 +134,6 @@ if (!isset($_SESSION['email'])||$_SESSION['role']==1) {//i edit this one to rest
                 <div class="socials">
                     <br>
                     <a href="mailto: <?php echo $_SESSION['email'] ?>"> <i class="material-icons">email</i> </a>
-                    <i class="fab fa-facebook"></i>
-                    <i class="fab fa-linkedin"></i>
                 </div>
             </div>
             <div class="buttons">

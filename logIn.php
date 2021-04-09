@@ -63,7 +63,7 @@ if (isset($_SESSION['email'])) {
                                 <input type="email" class="form-input" name="email" id="first_name" placeholder="Your email.. " required autofocus /><br> <br>
                                 <label for="password">Password</label>
                                 <input type="password" class="form-input" name="password" id="password" placeholder="Your password"  required /> <br> <br>
-                                <h4>Don't have an account yet? <a href="/WhoIsYou.html">Sign Up </a> </h4>
+                                <h4>Don't have an account yet? <a href="WhoIsYou.html">Sign Up </a> </h4>
                                 <br>
                                 <button name="login" class="applicants">Log in</button>
                             </form>

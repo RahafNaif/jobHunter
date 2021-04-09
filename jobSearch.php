@@ -72,7 +72,7 @@
                     <ul>
                         <li class="post">
                             <div class="post-content">
-                                <a href="JobDetailsJobSeeker.html">
+                                <a class="JobDetails">
                                     <h4  style="font-weight :bolder" >Graphic Designer</h4>
                                     <svg class="location-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="18px" height="18px"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
                                     <span class="icon-side">Riyadh, Saudi Arabia</span><br>
@@ -86,7 +86,7 @@
                         </li>
                         <li class="post">
                             <div class="post-content">
-                                <a href="JobDetailsJobSeeker.html">
+                                <a class="JobDetails">
                                     <h4  style="font-weight :bolder" >Graphic Designer</h4>
                                     <svg class="location-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="18px" height="18px"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
                                     <span class="icon-side">Riyadh, Saudi Arabia</span><br>
@@ -100,7 +100,7 @@
                         </li>
                         <li class="post">
                             <div class="post-content">
-                                <a href="JobDetailsJobSeeker.html">
+                                <a class="JobDetails">
                                     <h4  style="font-weight :bolder" >Graphic Designer</h4>
                                     <svg class="location-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="18px" height="18px"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
                                     <span class="icon-side">Riyadh, Saudi Arabia</span><br>
@@ -114,7 +114,7 @@
                         </li>
                         <li class="post">
                             <div class="post-content">
-                                <a href="JobDetailsJobSeeker.html">
+                                <a class="JobDetails">
                                     <h4  style="font-weight :bolder" >Graphic Designer</h4>
                                     <svg class="location-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="18px" height="18px"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
                                     <span class="icon-side">Riyadh, Saudi Arabia</span><br>
@@ -128,7 +128,7 @@
                         </li>
                         <li class="post">
                             <div class="post-content">
-                                <a href="JobDetailsJobSeeker.html">
+                                <a class="JobDetails">
                                     <h4  style="font-weight :bolder" >Graphic Designer</h4>
                                     <svg class="location-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="18px" height="18px"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
                                     <span class="icon-side">Riyadh, Saudi Arabia</span><br>
@@ -142,7 +142,7 @@
                         </li>
                         <li class="post">
                             <div class="post-content">
-                                <a href="JobDetailsJobSeeker.html">
+                                <a class="JobDetails">
                                     <h4  style="font-weight :bolder" >Graphic Designer</h4>
                                     <svg class="location-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="18px" height="18px"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
                                     <span class="icon-side">Riyadh, Saudi Arabia</span><br>
@@ -171,7 +171,7 @@
             </div>
         </div>
         <?php 
-            include_once 'JobDetailsPopUp.php';
+            include_once './JobDetailsPopUp.php';
         ?>
     </body>
 </html>

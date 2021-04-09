@@ -54,7 +54,7 @@
                                 <h5>About Job :</h5>
                                 <p class="descrption">  We're looking for a very talented Graphic Designer to be part of our Rebel team! </p>
                                 <p class="salary">Salary : from 11,000 SR</p><br>
-                                <a href="JobDetailsJobSeeker.html"><button class="job-content">For more details</button></a>
+                                <a><button class="job-content JobDetails">For more details</button></a>
                             </div>
                         </li>
                         <li class="post">
@@ -67,7 +67,7 @@
                                 <h5>About Job :</h5>
                                 <p class="descrption">  We're looking for a very talented Graphic Designer to be part of our Rebel team! </p>
                                 <p class="salary">Salary : from 11,000 SR</p><br>
-                                <a href="JobDetailsJobSeeker.html"><button class="job-content">For more details</button></a>
+                                <a><button class="job-content JobDetails">For more details</button></a>
                             </div>
                         </li>
                         <li class="post">
@@ -80,7 +80,7 @@
                                 <h5>About Job :</h5>
                                 <p class="descrption">  We're looking for a very talented Graphic Designer to be part of our Rebel team! </p>
                                 <p class="salary">Salary : from 11,000 SR</p><br>
-                                <a href="JobDetailsJobSeeker.html"><button class="job-content">For more details</button></a>
+                                <a><button class="job-content JobDetails">For more details</button></a>
                             </div>
                         </li>
                     </ul>

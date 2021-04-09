@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['email']) {
+if (!isset($_SESSION['email']) ){
     header("location: LogIn.php");
     exit();
 }
@@ -120,25 +120,22 @@ $('.close').click(function(){
         if (!mysqli_select_db($database, "jobhunter"))
             die("<p>Could not open URL database</p>");
         $email = $_SESSION['email'];
-        $query = "select * from employer WHERE email='$email'";
-
+        $query = "SELECT * FROM jobseeker_apply_job,jobseeker,job  WHERE email='$email' AND JobSeeker_email=email AND Job_ID=ID ";
+         
         $result = mysqli_query($database, $query);
 
         if ($result) {
             while ($data = mysqli_fetch_assoc($result)) {
-                $name = $data['name'];
-                $address = $data['address'];
-                $scope = $data['scope'];
-                $phone = $data['phone'];
+                $name = $data['position'];
+                $companyName = $data['companyName'];
+                $city = $data['city'];
+                $tybepart = $data['jobType'];
                 $description = $data['description'];
-                $mission = $data['mission'];
-                $vision = $data['vision'];
-            }
-        } else {
-            echo "There are no info.";
-            exit();
-        }
-        ?>
+                $salary = $data['salary'];
+                $applay_job=$data['applay_ID'];
+                
+                ?>
+       
         <div class="lists">
             <!-- Job List -->
             
@@ -149,7 +146,7 @@ $('.close').click(function(){
                 <!-- job description -->
                 <a href="EmployerProf_edit.html">
                 <div class="jobInfo">
-                    <h2>Hiring Role</h2>
+                    <h2> <?php echo $name;?> </h2>
                     <span>
                         <svg class="locationIcon" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24"
                             height="24" viewBox="0 0 24 24" width="24">
@@ -161,8 +158,8 @@ $('.close').click(function(){
                                     d="M12,2c-4.2,0-8,3.22-8,8.2c0,3.18,2.45,6.92,7.34,11.23c0.38,0.33,0.95,0.33,1.33,0C17.55,17.12,20,13.38,20,10.2 C20,5.22,16.2,2,12,2z M12,12c-1.1,0-2-0.9-2-2c0-1.1,0.9-2,2-2c1.1,0,2,0.9,2,2C14,11.1,13.1,12,12,12z" />
                             </g>
                         </svg>
-                    </span>
-                    <h6 class="location">City, Country</h6>
+                    </span> 
+                    <h6 class="location"><?php echo $city; ?></h6>
                     <span>
                         <svg class="majorIcon" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24"
                             height="24" viewBox="0 0 24 24" width="24">
@@ -175,12 +172,11 @@ $('.close').click(function(){
                             </g>
                         </svg>
                     </span>
-                    <h6 class="major">Required Major, Degree</h6>
+                    <h6 class="major"> <?php echo $companyName; ?> </h6>
                     <p class="jobDescription">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam veritatis saepe
-                        cupiditate sequi beatae voluptate accusamus at. Pariatur, aperiam quaerat.
+                    <?php echo $description; ?>
                     </p>
-                    <h5>Starting salary <span class="salary"> $</span></h5>
+                    <h5>Starting salary <span class="salary"> <?php echo $salary;?> </span></h5>
                     <span class="workIcon"> <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24"
                             viewBox="0 0 24 24" fill="black" width="24px" height="24px">
                             <g>
@@ -195,15 +191,16 @@ $('.close').click(function(){
                                 </g>
                             </g>
                         </svg></span>
-                    <h6 class="work">Part-time/Full-time</h6>
+                    <h6 class="work"> <?php echo $tybepart; ?> </h6>
                 </div> </a>
                 <!-- buttons  -->
                 <div class="buttons">
                     
                         <button  class="applicants" >Select Appointment</button>
                     
-                    
-                        <button class="edit">Cancel</button>
+                    <form  action="Myapplicationlist.php" method="POST">
+                        <input type="hidden" name="applayID" value= <?php echo   $applay_job ; ?>>
+                        <button class="edit" name="cancel">Cancel</button> </form>
                     
                 </div>
             </div></a>    
@@ -252,7 +249,18 @@ $('.close').click(function(){
               </div>
           
           
-    </main> </div>
+    </main> </div> 
+    <?php
+}}  if(!$data){
+    
+?>
+
+<div class="lists">
+            <!-- Job List -->
+            <br> <br> <br>
+            <div class="list"> <center> <h1 color="lightgray" > NO Applicant list</h1></center> </div></div> </main>
+
+<?php } ?>
     <!-- Footer -->
     <div class="footer">
         <div class="footer-content">
@@ -272,3 +280,23 @@ $('.close').click(function(){
 </body>
 
 </html>
+<?php
+if(isset($_POST['cancel'])){
+    $id=$_POST['applayID'];
+    $query = "DELETE FROM jobseeker_apply_job  WHERE applay_ID='$id'";
+         
+    $result = mysqli_query($database, $query);
+if($result){
+    
+
+
+?>
+<script>
+   window.onload = function() {
+	if(!window.location.hash) {
+		window.location = window.location + '#loaded';
+		window.location.reload();
+	}
+}
+</script>
+<?php }} ?>

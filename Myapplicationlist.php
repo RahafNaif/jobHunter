@@ -258,7 +258,7 @@ $('.close').click(function(){
 <div class="lists">
             <!-- Job List -->
             <br> <br> <br>
-            <div class="list"> <center> <h1 color="lightgray" > NO Applicant list</h1></center> </div></div> </main>
+            <div class="list">  <h1 color="lightgray" > NO Applicant list</h1> </div></div> </main>
 
 <?php } ?>
     <!-- Footer -->

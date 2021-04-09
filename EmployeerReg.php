@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="styles\Buttons.css" />
     <link rel="stylesheet" href="styles\NavbarStyles.css" />
     <link rel="stylesheet" href="styles\form.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/EmployeeValidation.js"></script>
 </head>
 
 <body>
@@ -35,8 +37,9 @@
 
             $test = "INSERT INTO employer(name, email, password, phone,address, scope, description, mission, vision) VALUES('".$name."','".$email."','".$password."','".$phone."','".$address."', '".$scope."',  '".$description."', '".$mission."', '".$vision."');";
             $res=mysqli_query($database,$test);
-            if($res)
+            if($res){
                 header("Location: home.html");
+            }
             
         }
     ?>
@@ -64,35 +67,60 @@
                     <img class="regimg" src="img/6671.jpg" alt="v">
                     <div class="jobInfo">
                         <h2 id=employerReg>Employer Regstration </h2>
-                        <form method="post" action="EmployeerReg.php">
-                            <label for="first_name">Company's name</label>
-                            <input type="text" class="form-input" name="name" id="fCOMPANY'S NAME" placeholder="Company's name.. "/>
-                            <label for="first_name">Company's scope</label>
-                            <input type="text" class="form-input" name="scope" id="fCOMPANY'S NAME" placeholder="Company's name.. "/>
-                            <label for="phone">Phone number</label>
-                            <input type="text" class="form-input" name="phone" id="phone"
-                                placeholder="Your phone number"/>
-                            <label for="password">Password</label>
-                            <input type="password" class="form-input" name="password" id="password"
-                                placeholder="Your password"/>
-                            <label for="re_password">Repeat your password</label>
-                            <input type="password" class="form-input" name="re_password" id="re_password"
-                                placeholder="Repeat your password"/>
-                            <label for="last_name">Email</label>
-                            <input type="email" class="form-input" name="email" id="last_name"
-                                placeholder="Your email..."/>
-                            <label for="last_name">Address</label>
-                            <input type="text" class="form-input" name="address" id="last_name"
-                                placeholder="Your headquarter's address"/>
-                            <label for="last_name">Description of Company</label>
-                            <textarea  style="resize: none; " rows="4" cols="53" placeholder="Enter a brief description.." name="des"></textarea>
-                            <label for="last_name">Mission</label>
-                            <input type="text" class="form-input" name="mission" id="last_name"
-                                placeholder="List your company's mission.."/>
-                            <label for="last_name">Vision</label>
-                            <input type="text" class="form-input" name="vision" id="last_name"
-                                placeholder="List your company's vision.."/>
-                            <input type="submit" class="applicants" name="create">
+                        <div class="alert" hidden> Error , Full out all the fiels correctly</div>
+
+                        <form method="post" action="EmployeerReg.php" id="form">
+                            <div class="form-control">
+                                <label for="first_name">Company's name</label>
+                                <input type="text" class="form-input" name="name" id="name" placeholder="Company's name.. "/>
+                                <small id="name_error">Error message</small>
+                            </div>
+                            <div class="form-control">
+                                <label for="first_name">Company's scope</label>
+                                <input type="text" class="form-input" name="scope" id="scope" placeholder="Company's name.. "/>
+                                <small id="scope_error">Error message</small>
+                            </div>
+                            <div class="form-control">
+                                <label for="phone">Phone number</label>
+                                <input type="text" class="form-input" name="phone" id="phone" placeholder="Your phone number"/>
+                                <small id="phone_error">Error message</small>
+                            </div>
+                            <div class="form-control">
+                                <label for="password">Password</label>
+                                <input type="password" class="form-input" name="password" id="password" placeholder="Your password"/>
+                                <small id="password_error">Error message</small>
+                            </div>
+                            <div class="form-control">
+                                <label for="re_password">Repeat your password</label>
+                                <input type="password" class="form-input" name="re_password" id="re_password" placeholder="Repeat your password"/>
+                                <small id="re_password_error">Error message</small>
+                            </div>
+                            <div class="form-control">
+                                <label for="email">Email</label>
+                                <input type="email" class="form-input" name="email" id="email" placeholder="Your email..."/>
+                                <small id="email_error">Error message</small>
+                            </div>
+                            <div class="form-control">
+                                <label for="address">Address</label>
+                                <input type="text" class="form-input" name="address" id="address" placeholder="Your headquarter's address"/>
+                                <small id="address_error">Error message</small>
+                            </div>
+                            <div class="form-control">
+                                <label for="des">Description of Company</label>
+                                <textarea  style="resize: none; " rows="4" cols="53" placeholder="Enter a brief description.." name="des" id="des"></textarea>
+                                <small id="des_error">Error message</small>
+                            </div>
+                            <div class="form-control">
+                                <label for="mission">Mission</label>
+                                <input type="text" class="form-input" name="mission" id="mission" placeholder="List your company's mission.."/>
+                                <small id="mission_error">Error message</small>
+                            </div>
+                            <div class="form-control">
+                                <label for="vision">Vision</label>
+                                <input type="text" class="form-input" name="vision" id="vision" placeholder="List your company's vision.."/>
+                                <small id="vision_error">Error message</small>
+                            </div>
+                            <input type="submit" class="applicants" name="create" id="submit">
                         </form>
                         <!-- <div class="buttons">
                             <a href="EmployerProfile_Eidt.html">

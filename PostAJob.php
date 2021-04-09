@@ -133,6 +133,9 @@ if (!isset($_SESSION['email']) || $_SESSION['role'] == 1) {
           if ( !mysqli_select_db( $database,  $dbname) )
              die( "<p>Could not open URL database</p>" );
   // Company name insert????? session
+  //$companName= "SELECT 	name FROM employer where email=$_SESSION['email'];";
+
+  
   //  `jobType`,`companyName`,
   // 
 

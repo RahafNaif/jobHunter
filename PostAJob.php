@@ -164,7 +164,8 @@ if (!isset($_SESSION['email']) || $_SESSION['role'] == 1) {
   
     }
 
-
+    header("location: JobListing.php");
+    exit();
  }
 
 

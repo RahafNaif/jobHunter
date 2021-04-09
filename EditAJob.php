@@ -28,6 +28,36 @@ if (!isset($_SESSION['email']) || $_SESSION['role'] == 1) {
   </head>
 
   <body>
+    <?php
+    $jobId=$_GET['ID'];
+
+    if (!($database = mysqli_connect("localhost", "root", "")))
+        die("<p>Could not connect to database</p>");
+
+    if (!mysqli_select_db($database, "jobhunter"))
+        die("<p>Could not open URL database</p>");
+
+    
+    $query = "select * from job WHERE ID='$jobId'";
+    $result = mysqli_query($database, $query);
+
+    if ($result) {
+      while ($data = mysqli_fetch_assoc($result)) {
+      //$jobTitle=$data[];
+      $major=$data [`major`];
+      $position=$data [`position`];
+      $jobDescription=$data [`description`];
+      $requiredSkills=$data [`skills`];
+      $requiredQ=$data [`qualifications`];
+      $location=$data [`city`];
+      $jobType=$data [`jobType`];
+      $gender=$data [`gender`];
+      $salaryInput=$data [`salary`];
+
+    }
+    }
+    
+    ?>
     <!-- popup for notifications -->
     <div class="popup" id="popup">
       <div class="popup-inner">
@@ -110,114 +140,146 @@ if (!isset($_SESSION['email']) || $_SESSION['role'] == 1) {
       </nav>
     </header>
 
-    <form action="" method="POST">
+    <form action="EditAJob.php" method="POST">
       <fieldset>
         <legend class="postLegend">Edit A Job</legend>
-
+<!-- 
         <div class="inputDiv">
           <label class="theTitle" for="jobTitle"> Job Title </label>
-          <input id="jobTitle" type="text" value="Software Engineer" />
+          <input id="jobTitle" type="text" value="<?php echo ;?>" />
+        </div> -->
+        <div class="inputDiv">
+          <label for="position">Job Position</label>
+          <input id="position" type="text" value="<?php echo $position;?>" />
         </div>
 
         <div class="inputDiv">
           <label for="major"> Major </label>
           <select id="major">
-            <option>Select a major</option>
-            <option>Accounting & Finance</option>
-            <option>Agriculture & Forestry</option>
-            <option>Archaeology</option>
-            <option>Architecture</option>
-            <option>Art</option>
-            <option>Biological Sciences</option>
-            <option>Business & Management</option>
-            <option>Chemical Engineering</option>
-            <option>Chemistry</option>
-            <option>Civil Engineering</option>
-            <option>Communication & Media Studies</option>
-            <option selected>Computer Science</option>
-            <option>Economics & Econometrics</option>
-            <option>Education</option>
-            <option>Electrical & Electronic Engineering</option>
-            <option>General Engineering</option>
-            <option>Geography</option>
-            <option>Geology, Environmental, Earth & Marine Sciences</option>
-            <option>Law</option>
-            <option>Mathematics & Statistics</option>
-            <option>Mechanical & Aerospace Engineering</option>
-            <option>Medicine & Dentistry</option>
-            <option>Other</option>
+            <script>
+              $("#major").val("<?php echo $major?>");
+            </script>
+            <option value="Select a major" selected>Select a major</option>
+            <option value="Accounting & Finance">Accounting & Finance</option>
+            <option value="Agriculture & Forestry">Agriculture & Forestry</option>
+            <option value="Archaeology">Archaeology</option>
+            <option value="Architecture">Architecture</option>
+            <option value="Art">Art</option>
+            <option value="Biological Sciences">Biological Sciences</option>
+            <option value="Business & Management">Business & Management</option>
+            <option value="Chemical Engineering">Chemical Engineering</option>
+            <option value="Chemistry">Chemistry</option>
+            <option value="Civil Engineering">Civil Engineering</option>
+            <option value="Communication & Media Studies">Communication & Media Studies</option>
+            <option value="Computer Science">Computer Science</option>
+            <option value="Economics & Econometrics">Economics & Econometrics</option>
+            <option value="Education">Education</option>
+            <option value="Electrical & Electronic Engineering">Electrical & Electronic Engineering</option>
+            <option value="General Engineering">General Engineering</option>
+            <option value="Geography">Geography</option>
+            <option value="Geology, Environmental, Earth & Marine Sciences">Geology, Environmental, Earth & Marine Sciences</option>
+            <option value="Law">Law</option>
+            <option value="Mathematics & Statistics">Mathematics & Statistics</option>
+            <option value="Mechanical & Aerospace Engineering">Mechanical & Aerospace Engineering</option>
+            <option value="Medicine & Dentistry">Medicine & Dentistry</option>
+            <option value="Other">Other</option>
           </select>
+          <!--https://stackoverflow.com/questions/8763869/append-input-text-field-with-value-of-a-div  -->
+          <script>
+            if( $("#major").val()==="Other"){
+              $("#major").append(
+                $('<input>', {
+                  type: 'text',
+                  val:  <?php echo $major;?>
+                 }
+                )
+              )
+            }
+          </script>
+
         </div>
 
-        <div class="inputDiv">
-          <label for="position"> Position</label>
-          <input id="position" type="text" value="Software Engineer" />
-        </div>
+
+
+      
+      
+      
+      
 
         <div class="inputDiv">
           <label for="jobDescription"> Job Description</label>
-          <textarea id="jobDescription" style="resize: none">
-A great Software Engineer</textarea
-          >
+          <textarea id="jobDescription" style="resize: none"><?php echo $jobDescription;?></textarea>
         </div>
 
         <div class="inputDiv">
           <label for="requiredSkills"> Required Skills</label>
-          <textarea id="requiredSkills" style="resize: none">
-solving problems skills</textarea
-          >
+          <textarea id="requiredSkills" style="resize: none"><?php echo $requiredSkills;?></textarea>
         </div>
 
         <div class="inputDiv">
           <label for="requiredQ"> Rrequired Qualifications</label>
-          <textarea id="requiredQ" style="resize: none">
-Bachelor of computer science</textarea
-          >
+          <textarea id="requiredQ" style="resize: none"><?php echo $requiredQ;?></textarea>
         </div>
 
         <div class="inputDiv">
           <label for="location"> Location</label>
-          <input id="location" type="text" value="Riyadh" />
+          <input id="location" type="text" value=<?php echo $location;?> />
         </div>
 
         <fieldset>
           <legend class="notFormHeader">Job Type</legend>
-
+          <script>
+            if(<?php echo $jobType;?> ==="FullTime"){
+              $('#FullTime').attr('checked', 'checked');
+            }
+            else{
+              $('#partTime').attr('checked', 'checked');
+            }
+            
+          </script>
           <label class="rLabel">
-            <input type="radio" name="jobType" checked="checked" />
+            <input type="radio" name="jobType" id="FullTime" value="FullTime" />
             Full-time
           </label>
 
           <label class="rLabel">
-            <input type="radio" name="jobType" />
+            <input type="radio" name="jobType" id="partTime"  value="partTime" />
             Part-time
           </label>
         </fieldset>
 
         <fieldset>
-          <legend>Gender</legend>
+        <legend>Gender</legend>
+        <script>
+            if(<?php echo $gender;?> ==="Female"){
+              $('#Female').attr('checked', 'checked');
+            }
+            else{
+              $('#Male').attr('checked', 'checked');
+            }
+            
+          </script>
+<label class="rLabel">
+  <input type="radio" name="gender" value="Female" id="Female" checked="checked" />
+  Female
+</label>
 
-          <label class="rLabel">
-            <input type="radio" name="gender" checked="checked" />
-            Female
-          </label>
-
-          <label class="rLabel" id="Male">
-            <input type="radio" name="gender" />
-            Male
-          </label>
+<label class="rLabel" id="Male">
+  <input type="radio" name="gender" id="Male" value="Male"/>
+  Male
+</label>
         </fieldset>
 
         <div class="inputDiv">
           <label for="salaryInput" id="SalaryL"> Salary Starts From </label>
-          <input type="number" min="0" id="salaryInput" value="14000" />
+          <input type="number" min="0" id="salaryInput" value=<?php echo $salaryInput;?> />
           <!--https://stackoverflow.com/questions/7372067/is-there-any-way-to-prevent-input-type-number-getting-negative-values -->
         </div>
 
         <a href="/JobListing.html" style="text-decoration: none"
           ><input type="button" value="Delete"
         /></a>
-        <a href="/JobListing.html"><input type="button" value="Save" /></a>
+        <a href="/JobListing.html"><input type="submit" value="Save" /></a>
       </fieldset>
     </form>
 

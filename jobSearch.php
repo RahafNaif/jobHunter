@@ -8,6 +8,7 @@
         <link rel="icon" href="img/icon.png">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <script src="js/Jquery.js"></script>
+        <script src="js/SearchBar.js"></script>
 
         <title>Job Hunter</title>
     </head>
@@ -26,10 +27,10 @@
                         <img src="img/logo.png">
                     </div>
                     <div class="navbar-items">
-                        <a href="home.html" class="navbar-item">Home</a>
-                        <a href="jobSearch.html" class="navbar-item">Jobs</a>
-                        <a href="EmployerSearch.html" class="navbar-item">Employers</a>
-                        <a href="LogIn.html" class="navbar-item-span">Log in</a>
+                        <a href="home.php" class="navbar-item">Home</a>
+                        <a href="jobSearch.php" class="navbar-item">Jobs</a>
+                        <a href="EmployerSearch.php" class="navbar-item">Employers</a>
+                        <a href="logIn.php" class="navbar-item-span">Log in</a>
                     </div>
                 </nav>
                 
@@ -68,16 +69,50 @@
                 </div>
             </div>
             <div class="jobs">
+
+            <?php
+                if (!($database = mysqli_connect("localhost", "root", "")))
+                    die("<p>Could not connect to database</p>");
+
+                if (!mysqli_select_db($database, "JobHunter"))
+                    die("<p>Could not open URL database</p>");
+
+                $query = "select city, position, jobType, description from job";
+                $result = mysqli_query($database, $query);
+
+                if ($result) {
+                    while ($data = mysqli_fetch_assoc($result)) {
+                        $position = $data['position'];
+                        $city = $data['city'];
+                        $jobType = $data['jobType'];
+                        $description = $data['description'];
+                    }
+                } else {
+                    echo "There are no jobs";
+                    exit();
+                }
+            ?>
+
                 <div class="job-posts">
                     <ul>
-                        <li class="post">
+                    <li class="post">
+                            <div class="post-content">
+                                <a class="JobDetails">
+                                    <h4  style="font-weight :bolder" ><?php echo $position; ?></h4>
+                                    <svg class="location-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="18px" height="18px"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                                    <span class="icon-side"><?php echo $city; ?></span><br>
+                                    <h5>About Job :</h5>
+                                    <p class="descrption"><?php echo $description; ?></p>
+                                    <p class="time"><span class="material-icons">work</span><?php echo $jobType; ?></p><br>
+                                </a>
+                            </div>
+                        </li>
+                        <!-- <li class="post">
                             <div class="post-content">
                                 <a class="JobDetails">
                                     <h4  style="font-weight :bolder" >Graphic Designer</h4>
                                     <svg class="location-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="18px" height="18px"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
                                     <span class="icon-side">Riyadh, Saudi Arabia</span><br>
-                                    <!-- <svg class="major-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="18px" height="18px"><path d="M0 0h24v24H0z" fill="none"/><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg>
-                                    <span>Software Engineering</span> -->
                                     <h5>About Job :</h5>
                                     <p class="descrption">  We're looking for a very talented Graphic Designer to be part of our Rebel team! </p>
                                     <p class="time"><span class="material-icons">work</span>Full time</p><br>
@@ -90,8 +125,6 @@
                                     <h4  style="font-weight :bolder" >Graphic Designer</h4>
                                     <svg class="location-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="18px" height="18px"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
                                     <span class="icon-side">Riyadh, Saudi Arabia</span><br>
-                                    <!-- <svg class="major-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="18px" height="18px"><path d="M0 0h24v24H0z" fill="none"/><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg>
-                                    <span>Software Engineering</span> -->
                                     <h5>About Job :</h5>
                                     <p class="descrption">  We're looking for a very talented Graphic Designer to be part of our Rebel team! </p>
                                     <p class="time"><span class="material-icons">work</span>Full time</p><br>
@@ -104,8 +137,6 @@
                                     <h4  style="font-weight :bolder" >Graphic Designer</h4>
                                     <svg class="location-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="18px" height="18px"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
                                     <span class="icon-side">Riyadh, Saudi Arabia</span><br>
-                                    <!-- <svg class="major-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="18px" height="18px"><path d="M0 0h24v24H0z" fill="none"/><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg>
-                                    <span>Software Engineering</span> -->
                                     <h5>About Job :</h5>
                                     <p class="descrption">  We're looking for a very talented Graphic Designer to be part of our Rebel team! </p>
                                     <p class="time"><span class="material-icons">work</span>Full time</p><br>
@@ -118,8 +149,6 @@
                                     <h4  style="font-weight :bolder" >Graphic Designer</h4>
                                     <svg class="location-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="18px" height="18px"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
                                     <span class="icon-side">Riyadh, Saudi Arabia</span><br>
-                                    <!-- <svg class="major-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="18px" height="18px"><path d="M0 0h24v24H0z" fill="none"/><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg>
-                                    <span>Software Engineering</span> -->
                                     <h5>About Job :</h5>
                                     <p class="descrption">  We're looking for a very talented Graphic Designer to be part of our Rebel team! </p>
                                     <p class="time"><span class="material-icons">work</span>Full time</p><br>
@@ -132,8 +161,6 @@
                                     <h4  style="font-weight :bolder" >Graphic Designer</h4>
                                     <svg class="location-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="18px" height="18px"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
                                     <span class="icon-side">Riyadh, Saudi Arabia</span><br>
-                                    <!-- <svg class="major-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="18px" height="18px"><path d="M0 0h24v24H0z" fill="none"/><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg>
-                                    <span>Software Engineering</span> -->
                                     <h5>About Job :</h5>
                                     <p class="descrption">  We're looking for a very talented Graphic Designer to be part of our Rebel team! </p>
                                     <p class="time"><span class="material-icons">work</span>Full time</p><br>
@@ -146,14 +173,12 @@
                                     <h4  style="font-weight :bolder" >Graphic Designer</h4>
                                     <svg class="location-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="18px" height="18px"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
                                     <span class="icon-side">Riyadh, Saudi Arabia</span><br>
-                                    <!-- <svg class="major-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="18px" height="18px"><path d="M0 0h24v24H0z" fill="none"/><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg>
-                                    <span>Software Engineering</span> -->
                                     <h5>About Job :</h5>
                                     <p class="descrption">  We're looking for a very talented Graphic Designer to be part of our Rebel team! </p>
                                     <p class="time"><span class="material-icons">work</span>Full time</p><br>
                                 </a>
                             </div>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
             </div>
@@ -171,7 +196,7 @@
             </div>
         </div>
         <?php 
-            include_once './JobDetailsPopUp.php';
+            include_once 'JobDetailsPopUp.php';
         ?>
     </body>
 </html>

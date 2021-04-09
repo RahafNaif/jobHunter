@@ -1,9 +1,9 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['email']) || $_SESSION['role'] == 1) { 
-    header("location: LogIn.php");
-    exit();
+if (!isset($_SESSION['email']) || $_SESSION['role'] == 1) {
+  header("location: LogIn.php");
+  exit();
 }
 
 ?>
@@ -99,10 +99,10 @@ if (!isset($_SESSION['email']) || $_SESSION['role'] == 1) {
   <main>
     <?php
     if (!($database = mysqli_connect("localhost", "root", "")))
-        die("<p>Could not connect to database</p>");
+      die("<p>Could not connect to database</p>");
 
     if (!mysqli_select_db($database, "jobhunter"))
-        die("<p>Could not open URL database</p>");
+      die("<p>Could not open URL database</p>");
 
     $email = $_SESSION['email'];
     $query = "select * from job WHERE employer_email='$email'";
@@ -120,42 +120,16 @@ if (!isset($_SESSION['email']) || $_SESSION['role'] == 1) {
         print '<h5>Starting salary <span class="salary">' . $data['salary'] . '</span></h5> <i class="material-icons">work</i>';
         print '<h6 class="work">' . $data['jobType'] . '</h6>';
         print '</div>';
-        print '<div class="buttons"> <a href="applicants.html"> <button class="applicants">Applicants</button></a> <a href="EditAJob.html"> <button class="edit">Edit</button></a></div>';
+        print '<div class="buttons"> <a href="applicants.php"> <button class="applicants">Applicants</button></a> <a href="EditAJob.html"> <button class="edit">Edit</button></a></div>';
         print '</div>';
       }
+      if (!$data)
+        echo '<div class="lists"><h2>There are no listed jobs.</h2></div>';
       print '</div>';
     } else
-      echo "There are no listed jobs.";
+      echo '<div class="lists"><h2>There are no listed jobs.</h2></div>';
     ?>
   </main>
-  <!--
-  <main>
-    <div class="lists">
-      <div class="list">
-        <div> <img src="img/company.svg" alt="company default logo" class="defaultCompany" /></div>
-        <div class="jobInfo">
-          <h2>Hiring Role</h2>
-          <i class="material-icons">location_on</i>
-          <h6 class="location">City, Country</h6>
-          <i class="material-icons">book</i>
-          <h6 class="major">Required Major, Degree</h6>
-          <p class="jobDescription">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam
-            veritatis saepe cupiditate sequi beatae voluptate accusamus at.
-            Pariatur, aperiam quaerat.
-          </p>
-          <h5>Starting salary <span class="salary"> $</span></h5>
-          <i class="material-icons">work</i>
-          <h6 class="work">Part-time/Full-time</h6>
-        </div>
-        <div class="buttons">
-          <a href="applicants.html"> <button class="applicants">Applicants</button></a>
-          <a href="EditAJob.html"> <button class="edit">Edit</button></a>
-        </div>
-      </div>
-    </div>
-  </main>
--->
   <!-- Footer -->
   <div class="footer">
     <div class="footer-content">

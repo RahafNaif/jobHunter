@@ -77,7 +77,7 @@ if (!isset($_SESSION['email']) || $_SESSION['role'] == 1) { //i edit this one to
                     <a href="#">My Jobs</a>
                     <ul>
                         <li><a href="JobListing.php">All Jobs</a></li>
-                        <li><a href="PostAJob.html.html">Post a Job</a></li>
+                        <li><a href="PostAJob.php">Post a Job</a></li>
                     </ul>
                 </li>
 

@@ -1,7 +1,12 @@
 ﻿<?php
 session_start();
-?>
 
+if (!isset($_SESSION['email']) || $_SESSION['role'] == 1) { 
+    header("location: LogIn.php");
+    exit();
+}
+
+?>
 <!DOCTYPE html>
 
 <html lang="en">
@@ -29,7 +34,6 @@ session_start();
 <!-- trying -->
 <!-- trying -->
 <?php
-  $jobTitle = isset($_POST['jobTitle'])  ? $_POST['jobTitle'] : "";
   $major= isset($_POST['major'])? $_POST['major']:"";
   $position= isset($_POST['position'])? $_POST['position']:"";
   $jobDescription= isset($_POST['jobDescription'])? $_POST['jobDescription']:"";
@@ -44,113 +48,125 @@ session_start();
   //s
   $iserror=false;
   $formerrors =
-  array("jobTitleError"=> false, "majorError"=> false, "positionError"=> false, 
+  array( "majorError"=> false, "positionError"=> false, 
   "jobDescriptionError"=> false, "requiredSkillsError"=> false, 
   "requiredQualificationsError"=> false, "locationError"=> false, "jobTypeError"=> false,
   "genderError"=> false,   "salaryError"=> false);
   //s
 
   //ss
-if(isset($_POST['submit'])){
+  if(isset($_POST['postJob'])) {
 
-  if(isset($_POST['jobTitle'])){
-    if($jobTitle==""){
-      $formerrors["jobTitleError"]=true;
+
+    if(isset($_POST['major'])){
+      if($major=="Select a major" ){
+        $formerrors["majorError"]=true;
+        $iserror =true;
+      }}
+  
+  
+    if(isset($_POST['position'])){
+    if($position==""){
+      $formerrors["positionError"]=true;
       $iserror =true;
     }
-  }
+    }
+  
+    if(isset($_POST['jobDescription'])){
+      if($jobDescription==""){
+        $formerrors["jobDescriptionError"]=true;
+        $iserror =true;
+      }
+  
+    }
+  
+    if(isset($_POST['requiredSkills'])){
+      if($requiredSkills==""){
+        $formerrors["requiredSkillsError"]=true;
+        $iserror =true;
+      }
+    }
+  
+    if(isset($_POST['requiredQualifications'])){
+      if($requiredQualifications==""){
+        $formerrors["requiredQualificationsError"]=true;
+        $iserror =true;
+      }
+    }
+  
+    if(isset($_POST['jobType'])){
+      if($jobType==""){
+        $formerrors["jobTypeError"]=true;
+        $iserror =true;
+      }
+    }
+  
+    if(isset($_POST['gender'])){
+      if($gender==""){
+        $formerrors["genderError"]=true;
+        $iserror =true;
+      }
+    }
+  
+    if(isset($_POST['salary'])){
+      if($salary==""){
+        $formerrors["salaryError"]=true;
+        $iserror =true;
+      }
+    }
+    //end checking errors
+  
+    //if its correct inert it 
+  
+  
+  
+  
+    if(!$iserror){
+      $servername = "localhost";
+      $username = "root";
+      $password="";
+      $dbname = "jobHunter";
+          if ($_SERVER["REQUEST_METHOD"] == "POST") {
+          if ( !( $database = mysqli_connect(  $servername, $username, $password,  $dbname) ) )
+             die( "<p>Could not connect to database</p>" );
+  
+          if ( !mysqli_select_db( $database,  $dbname) )
+             die( "<p>Could not open URL database</p>" );
+  // Company name insert????? session
+  //  `jobType`,`companyName`,
+  // 
 
+  // If we strip tags
 
-  if(isset($_POST['major'])){
-    if($major=="Select a major" ){
-      $formerrors["majorError"]=true;
-      $iserror =true;
-    }}
-
-
-  if(isset($_POST['position'])){
-  if($position==""){
-    $formerrors["positionError"]=true;
-    $iserror =true;
-  }
-  }
-
-  if(isset($_POST['jobDescription'])){
-    if($jobDescription==""){
-      $formerrors["jobDescriptionError"]=true;
-      $iserror =true;
+  // $major=  $_POST['major'];
+  // $position= $_POST['position'];
+  // $jobDescription=  $_POST['jobDescription'];
+  // $requiredSkills=  $_POST['requiredSkills'];
+  // $requiredQualifications=  $_POST['requiredQualifications'];
+  // $location= $_POST['location'];
+  // $jobType= $_POST['jobType'];
+  // $gender= $_POST['gender'];
+  // $salary=$_POST['salary'];
+          $query="INSERT INTO `job`(`city`, `major`, `position`, `jobType`,
+           `description`, 
+          `skills`, `qualifications`, `gender`, `salary`) VALUES 
+          (' $location','$major','$position','$jobType',
+          '$jobDescription','$requiredSkills', '$requiredQualifications',
+          '$gender','$salary')";
+          $result=mysqli_query($database, $query);
+  
+          if($result)
+              header("location: jobLisiting.php");
+  
+          else
+              echo "An error occured while inserting into the job table.";
+      }
+  
+      header("location: JobListing.php");
+      exit();
     }
 
-  }
-
-  if(isset($_POST['requiredSkills'])){
-    if($requiredSkills==""){
-      $formerrors["requiredSkillsError"]=true;
-      $iserror =true;
-    }
-  }
-
-  if(isset($_POST['requiredQualifications'])){
-    if($requiredQualifications==""){
-      $formerrors["requiredQualificationsError"]=true;
-      $iserror =true;
-    }
-  }
-
-  if(isset($_POST['jobType'])){
-    if($jobType==""){
-      $formerrors["jobTypeError"]=true;
-      $iserror =true;
-    }
-  }
-
-  if(isset($_POST['gender'])){
-    if($gender==""){
-      $formerrors["genderError"]=true;
-      $iserror =true;
-    }
-  }
-
-  if(isset($_POST['salary'])){
-    if($salary==""){
-      $formerrors["salaryError"]=true;
-      $iserror =true;
-    }
-  }
-  //end checking errors
-
-  //if its correct inert it 
-
-
-
-
-  if(!$iserror){
-    $query = "INSERT INTO `job`(`city`, `major`, `position`, `jobType`,
-     `title`, `description`, `skills`, `qualifications`, `gender`, 
-    `salary`) VALUES ('$location','$major',' $position','$jobType',
-    ','$jobTitle','$jobDescription','$requiredSkills',
-    '$requiredQualifications','$gender','$salary')";
-
-
-if (!( $database = mysqli_connect( "localhost", "root", "" )))
-
-die("<p>Could not connect to database</p>");
-
-if(!mysqli_select_db("jobHunter", $database))
-    die("<p>Could not open JobHunter database</p>");
-
-    if(!($result = mysqli_query($query,$database))){
-    print("<p>Could not execute query!</p>");
-      die(mysqli_error());
-  }
-  mysqli_close($database);
-
-  }
-  //inserted
-  header("Location: http://localhost/jobHunter/JobListing.html");
-  exit();
-}
-
+ }
 
 
   ?>
@@ -243,28 +259,29 @@ if(!mysqli_select_db("jobHunter", $database))
       </nav>
     </header>
 
-    <form action="PostAJob.php" method="POST">
+    <form action="PostAJob.php" method="post">
       <fieldset>
         <legend class="postLegend">Post A Job</legend>
 
         <div class="inputDiv">
-          <label class="theTitle" for="jobTitle"> Job Title </label>
+          <label for="position">Job Position</label>
           <input
-          required
-            id="jobTitle"
-            name="jobTitle"
+          autofocus 
+            required
+            id= "position"
+            name="position"
             type="text"
-            placeholder="Add a short, descriptive job title"
-            autofocus
+            placeholder="e.g. Software Engineer, Sales Manager"
           />
-          <?php 
- 
 
-            if(isset($_POST['jobTitle']))
-            if(empty($_POST["jobTitle"])){
-              echo "job Title is required";
-            }  
-          ?>
+                                    <?php 
+                          
+
+                          if(isset($_POST['position']))
+                          if(empty($_POST["position"])){
+                            echo "position is required";
+                          }  
+                          ?>
         </div>
 
         <div class="inputDiv" id="majorDiv">
@@ -310,7 +327,7 @@ if(!mysqli_select_db("jobHunter", $database))
             <option value="Other">Other</option>
           </select>
           <input
-          required
+          
             type="text"
             id="OtherMajor"
             name="OtherMajor"
@@ -347,25 +364,7 @@ if(!mysqli_select_db("jobHunter", $database))
                       ?>
         </div>
 
-        <div class="inputDiv">
-          <label for="position"> Position</label>
-          <input
-            required
-            id=          "position"
-            name="position"
-            type="text"
-            placeholder="e.g. Software Engineer, Sales Manager"
-          />
 
-                                    <?php 
-                          
-
-                          if(isset($_POST['position']))
-                          if(empty($_POST["position"])){
-                            echo "position is required";
-                          }  
-                          ?>
-        </div>
 
         <div class="inputDiv">
           <label for="jobDescription"> Job Description</label>
@@ -446,12 +445,12 @@ if(!mysqli_select_db("jobHunter", $database))
           <legend class="notFormHeader">Job Type</legend>
 
           <label class="rLabel">
-            <input type="radio" name="jobType" checked="checked" />
+            <input type="radio" name="jobType" checked="checked" value="FullTime" />
             Full-time
           </label>
 
           <label class="rLabel">
-            <input type="radio" name="jobType" />
+            <input type="radio" name="jobType" value="partTime" />
             Part-time
           </label>
 
@@ -469,12 +468,12 @@ if(!mysqli_select_db("jobHunter", $database))
           <legend>Gender</legend>
 
           <label class="rLabel">
-            <input type="radio" name="gender" checked="checked" />
+            <input type="radio" name="gender" value="Female" checked="checked" />
             Female
           </label>
 
           <label class="rLabel" id="Male">
-            <input type="radio" name="gender" />
+            <input type="radio" name="gender" value="Male"/>
             Male
           </label>
                               <?php
@@ -509,7 +508,7 @@ if(!mysqli_select_db("jobHunter", $database))
         <input type="button" value="Cancel" name="cancel"
         />
         
-        <input type="submit" value="Post" id="postBtn" 
+        <input type="submit" value="Post" id="postBtn" name='postJob'
         />
       </fieldset>
     </form>

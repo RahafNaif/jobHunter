@@ -251,7 +251,7 @@ $('.close').click(function(){
           
     </main> </div> 
     <?php
-}}  if(!$data){
+}} else if(!$data){
     
 ?>
 

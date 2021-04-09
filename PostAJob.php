@@ -162,10 +162,10 @@ if (!isset($_SESSION['email']) || $_SESSION['role'] == 1) {
               echo "An error occured while inserting into the job table.";
       }
   
+      header("location: JobListing.php");
+      exit();
     }
 
-    header("location: JobListing.php");
-    exit();
  }
 
 

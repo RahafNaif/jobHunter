@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="styles\Buttons.css" />
     <link rel="stylesheet" href="styles\NavbarStyles.css" />
     <link rel="stylesheet" href="styles\form.css" />
+    <script src="js/jobseekerValdition.js"></script>
 </head>
 
 <body>
@@ -37,24 +38,26 @@
                     <img class="regimg" src="img/5236.jpg" alt="v">
                     <div class="jobInfo">
                         <h2 id="employerReg">Job Seeker Regestration </h2>
-                        <form>
+                        <?php require_once 'processTest.php';?>
+                        <form action="processTest.php" method="POST">
                             <label for="first_name">First name</label>
-                            <input type="text" class="form-input" name="first_name" id="first_name"
+                            <input type="text" class="form-input" name="firstName" id="first_name"
                                 placeholder="Your first name.. " />
                             <label for="last_name">Last name</label>
-                            <input type="text" class="form-input" name="last_name" id="last_name"
+                            <input type="text" class="form-input" name="lastName" id="last_name"
                                 placeholder="Your last name.. " />
                             <label for="birth_date">Birth date</label>
-                            <input type="text" class="form-input" name="birth_date" id="birth_date"
+                            <input type="date" class="form-input" name="birthDate" id="birth_date"
                                 placeholder="MM-DD-YYYY" />
+                            <br>
+                            <label for="gender">Select yoru Gender</label>
                             <br>
                             <input type="radio" name="gender" value="male" id="male" checked="checked" />
                             <label for="male">Male</label>
                             <input type="radio" name="gender" value="female" id="female" />
                             <label for="female">Female</label><br><br>
                             <label for="phone">Phone number</label>
-                            <input type="text" class="form-input" name="phone" id="phone"
-                                placeholder="Your phone number" />
+                            <input type="text" class="form-input" name="phone" id="phone" placeholder="Your phone number" />
                             <br>
                             <label for="password">Password</label>
                             <input type="password" class="form-input" name="password" id="password"
@@ -63,7 +66,7 @@
                             <input type="password" class="form-input" name="re_password" id="re_password"
                                 placeholder="Repeat your password" />
                             <br> <label for="last_name">email</label>
-                            <input type="text" class="form-input" name="last_name" id="last_name"
+                            <input type="text" class="form-input" name="email" id="last_name"
                                 placeholder="Your email..." />
                             <br> <label for="last_name">nationality</label>
                             <!-- <input type="text" class="form-input" name="last_name" id="last_name"
@@ -110,10 +113,10 @@
                                 <option> Other</option>
                                 </select>
                             <br> <label for="last_name">city</label>
-                            <input type="text" class="form-input" name="last_name" id="last_name"
+                            <input type="text" class="form-input" name="city" id="last_name"
                                 placeholder="Your city..." />
                             <br> <label for="last_name">current job</label>
-                            <input type="text" class="form-input" name="last_name" id="last_name"
+                            <input type="text" class="form-input" name="currentJob" id="last_name"
                                 placeholder="Your current job..." />
                             <br><label for="last_name">major</label>
                             <select id="major" class="form-input" style=" 
@@ -178,7 +181,7 @@
                         </form>
                         <div class="buttons">
                             <a href="JobSeekerViewProf.html">
-                                <button class="applicants" >Sign Up</button>
+                                <button class="applicants" name ="save">Sign Up</button>
                             </a>
                         </div>
                     </div>

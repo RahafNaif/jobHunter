@@ -119,7 +119,7 @@ legend {
   margin-bottom: 0.2em;
 }
 
-INPUT[TYPE="button"],
+
 input[type="submit"] {
   display: inline;
   position: relative;
@@ -137,7 +137,7 @@ input[type="submit"] {
   overflow: hidden;
 }
 
-input[type="button"]:hover,
+
 input[type="submit"]:hover {
   transition: all 0.3s ease-in-out;
   background: transparent;
@@ -147,7 +147,7 @@ input[type="submit"]:hover {
   cursor: pointer;
 }
 
-INPUT[TYPE="button"]:focus,
+
 input[type="submit"]:focus {
   color: #8cb3f4;
   border: 3px solid #8cb3f4;

@@ -220,6 +220,12 @@ ul {
   cursor: pointer;
 }
 
+/* .search-box .dropdown .default_option input, .search-box .dropdown2 .default_option input{
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+} */
+
 .search-box .dropdown .city-form {
   display: none;
   position: absolute;

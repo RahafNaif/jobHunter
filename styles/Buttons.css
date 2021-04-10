@@ -1,4 +1,4 @@
-button {
+button, input[type="submit"] {
   display: block;
   position: relative;
   width: 120px;
@@ -14,7 +14,7 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+button:hover, input[type="submit"]:hover {
   transition: all 0.3s ease-in-out;
   background: transparent;
   border: 3px solid #8cb3f4;
@@ -23,7 +23,7 @@ button:hover {
   cursor: pointer;
 }
 
-button:focus {
+button:focus, input[type="submit"]:focus {
   color: #8cb3f4;
   border: 3px solid #8cb3f4;
   background: rgba(234, 243, 250, 0.8);

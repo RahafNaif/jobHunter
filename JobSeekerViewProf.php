@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['email'])) {
+if (!isset($_SESSION['email']) || $_SESSION['role'] == 2) { //i edit this one to restrict jobsseker from enter the emplyer page
     header("location: LogIn.php");
     exit();
 }
@@ -166,15 +166,62 @@ if (!isset($_SESSION['email'])) {
    
         </div>
 
+<?php 
+
+ if (!($database = mysqli_connect("localhost", "root", "")))
+     die("<p>Could not connect to database</p>");
+
+ if (!mysqli_select_db($database, "jobhunter"))
+     die("<p>Could not open URL database</p>");
+
+ $email = $_SESSION['email'];
+ $query = "select * from jobseeker WHERE email='$email'";
+ $result = mysqli_query($database, $query);
+
+ if ($result) {
+     while ($data = mysqli_fetch_assoc($result)) {
+        $firstName=$date['firstName'];
+        $lastName=$data['lastName'];
+        $email=$data ['email'];
+        $password=$date['password'];
+        $birthDate=$data['birthDate'];
+        $gender=$data['gender'];
+        $nationality=$data['nationality'];
+        $city=$data['city'];
+        $phone=$data['phone'];
+        $major=$data['major'];
+        $experince=$data['experince'];
+        $skills=$data['skills'];
+        $currentJob=$data['currentJob'];
+     }
+ } else {
+     echo "There are no info.";
+     exit();
+ }
+ ?>
+
+
+
 
             <div class="details">
                 <img src="img/person_JobDetails.svg" alt="Admin" class="circle" style="width:128px;height:128px;" >
                 <h4>Rahaf Naif</h4>
-                <h4>Web Developer</h4>
-                <p>Riyadh, Saudi Arabia</p>
+                <h4><?php echo $currentJob; ?> </h4>
+                <p><?php echo $city; ?></p>
                 <div class="profile-buttons">
-                    <a href="mailto:sabic@gmail.com"><button class="applyBtn">Contact me</button></a>
+                <?php
+                    if ($_SESSION['role'] == 2)
+                        //print employer info
+                    ?>
+                    <a href="mailto: <?php echo $_SESSION['email'] ?>"><button class="applyBtn">email</button></a>
                     <a href="setAppointment.html"><button class="applyBtn">Set Appointment</button></a>
+                </div>
+            </div>
+            <?php
+            if ($_SESSION['role'] == 1)
+                print '<div class="buttons"><a href="JobSeekerProf_edit.php"><button>edit</button></a><button>delete</button></div>';
+            ?>
+
                 </div>
             </div>
        
@@ -213,21 +260,21 @@ if (!isset($_SESSION['email'])) {
                 </div>
                 <div class="titleAndValueDiv">
                     <h3>Nationality</h3>    
-                    <p> Saudi</p>
+                    <p> <?php echo $nationality ?></p>
                 </div>
                 <div class="titleAndValueDiv">            
                     <h3>Phone</h3>
-                    <p>+96650000000</p></div>
+                    <p><?php echo $phone ?></p></div>
                     <div class="titleAndValueDiv">            
                         <h3>Gender</h3>
-                        <p>Female</p></div>
+                        <p><?php echo $gender ?></p></div>
                     <div class="titleAndValueDiv">
                         <h3>Current Job</h3>
-                        <p>IT Support</p>    
+                        <p><?php echo $currentJob?><</p>    
                     </div>
                     <div class="titleAndValueDiv">
                         <h3>Major</h3>    
-                        <p>Software engineering</p>
+                        <p><?php echo $major ?></p>
                     </div>
                   
 
@@ -283,18 +330,6 @@ if (!isset($_SESSION['email'])) {
                     </div>
                   </div>
             </div>
-            <!-- <div class="footer">
-                <div class="footer-content">
-                    <p>Contact us</p>
-                    <span class="material-icons">facebook</span>
-                    <a href="mailto:jobhunter@ksu.com"><span class="material-icons">email</span></a>
-                </div>
-                <div class="shape-footer" style="height: 150px; overflow: hidden;"><svg viewBox="0 0 500 150" preserveAspectRatio="none"
-                    style="height: 100%; width: 100%;">
-                    <path d="M-15.58,-15.49 C-16.70,110.81 186.45,57.52 502.48,59.50 L500.00,0.00 L0.00,0.00 Z"
-                        style="stroke: none; fill: #8CB3F4;"></path>
-                </svg></div>
-            </div> -->
                    
     </main>
     <div class="deleteEditBtns" style=" margin-left:950px; margin-top: 720px;">
@@ -320,3 +355,9 @@ if (!isset($_SESSION['email'])) {
 
 </body>
 </html>
+<?php if(isset($_GET['delete'])){
+$email = $_GET['delete']; 
+$res=$mysqli->query("DELET FORM data WHERE email=$email ") or die($mysqli->error());
+if($res)
+header("Location: home.html");
+} ?>

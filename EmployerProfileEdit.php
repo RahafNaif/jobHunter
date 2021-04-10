@@ -21,6 +21,8 @@ if (!isset($_SESSION['email']) || $_SESSION['role'] == 1) { //i edit this one to
     <link rel="stylesheet" href="styles/NavbarStyles.css" />
     <link rel="stylesheet" href="styles/Footer.css" />
     <script src="js/Notification.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/EmployeeValidation.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <link rel="icon" href="img/icon.png" />
     <title>Employer | Profile</title>
@@ -130,17 +132,26 @@ if (!isset($_SESSION['email']) || $_SESSION['role'] == 1) { //i edit this one to
     <h1>Update Company Information</h1>
     <div class="line"></div>
     <main>
+    <div class="alert" hidden> Error , Full out all the fiels correctly</div>
         <div class="form">
             <form action="#" method="POST">
-                <label>Company Name:<input type="text" name="employerName" value=<?php echo $name; ?>></label>
-                <label>Company Address:<input type="text" name="employerAddress" value=<?php echo $address; ?>></label>
-                <label>Company Scope: <input type="text" name="employerScope" value=<?php echo $scope; ?>></label>
-                <label>Company Email: <input type="email" name="employerEmail" value=<?php echo $email; ?>></label>
-                <label>Company Phone Number:<input type="text" name="employerPhone" value=<?php echo $phone; ?>></label>
-                <label>Descripition of Company:<textarea name="employerDescription"><?php echo $description; ?> </textarea></label>
-                <label>Mission of Company:<textarea name="employerMission"><?php echo $mission; ?> </textarea></label>
-                <label>Vision of Company:<textarea name="employerVision"><?php echo $vision; ?> </textarea></label>
-                <button name="update"> Update  </button>
+                <label>Company Name:<input id = "name" type="text" name="employerName" value=<?php echo $name; ?>></label>
+                <small id="name_error">Error message</small>
+                <label>Company Address:<input id = "address" type="text" name="employerAddress" value=<?php echo $address; ?>></label>
+                <small id="address_error">Error message</small>
+                <label>Company Scope: <input id = "scope" type="text" name="employerScope" value=<?php echo $scope; ?>></label>
+                <small id="scope_error">Error message</small>
+                <label>Company Email: <input id = "email" type="email" name="employerEmail" value=<?php echo $email; ?>></label>
+                <small id="email_error">Error message</small>
+                <label>Company Phone Number:<input id = "phone" type="text" name="employerPhone" value=<?php echo $phone; ?>></label>
+                <small id="phone_error">Error message</small>
+                <label>Descripition of Company:<textarea id = "des" name="employerDescription"><?php echo $description; ?> </textarea></label>
+                <small id="des_error">Error message</small>
+                <label>Mission of Company:<textarea id = "mission"  name="employerMission"><?php echo $mission; ?> </textarea></label>
+                <small id="mission_error">Error message</small>
+                <label>Vision of Company:<textarea id = "vision"  name="employerVision"><?php echo $vision; ?> </textarea></label>
+                <small id="vision_error">Error message</small>
+                <button name="submit" id = "submit"> Update  </button>
                 <a href="EmployerProfile.php"> <button name="cance">Cancel </button></a>
             </form>
         </div>

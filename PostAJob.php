@@ -42,7 +42,7 @@ if (!isset($_SESSION['email']) || $_SESSION['role'] == 1) {
   $location= isset($_POST['location'])? $_POST['location']:"";
   $jobType= isset($_POST['jobType'])? $_POST['jobType']:"";
   $gender= isset($_POST['gender'])? $_POST['gender']:"";
-  $salary= isset($_POST['salary'])? $_POST['salary']:"";
+  $salary= isset($_POST['salaryInput'])? $_POST['salaryInput']:"";
   //end 
 
   //s
@@ -108,7 +108,7 @@ if (!isset($_SESSION['email']) || $_SESSION['role'] == 1) {
       }
     }
   
-    if(isset($_POST['salary'])){
+    if(isset($_POST['salaryInput'])){
       if($salary==""){
         $formerrors["salaryError"]=true;
         $iserror =true;

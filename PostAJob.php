@@ -42,7 +42,7 @@ if (!isset($_SESSION['email']) || $_SESSION['role'] == 1) {
   $location= isset($_POST['location'])? $_POST['location']:"";
   $jobType= isset($_POST['jobType'])? $_POST['jobType']:"";
   $gender= isset($_POST['gender'])? $_POST['gender']:"";
-  $salary= isset($_POST['salaryInput'])? $_POST['salaryInput']:"";
+  $salary= isset($_POST['salary'])? $_POST['salary']:"";
   //end 
 
   //s
@@ -59,7 +59,7 @@ if (!isset($_SESSION['email']) || $_SESSION['role'] == 1) {
 
 
     if(isset($_POST['major'])){
-      if($major=="Select a major" ){
+      if($major=="" ){
         $formerrors["majorError"]=true;
         $iserror =true;
       }}
@@ -108,7 +108,7 @@ if (!isset($_SESSION['email']) || $_SESSION['role'] == 1) {
       }
     }
   
-    if(isset($_POST['salaryInput'])){
+    if(isset($_POST['salary'])){
       if($salary==""){
         $formerrors["salaryError"]=true;
         $iserror =true;
@@ -180,11 +180,7 @@ if (!isset($_SESSION['email']) || $_SESSION['role'] == 1) {
 
 
   ?>
-  <!-- trying -->
-<!-- trying -->
-<!-- trying -->
-<!-- trying -->
-<!-- trying -->
+
 
     <!-- popup for notifications -->
     <div class="popup" id="popup">
@@ -276,7 +272,7 @@ if (!isset($_SESSION['email']) || $_SESSION['role'] == 1) {
         <div class="inputDiv">
           <label for="position">Job Position</label>
           <input
-          autofocus 
+            autofocus 
             required
             id= "position"
             name="position"
@@ -296,12 +292,10 @@ if (!isset($_SESSION['email']) || $_SESSION['role'] == 1) {
 
         <div class="inputDiv" id="majorDiv">
           <label for="major"> Major </label>
-          <select id="major" name="major">
-            <option value="Select a major" selected>Select a major</option>
+          <select id="major" required  name="major">
+            <option value="">Select a major</option>
             <option value="Accounting & Finance">Accounting & Finance</option>
-            <option value="Agriculture & Forestry">
-              Agriculture & Forestry
-            </option>
+            <option value="Agriculture & Forestry">Agriculture & Forestry</option>
             <option value="Archaeology">Archaeology</option>
             <option value="Architecture">Architecture</option>
             <option value="Art">Art</option>
@@ -310,67 +304,29 @@ if (!isset($_SESSION['email']) || $_SESSION['role'] == 1) {
             <option value="Chemical Engineering">Chemical Engineering</option>
             <option value="Chemistry">Chemistry</option>
             <option value="Civil Engineering">Civil Engineering</option>
-            <option value="Communication & Media Studies">
-              Communication & Media Studies
-            </option>
+            <option value="Communication & Media Studies">Communication & Media Studies</option>
             <option value="Computer Science">Computer Science</option>
-            <option value="Economics & Econometrics">
-              Economics & Econometrics
-            </option>
+            <option value="Economics & Econometrics">Economics & Econometrics</option>
             <option value="Education">Education</option>
-            <option value="Electrical & Electronic Engineering">
-              Electrical & Electronic Engineering
-            </option>
+            <option value="Electrical & Electronic Engineering">Electrical & Electronic Engineering</option>
             <option value="General Engineering">General Engineering</option>
             <option value="Geography">Geography</option>
-            <option value="Geology, Environmental, Earth & Marine Sciences">
-              Geology, Environmental, Earth & Marine Sciences
-            </option>
+            <option value="Geology, Environmental, Earth & Marine Sciences">Geology, Environmental, Earth & Marine Sciences</option>
             <option value="Law">Law</option>
-            <option value="Mathematics & Statistics">
-              Mathematics & Statistics
-            </option>
-            <option value="Mechanical & Aerospace Engineering">
-              Mechanical & Aerospace Engineering
-            </option>
+            <option value="Mathematics & Statistics">Mathematics & Statistics</option>
+            <option value="Mechanical & Aerospace Engineering">Mechanical & Aerospace Engineering</option>
             <option value="Medicine & Dentistry">Medicine & Dentistry</option>
-            <option value="Other">Other</option>
           </select>
-          <input
-          
-            type="text"
-            id="OtherMajor"
-            name="OtherMajor"
-            placeholder="Your major"
-            style="margin-top: 8px; display: none"
-          />
-          <p
-            id="selectMajorP"
-            style="display: none; margin-top: 4px; font-size: smaller"
-          >
-            You need to select a major
-          </p>
                                 <?php 
                       
 
                       if(isset($_POST['major']))
-                      if($_POST["major"]==="Select a major"){
-                        echo "You need to select a major";
+                      if($_POST["major"]===""){
+                        echo "<p style = style='margin-top: 4px; font-size: smaller; color:red;'>You need to select a major</p>";
                       }
 
 
 
-                      if(isset($_POST['major']))
-                        if($_POST['major']==='Other'){
-                          if(empty($_POST['OtherMajor'])){
-                          echo "<br/> Other Major is required";}
-
-
-                        echo " <script>
-                        $('#OtherMajor').show();
-                        </script>";
-
-                      }
                       ?>
         </div>
 
@@ -399,8 +355,7 @@ if (!isset($_SESSION['email']) || $_SESSION['role'] == 1) {
             required
             id="requiredSkills"
             name="requiredSkills"
-            placeholder="Describe the skills required for this job"
-          ></textarea>
+            placeholder="Describe the skills required for this job"></textarea>
                                       <?php
                                       
                               if(isset($_POST['requiredSkills']))
@@ -455,12 +410,12 @@ if (!isset($_SESSION['email']) || $_SESSION['role'] == 1) {
           <legend class="notFormHeader">Job Type</legend>
 
           <label class="rLabel">
-            <input type="radio" name="jobType" checked="checked" value="FullTime" />
+            <input type="radio" name="jobType" required checked="checked" value="FullTime" />
             Full-time
           </label>
 
           <label class="rLabel">
-            <input type="radio" name="jobType" value="partTime" />
+            <input type="radio" name="jobType" required value="partTime" />
             Part-time
           </label>
 
@@ -478,12 +433,12 @@ if (!isset($_SESSION['email']) || $_SESSION['role'] == 1) {
           <legend>Gender</legend>
 
           <label class="rLabel">
-            <input type="radio" name="gender" value="Female" checked="checked" />
+            <input required type="radio" name="gender" value="Female" checked="checked" />
             Female
           </label>
 
           <label class="rLabel" id="Male">
-            <input type="radio" name="gender" value="Male"/>
+            <input required type="radio" name="gender"  value="Male"/>
             Male
           </label>
                               <?php
@@ -496,32 +451,32 @@ if (!isset($_SESSION['email']) || $_SESSION['role'] == 1) {
         </fieldset>
 
         <div class="inputDiv">
-          <label for="salaryInput" id="SalaryL"> Salary Starts From </label>
+          <label for="salary" id="SalaryL"> Salary Starts From </label>
           <input
             required
             type="number"
-            name="salaryInput"
+            name="salary"
             min="0"
-            id="salaryInput"
-          />
+            id="salary"/>
           <!--https://stackoverflow.com/questions/7372067/is-there-any-way-to-prevent-input-type-number-getting-negative-values -->
 
                                 <?php
-                                  if(isset($_POST['salaryInput']))
-                                  if(empty($_POST["salaryInput"])){
+                                  if(isset($_POST['salary']))
+                                  if(empty($_POST["salary"])){
                                     echo "salary Input is required";
                                 
                                   }
                                 
                                 ?>
         </div>
-        <input type="button" value="Cancel" name="cancel"
-        />
-        
-        <input type="submit" value="Post" id="postBtn" name='postJob'
-        />
+
+        <a href="JobListing.php"><input type="button" value="Cancel" name="cancel"/></a>
+        <input type="submit" value="Post" id="postBtn" name='postJob'/>
+
       </fieldset>
     </form>
+
+
     <!-- Footer -->
     <div class="footer">
       <div class="footer-content">
@@ -544,7 +499,5 @@ if (!isset($_SESSION['email']) || $_SESSION['role'] == 1) {
         </svg>
       </div>
     </div>
-
-
   </body>
 </html>

@@ -39,14 +39,16 @@
                         <h2 id="employerReg">Job Seeker Regestration </h2>
                         <form>
                             <label for="first_name">First name</label>
-                            <input type="text" class="form-input" name="first_name" id="first_name"
+                            <input type="text" class="form-input" name="firstName" id="first_name"
                                 placeholder="Your first name.. " />
                             <label for="last_name">Last name</label>
-                            <input type="text" class="form-input" name="last_name" id="last_name"
+                            <input type="text" class="form-input" name="lastName" id="last_name"
                                 placeholder="Your last name.. " />
                             <label for="birth_date">Birth date</label>
-                            <input type="text" class="form-input" name="birth_date" id="birth_date"
+                            <input type="date" class="form-input" name="birthDate" id="birth_date"
                                 placeholder="MM-DD-YYYY" />
+                            <br>
+                            <label for="birth_date">Select yoru Gender</label>
                             <br>
                             <input type="radio" name="gender" value="male" id="male" checked="checked" />
                             <label for="male">Male</label>

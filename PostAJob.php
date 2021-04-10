@@ -59,7 +59,7 @@ if (!isset($_SESSION['email']) || $_SESSION['role'] == 1) {
 
 
     if(isset($_POST['major'])){
-      if($major=="Select a major" ){
+      if($major=="" ){
         $formerrors["majorError"]=true;
         $iserror =true;
       }}
@@ -292,12 +292,10 @@ if (!isset($_SESSION['email']) || $_SESSION['role'] == 1) {
 
         <div class="inputDiv" id="majorDiv">
           <label for="major"> Major </label>
-          <select id="major" name="major">
-            <option value="Select a major" onclick="$('#selectMajorP').show()">Select a major</option>
+          <select id="major" required  name="major">
+            <option value="">Select a major</option>
             <option value="Accounting & Finance">Accounting & Finance</option>
-            <option value="Agriculture & Forestry">
-              Agriculture & Forestry
-            </option>
+            <option value="Agriculture & Forestry">Agriculture & Forestry</option>
             <option value="Archaeology">Archaeology</option>
             <option value="Architecture">Architecture</option>
             <option value="Art">Art</option>
@@ -306,44 +304,25 @@ if (!isset($_SESSION['email']) || $_SESSION['role'] == 1) {
             <option value="Chemical Engineering">Chemical Engineering</option>
             <option value="Chemistry">Chemistry</option>
             <option value="Civil Engineering">Civil Engineering</option>
-            <option value="Communication & Media Studies">
-              Communication & Media Studies
-            </option>
+            <option value="Communication & Media Studies">Communication & Media Studies</option>
             <option value="Computer Science">Computer Science</option>
-            <option value="Economics & Econometrics">
-              Economics & Econometrics
-            </option>
+            <option value="Economics & Econometrics">Economics & Econometrics</option>
             <option value="Education">Education</option>
-            <option value="Electrical & Electronic Engineering">
-              Electrical & Electronic Engineering
-            </option>
+            <option value="Electrical & Electronic Engineering">Electrical & Electronic Engineering</option>
             <option value="General Engineering">General Engineering</option>
             <option value="Geography">Geography</option>
-            <option value="Geology, Environmental, Earth & Marine Sciences">
-              Geology, Environmental, Earth & Marine Sciences
-            </option>
+            <option value="Geology, Environmental, Earth & Marine Sciences">Geology, Environmental, Earth & Marine Sciences</option>
             <option value="Law">Law</option>
-            <option value="Mathematics & Statistics">
-              Mathematics & Statistics
-            </option>
-            <option value="Mechanical & Aerospace Engineering">
-              Mechanical & Aerospace Engineering
-            </option>
+            <option value="Mathematics & Statistics">Mathematics & Statistics</option>
+            <option value="Mechanical & Aerospace Engineering">Mechanical & Aerospace Engineering</option>
             <option value="Medicine & Dentistry">Medicine & Dentistry</option>
           </select>
-
-          <p
-            id="selectMajorP"
-            style="display: none; margin-top: 4px; font-size: smaller; color:red;"
-          >
-            You need to select a major
-          </p>
                                 <?php 
                       
 
                       if(isset($_POST['major']))
-                      if($_POST["major"]==="Select a major"){
-                        echo "<p style = style='display: none; margin-top: 4px; font-size: smaller; color:red;'>You need to select a major</p>";
+                      if($_POST["major"]===""){
+                        echo "<p style = style='margin-top: 4px; font-size: smaller; color:red;'>You need to select a major</p>";
                       }
 
 

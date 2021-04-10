@@ -173,7 +173,7 @@ if ($result) {
   
   
       if(isset($_POST['major'])){
-        if($major=="Select a major" ){
+        if($major=="" ){
           $formerrors["majorError"]=true;
           $iserror =true;
         }}
@@ -306,11 +306,11 @@ if ($result) {
 
         <div class="inputDiv"  id="majorDiv"> 
           <label for="major">Major </label>
-          <select id="major"  name="major">
+          <select id="major"  required name="major">
             <script>
               $("#major").val("<?php echo $major?>");
             </script>
-            <option value="Select a major" onclick="$('#selectMajorP').show()">Select a major</option>
+            <option value="">Select a major</option>
             <option value="Accounting & Finance">Accounting & Finance</option>
             <option value="Agriculture & Forestry">Agriculture & Forestry</option>
             <option value="Archaeology">Archaeology</option>
@@ -345,8 +345,8 @@ if ($result) {
                       
 
                       if(isset($_POST['major']))
-                      if($_POST["major"]==="Select a major"){
-                        echo "<p style = style='display: none; margin-top: 4px; font-size: smaller; color:red;'>You need to select a major</p>";
+                      if($_POST["major"]===""){
+                        echo "<p style = style=' margin-top: 4px; font-size: smaller; color:red;'>You need to select a major</p>";
                       }
 
 

@@ -116,10 +116,7 @@ if (!isset($_SESSION['email']) || $_SESSION['role'] == 1) {
     }
     //end checking errors
   
-    //if its correct inert it 
-  
-  
-  
+    //if its correct inert it
   
     if(!$iserror){
       $servername = "localhost";
@@ -127,17 +124,19 @@ if (!isset($_SESSION['email']) || $_SESSION['role'] == 1) {
       $password="";
       $dbname = "jobHunter";
           if ($_SERVER["REQUEST_METHOD"] == "POST") {
-          if ( !( $database = mysqli_connect(  $servername, $username, $password,  $dbname) ) )
-             die( "<p>Could not connect to database</p>" );
+           if ( !( $database = mysqli_connect(  $servername, $username, $password,  $dbname) ) )
+               die( "<p>Could not connect to database</p>" );
   
-          if ( !mysqli_select_db( $database,  $dbname) )
-             die( "<p>Could not open URL database</p>" );
-  // Company name insert????? session
-  //$companName= "SELECT 	name FROM employer where email=$_SESSION['email'];";
+           if ( !mysqli_select_db( $database,  $dbname) )
+               die( "<p>Could not open URL database</p>" );
+            $sessionEmail=$_SESSION['email'];
+            $companyName= "SELECT name FROM employer where email='$sessionEmail'";
+            $result2=mysqli_query($database,$companyName);
 
-  
-  //  `jobType`,`companyName`,
-  // 
+            if($result2)
+              $result2=mysqli_fetch_assoc($result2);
+            else
+              echo "An error occured while inserting into the job table.";
 
   // If we strip tags
 
@@ -150,12 +149,13 @@ if (!isset($_SESSION['email']) || $_SESSION['role'] == 1) {
   // $jobType= $_POST['jobType'];
   // $gender= $_POST['gender'];
   // $salary=$_POST['salary'];
+
+
           $query="INSERT INTO `job`(`city`, `major`, `position`, `jobType`,
-           `description`, 
-          `skills`, `qualifications`, `gender`, `salary`) VALUES 
-          (' $location','$major','$position','$jobType',
+           `description`, `skills`, `qualifications`, `gender`, `salary`,`companyName`) 
+           VALUES (' $location','$major','$position','$jobType',
           '$jobDescription','$requiredSkills', '$requiredQualifications',
-          '$gender','$salary')";
+          '$gender','$salary','$result2')";
           $result=mysqli_query($database, $query);
   
           if($result)
@@ -163,13 +163,13 @@ if (!isset($_SESSION['email']) || $_SESSION['role'] == 1) {
   
           else
               echo "An error occured while inserting into the job table.";
-      }
+      }//end if ($_SERVER["REQUEST_METHOD"] == "POST")
   
       header("location: JobListing.php");
       exit();
-    }
+    }// end if(!$iserror)
 
- }
+ }// end if(isset($_POST['postJob']))
 
 
   ?>

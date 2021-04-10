@@ -108,6 +108,7 @@ if (!isset($_SESSION['email']) || $_SESSION['role'] == 1) {
     $query = "select * from job WHERE employer_email='$email'";
     $result = mysqli_query($database, $query);
 
+
     if ($result) {
       print '<div class="lists">';
       while ($data = mysqli_fetch_assoc($result)) {
@@ -120,11 +121,12 @@ if (!isset($_SESSION['email']) || $_SESSION['role'] == 1) {
         print '<h5>Starting salary <span class="salary">' . $data['salary'] . '</span></h5> <i class="material-icons">work</i>';
         print '<h6 class="work">' . $data['jobType'] . '</h6>';
         print '</div>';
-        print '<div class="buttons"> <a href="applicants.php"> <button class="applicants">Applicants</button></a> <a href="EditAJob.html"> <button class="edit">Edit</button></a></div>';
+        print '<div class="buttons">';
+        print '<form  action="Applicants.php" method="POST"> <input type="hidden" name="JOB_ID" value=' . $data['ID'] . '> ';
+        print '<button class="applicants">Applicants</button>';
+        print '<a href="EditAJob.html"> <button class="edit">Edit</button></a></div> </form>';
         print '</div>';
       }
-      if (!$data)
-        echo '<div class="lists"><h2>There are no listed jobs.</h2></div>';
       print '</div>';
     } else
       echo '<div class="lists"><h2>There are no listed jobs.</h2></div>';

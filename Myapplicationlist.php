@@ -25,26 +25,27 @@ if (!isset($_SESSION['email']) ){
     <meta lang="en">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
     <script>
         
-
-
-$(document).ready(function(){
-
-$('.applicants').click(function () { 
-    $('.modal').css('display','block');
-   
-});
-
-$('.close').click(function(){
-    $('.modal').css('display','none');
-   
-});
-
-});
-
-    </script>
-
+    
+        $(document).ready(function(){
+        
+        $('.applicants').click(function () { 
+            $('.modal').css('display','block');
+           
+        });
+        
+        $('.close').click(function(){
+            $('.modal').css('display','none');
+           
+        });
+        
+        });
+        
+            
+         
+            </script>
 </head>
 
 <body>
@@ -92,8 +93,8 @@ $('.close').click(function(){
     <header>
         <nav>
             <ul class="navLinks1">
-                <li><a href="home.html">Home</a></li>
-                <li><a href="jobSearch.html">Jobs</a></li>
+                <li><a href="home.php">Home</a></li>
+                <li><a href="jobSearch.php">Jobs</a></li>
                 <li><a href="EmployerSearch.html">Employers </a>
 
                 </li>
@@ -198,11 +199,15 @@ $('.close').click(function(){
                 </div> </a>
                 <!-- buttons  -->
                 <div class="buttons">
-                    
-                        <button  class="applicants" >Select Appointment</button>
+                
+                      
+                       
+                        <form  action="popselect.php" method="POST">
+                        <input type="hidden" name="applayID" value="<?php echo   $applay_job ; ?>">
+                        <button  class="applicants" name="selectapp"  >Select Appointment</button>  </form>
                     
                     <form  action="Myapplicationlist.php" method="POST">
-                        <input type="hidden" name="applayID" value= <?php echo   $applay_job ; ?>>
+                        <input type="hidden" name="applayID" value="<?php echo   $applay_job ; ?>">
                         <button class="edit" name="cancel">Cancel</button> </form>
                     
                 </div>
@@ -219,52 +224,8 @@ $('.close').click(function(){
 
 else echo "you don't have any applications job!!";
     
-?>
+?>      
 
-
-        <div id="myModal" class="modal">
-
-            <!-- Modal content -->
-            <div class="modal-content">
-                <div class="lineapp"></div>
-              <span class="close">&times;</span>
-              
-                    <div id="head">   Select Appointment    </div>
-                    
-                  
-          
-                    
-                    
-                        <a class="box"> 
-                         <div id="date">Availabale appointment</div>
-                         <div id="title"><h4> 2/5/2020</h4> <h4> 10:00 pm</h4></div>
-                          <div id="book"><h4> Book</h4></div> </a>
-                          
-                    
-                        <a class="box"> 
-                            <div id="date">Availabale appointment</div>
-                            <div id="title"><h4> 2/5/2020</h4> <h4> 10:00 pm</h4></div>
-                             <div id="book"><h4> Book</h4></div> </a>
-                           
-                             
-                    
-                        <a class="box"> 
-                            <div id="date">Availabale appointment</div>
-                            <div id="title"><h4> 2/5/2020</h4> <h4> 10:00 pm</h4></div>
-                             <div id="book"><h4> Book</h4></div> </a>
-                              
-                           
-           
-              
-                               
-                  
-                          
-                           
-                                                                                                                    
-             
-                  </div>
-              </div>
-          
           
     </main> </div> 
     

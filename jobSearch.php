@@ -47,7 +47,7 @@
                         <span class="material-icons" class="search-icon">search</span>
                         <input type="text" class="input" placeholder="Search" name="search">
                         <div class="dropdown">
-                            <div class="default_option" id="selected"><p name="op1">position</p></div>  
+                            <div class="default_option" id="selected"><input type="text" value="position"></p></div>  
                             <ul>
                                 <li id="position-option">position</li>
                                 <li id="major-option">major</li>
@@ -89,6 +89,7 @@
                 
 
                 if($search==''){
+                    echo $_POST['position'];
                     $query = "select city, position, jobType, description from job";
                 }elseif(!empty($search) && empty($city)){
                     echo $op1;

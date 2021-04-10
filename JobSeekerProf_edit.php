@@ -295,110 +295,87 @@ if (!isset($_SESSION['email']) || $_SESSION['role'] == 2) { //i edit this one to
         </div>
 
 
-        <div class="sideBar">
-            <div class="titleAndValueDiv">
-                <h3>Full Name</h3>
-                <input type="text" value="Rahaf Naif Alshaliy"
-                    style="width:100%; height: 50%; font-size: medium;"></input>
+<div class="sideBar">
+<div class="titleAndValueDiv">
+<h3>Full Name</h3>
+<input type="text" name="jobseekername" value="Rahaf Naif Alshaliy" style="width:100%; height: 50%; font-size: medium;"></input>
             </div>
             <div class="titleAndValueDiv">
-                <h3>Age</h3>
-                <input type="text" value="25" style="width:100%; height: 50%; font-size: medium;"></input>
-            </div>
-            <div class="titleAndValueDiv">
-                <h3>Nationality</h3>
-                <input type="text" value="Saudi" style="width:100%; height: 50%; font-size: medium;"></input>
-            </div>
-            <div class="titleAndValueDiv">
-                <h3>Phone</h3>
-                <input type="text" value="+9665000000" style="width:100%; height: 50%; font-size: medium;"></input>
-                <div class="titleAndValueDiv">
-                    <h3>Gender</h3>
-                    <input type="text" value="Female" style="width:100%; height: 50%; font-size: medium;"></input>
-                </div>
-                <div class="titleAndValueDiv">
-                    <h3>Current Job</h3>
-                    <input type="text" value="IT Support" style="width:100%; height: 50%; font-size: medium;"></input>
-                </div>
-            </div>
-            <div class="titleAndValueDiv">
-                <h3>Major</h3>
-                <input type="text" value="Software engineering"
-                    style="width:100%; height: 50%; font-size: medium;"></input>
-            </div>
-        </div>
-
-
-        </div>
-        <div class="sideBar1">
-            <div class="row gutters-sm">
-                <div class="column-6 margin-bottom-3">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <h3 class="display-flex align-center  margin-bottom-3"><i
-                                    class="material-icons text-info margin-right-2"> </i>Exprince <span
-                                    style="position: absolute;left: 90%;top:2%;cursor: pointer;"><br>
-                                    <h3>+</h3>
-                                </span></h3><span style="position: absolute;left: 90%;top:2%;cursor: pointer;"></span>
-                            <h4>Chief Technology Officer </h4>
-                            <h5>Tweeq Full-Time </h5>
-                            <small>Jul 2020- Present </small>
-                            <div class="progress margin-bottom-3" style="height: 5px">
-
-                            </div>
-                            <h4>Advisor</h4>
-                            <h5>Tamkeen Technology </h5>
-                            <small>Dec 2017 - May 2020 </small>
-                            <div class="progress margin-bottom-3" style="height: 5px">
-
-                            </div>
-                            <h4>Cloud Services </h4>
-                            <h5>STC Solution</h5>
-                            <small>Mar 2015- Nov 2017</small>
-                            <div class="progress margin-bottom-3" style="height: 5px">
-
-
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="column-5 margin-bottom-3">
-                        <div class="card h-100">
-                            <div class="card-body">
-                                <h4 class="display-flex align-center  margin-bottom-3"><i
-                                        class="material-icons text-info margin-right-2"> </i> Skills <span
-                                        style="position: absolute;left: 90%;top:2%;cursor: pointer;"><br>
-                                        <h3>+</h3>
-                                    </span></h4><span
-                                    style="position: absolute;left: 90%;top:2%;cursor: pointer;"></span>
-                                <small>Web Design</small>
-                                <div class="progress margin-bottom-3" style="height: 5px">
-                                    <div class="progress-bar bg-primary" role="progressbar" style="width: 80%"
-                                        aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-
-
-                                <small>Mobile Template</small>
-                                <div class="progress margin-bottom-3" style="height: 5px">
-                                    <div class="progress-bar bg-primary" role="progressbar" style="width: 55%"
-                                        aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                                <small>Backend API</small>
-                                <div class="progress margin-bottom-3" style="height: 5px">
-                                    <div class="progress-bar bg-primary" role="progressbar" style="width: 66%"
-                                        aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-
-            <a href="/JobSeekerViewProf.html">
-                <button class="applyBtn" style="transform: translateX(220%);">Save</button></a>
-    </main>
+<h3>Age</h3>
+<input type="text" value="25" style="width:100%; height: 50%; font-size: medium;"></input>
+</div>
+ <div class="titleAndValueDiv">
+<h3>Nationality</h3>
+<input type="text" id="nationality" name= "JSnationality " value=<?php echo $nationality; ?> style="width:100%; height: 50%; font-size: medium;"></input>
+ </div>
+<div class="titleAndValueDiv">
+<h3>Phone</h3>
+<input type="text" id = "phone" name = "JSphone" value=<?php echo $phone; ?> style="width:100%; height: 50%; font-size: medium;"></input>
+<div class="titleAndValueDiv">
+ <h3>Gender</h3>
+<input type="text" id = "gender" name = "JSgender"  value=<?php echo $gender; ?> style="width:100%; height: 50%; font-size: medium;"></input>
+</div>
+<div class="titleAndValueDiv">
+<h3>Current Job</h3>
+<input type="text" id="currentJob" name= "JScurrentJob" value=<?php echo $currentJob ?> style="width:100%; height: 50%; font-size: medium;"></input>
+</div>
+</div>
+<div class="titleAndValueDiv">
+ <h3>Major</h3>
+ <input type="text" id= "major" name="JSmajor" value=<?php echo $major; ?>  style="width:100%; height: 50%; font-size: medium;"></input>
+ </div></div></div>
+ <div class="sideBar1">
+<div class="row gutters-sm">
+<div class="column-6 margin-bottom-3">
+<div class="card h-100">
+<div class="card-body">
+<h3 class="display-flex align-center  margin-bottom-3"><i
+class="material-icons text-info margin-right-2"> </i>Exprince <span
+ style="position: absolute;left: 90%;top:2%;cursor: pointer;"><br>
+/////////<h3>+</h3>
+</span></h3><span style="position: absolute;left: 90%;top:2%;cursor: pointer;"></span>
+<h4>Chief Technology Officer </h4>
+<h5>Tweeq Full-Time </h5>
+<small>Jul 2020- Present </small>
+<div class="progress margin-bottom-3" style="height: 5px">
+</div>
+<h4>Advisor</h4>
+<h5>Tamkeen Technology </h5>
+ <small>Dec 2017 - May 2020 </small>
+<div class="progress margin-bottom-3" style="height: 5px">
+ </div>
+<h4>Cloud Services </h4>
+<h5>STC Solution</h5>
+<small>Mar 2015- Nov 2017</small>
+ <div class="progress margin-bottom-3" style="height: 5px">
+ </div></div></div>
+ <div class="column-5 margin-bottom-3">
+<div class="card h-100">
+ <div class="card-body">
+<h4 class="display-flex align-center  margin-bottom-3"><i
+ class="material-icons text-info margin-right-2"> </i> Skills <span
+ style="position: absolute;left: 90%;top:2%;cursor: pointer;"><br>
+////////<h3>+</h3>
+ </span></h4><span
+style="position: absolute;left: 90%;top:2%;cursor: pointer;"></span>
+ <small>Web Design</small>
+ <div class="progress margin-bottom-3" style="height: 5px">
+ <div class="progress-bar bg-primary" role="progressbar" style="width: 80%"
+ aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+ </div>
+ <small>Mobile Template</small>
+<div class="progress margin-bottom-3" style="height: 5px">
+ <div class="progress-bar bg-primary" role="progressbar" style="width: 55%"
+aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
+ </div>
+ <small>Backend API</small>
+<div class="progress margin-bottom-3" style="height: 5px">
+<div class="progress-bar bg-primary" role="progressbar" style="width: 66%"
+ aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
+ </div> </div> </div> </div> </div> </div>
+<a href="/JobSeekerViewProf.php">
+<button class="applyBtn" style="transform: translateX(220%);">Save</button></a>
+ </main>
 
 
 </body>
@@ -413,7 +390,7 @@ if (isset($_POST['update'])) {
     $password=$_POST['password'];
     $birthDate=$_POST['birthDate'];
     $gender=$_POST['gender'];
-    $nationality=$_POST['nationality'];
+    $nationality=$_POST['JSnationality'];
     $city=$_POST['city'];
     $phone=$_POST['phone'];
     $major=$_POST['major'];

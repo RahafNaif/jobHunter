@@ -13,8 +13,7 @@ if (!mysqli_select_db($database, "JobHunter"))
   die("<p>Could not open URL database</p>");
 
 $email  = $_SESSION['email'];
-if (isset($_POST['JOB_ID']))
-  $jobID = $_POST['JOB_ID'];
+$jobID = $_POST['JOB_ID'];
 $query = "SELECT * FROM job WHERE ID = '$jobID' ";
 $result = mysqli_query($database, $query);
 
@@ -173,15 +172,12 @@ $result = mysqli_query($database, $query);
 
   //ss
   if (isset($_POST['save'])) {
-
-
     if (isset($_POST['major'])) {
       if ($major == "") {
         $formerrors["majorError"] = true;
         $iserror = true;
       }
     }
-
 
     if (isset($_POST['position'])) {
       if ($position == "") {
@@ -236,11 +232,7 @@ $result = mysqli_query($database, $query);
     //if its correct update it
 
     if (!$iserror) {
-      $servername = "localhost";
-      $username = "root";
-      $password = "";
-      $dbname = "jobHunter";
-      if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
         // If we strip tags
 
         // $major=  $_POST['major'];
@@ -252,7 +244,7 @@ $result = mysqli_query($database, $query);
         // $jobType= $_POST['jobType'];
         // $gender= $_POST['gender'];
         // $salary=$_POST['salary']
-        $query = "UPDATE `job` SET 
+        $myquery = "UPDATE `job` SET 
             `city`='$location',
             `major`='$major',
             `position`='$position',
@@ -262,14 +254,13 @@ $result = mysqli_query($database, $query);
             `qualifications`='$requiredQ',
             `gender`='$gender',
             `salary`='$salary'";
-        $result = mysqli_query($database, $query);
+        $result = mysqli_query($database, $myquery);
 
         if ($result) {
           echo "<script> alert('Successful update');</script>";
           header("location: jobLisiting.php");
         } else
-          echo "An error occured while inserting into the job table.";
-      } //end if ($_SERVER["REQUEST_METHOD"] == "POST")
+          echo "An error occured while updating the job.";
 
       header("location: JobListing.php");
       exit();
@@ -302,10 +293,14 @@ $result = mysqli_query($database, $query);
 
       <div class="inputDiv" id="majorDiv">
         <label for="major">Major </label>
+        <script>
+        $( document ).ready(function() {
+
+          $("#major").val('<?php echo $major;?>');
+        });
+        </script>
         <select id="major" required name="major">
-          <script>
-            $("#major").val("<?php echo $major ?>");
-          </script>
+
           <option value="">Select a major</option>
           <option value="Accounting & Finance">Accounting & Finance</option>
           <option value="Agriculture & Forestry">Agriculture & Forestry</option>
@@ -385,11 +380,13 @@ $result = mysqli_query($database, $query);
       <fieldset>
         <legend class="notFormHeader">Job Type</legend>
         <script>
-          if (<?php echo $jobType; ?> === "FullTime") {
+        $( document ).ready(function() {
+          if ('<?php echo $jobType ;?>' == "FullTime") {
             $('#FullTime').attr('checked', 'checked');
           } else {
             $('#partTime').attr('checked', 'checked');
           }
+        });
         </script>
         <label class="rLabel">
           <input type="radio" required name="jobType" id="FullTime" value="FullTime" />
@@ -412,18 +409,20 @@ $result = mysqli_query($database, $query);
       <fieldset>
         <legend>Gender</legend>
         <script>
-          if (<?php echo $gender; ?> === "Female") {
+        $( document ).ready(function() {
+          if ('<?php echo $gender ;?>' == "Female") {
             $('#Female').attr('checked', 'checked');
           } else {
             $('#Male').attr('checked', 'checked');
           }
+        });
         </script>
         <label class="rLabel">
           <input required type="radio" required name="gender" value="Female" id="Female" />
           Female
         </label>
 
-        <label class="rLabel" id="Male">
+        <label class="rLabel">
           <input required type="radio" name="gender" id="Male" value="Male" />
           Male
         </label>

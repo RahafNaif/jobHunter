@@ -1,10 +1,21 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['email']) || $_SESSION['role'] == 1) { 
-    header("location: LogIn.php");
-    exit();
+if (!isset($_SESSION['email'])) {
+  header("location: login.php");
+  exit();
 }
+
+if (!($database = mysqli_connect("localhost", "root", "")))
+  die("<p>Could not connect to database</p>");
+
+if (!mysqli_select_db($database, "JobHunter"))
+  die("<p>Could not open URL database</p>");
+
+$email  = $_SESSION['email'];
+$jobID = $_POST['JOB_ID'];
+$query = "SELECT * FROM job WHERE ID = '$jobID' ";
+$result = mysqli_query($database, $query);
 
 ?>
 
@@ -29,32 +40,62 @@ if (!isset($_SESSION['email']) || $_SESSION['role'] == 1) {
 
   <body>
     <?php
-    $jobId=$_GET['ID'];
 
-    if (!($database = mysqli_connect("localhost", "root", "")))
-        die("<p>Could not connect to database</p>");
+          //1
+      //2
+      $location='';
+      //3
+      $major='';
+      //4
+      $position='';
+      //5
+      //6
+      //7
+      $jobType='';
+      //8
+      $jobDescription='';
+      //9
+      $requiredSkills='';
+      //10
+      $requiredQ='';
+      //11
+      $gender='';
+      //12
+      $salaryInput='';
+      //13
 
-    if (!mysqli_select_db($database, "jobhunter"))
-        die("<p>Could not open URL database</p>");
 
-    
-    $query = "select * from job WHERE ID='$jobId'";
-    $result = mysqli_query($database, $query);
+if ($result) {
+  while ($data = mysqli_fetch_assoc($result)) {
+      //1
+      //2
+      $location = $data ['city'];
+      //3
+      $major = $data ['major'];
+      //4
+      $position = $data ['position'];
+      //5
+      //6
+      //7
+      $jobType = $data ['jobType'];
+      //8
+      $jobDescription = $data ['description'];
+      //9
+      $requiredSkills = $data ['skills'];
+      //10
+      $requiredQ = $data ['qualifications'];
+      //11
+      $gender = $data ['gender'];
+      //12
+      $salaryInput = $data ['salary'];
+      //13
 
-    if ($result) {
-      while ($data = mysqli_fetch_assoc($result)) {
-      //$jobTitle=$data[];
-      $major=$data [`major`];
-      $position=$data [`position`];
-      $jobDescription=$data [`description`];
-      $requiredSkills=$data [`skills`];
-      $requiredQ=$data [`qualifications`];
-      $location=$data [`city`];
-      $jobType=$data [`jobType`];
-      $gender=$data [`gender`];
-      $salaryInput=$data [`salary`];
 
     }
+    }
+    else {
+      echo "Query Error";
+
     }
     
     ?>
@@ -146,11 +187,11 @@ if (!isset($_SESSION['email']) || $_SESSION['role'] == 1) {
 <!-- 
         <div class="inputDiv">
           <label class="theTitle" for="jobTitle"> Job Title </label>
-          <input id="jobTitle" type="text" value="<?php echo ;?>" />
+          <input id="jobTitle" type="text" value="" />
         </div> -->
         <div class="inputDiv">
           <label for="position">Job Position</label>
-          <input id="position" type="text" value="<?php echo $position;?>" />
+          <input id="position" type="text" value="<?php print $position;?>" />
         </div>
 
         <div class="inputDiv">

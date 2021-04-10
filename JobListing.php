@@ -123,8 +123,9 @@ if (!isset($_SESSION['email']) || $_SESSION['role'] == 1) {
         print '</div>';
         print '<div class="buttons">';
         print '<form  action="Applicants.php" method="POST"> <input type="hidden" name="JOB_ID" value=' . $data['ID'] . '> ';
-        print '<button class="applicants">Applicants</button>';
-        print '<a href="EditAJob.html"> <button class="edit">Edit</button></a></div> </form>';
+        print '<button class="applicants">Applicants</button></form>';
+        print '<form  action="EditAJob.php" method="POST"> <input type="hidden" name="JOB_ID" value=' . $data['ID'] . '> ';
+        print '<a href="EditAJob.php"> <button class="edit">Edit</button></a></div> </form>';
         print '</div>';
       }
       print '</div>';

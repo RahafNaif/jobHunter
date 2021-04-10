@@ -12,7 +12,8 @@ $(document).ready(function () {
         $('#selected').html('company name');
     });
 
-    $('#citybtn').click(function () { 
+    $('#citybtn').click(function (e) { 
+        // e.preventDefault();
        var city =  $('#city').val();
        $('#city-select').html(city);
     });
@@ -24,5 +25,8 @@ $(document).ready(function () {
     $('#part').click(function () { 
         $('#time').html('Part time');
     });
+
+    
+
 
 });

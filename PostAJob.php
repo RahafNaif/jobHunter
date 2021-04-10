@@ -134,7 +134,14 @@ if (!isset($_SESSION['email']) || $_SESSION['role'] == 1) {
             $result2=mysqli_query($database,$companyName);
 
             if($result2)
-              $result2=mysqli_fetch_assoc($result2);
+            {
+             while ($row = mysqli_fetch_array( $result2)) {
+
+                 
+                 $result3= $row['name'];
+                 }
+               
+            }
             else
               echo "An error occured while inserting into the job table.";
 
@@ -155,7 +162,7 @@ if (!isset($_SESSION['email']) || $_SESSION['role'] == 1) {
            `description`, `skills`, `qualifications`, `gender`, `salary`,`companyName`) 
            VALUES (' $location','$major','$position','$jobType',
           '$jobDescription','$requiredSkills', '$requiredQualifications',
-          '$gender','$salary','$result2')";
+          '$gender','$salary','$result3')";
           $result=mysqli_query($database, $query);
   
           if($result)

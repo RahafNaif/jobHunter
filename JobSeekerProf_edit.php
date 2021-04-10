@@ -376,12 +376,9 @@ aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
 <div class="progress-bar bg-primary" role="progressbar" style="width: 66%"
  aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
  </div> </div> </div> </div> </div> </div>
-
-
-
-            <a href="/JobSeekerViewProf.php">
-                <button class="applyBtn" style="transform: translateX(220%);">Save</button></a>
-    </main>
+<a href="/JobSeekerViewProf.php">
+<button class="applyBtn" style="transform: translateX(220%);">Save</button></a>
+ </main>
 
 
 </body>
@@ -396,7 +393,7 @@ if (isset($_POST['update'])) {
     $password=$_POST['password'];
     $birthDate=$_POST['birthDate'];
     $gender=$_POST['gender'];
-    $nationality=$_POST['nationality'];
+    $nationality=$_POST['JSnationality'];
     $city=$_POST['city'];
     $phone=$_POST['phone'];
     $major=$_POST['major'];

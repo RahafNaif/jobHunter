@@ -25,13 +25,13 @@ $result = mysqli_query($database, $query);
 
 <head>
   <meta charset="utf-8" />
-  <link type="text/css" href="styles/postEditJob.css" rel="stylesheet" />
   <link rel="icon" href="img/icon.png" />
   <link rel="stylesheet" href="styles/JobListingStyles.css" />
   <link rel="stylesheet" href="styles/Notifications.css" />
   <link rel="stylesheet" href="styles/Buttons.css" />
   <link rel="stylesheet" href="styles/NavbarStyles.css" />
   <link rel="stylesheet" href="styles/Footer.css" />
+  <link type="text/css" href="styles/postEditJob.css" rel="stylesheet" />
   <script src="js/Notification.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
@@ -268,6 +268,20 @@ $result = mysqli_query($database, $query);
     } // end if(!$iserror)
 
   } // end if(isset($_POST['save']))
+  if(isset($_POST['delete'])){
+    $myquery = "DELETE FROM `job`
+    WHERE ID='$jobID';
+    ";
+            $result = mysqli_query($database, $myquery);
+
+            if ($result) {
+              header("location: jobLisiting.php");
+            } else
+              echo "An error occured while updating the job.";
+    
+          header("location: JobListing.php");
+          exit();
+  }// end ifif(isset($_POST['delete']))
   ?>
 
 
@@ -449,8 +463,10 @@ $result = mysqli_query($database, $query);
 
         ?>
       </div>
-
-      <input type="button" value="Delete" />
+<form method="post" action="EditAJob.php">
+<input type="submit" value="Delete" name="delete" />
+</form>
+      
       <input type="submit" value="Save" name="save" />
 
     </fieldset>

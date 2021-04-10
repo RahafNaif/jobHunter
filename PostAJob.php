@@ -13,13 +13,13 @@ if (!isset($_SESSION['email']) || $_SESSION['role'] == 1) {
 
 <head>
   <meta charset="utf-8" />
-  <link type="text/css" href="styles/postEditJob.css" rel="stylesheet" />
   <link rel="stylesheet" href="styles/Buttons.css" />
   <link type="text/css" href="styles/NavbarStyles.css" rel="stylesheet" />
   <link rel="stylesheet" href="styles/Notifications.css" />
   <link type="text/css" href="styles/Footer.css" rel="stylesheet" />
   <link rel="icon" href="img/icon.png" />
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <link type="text/css" href="styles/postEditJob.css" rel="stylesheet" />
   <script src="js/Jquery.js"></script>
   <script src="js/PostAJob.js"></script>
   <title>Post A Job</title>

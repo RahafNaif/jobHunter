@@ -235,29 +235,30 @@ $result = mysqli_query($database, $query);
 
         // If we strip tags
 
-        // $major=  $_POST['major'];
-        // $position= $_POST['position'];
-        // $jobDescription=  $_POST['jobDescription'];
-        // $requiredSkills=  $_POST['requiredSkills'];
-        // $requiredQ=  $_POST['requiredQualifications'];
-        // $location= $_POST['location'];
-        // $jobType= $_POST['jobType'];
-        // $gender= $_POST['gender'];
-        // $salary=$_POST['salary']
+        $major=  $_POST['major'];
+        $position= $_POST['position'];
+        $jobDescription=  $_POST['jobDescription'];
+        $requiredSkills=  $_POST['requiredSkills'];
+        $requiredQ=  $_POST['requiredQualifications'];
+        $location= $_POST['location'];
+        $jobType= $_POST['jobType'];
+        $gender= $_POST['gender'];
+        $salary=$_POST['salary'];
         $myquery = "UPDATE `job` SET 
-            `city`='$location',
-            `major`='$major',
-            `position`='$position',
-            `jobType`='$jobType',
-            `description`='$jobDescription',
-            `skills`='$requiredSkills',
-            `qualifications`='$requiredQ',
-            `gender`='$gender',
-            `salary`='$salary'";
+            city='$location',
+            major='$major',
+            position='$position',
+            jobType='$jobType',
+            description='$jobDescription',
+            skills='$requiredSkills',
+            qualifications='$requiredQ',
+            gender='$gender',
+            salary='$salary'
+            WHERE ID='$jobID';
+            ";
         $result = mysqli_query($database, $myquery);
 
         if ($result) {
-          echo "<script> alert('Successful update');</script>";
           header("location: jobLisiting.php");
         } else
           echo "An error occured while updating the job.";
@@ -269,7 +270,9 @@ $result = mysqli_query($database, $query);
   } // end if(isset($_POST['save']))
   ?>
 
+
   <form action="EditAJob.php" method="POST">
+  <input type="hidden" name="JOB_ID" value='<?php echo $jobID;?>'/>
     <fieldset>
       <legend class="postLegend">Edit A Job</legend>
       <!-- 

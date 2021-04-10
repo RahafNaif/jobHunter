@@ -23,7 +23,7 @@ $result= $conn->query("INSERT INTO jobseeker(firstName, lastName,email,password,
 die($conn->error);
 $res=mysqli_query($conn,$result);
 if($res)
-    header("Location: prof.php");
+    header("Location: home.php");
 }
 
 

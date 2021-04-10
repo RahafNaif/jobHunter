@@ -180,8 +180,8 @@
 
                         </form>
                         <div class="buttons">
-                            <a href="JobSeekerViewProf.html">
-                                <button class="applicants" name ="save">Sign Up</button>
+                    
+                                <button class="applicants" >Sign Up<input type= "submit"name = "save"></button>
                             </a>
                         </div>
                     </div>

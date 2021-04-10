@@ -1,3 +1,14 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['email']) || $_SESSION['role'] == 2) { //i edit this one to restrict jobsseker from enter the emplyer page
+    header("location: LogIn.php");
+    exit();
+}
+
+?>
+
+
 <!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
@@ -185,7 +196,40 @@
             </div>
 
             <!-- end Company svg -->
+            <?php
+    if (!($database = mysqli_connect("localhost", "root", "")))
+        die("<p>Could not connect to database</p>");
 
+    if (!mysqli_select_db($database, "jobhunter"))
+        die("<p>Could not open URL database</p>");
+
+
+    $email = $_SESSION['email'];
+
+    $query = "select * from joobseeker WHERE email='$email'";
+    $result = mysqli_query($database, $query);
+
+    if ($result) {
+        $data = mysqli_fetch_assoc($result);
+        $firstName=$date['firstName'];
+        $lastName=$data['lastName'];
+        $email=$data ['email'];
+        $password=$date['password'];
+        $birthDate=$data['birthDate'];
+        $gender=$data['gender'];
+        $nationality=$data['nationality'];
+        $city=$data['city'];
+        $phone=$data['phone'];
+        $major=$data['major'];
+        $experince=$data['experince'];
+        $skills=$data['skills'];
+        $currentJob=$data['currentJob'];
+    } else {
+        echo "There are no info.";
+        exit();
+    }
+
+    ?>
         </div>
 
 
@@ -363,22 +407,25 @@
 
 <?php
 if (isset($_POST['update'])) {
-    $employerName = $_POST['employerName'];
-    $employerAddress = $_POST['employerAddress'];
-    $employerScope = $_POST['employerScope'];
-    $employerEmail = $_POST['employerEmail'];
-    $employerPhone = $_POST['employerPhone'];
-    $employerDescription = $_POST['employerDescription'];
-    $employerMission = $_POST['employerMission'];
-    $employerVision = $_POST['employerVision'];
+    $firstName=$_POST['firstName'];
+    $lastName=$_POST['lastName'];
+    $email=$_POST['email'];
+    $password=$_POST['password'];
+    $birthDate=$_POST['birthDate'];
+    $gender=$_POST['gender'];
+    $nationality=$_POST['nationality'];
+    $city=$_POST['city'];
+    $phone=$_POST['phone'];
+    $major=$_POST['major'];
+    $currentJob=$_POST['currentJob'];
 
-    $query = "UPDATE employer SET name = '$employerName', address = '$employerAddress', email = '$employerEmail', phone = '$employerPhone', scope = '$employerScope', description = '$employerDescription', mission = '$employerMission', vision = '$employerVision' WHERE email = '$email'";
+    $query = "UPDATE jobseeker SET name = '$$firstName', address = '$employerAddress', email = '$employerEmail', phone = '$employerPhone', scope = '$employerScope', description = '$employerDescription', mission = '$employerMission', vision = '$employerVision' WHERE email = '$email'";
     $result = mysqli_query($database, $query);
 
     if ($result) {
 ?>
         <script>
-            window.location = "EmployerProfile.php";
+            window.location = "JobSeekerViewProf.php";
         </script>
 <?php
     } else {

@@ -42,33 +42,35 @@
             </div>
             
             <div class="search">
+                <form>
                 <div class="search-box">
-                    <span class="material-icons" class="search-icon">search</span>
-                    <input type="text" class="input" placeholder="Search">
-                    <div class="dropdown">
-                        <div class="default_option" id="selected">position</div>  
-                        <ul>
-                            <li id="position-option">position</li>
-                            <li id="major-option">major</li>
-                            <li id="name-option">company name</li>
-                        </ul>
-                    </div>
-                    <div class="dropdown">
-                        <div class="default_option" id="city-select">city</div>
-                        <div class="city-form">
-                            <label>City :</label>
-                            <input type="text" id="city">
-                            <button id="citybtn">Apply</button>
+                        <span class="material-icons" class="search-icon">search</span>
+                        <input type="text" class="input" placeholder="Search" name="search">
+                        <div class="dropdown">
+                            <div class="default_option" id="selected" value="g"><p name="op1">position</p></div>  
+                            <ul>
+                                <li id="position-option">position</li>
+                                <li id="major-option">major</li>
+                                <li id="name-option">companyName</li>
+                            </ul>
                         </div>
-                    </div>
-                    <div class="dropdown2">
-                        <div class="default_option" id="time">Full time</div>  
-                        <ul>
-                            <li id="full">Full time</li>
-                            <li id="part">Part time</li>
-                        </ul>
-                    </div>
+                        <div class="dropdown">
+                            <div class="default_option" id="city-select">city</div>
+                            <div class="city-form">
+                                <label>City :</label>
+                                <input type="text" id="city" name="city">
+                                <button id="citybtn">Apply</button>
+                            </div>
+                        </div>
+                        <div class="dropdown2">
+                            <div class="default_option" id="time" name="time">Full time</div>  
+                            <ul>
+                                <li id="full">Full time</li>
+                                <li id="part">Part time</li>
+                            </ul>
+                        </div>
                 </div>
+                </form>
             </div>
             <div class="jobs">
 
@@ -78,36 +80,74 @@
 
                 if (!mysqli_select_db($database, "JobHunter"))
                     die("<p>Could not open URL database</p>");
+                
+                $search = $_GET['search'];
+                $city = $_GET['city'];
+                $op1 = $_GET['op1'];
+                $time = $_GET['time'];
 
-                $query = "select city, position, jobType, description from job";
-                $result = mysqli_query($database, $query);
+                
 
-                if ($result) {
-                    while ($data = mysqli_fetch_assoc($result)) {
-                        $position = $data['position'];
-                        $city = $data['city'];
-                        $jobType = $data['jobType'];
-                        $description = $data['description'];
-                    }
-                } else {
+                if($search==''){
+                    $query = "select city, position, jobType, description from job";
+                }elseif(!empty($search) && empty($city)){
+                    echo $op1;
+                    $query = "select city, position, jobType, description from job WHERE position='".$search."'";
+                }elseif(!empty($search) && !empty($city)){
+                    $query = "select city, position, jobType, description from job WHERE position='".$search."' AND city='".$city."'";
+                    
+                }else{
                     echo "There is no jobs";
                 }
+                
+                // $result = mysqli_query($database, $query);
+                // if ($result) {
+                //     while ($data = mysqli_fetch_assoc($result)) {
+                //         $position = $data['position'];
+                //         $city = $data['city'];
+                //         $jobType = $data['jobType'];
+                //         $description = $data['description'];
+                //     }
+                // }
+                
             ?>
 
                 <div class="job-posts">
                     <ul>
-                    <li class="post">
-                            <div class="post-content">
+                        <?php
+                            $result = mysqli_query($database, $query);
+                            if ($result) {
+                                while ($data = mysqli_fetch_assoc($result)) {
+                                    print '<li class="post">';
+                                    print '<div class="post-content">';
+                                    print '<a class="JobDetails">';
+                                    print '<h4  style="font-weight :bolder" >'. $data['position'] .'</h4>';
+                                    print '<svg class="location-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="18px" height="18px"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>';
+                                    print '<span class="icon-side">'. $data['city'] .'</span><br>';
+                                    print '<h5>About Job :</h5>';
+                                    print '<p class="descrption">' . $data['description'] .'</p>';
+                                    print '<p class="time"><span class="material-icons">work</span>'. $data['jobType'] . '</p><br>';
+                                    print '</a>';
+                                    print '</div>';
+                                    print '</li>';
+                                }
+                            }
+
+
+
+                        ?>
+                        <!-- <li class="post">
+                                <div class="post-content">
                                 <a class="JobDetails">
-                                    <h4  style="font-weight :bolder" ><?php echo $position; ?></h4>
-                                    <svg class="location-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="18px" height="18px"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                                    <span class="icon-side"><?php echo $city; ?></span><br>
-                                    <h5>About Job :</h5>
-                                    <p class="descrption"><?php echo $description; ?></p>
-                                    <p class="time"><span class="material-icons">work</span><?php echo $jobType; ?></p><br>
+                                <h4  style="font-weight :bolder" ><?php echo $position; ?></h4>
+                                <svg class="location-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="18px" height="18px"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                                <span class="icon-side"><?php echo $city; ?></span><br>
+                                <h5>About Job :</h5>
+                                <p class="descrption"><?php echo $description; ?></p>
+                                <p class="time"><span class="material-icons">work</span><?php echo $jobType; ?></p><br>
                                 </a>
-                            </div>
-                        </li>
+                                </div>
+                        </li> -->
                         
                         <!-- <li class="post">
                             <div class="post-content">

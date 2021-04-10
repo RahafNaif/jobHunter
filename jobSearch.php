@@ -3,7 +3,7 @@
     <head>
         <link rel="stylesheet" href="styles/jobs.css">
         <link rel="stylesheet" href="styles/NavbarStyles.css">
-        <link rel="stylesheet" href="styles\Buttons.css" />
+        <link rel="stylesheet" href="styles/Buttons.css" />
         <link rel="icon" href="img/icon.png">
         <link rel="icon" href="img/icon.png">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -47,11 +47,11 @@
                         <span class="material-icons" class="search-icon">search</span>
                         <input type="text" class="input" placeholder="Search" name="search">
                         <div class="dropdown">
-                            <div class="default_option" id="selected"><input type="text" value="position"></p></div>  
+                            <div class="default_option"><input type="text" name="op1" value="position" id="selected" style="background-color:transparent;border:none; outline:none; cursor:pointer;font-size: 16px;color:#192d50;" readonly></div>  
                             <ul>
                                 <li id="position-option">position</li>
                                 <li id="major-option">major</li>
-                                <li id="name-option">companyName</li>
+                                <li id="name-option">company name</li>
                             </ul>
                         </div>
                         <div class="dropdown">
@@ -63,7 +63,7 @@
                             </div>
                         </div>
                         <div class="dropdown2">
-                            <div class="default_option" id="time" name="time">Full time</div>  
+                            <div class="default_option"><input type="text" name="time" value="Full Time" id="time" style="background-color:transparent;border:none; outline:none; cursor:pointer;font-size: 16px;color:#192d50;" readonly></div>  
                             <ul>
                                 <li id="full">Full time</li>
                                 <li id="part">Part time</li>
@@ -88,16 +88,47 @@
 
                 
 
-                if($search==''){
+                if($search==''){ //all
                     echo $_POST['position'];
                     $query = "select city, position, jobType, description from job";
-                }elseif(!empty($search) && empty($city)){
-                    echo $op1;
-                    $query = "select city, position, jobType, description from job WHERE position='".$search."'";
-                }elseif(!empty($search) && !empty($city)){
-                    $query = "select city, position, jobType, description from job WHERE position='".$search."' AND city='".$city."'";
-                    
+                }elseif(!empty($search) && ($op1=='position') && ($city=='') && ($time=='Full Time')){ //default
+                    $query = "select city, position, jobType, description from job WHERE position='".$search."' AND jobType='".$time."'";
+
+                }elseif(!empty($search) && ($op1=='position') && ($city=='') && ($time=='Part Time')){ 
+                    $query = "select city, position, jobType, description from job WHERE position='".$search."' AND jobType='".$time."'";
+                       
+                }elseif(!empty($search) && ($op1=='position') && !empty($city) && ($time=='Full Time')){
+                    $query = "select city, position, jobType, description from job WHERE position='".$search."' AND city='".$city."' AND jobType='".$time."'";
+
+                }elseif(!empty($search) && ($op1=='position') && !empty($city) && ($time=='Part Time')){
+                    $query = "select city, position, jobType, description from job WHERE position='".$search."' AND city='".$city."' AND jobType='".$time."'";
+                
+                }elseif(!empty($search) && ($op1=='major') && ($city=='') && ($time=='Full Time')){
+                    $query = "select city, position, jobType, description from job WHERE major='".$search."' AND jobType='".$time."'";
+                
+                }elseif(!empty($search) && ($op1=='major') && ($city=='') && ($time=='Part Time')){
+                    $query = "select city, position, jobType, description from job WHERE major='".$search."' AND jobType='".$time."'";
+                
+                }elseif(!empty($search) && ($op1=='major') && !empty($city) && ($time=='Full Time')){
+                    $query = "select city, position, jobType, description from job WHERE major='".$search."' AND city='".$city."' AND jobType='".$time."'";
+
+                }elseif(!empty($search) && ($op1=='major') && !empty($city) && ($time=='Part Time')){
+                    $query = "select city, position, jobType, description from job WHERE major='".$search."' AND city='".$city."' AND jobType='".$time."'";
+                
+                }elseif(!empty($search) && ($op1=='company name') && ($city=='') && ($time=='Full Time')){
+                    $query = "select city, position, jobType, description from job WHERE companyName='".$search."' AND jobType='".$time."'";
+                
+                }elseif(!empty($search) && ($op1=='company name') && ($city=='') && ($time=='Part Time')){
+                    $query = "select city, position, jobType, description from job WHERE companyName='".$search."' AND jobType='".$time."'";
+                
+                }elseif(!empty($search) && ($op1=='company name') && !empty($city) && ($time=='Full Time')){
+                    $query = "select city, position, jobType, description from job WHERE companyName='".$search."' AND city='".$city."' AND jobType='".$time."'";
+
+                }elseif(!empty($search) && ($op1=='company name') && !empty($city) && ($time=='Part Time')){
+                    $query = "select city, position, jobType, description from job WHERE companyName='".$search."' AND city='".$city."' AND jobType='".$time."'";
+                  
                 }else{
+                    echo $op1;
                     echo "There is no jobs";
                 }
                 

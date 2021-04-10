@@ -21,7 +21,6 @@ if (!isset($_SESSION['email']) || $_SESSION['role'] == 1) {
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
   <link type="text/css" href="styles/postEditJob.css" rel="stylesheet" />
   <script src="js/Jquery.js"></script>
-  <script src="js/PostAJob.js"></script>
   <title>Post A Job</title>
 </head>
 

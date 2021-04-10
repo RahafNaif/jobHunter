@@ -1,3 +1,4 @@
+
 <html lang="en">
 <head>
 
@@ -207,7 +208,11 @@ $(".closeBtn").click(
 </script>
 </head>
 <body>
-    
+<?php
+if(isset($_POST['Apply'])){
+  
+}
+?>    
 <div class="jobDeatailsContainer" >
                   <div class="closeBtn">
       
@@ -291,8 +296,10 @@ $(".closeBtn").click(
                           </p>
                                               <!-- apply Buttton -->
                                               <div class="applyBtn">
-            
-                                                  <a href="/Myapplicationlist.html"> <button>Apply</button> </a>
+            <form action="JobDetailsPopUp.php" method="POST">
+            <a href="/Myapplicationlist.html"> <button> <input name="Apply" type="submit"/> Apply </button> </a>
+
+            </form>
                                               </div>
                       </div>
                       

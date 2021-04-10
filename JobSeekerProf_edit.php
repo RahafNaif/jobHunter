@@ -1,13 +1,3 @@
-<?php
-session_start();
-
-if (!isset($_SESSION['email']) || $_SESSION['role'] == 2) { //i edit this one to restrict jobsseker from enter the emplyer page
-    header("location: LogIn.php");
-    exit();
-}
-
-?>
-
 
 <!DOCTYPE html>
 
@@ -232,12 +222,12 @@ if (!isset($_SESSION['email']) || $_SESSION['role'] == 2) { //i edit this one to
     ?>
         </div>
 
-
+<form method="POST" action="JobSeekerProf_edit.php" > 
         <div class="details">
             <img src="img/person_JobDetails.svg" alt="Admin" class="circle" style="width:128px;height:128px;">
-            <h4>Rahaf Naif</h4>
-            <h4>Web Developer</h4>
-            <p>Riyadh, Saudi Arabia</p>
+            <h4><?php echo $firstName ?> <?php echo $lastName ?></h4>
+            <h4><?php echo  $currentJob ?></h4>
+            <p><?php echo $city ?></p>
             <img style="transform:translateY(40%)" src="img/Screen Shot 1442-07-16 at 4.29.48 PM.png" alt="Admin"
                 class="circle" width="50">
         </div>
@@ -298,31 +288,63 @@ if (!isset($_SESSION['email']) || $_SESSION['role'] == 2) { //i edit this one to
 <div class="sideBar">
 <div class="titleAndValueDiv">
 <h3>Full Name</h3>
-<input type="text" name="jobseekername" value="Rahaf Naif Alshaliy" style="width:100%; height: 50%; font-size: medium;"></input>
-            </div>
+<input type="text" name="jobseekername" value="<?php echo $firstName ?> <?php echo $lastName ?>" style="width:100%; height: 50%; font-size: medium;"></input></div>
             <div class="titleAndValueDiv">
-<h3>Age</h3>
-<input type="text" value="25" style="width:100%; height: 50%; font-size: medium;"></input>
+<h3>Birth Date </h3>
+<input type="text" value= "<?php echo $birthDate?>"  style="width:100%; height: 50%; font-size: medium;"></input>
 </div>
  <div class="titleAndValueDiv">
 <h3>Nationality</h3>
-<input type="text" id="nationality" name= "JSnationality " value=<?php echo $nationality; ?> style="width:100%; height: 50%; font-size: medium;"></input>
+<input type="text" id="nationality" name= "JSnationality " value="<?php echo $nationality; ?> "style="width:100%; height: 50%; font-size: medium;"></input>
  </div>
 <div class="titleAndValueDiv">
 <h3>Phone</h3>
-<input type="text" id = "phone" name = "JSphone" value=<?php echo $phone; ?> style="width:100%; height: 50%; font-size: medium;"></input>
+<input type="text" id = "phone" name = "JSphone" value="<?php echo $phone; ?> " style="width:100%; height: 50%; font-size: medium;"></input>
 <div class="titleAndValueDiv">
  <h3>Gender</h3>
-<input type="text" id = "gender" name = "JSgender"  value=<?php echo $gender; ?> style="width:100%; height: 50%; font-size: medium;"></input>
+<input type="text" id = "gender" name = "JSgender"  value="<?php echo $gender; ?>" style="width:100%; height: 50%; font-size: medium;"></input>
 </div>
 <div class="titleAndValueDiv">
 <h3>Current Job</h3>
-<input type="text" id="currentJob" name= "JScurrentJob" value=<?php echo $currentJob ?> style="width:100%; height: 50%; font-size: medium;"></input>
+<input type="text" id="currentJob" name= "JScurrentJob" value="<?php echo $currentJob ?> " style="width:100%; height: 50%; font-size: medium;"></input>
 </div>
 </div>
 <div class="titleAndValueDiv">
  <h3>Major</h3>
- <input type="text" id= "major" name="JSmajor" value=<?php echo $major; ?>  style="width:100%; height: 50%; font-size: medium;"></input>
+ <script>
+        $( document ).ready(function() {
+
+          $("#major").val('<?php echo $major;?>');
+        });
+        </script>
+        <select>
+     
+ <select id="major" required name="major">
+<option value="">Select a major</option>
+<option value="Accounting & Finance">Accounting & Finance</option>
+<option value="Agriculture & Forestry">Agriculture & Forestry</option>
+<option value="Archaeology">Archaeology</option>
+<option value="Architecture">Architecture</option>
+<option value="Art">Art</option>
+<option value="Biological Sciences">Biological Sciences</option>
+<option value="Business & Management">Business & Management</option>
+<option value="Chemical Engineering">Chemical Engineering</option>
+<option value="Chemistry">Chemistry</option>
+<option value="Civil Engineering">Civil Engineering</option>
+<option value="Communication & Media Studies">Communication & Media Studies</option>
+<option value="Computer Science">Computer Science</option>
+<option value="Economics & Econometrics">Economics & Econometrics</option>
+<option value="Education">Education</option>
+<option value="Electrical & Electronic Engineering">Electrical & Electronic Engineering</option>
+<option value="General Engineering">General Engineering</option>
+<option value="Geography">Geography</option>
+<option value="Geology, Environmental, Earth & Marine Sciences">Geology, Environmental, Earth & Marine Sciences</option>
+<option value="Law">Law</option>
+<option value="Mathematics & Statistics">Mathematics & Statistics</option>
+<option value="Mechanical & Aerospace Engineering">Mechanical & Aerospace Engineering</option>
+<option value="Medicine & Dentistry">Medicine & Dentistry</option>
+</select>
+
  </div></div></div>
  <div class="sideBar1">
 <div class="row gutters-sm">
@@ -373,8 +395,8 @@ aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
 <div class="progress-bar bg-primary" role="progressbar" style="width: 66%"
  aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
  </div> </div> </div> </div> </div> </div>
-<a href="/JobSeekerViewProf.php">
-<button class="applyBtn" style="transform: translateX(220%);">Save</button></a>
+<button class="applyBtn" style="transform: translateX(220%);">Save <input type= "submit"name = "update"></button>
+</form>
  </main>
 
 

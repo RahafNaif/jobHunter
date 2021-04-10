@@ -15,8 +15,8 @@ if (!isset($_SESSION['email']) ){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="styles/JobListStyles.css" />
-    <link rel="stylesheet" href="styles/Buttons.css" />
+    <link rel="stylesheet" href="styles/selectstyle.css" />
+    
    <style>
        body
        {
@@ -56,6 +56,7 @@ if (!isset($_SESSION['email']) ){
                         $Date0 = $data['date'];
                         $date = date("d-m-Y", strtotime($Date0));
                        $time = $data['time']; 
+                       $idappo=$data['appointment_ID'];
                        $t;
                       $cheak=  substr($time,0,2);
                       if ($cheak>=12)
@@ -71,11 +72,12 @@ if (!isset($_SESSION['email']) ){
                         
                             
                               
-                        
-                            <a class="box"> 
+                        <form action="popselect.php" method="POST" class="selectapy">
+                            <input type="hidden" name="id" value="<?php echo $idappo ?>">
+                           <button class="box"  name="selecteda"> 
                                 <div id="date">Availabale appointment</div>
                                 <div id="title"><h4> <?php echo $date;?></h4> <h4> <?php echo $time;?></h4></div>
-                                 <div id="book"><h4> Book</h4></div> </a>
+                                 <div id="book"><h4> Book</h4></div> </button>  </form>
                                
                                  
                         
@@ -87,10 +89,37 @@ if (!isset($_SESSION['email']) ){
                       
                               
                                
-                                 <?php }} } else echo "NO data";?>                                                                                             
+                                 <?php }} } else echo " ";?>                                                                                             
                  
                       </div>
                   </div> 
               
-</body>
+</body>  
+<?php
+$x=0;
+ if(isset($_POST['selecteda'])){
+    $idapoo=$_POST['id'];
+    if (!($database = mysqli_connect("localhost", "root", "")))
+    die("<p>Could not connect to database</p>");
+
+if (!mysqli_select_db($database, "jobhunter"))
+    die("<p>Could not open URL database</p>");
+    
+    $query="UPDATE appointment SET statuss=1  WHERE appointment_ID ='$idapoo'";              
+    $result = mysqli_query($database, $query);
+    
+     if ($result) {
+   
+    
+    print( "<script>x=alert('Thanks, your appointiment is confirmed');
+    window.location.href = 'Myapplicationlist.php';
+                                                     </script>");
+    
+} }  
+
+?>
+
+
+
+
 </html>

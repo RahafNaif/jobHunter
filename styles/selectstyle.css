@@ -1,0 +1,518 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+      "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    font-weight: 400;
+  }
+  
+  /* SCROLL BAR */
+  ::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  ::-webkit-scrollable-thumb {
+    background: #fa9746;
+    border-radius: 5px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #fa9746;
+    border-radius: 5px;
+  }
+  
+  h1 {
+    padding-bottom: 10px;
+    text-align: center;
+    color: #2b303d;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 32px;
+  }
+  
+  .line {
+    position: relative;
+    background-color: #fa9746;
+    width: 200px;
+    height: 2px;
+    right: 43%;
+    left: 43%;
+  }
+  
+  main {
+    display: flex;
+    margin-top: 0;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .lists {
+    margin-top: 10px;
+    margin-left: 50px;
+    margin-right: 50px;
+    display: flex;
+  
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .list {
+    display: flex;
+    min-width: 1140px;
+    height: 40vh;
+    background: rgba(234, 243, 250, 0.8);
+    margin-bottom: 20px;
+    border-radius: 25px;
+    box-shadow: 5px 3px 3px rgba(43, 70, 139, 0.1);
+  }
+  
+  /*JOB DESCRIPTION*/
+  .jonInfo {
+    float: left;
+    padding-bottom: 25px;
+  }
+  
+  h2,
+  .jonInfo p,
+  h6,
+  h5 {
+    color: #192d50;
+    text-align: left;
+  }
+  
+  .jobDescription {
+    font-size: 20px;
+    width: 650px;
+    height: 50px;
+    white-space: wrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 10px;
+  }
+  
+  .applicantDescription {
+    font-size: 20px;
+  }
+  
+  .applicantProfile {
+    font-weight: 500;
+    font-size: 24px;
+  }
+  
+  h2 {
+    font-weight: 500;
+    font-size: 24px;
+    margin-top: 25px;
+    margin-left: 0;
+  }
+  
+  h6 {
+    margin-top: 15px;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: center;
+    vertical-align: top;
+    font-size: 14px;
+  }
+  
+  h5 {
+    display: inline-block;
+    margin-top: 10px;
+    font-weight: 500;
+    font-size: 16px;
+  }
+  
+  .salary {
+    font-size: 16px;
+  }
+  
+  div svg {
+    fill: rgb(250, 151, 70);
+    vertical-align: bottom;
+  }
+  
+  .defaultCompany {
+    margin-top: 25px;
+    margin-left: 25px;
+    margin-right: 25px;
+    width: 150px;
+  }
+  
+  .location,
+  .major,
+  .work {
+    display: inline-block;
+    clear: both;
+  }
+  
+  .workIcon {
+    margin-left: 3%;
+  }
+  
+  .location {
+    margin-right: 20px;
+  }
+  
+  .work {
+    margin: 0;
+    vertical-align: text-top;
+    font-size: 14px;
+  }
+  
+  .defaultCompany {
+    margin-top: 25px;
+    margin-left: 25px;
+    margin-right: 25px;
+    width: 150px;
+  }
+  
+  .delete {
+    position: relative;
+    margin: 10px;
+    cursor: pointer;
+    width: 36px;
+    height: 36px;
+  }
+  
+  
+  
+  .applicants,
+  .accept {
+    margin-top: 75px;
+    text-decoration: none;
+    color: white;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  .applicantProfile {
+    color: #192d50;
+    cursor: pointer;
+  }
+  
+  .applicantProfile:hover {
+    color: #fa9746;
+  }
+  
+  .applicantProfile:visited,
+  .applicantProfile:active {
+    color: #192d50;
+  }
+  
+  /* POPUP*/
+  .popup {
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.4s;
+    top: 40px;
+    right: 140px;
+    bottom: 0;
+    z-index: 99;
+    display: flex;
+    padding: 10px;
+    position: fixed;
+  }
+  
+  .popup-inner {
+    overflow: scroll;
+    overflow-x: hidden;
+    background-color: #fff;
+    padding: 10px;
+    max-width: 400px;
+    max-height: 400px;
+    border-radius: 16px 0 16px 16px;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  .popup:target {
+    opacity: 1;
+    pointer-events: all;
+  }
+  
+  .notificationIcon {
+    position: relative;
+    left: 0.7vh;
+    top: 2.5vh;
+    fill: orange;
+  }
+  
+  .notificationList h3,
+  .notificationList p {
+    padding: 2.5px;
+  }
+  
+  .content h3 {
+    height: 16px;
+    overflow: hidden;
+    margin-left: 30px;
+    font-size: 14px;
+    color: #192d50;
+  }
+  
+  .notificationRow {
+    padding: 0;
+    min-height: 80px;
+    list-style-type: none;
+    background: rgba(234, 243, 250, 0.8);
+    border-radius: 2.5vh;
+  }
+  
+  .notificationList .notificationRow {
+    margin-bottom: 5px;
+  }
+  
+  .date {
+    margin-left: 40px;
+    font-size: 10px;
+    font-style: oblique;
+    font-weight: 500;
+  }
+  
+  
+  /* The Modal (background) */
+  .modal {
+    display: block; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 2; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    background-color: #EAF3FA;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    border-radius: 12px;
+    width: 60%;
+    height: 350px;
+    overflow: auto;
+    
+  }
+  
+  /* SCROLL BAR */
+  ::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  ::-webkit-scrollable-thumb {
+    background: #fa9746;
+    border-radius: 5px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #fa9746;
+    border-radius: 5px;
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  #head{
+    background-color: none;
+    color: #2B468B;
+    font-weight: bolder ;
+   padding: 3%;
+    text-align: center;
+    margin: auto;
+    font-size:x-large ;
+   
+    
+   
+   
+    
+  }
+  .box{
+    width: 101px;
+    height: 130px;
+    background-color: white;
+    border-radius: 12px;
+    margin-left: 2%;
+   margin-bottom: 10px;
+   margin-top: 3%;
+    box-shadow: 5px 5px 20px rgba(122, 122, 122, 0.2);
+    border-color: rgb(212, 211, 211);
+    outline: none;
+    
+    
+  }
+  #scrolling-wrapper {
+  overflow: auto;
+  white-space:normal;
+  height: 220px;
+  width: 55%;
+  float: center;
+  border-radius: 8px;
+  margin-left:24% ;
+  border: solid whitesmoke;
+  padding: 3%;
+  background-color: white;
+  position: absolute;
+  top: 20%;
+  background-color: #EAF3FA;
+  z-index: 2;
+  
+  transform: translate(-50%,-50%);
+  }
+  
+  
+  .active  {
+    display:block;
+    transition:all 300ms ease-in-out;
+    transform:translate(-50%,-50%) scale(1);
+  }
+   
+  
+  .box{
+    display: inline-block;
+  }
+   
+  .box:hover{
+   background-color: rgb(223, 223, 223);
+   border: none;
+   cursor: pointer;
+  }
+  
+  #datee{
+    background-color: transparent;
+    border: none;
+    border-radius: 20px;
+    width: 100px;
+    height: 25px;
+  }
+  
+  
+  
+  
+  
+  
+  #date{
+    width: 100px;
+    height: 30px;
+    
+    background-color: #8CB3F4;
+    color: white;
+    border-top-left-radius: 12px;
+    border: radius right 12px; ;
+    border-top-right-radius: 12px; 
+    margin-top: -21px;
+    font-size:11px;
+  
+    text-align: center;
+  }
+  #book{
+    width: 100px;
+    height: 20px;
+    
+    background-color: #FA9746;
+    color: white;
+    border-bottom-left-radius: 12px;
+    border: radius right 12px; ;
+   
+    border-bottom-right-radius: 12px;
+    margin-top: 33px;
+    font-size: medium;
+    text-align: center;
+    
+  
+  }
+  #timeAp{
+    width: 100px;
+    height: 25px;
+    
+    background-color: #8CB3F4;
+    color: white;
+    
+   
+   
+    
+    margin-top:20px;
+    font-size: medium;
+    text-align: center;
+    
+  
+  }
+  #title{
+    color:#2B468B ;
+    text-align: center;
+    font-size: medium;
+    font-weight: bold;
+    margin-top: 30px;
+    
+  }
+  .lineapp {
+    position: relative;
+    background-color: #fa9746;
+    width: 200px;
+    height: 2px;
+    right: 43%;
+    left: 38%;
+    top: 17%;
+  }
+  
+  .content {
+    padding-bottom: 2.5rem;    /* Footer height */
+  }
+  .page{
+    position: relative;
+    min-height: 100vh;
+  }
+  .listno{
+    width: 1000px;
+    height: 130px;
+    background-color: transparent;
+    color: #aaaaaa;
+    text-align: center;
+    padding: 2.2%;
+    font-size: xx-large;
+  
+  }
+  .selectapy{
+    display: inline;
+  }
+
+  button{
+      outline: none;
+      background-color: transparent;
+      border: none;
+  }
+  
+  
+  
+  
+  
+  
+  

@@ -5,6 +5,17 @@ if (!isset($_SESSION['email'])) {
   header("location: login.php");
   exit();
 }
+
+if (!($database = mysqli_connect("localhost", "root", "")))
+  die("<p>Could not connect to database</p>");
+
+if (!mysqli_select_db($database, "JobHunter"))
+  die("<p>Could not open URL database</p>");
+
+$email  = $_SESSION['email'];
+$jobID = $_POST['JOB_ID'];
+$query = "SELECT * FROM jobseeker_apply_job, jobseeker WHERE Job_ID = '$jobID' AND JobSeeker_email = email";
+$result = mysqli_query($database, $query);
 ?>
 <!DOCTYPE html>
 <html>
@@ -62,8 +73,7 @@ if (!isset($_SESSION['email'])) {
   <span class="logo"><img src="img/logo.PNG" alt="logo" /></span>
   <div style="height: 150px; overflow: hidden">
     <svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%">
-      <path d="M-15.58,-15.49 C-16.70,110.81 186.45,57.52 502.48,59.50 L500.00,0.00 L0.00,0.00 Z"
-        style="stroke: none; fill: #8cb3f4"></path>
+      <path d="M-15.58,-15.49 C-16.70,110.81 186.45,57.52 502.48,59.50 L500.00,0.00 L0.00,0.00 Z" style="stroke: none; fill: #8cb3f4"></path>
     </svg>
   </div>
   <header>
@@ -83,8 +93,7 @@ if (!isset($_SESSION['email'])) {
       </ul>
       <ul class="navLinks2">
         <li>
-          <a href="#" id="notification" class="notificationIcon" onclick="showNotifications()"><i
-              class="material-icons">notifications</i></a>
+          <a href="#" id="notification" class="notificationIcon" onclick="showNotifications()"><i class="material-icons">notifications</i></a>
         </li>
         <li>
           <a href="#"><i class="material-icons">person</i></a>
@@ -99,37 +108,29 @@ if (!isset($_SESSION['email'])) {
   <h1>All Applicants</h1>
   <div class="line"></div>
   <main>
-  <?php
-    if (!($database = mysqli_connect("localhost", "root", "")))
-      die("<p>Could not connect to database</p>");
-
-    if (!mysqli_select_db($database, "JobHunter"))
-      die("<p>Could not open URL database</p>");
-
-    $name  = $_SESSION['name'];
-    $query = "SELECT * FROM job WHERE companyName = " .$name. ";" ; //retreive all jobs for the current employer
-    $result = mysqli_query($database, $query);
-
+    <?php
     if ($result) {
       print '<div class="lists">';
-      while ($data = mysqli_fetch_row($result)) {
+      while ($data = mysqli_fetch_assoc($result)) {
         print '<div class="list">';
-        print '<div> <img src="img/company.svg" alt="company default logo" class="defaultCompany" /></div>';
-        print '<div class="jobInfo"> <h2>' . $data[3] . '</h2> <i class="material-icons">location_on</i>';
-        print '<h6 class="location"> ' . $data[1] . '</h6>';
-        print '<i class="material-icons">book</i> <h6 class="major"> ' . $data[2] . '</h6>';
-        print '<p class="jobDescription">' . $data[7] . '</p>';
-        print '<h5>Starting salary <span class="salary">' . $data[12] . '</span></h5> <i class="material-icons">work</i>';
-        print '<h6 class="work">' . $data[4] . '</h6>';
-        print '/div>';
-        print '<div class="buttons"> <a href="applicants.html"> <button class="applicants">Applicants</button></a> <a href="EditAJob.html"> <button class="edit">Edit</button></a></div>';
-        print '/div>';
+        print '<div> <img style="width: 125px" src="img/person.svg" alt="person default logo" class="defaultCompany" /> </div>';
+        print '<div class="jobInfo"> <h2>' . $data['firstName'] . $data['lastName'] . '</h2> <i class="material-icons">location_on</i>';
+        print '<h6 class="location"> ' . $data['city'] . '</h6>';
+        print '<i class="material-icons">book</i> <h6 class="major"> ' . $data['major'] . '</h6>';
+        print '<p class="jobDescription">' . $data['experince'] . '</p>';
+        print '<p class="jobDescription">' . $data['skills'] . '</p>';
+        print '</div>';
+        print '  <div class="buttons">
+        <a href="#"> <button class="accept">Accept</button> </a>
+        <a href="#"> <button class="reject">Reject</button> </a>
+      </div>';
+        print '</div>';
       }
       print '</div>';
     } else
-      echo "There are no branches.";
+      echo "There are no emplyees.";
     ?>
-
+    <!--
     <div class="lists">
       <div class="list">
         <div> <img style="width: 125px" src="img/person.svg" alt="person default logo" class="defaultCompany" /> </div>
@@ -152,7 +153,7 @@ if (!isset($_SESSION['email'])) {
         </div>
       </div>
     </div>
-
+-->
   </main>
   <!-- Footer -->
   <div class="footer">
@@ -163,8 +164,7 @@ if (!isset($_SESSION['email'])) {
     </div>
     <div class="shape-footer" style="height: 150px; overflow: hidden">
       <svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%">
-        <path d="M-15.58,-15.49 C-16.70,110.81 186.45,57.52 502.48,59.50 L500.00,0.00 L0.00,0.00 Z"
-          style="stroke: none; fill: #8cb3f4"></path>
+        <path d="M-15.58,-15.49 C-16.70,110.81 186.45,57.52 502.48,59.50 L500.00,0.00 L0.00,0.00 Z" style="stroke: none; fill: #8cb3f4"></path>
       </svg>
     </div>
   </div>

@@ -7,7 +7,7 @@
         <link rel="icon" href="img/icon.png">
         <link rel="icon" href="img/icon.png">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <script src="js/Jquery.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="js/SearchBar.js"></script>
 
         <title>Job Hunter</title>
@@ -46,24 +46,26 @@
                     <span class="material-icons" class="search-icon">search</span>
                     <input type="text" class="input" placeholder="Search">
                     <div class="dropdown">
-                        <div class="default_option">position</div>  
+                        <div class="default_option" id="selected">position</div>  
                         <ul>
-                          <li>major</li>
-                          <li>company name</li>
+                            <li id="position-option">position</li>
+                            <li id="major-option">major</li>
+                            <li id="name-option">company name</li>
                         </ul>
                     </div>
                     <div class="dropdown">
-                        <div class="default_option">city</div>
+                        <div class="default_option" id="city-select">city</div>
                         <div class="city-form">
-                            <label for="">City :</label>
-                            <input type="text">
-                            <button>Apply</button>
+                            <label>City :</label>
+                            <input type="text" id="city">
+                            <button id="citybtn">Apply</button>
                         </div>
                     </div>
                     <div class="dropdown2">
-                        <div class="default_option">Full time</div>  
+                        <div class="default_option" id="time">Full time</div>  
                         <ul>
-                          <li>Part time</li>
+                            <li id="full">Full time</li>
+                            <li id="part">Part time</li>
                         </ul>
                     </div>
                 </div>
@@ -88,8 +90,7 @@
                         $description = $data['description'];
                     }
                 } else {
-                    echo "There are no jobs";
-                    exit();
+                    echo "There is no jobs";
                 }
             ?>
 
@@ -107,6 +108,7 @@
                                 </a>
                             </div>
                         </li>
+                        
                         <!-- <li class="post">
                             <div class="post-content">
                                 <a class="JobDetails">

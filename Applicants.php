@@ -11,10 +11,30 @@ if (!($database = mysqli_connect("localhost", "root", "")))
 
 if (!mysqli_select_db($database, "JobHunter"))
   die("<p>Could not open URL database</p>");
+  
+if(isset($_GET['reject'])){
+      $apply_ID = $_GET['applyID'];
+      $query = "DELETE FROM jobseeker_apply_job  WHERE applay_ID = '$apply_ID'";
 
+      $result = mysqli_query($database, $query);
+  if($result){ ?>
+  <script>
+  window.onload = function() {
+    if(!window.location.hash) {
+      window.location = window.location + '#loaded';
+      window.location.reload();
+    }
+  }
+  </script>
+  <?php }
+} 
+else{
+  $jobID = $_POST['JOB_ID'];
+  $_SESSION['jobID'] = $jobID;
+}
+$job =  $_SESSION['jobID'];
 $email  = $_SESSION['email'];
-$jobID = $_POST['JOB_ID'];
-$query = "SELECT * FROM jobseeker_apply_job, jobseeker WHERE Job_ID = '$jobID' AND JobSeeker_email = email";
+$query = "SELECT * FROM jobseeker_apply_job, jobseeker WHERE Job_ID = '$job' AND JobSeeker_email = email";
 $result = mysqli_query($database, $query);
 ?>
 <!DOCTYPE html>
@@ -120,40 +140,13 @@ $result = mysqli_query($database, $query);
         print '<p class="jobDescription">' . $data['experince'] . '</p>';
         print '<p class="jobDescription">' . $data['skills'] . '</p>';
         print '</div>';
-        print '  <div class="buttons">
-        <a href="#"> <button class="accept">Accept</button> </a>
-        <a href="#"> <button class="reject">Reject</button> </a>
-      </div>';
+        print '<form  action="#" method="GET"> <div class="buttons"> <button class="accept">Accept</button> <input type = "hidden" name = "applyID" value =' .$data['applay_ID']. '><button name = "reject" class="reject">Reject</button> </a> </form> </div>';
         print '</div>';
       }
       print '</div>';
     } else
       echo "There are no emplyees.";
     ?>
-    <!--
-    <div class="lists">
-      <div class="list">
-        <div> <img style="width: 125px" src="img/person.svg" alt="person default logo" class="defaultCompany" /> </div>
-        <div class="jobInfo">
-          <h2> <a class="applicantProfile" href="JobSeekerViewProf.html"> John Doe </a> </h2>
-          <i class="material-icons">location_on</i>
-          <h6 class="location">City, Country</h6>
-          <i class="material-icons">book</i>
-          <h6 class="major">Major, Degree</h6>
-          <p class="jobDescription">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis ad
-            ratione repellendus, accusantium velit molestiae itaque
-            voluptatibus nulla sint facilis id placeat. Reprehenderit ipsum
-            magni sit libero debitis maxime corporis!
-          </p>
-        </div>
-        <div class="buttons">
-          <a href="#"> <button class="accept">Accept</button> </a>
-          <a href="#"> <button class="reject">Reject</button> </a>
-        </div>
-      </div>
-    </div>
--->
   </main>
   <!-- Footer -->
   <div class="footer">
@@ -169,5 +162,4 @@ $result = mysqli_query($database, $query);
     </div>
   </div>
 </body>
-
 </html>

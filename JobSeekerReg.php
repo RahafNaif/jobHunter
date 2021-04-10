@@ -209,10 +209,11 @@
                             </select>
             <!--  -->
 
-                        </form>
+                        
                         <div class="buttons">
                     
                         <input type="submit" class="applicants" name="create" id="submit">
+                        </form>
                             </a>
                         </div>
                     </div>

@@ -198,6 +198,20 @@ if (!isset($_SESSION['email']) || $_SESSION['role'] == 2) { //i edit this one to
      echo "There are no info.";
      exit();
  }
+ if(isset($_POST['delete'])){
+    $myquery = "DELETE FROM `jobseeker`
+    WHERE email='$email';
+    ";
+            $result = mysqli_query($database, $myquery);
+
+            if ($result) {
+              header("location: home.php");
+            } else
+              echo "An error occured while updating the job.";
+    
+          header("location: home.php");
+          exit();
+  }
  ?>
 
 
@@ -355,9 +369,4 @@ if (!isset($_SESSION['email']) || $_SESSION['role'] == 2) { //i edit this one to
 
 </body>
 </html>
-<?php if(isset($_GET['delete'])){
-$email = $_GET['delete']; 
-$res=$mysqli->query("DELET FORM data WHERE email=$email ") or die($mysqli->error());
-if($res)
-header("Location: home.html");
-} ?>
+

@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="styles\Buttons.css" />
     <link rel="stylesheet" href="styles\NavbarStyles.css" />
     <link rel="stylesheet" href="styles\form.css" />
+    <script src="js/jobseekerValdition.js"></script>
 </head>
 
 <body>

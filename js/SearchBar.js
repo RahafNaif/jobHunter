@@ -1,29 +1,29 @@
 $(document).ready(function () {
 
     $('#position-option').click(function () { 
-        $('#selected').html('position');
+        $('#selected').val('position');
     });
 
     $('#major-option').click(function () { 
-        $('#selected').html('major');
+        $('#selected').val('major');
     });
 
     $('#name-option').click(function () { 
-        $('#selected').html('company name');
+        $('#selected').val('company name');
     });
 
     $('#citybtn').click(function (e) { 
-        // e.preventDefault();
+       //e.preventDefault();
        var city =  $('#city').val();
        $('#city-select').html(city);
     });
 
     $('#full').click(function () { 
-        $('#time').html('Full time');
+        $('#time').val('Full time');
     });
 
     $('#part').click(function () { 
-        $('#time').html('Part time');
+        $('#time').val('Part time');
     });
 
     

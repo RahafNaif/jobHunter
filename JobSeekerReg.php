@@ -34,6 +34,8 @@
                 $city=$_POST['city'];
                 $phone=$_POST['phone'];
                 $major=$_POST['major'];
+                $experince=$_POST['experince'];
+                $skills=$_POST['skills'];
                 $currentJob=$_POST['currentJob'];
 
 
@@ -131,24 +133,27 @@
                                 width: 110%;
                               
                               ">
- 
+                                <select id="nationality" required name="nationality">
                                 <option selected> Select a nationality</option>
-                                <option> Saudi</option>
-                                <option> Brazilian</option>
-                                <option> German</option>
-                                <option> Greek</option>
-                                <option> Kuwaiti</option>
-                                <option> Libyan</option>
-                                <option> Iraqi</option>
-                                <option> Italian</option>
-                                <option> Other</option>
+                                <option value ="Saudi"> Saudi</option>
+                                <option value = "Brazilian"> Brazilian</option>
+                                <option value="German"> German</option>
+                                <option value="Greek"> Greek</option>
+                                <option value="Kuaiti"> Kuwaiti</option>
+                                <option  value="Libyan"> Libyan</option>
+                                <option value="Iraqi"> Iraqi</option>
+                                <option value="Italian"> Italian</option>
+                                <option value="Other"> Other</option>
                                 </select>
                             <br> <label for="last_name">city</label>
                             <input type="text" class="form-input" name="city" id="last_name"
                                 placeholder="Your city..." />
                             <br> <label for="last_name">current job</label>
-                            <input type="text" class="form-input" name="currentJob" id="last_name"
-                                placeholder="Your current job..." />
+                            <input type="text" class="form-input" name="currentJob" id="last_name" placeholder="Your current job..." />
+                            <br> <label for="last_name">experince</label>
+                            <input type="text" class="form-input" name="experince" id="experince" placeholder="Your current job..." />
+                            <br> <label for="last_name">skliis</label>
+                            <input type="text" class="form-input" name="skills" id="skills" placeholder="Your current job..." />
                             <br><label for="last_name">major</label>
                             <select id="major" class="form-input" style=" 
                                 width: 100%;
@@ -179,34 +184,31 @@
                                 width: 110%;
                               
                               ">
-                                <option selected> Select a major</option>
-                                <option> Accounting & Finance</option>
-                                <option> Agriculture & Forestry</option>
-                                <option> Archaeology</option>
-                                <option> Architecture</option>
-                                <option> Art</option>
-                                <option> Biological Sciences</option>
-                                <option> Business & Management</option>
-                                <option> Chemical Engineering</option>
-                                <option> Chemistry</option>
-                                <option> Civil Engineering</option>
-                                <option> Communication & Media Studies</option>
-                                <option> Computer Science</option>
-                                <option> Economics & Econometrics</option>
-                                <option> Education</option>
-                                <option> Electrical & Electronic Engineering</option>
-                                <option> General Engineering</option>
-                                <option> Geography</option>
-                                <option> Geology, Environmental, Earth & Marine Sciences</option>
-                                <option> Law</option>
-                                <option> Mathematics & Statistics</option>
-                                <option> Mechanical & Aerospace Engineering</option>
-                                <option> Medicine & Dentistry</option>
-                                <option> Other</option>
-            
-            
-            
-                            </select>
+ <select id="major" required name="major">
+<option value="">Select a major</option>
+<option value="Accounting & Finance">Accounting & Finance</option>
+<option value="Agriculture & Forestry">Agriculture & Forestry</option>
+<option value="Archaeology">Archaeology</option>
+<option value="Architecture">Architecture</option>
+<option value="Art">Art</option>
+<option value="Biological Sciences">Biological Sciences</option>
+<option value="Business & Management">Business & Management</option>
+<option value="Chemical Engineering">Chemical Engineering</option>
+<option value="Chemistry">Chemistry</option>
+<option value="Civil Engineering">Civil Engineering</option>
+<option value="Communication & Media Studies">Communication & Media Studies</option>
+<option value="Computer Science">Computer Science</option>
+<option value="Economics & Econometrics">Economics & Econometrics</option>
+<option value="Education">Education</option>
+<option value="Electrical & Electronic Engineering">Electrical & Electronic Engineering</option>
+<option value="General Engineering">General Engineering</option>
+<option value="Geography">Geography</option>
+<option value="Geology, Environmental, Earth & Marine Sciences">Geology, Environmental, Earth & Marine Sciences</option>
+<option value="Law">Law</option>
+<option value="Mathematics & Statistics">Mathematics & Statistics</option>
+<option value="Mechanical & Aerospace Engineering">Mechanical & Aerospace Engineering</option>
+<option value="Medicine & Dentistry">Medicine & Dentistry</option>
+</select>
             <!--  -->
 
                         </form>
@@ -226,4 +228,4 @@
     </main>
 </body>
 
-</html>
+</html> 

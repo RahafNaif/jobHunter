@@ -1,4 +1,12 @@
+<?php
+session_start();
 
+if (!isset($_SESSION['email']) || $_SESSION['role'] == 2) { //i edit this one to restrict jobsseker from enter the emplyer page
+    header("location: LogIn.php");
+    exit();
+}
+
+?>
 <!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
@@ -291,7 +299,7 @@
 <input type="text" name="jobseekername" value="<?php echo $firstName ?> <?php echo $lastName ?>" style="width:100%; height: 50%; font-size: medium;"></input></div>
             <div class="titleAndValueDiv">
 <h3>Birth Date </h3>
-<input type="text" value= "<?php echo $birthDate?>"  style="width:100%; height: 50%; font-size: medium;"></input>
+<input type="text" name= "JBbrithDate" value= "<?php echo $birthDate?>"  style="width:100%; height: 50%; font-size: medium;"></input>
 </div>
  <div class="titleAndValueDiv">
 <h3>Nationality</h3>
@@ -354,22 +362,9 @@
 <h3 class="display-flex align-center  margin-bottom-3"><i
 class="material-icons text-info margin-right-2"> </i>Exprince <span
  style="position: absolute;left: 90%;top:2%;cursor: pointer;"><br>
-/////////<h3>+</h3>
+ <h3>+</h3>
+<input type="text" id="Exprince" name= "JSExprince" value="<?php echo $exprince ?> " style="width:100%; height: 50%; font-size: medium;"></input>
 </span></h3><span style="position: absolute;left: 90%;top:2%;cursor: pointer;"></span>
-<h4>Chief Technology Officer </h4>
-<h5>Tweeq Full-Time </h5>
-<small>Jul 2020- Present </small>
-<div class="progress margin-bottom-3" style="height: 5px">
-</div>
-<h4>Advisor</h4>
-<h5>Tamkeen Technology </h5>
- <small>Dec 2017 - May 2020 </small>
-<div class="progress margin-bottom-3" style="height: 5px">
- </div>
-<h4>Cloud Services </h4>
-<h5>STC Solution</h5>
-<small>Mar 2015- Nov 2017</small>
- <div class="progress margin-bottom-3" style="height: 5px">
  </div></div></div>
  <div class="column-5 margin-bottom-3">
 <div class="card h-100">
@@ -377,26 +372,13 @@ class="material-icons text-info margin-right-2"> </i>Exprince <span
 <h4 class="display-flex align-center  margin-bottom-3"><i
  class="material-icons text-info margin-right-2"> </i> Skills <span
  style="position: absolute;left: 90%;top:2%;cursor: pointer;"><br>
-////////<h3>+</h3>
+ <h3>+</h3>
+<input type="text" id="skills" name= "JSskills" value="<?php echo $skliis ?> " style="width:100%; height: 50%; font-size: medium;"></input>
  </span></h4><span
 style="position: absolute;left: 90%;top:2%;cursor: pointer;"></span>
- <small>Web Design</small>
- <div class="progress margin-bottom-3" style="height: 5px">
- <div class="progress-bar bg-primary" role="progressbar" style="width: 80%"
- aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
- </div>
- <small>Mobile Template</small>
-<div class="progress margin-bottom-3" style="height: 5px">
- <div class="progress-bar bg-primary" role="progressbar" style="width: 55%"
-aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
- </div>
- <small>Backend API</small>
-<div class="progress margin-bottom-3" style="height: 5px">
-<div class="progress-bar bg-primary" role="progressbar" style="width: 66%"
- aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
  </div> </div> </div> </div> </div> </div>
 <button class="applyBtn" style="transform: translateX(220%);">Save <input type= "submit"name = "update"></button>
-</form>
+</form> 
  </main>
 
 
@@ -406,12 +388,12 @@ aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
 
 <?php
 if (isset($_POST['update'])) {
-    $firstName=$_POST['firstName'];
-    $lastName=$_POST['lastName'];
-    $email=$_POST['email'];
-    $password=$_POST['password'];
-    $birthDate=$_POST['birthDate'];
-    $gender=$_POST['gender'];
+    $jobseekername=$_POST['jobseekername'];
+    $JBbrithDate=$_POST['JBbrithDate'];
+    $JBbrithDate=$_POST['JBbrithDate'];
+    $JSphone=$_POST['JSphone'];
+    $JSgender=$_POST['JSgender"'];
+    $JScurrentJob=$_POST['JScurrentJob'];
     $nationality=$_POST['JSnationality'];
     $city=$_POST['city'];
     $phone=$_POST['phone'];

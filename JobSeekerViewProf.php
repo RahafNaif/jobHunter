@@ -219,7 +219,7 @@ if (!isset($_SESSION['email']) || $_SESSION['role'] == 2) { //i edit this one to
 
             <div class="details">
                 <img src="img/person_JobDetails.svg" alt="Admin" class="circle" style="width:128px;height:128px;" >
-                <h4>Rahaf Naif</h4>
+                <h4><?php echo $firstName; ?><?php echo $lastName; ?></h4>
                 <h4><?php echo $currentJob; ?> </h4>
                 <p><?php echo $city; ?></p>
                 <div class="profile-buttons">
@@ -232,7 +232,7 @@ if (!isset($_SESSION['email']) || $_SESSION['role'] == 2) { //i edit this one to
                 </div>
             </div>
             <?php
-            if ($_SESSION['role'] == 1)
+            if ($_SESSION['role'] == 2)
                 print '<div class="buttons"><a href="JobSeekerProf_edit.php"><button>edit</button></a><button>delete</button></div>';
             ?>
 
@@ -267,10 +267,10 @@ if (!isset($_SESSION['email']) || $_SESSION['role'] == 2) { //i edit this one to
             <div class="sideBar">
                 <div class="titleAndValueDiv">            
                     <h3>Full Name</h3>
-                    <p>Rahaf Naif Alshaliy</p></div>
+                    <p><?php echo $firstName; ?><?php echo $lastName; ?></p></div>
                 <div class="titleAndValueDiv">
-                    <h3>Age</h3>
-                    <p>25</p>    
+                    <h3>Birth Date </h3>
+                    <p><?php echo $birthDate ?></p>    
                 </div>
                 <div class="titleAndValueDiv">
                     <h3>Nationality</h3>    
@@ -299,22 +299,11 @@ if (!isset($_SESSION['email']) || $_SESSION['role'] == 2) { //i edit this one to
                       <div class="card h-100">
                         <div class="card-body">
                           <h3 class="display-flex align-center  margin-bottom-3"><i class="material-icons text-info margin-right-2"> </i>Exprince <span style="position: absolute;left: 90%;top:2%;cursor: pointer;"><br><h3>+</h3></span></h3><span style="position: absolute;left: 90%;top:2%;cursor: pointer;"></span>
-                          <h4>Chief Technology Officer </h4>
-                          <h5>Tweeq Full-Time </h5>
-                          <small>Jul 2020- Present </small>
+                          <h4><?php echo $experince ?> </h4>
+                        
                           <div class="progress margin-bottom-3" style="height: 5px">
 
-                          </div>
-                          <h4>Advisor</h4>
-                          <h5>Tamkeen Technology </h5>
-                          <small>Dec 2017 - May 2020 </small>
-                          <div class="progress margin-bottom-3" style="height: 5px">
-
-                          </div>
-                          <h4>Cloud Services </h4>
-                          <h5>STC Solution</h5>
-                          <small>Mar 2015- Nov 2017</small>
-                          <div class="progress margin-bottom-3" style="height: 5px">
+      
 
                           
                          
@@ -325,19 +314,8 @@ if (!isset($_SESSION['email']) || $_SESSION['role'] == 2) { //i edit this one to
                       <div class="card h-100">
                         <div class="card-body">
                           <h4 class="display-flex align-center  margin-bottom-3"><i class="material-icons text-info margin-right-2">  </i> Skills <span style="position: absolute;left: 90%;top:2%;cursor: pointer;"><br><h3>+</h3></span> </h4><span style="position: absolute;left: 90%;top:2%;cursor: pointer;"></span>
-                          <small>Web Design</small>
-                          <div class="progress margin-bottom-3" style="height: 5px">
-                            <div class="progress-bar bg-primary" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                          </div>
-                        
-                     
-                          <small>Mobile Template</small>
-                          <div class="progress margin-bottom-3" style="height: 5px">
-                            <div class="progress-bar bg-primary" role="progressbar" style="width: 55%" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
-                          </div>
-                          <small>Backend API</small>
-                          <div class="progress margin-bottom-3" style="height: 5px">
-                            <div class="progress-bar bg-primary" role="progressbar" style="width: 66%" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
+                          <small><?php echo $skills ?></small>
+  
                           </div>
                         </div>
                       </div>

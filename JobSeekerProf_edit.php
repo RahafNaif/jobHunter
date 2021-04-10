@@ -137,7 +137,7 @@
             <!-- Company svg -->
 
             <div class="companySVG">
-                <?xml version="1.0" encoding="UTF-8"?>
+         
 
                 <g id="surface1">
                     <path
@@ -360,3 +360,30 @@
 </body>
 
 </html>
+
+<?php
+if (isset($_POST['update'])) {
+    $employerName = $_POST['employerName'];
+    $employerAddress = $_POST['employerAddress'];
+    $employerScope = $_POST['employerScope'];
+    $employerEmail = $_POST['employerEmail'];
+    $employerPhone = $_POST['employerPhone'];
+    $employerDescription = $_POST['employerDescription'];
+    $employerMission = $_POST['employerMission'];
+    $employerVision = $_POST['employerVision'];
+
+    $query = "UPDATE employer SET name = '$employerName', address = '$employerAddress', email = '$employerEmail', phone = '$employerPhone', scope = '$employerScope', description = '$employerDescription', mission = '$employerMission', vision = '$employerVision' WHERE email = '$email'";
+    $result = mysqli_query($database, $query);
+
+    if ($result) {
+?>
+        <script>
+            window.location = "EmployerProfile.php";
+        </script>
+<?php
+    } else {
+        print 'Error';
+        exit();
+    }
+}
+?>

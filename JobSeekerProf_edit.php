@@ -294,9 +294,6 @@ if (!isset($_SESSION['email']) || $_SESSION['role'] == 2) { //i edit this one to
         </div>
         </div>
 
-        <label>Company Name:<input id = "name" type="text" name="employerName" value=<?php echo $name; ?>></label>
-                <small id="name_error">Error message</small>
-
 
 <div class="sideBar">
 <div class="titleAndValueDiv">

@@ -380,11 +380,13 @@ $result = mysqli_query($database, $query);
       <fieldset>
         <legend class="notFormHeader">Job Type</legend>
         <script>
-          if (<?php echo $jobType; ?> === "FullTime") {
+        $( document ).ready(function() {
+          if ('<?php echo $jobType ;?>' == "FullTime") {
             $('#FullTime').attr('checked', 'checked');
           } else {
             $('#partTime').attr('checked', 'checked');
           }
+        });
         </script>
         <label class="rLabel">
           <input type="radio" required name="jobType" id="FullTime" value="FullTime" />
@@ -407,18 +409,20 @@ $result = mysqli_query($database, $query);
       <fieldset>
         <legend>Gender</legend>
         <script>
-          if (<?php echo $gender; ?> === "Female") {
+        $( document ).ready(function() {
+          if ('<?php echo $gender ;?>' == "Female") {
             $('#Female').attr('checked', 'checked');
           } else {
             $('#Male').attr('checked', 'checked');
           }
+        });
         </script>
         <label class="rLabel">
           <input required type="radio" required name="gender" value="Female" id="Female" />
           Female
         </label>
 
-        <label class="rLabel" id="Male">
+        <label class="rLabel">
           <input required type="radio" name="gender" id="Male" value="Male" />
           Male
         </label>

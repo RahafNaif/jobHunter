@@ -124,6 +124,20 @@ if (!isset($_SESSION['email']) || $_SESSION['role'] == 1) { //i edit this one to
             echo "There are no info.";
             exit();
         }
+        if(isset($_POST['delete'])){
+            $myquery = "DELETE FROM `employer`
+            WHERE email='$email';
+            ";
+                    $result = mysqli_query($database, $myquery);
+        
+                    if ($result) {
+                      header("location: home.php");
+                    } else
+                      echo "An error occured while updating the job.";
+            
+                  header("location: home.php");
+                  exit();
+          }
         ?>
         <div class="company-card">
             <img class="company-logo" src="img/company.svg">

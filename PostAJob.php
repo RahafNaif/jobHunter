@@ -159,10 +159,10 @@ if (!isset($_SESSION['email']) || $_SESSION['role'] == 1) {
 
 
           $query="INSERT INTO `job`(`city`, `major`, `position`, `jobType`,
-           `description`, `skills`, `qualifications`, `gender`, `salary`,`companyName`) 
+           `description`, `skills`, `qualifications`, `gender`, `salary`,`companyName`, `employer_email`) 
            VALUES (' $location','$major','$position','$jobType',
           '$jobDescription','$requiredSkills', '$requiredQualifications',
-          '$gender','$salary','$result3')";
+          '$gender','$salary','$result3','$sessionEmail')";
           $result=mysqli_query($database, $query);
   
           if($result)

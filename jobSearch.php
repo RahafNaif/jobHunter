@@ -8,7 +8,7 @@
         <link rel="icon" href="img/icon.png">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="js/SearchBar.js"></script>
+        <script src="js/jobSearchBar.js"></script>
 
         <title>Job Hunter</title>
     </head>
@@ -86,10 +86,8 @@
                 $op1 = $_GET['op1'];
                 $time = $_GET['time'];
 
-                
 
                 if($search==''){ //all
-                    echo $_POST['position'];
                     $query = "select city, position, jobType, description from job";
                 }elseif(!empty($search) && ($op1=='position') && ($city=='') && ($time=='Full Time')){ //default
                     $query = "select city, position, jobType, description from job WHERE position='".$search."' AND jobType='".$time."'";
@@ -128,7 +126,6 @@
                     $query = "select city, position, jobType, description from job WHERE companyName='".$search."' AND city='".$city."' AND jobType='".$time."'";
                   
                 }else{
-                    echo $op1;
                     echo "There is no jobs";
                 }
                 
@@ -164,95 +161,7 @@
                                     print '</li>';
                                 }
                             }
-
-
-
                         ?>
-                        <!-- <li class="post">
-                                <div class="post-content">
-                                <a class="JobDetails">
-                                <h4  style="font-weight :bolder" ><?php echo $position; ?></h4>
-                                <svg class="location-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="18px" height="18px"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                                <span class="icon-side"><?php echo $city; ?></span><br>
-                                <h5>About Job :</h5>
-                                <p class="descrption"><?php echo $description; ?></p>
-                                <p class="time"><span class="material-icons">work</span><?php echo $jobType; ?></p><br>
-                                </a>
-                                </div>
-                        </li> -->
-                        
-                        <!-- <li class="post">
-                            <div class="post-content">
-                                <a class="JobDetails">
-                                    <h4  style="font-weight :bolder" >Graphic Designer</h4>
-                                    <svg class="location-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="18px" height="18px"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                                    <span class="icon-side">Riyadh, Saudi Arabia</span><br>
-                                    <h5>About Job :</h5>
-                                    <p class="descrption">  We're looking for a very talented Graphic Designer to be part of our Rebel team! </p>
-                                    <p class="time"><span class="material-icons">work</span>Full time</p><br>
-                                </a>
-                            </div>
-                        </li>
-                        <li class="post">
-                            <div class="post-content">
-                                <a class="JobDetails">
-                                    <h4  style="font-weight :bolder" >Graphic Designer</h4>
-                                    <svg class="location-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="18px" height="18px"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                                    <span class="icon-side">Riyadh, Saudi Arabia</span><br>
-                                    <h5>About Job :</h5>
-                                    <p class="descrption">  We're looking for a very talented Graphic Designer to be part of our Rebel team! </p>
-                                    <p class="time"><span class="material-icons">work</span>Full time</p><br>
-                                </a>
-                            </div>
-                        </li>
-                        <li class="post">
-                            <div class="post-content">
-                                <a class="JobDetails">
-                                    <h4  style="font-weight :bolder" >Graphic Designer</h4>
-                                    <svg class="location-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="18px" height="18px"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                                    <span class="icon-side">Riyadh, Saudi Arabia</span><br>
-                                    <h5>About Job :</h5>
-                                    <p class="descrption">  We're looking for a very talented Graphic Designer to be part of our Rebel team! </p>
-                                    <p class="time"><span class="material-icons">work</span>Full time</p><br>
-                                </a>
-                            </div>
-                        </li>
-                        <li class="post">
-                            <div class="post-content">
-                                <a class="JobDetails">
-                                    <h4  style="font-weight :bolder" >Graphic Designer</h4>
-                                    <svg class="location-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="18px" height="18px"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                                    <span class="icon-side">Riyadh, Saudi Arabia</span><br>
-                                    <h5>About Job :</h5>
-                                    <p class="descrption">  We're looking for a very talented Graphic Designer to be part of our Rebel team! </p>
-                                    <p class="time"><span class="material-icons">work</span>Full time</p><br>
-                                </a>
-                            </div>
-                        </li>
-                        <li class="post">
-                            <div class="post-content">
-                                <a class="JobDetails">
-                                    <h4  style="font-weight :bolder" >Graphic Designer</h4>
-                                    <svg class="location-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="18px" height="18px"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                                    <span class="icon-side">Riyadh, Saudi Arabia</span><br>
-                                    <h5>About Job :</h5>
-                                    <p class="descrption">  We're looking for a very talented Graphic Designer to be part of our Rebel team! </p>
-                                    <p class="time"><span class="material-icons">work</span>Full time</p><br>
-                                </a>
-                            </div>
-                        </li>
-                        <li class="post">
-                            <div class="post-content">
-                                <a class="JobDetails">
-                                    <h4  style="font-weight :bolder" >Graphic Designer</h4>
-                                    <svg class="location-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="18px" height="18px"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                                    <span class="icon-side">Riyadh, Saudi Arabia</span><br>
-                                    <h5>About Job :</h5>
-                                    <p class="descrption">  We're looking for a very talented Graphic Designer to be part of our Rebel team! </p>
-                                    <p class="time"><span class="material-icons">work</span>Full time</p><br>
-                                </a>
-                            </div>
-                        </li> -->
                     </ul>
                 </div>
             </div>

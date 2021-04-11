@@ -132,7 +132,7 @@
                                 border-radius: 5px;
                                 width: 110%;
                               
-                              ">
+                              "></select>
                                 <select id="nationality" required name="nationality">
                                 <option selected> Select a nationality</option>
                                 <option value ="Saudi"> Saudi</option>
@@ -183,7 +183,7 @@
                                 border-radius: 5px;
                                 width: 110%;
                               
-                              ">
+                              "></select>
  <select id="major" required name="major">
 <option value="">Select a major</option>
 <option value="Accounting & Finance">Accounting & Finance</option>

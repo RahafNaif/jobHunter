@@ -7,6 +7,8 @@
         <link rel="icon" href="img/icon.png">
         <link rel="stylesheet" href="styles\Buttons.css" />
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="js/jobSeekerSearch.js"></script>
 
         <title>Employer | Job Seekers</title>
     </head>
@@ -32,167 +34,130 @@
                     </div>
                 </nav>
                 <img src="img/search.png" class="home-img">
-                <!-- <div class="join">
-                    <p>Search for job</p>
-                    <button class="join-button">Search bar</button>
-                </div> -->
             </div>
+    
             <div class="search">
-                <div class="search-box">
-                    <span class="material-icons" class="search-icon">search</span>
-                    <input type="text" class="input" placeholder="Search">
-                    <div class="dropdown">
-                        <div class="default_option">gender</div>  
-                        <ul>
-                          <li>male</li>
-                          <li>female</li>
-                        </ul>
-                    </div>
-                    <div class="dropdown">
-                        <div class="default_option">skill</div>
-                        <div class="city-form">
-                            <div class="form-content">
-                                <label>Skill :</label>
-                                <input type="text" class="form-input">
+                <form>
+                    <div class="search-box">
+                        <span class="material-icons" class="search-icon">search</span>
+                        <input type="text" class="input" placeholder="Search" name="search">
+                        <div class="dropdown">
+                            <div class="default_option"><input type="text" name="gender" value="male" id="gender" style="background-color:transparent;border:none; outline:none; cursor:pointer;font-size: 16px;color:#192d50;" readonly></div>  
+                            <ul>
+                            <li id="male">male</li>
+                            <li id="female">female</li>
+                            </ul>
+                        </div>
+                        <div class="dropdown">
+                            <div class="default_option">skill</div>
+                            <div class="city-form">
+                                <div class="form-content">
+                                    <label>Skill :</label>
+                                    <input type="text" class="form-input" id="skill" name="skill">
+                                </div>
+                                <div class="form-content">
+                                    <label>nationality :</label>
+                                    <input type="text" class="form-input" id="nati" name="nation">
+                                </div>
+                                
+                                <button>Apply</button>
                             </div>
-                            <div class="form-content">
-                                <label>nationality :</label>
-                                <input type="text" class="form-input">
+                        </div>
+                        <div class="dropdown">
+                            <div class="default_option">major</div>  
+                            <div class="city-form">
+                                <div class="form-content">
+                                    <label>Major :</label>
+                                    <input type="text" class="form-input" id="major">
+                                </div>
+                                <button>Apply</button>
                             </div>
-                            
-                            <button>Apply</button>
+                            <!-- <ul>
+                                <li > Select a major</li>
+                                <li> Accounting & Finance</li>
+                                <li> Agriculture & Forestry</li>
+                                <li> Archaeology</li>
+                                <li> Architecture</li>
+                                <li> Art</li>
+                                <li> Biological Sciences</li>
+                                <li> Business & Management</li>
+                                <li> Chemical Engineering</li>
+                                <li> Chemistry</li>
+                                <li> Civil Engineering</li>
+                                <li> Communication & Media Studies</li>
+                                <li> Computer Science</li>
+                                <li> Economics & Econometrics</li>
+                                <li> Education</li>
+                            </ul> -->
                         </div>
                     </div>
-                    <div class="dropdown2">
-                        <div class="default_option">major</div>  
-                        <ul>
-                          <li>Part time</li>
-                          <li > Select a major</li>
-                          <li> Accounting & Finance</li>
-                          <li> Agriculture & Forestry</li>
-                          <li> Archaeology</li>
-                          <li> Architecture</li>
-                          <li> Art</li>
-                          <li> Biological Sciences</li>
-                          <li> Business & Management</li>
-                          <li> Chemical Engineering</li>
-                          <li> Chemistry</li>
-                          <li> Civil Engineering</li>
-                          <li> Communication & Media Studies</li>
-                          <li> Computer Science</li>
-                          <li> Economics & Econometrics</li>
-                          <li> Education</li>
-                          <li> Other</li>
-                        </ul>
-                    </div>
-                </div>
+                </form>
             </div>
             <div class="jobs">
+            <?php
+                if (!($database = mysqli_connect("localhost", "root", "")))
+                    die("<p>Could not connect to database</p>");
+
+                if (!mysqli_select_db($database, "JobHunter"))
+                    die("<p>Could not open URL database</p>");
+                
+                $search = $_GET['search'];
+                $gender = $_GET['gender'];
+                $skill = $_GET['skill'];
+                $nation = $_GET['nation'];
+                $major = $_GET['major'];
+
+                if($search==''){
+                    $query = "select firstName, lastName, email, gender, nationality, city, major from jobseeker";
+                }elseif(!empty($search) && ($skill=='') && ($nation=='') &&($major=='') &&($gender=='male')){
+                    $query = "select firstName, lastName, email, gender, nationality, city, major from jobseeker WHERE gender='".$gender."'";
+
+                }else{
+                    echo 'There is no job seekers';
+                }
+
+                
+            
+            ?>
                 <div class="job-posts">
                     <ul>
-                        <li class="post">
-                            <div class="post-content">
-                                <a href="JobSeekerViewProf.html">
-                                    <h3>Rahaf Naif</h3>
-                                    <svg class="location-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="18px" height="18px"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                                    <span class="icon-side">Riyadh, Saudi Arabia</span><br>
-                                    <svg class="major-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="18px" height="18px"><path d="M0 0h24v24H0z" fill="none"/><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg>
-                                    <span class="icon-side">Software Engineering</span>
-                                    <h5>About Job seeker :</h5>
-                                    <p class="descrption">Saudi, Female</p>
-                                    <ol id="skills">Skills :
-                                        <li>Web Development</li>
-                                        <li>Mobile Development</li>
-                                    </ol>
-                                    <!-- <p class="time"><span class="material-icons">work</span>Full time</p><br> -->
-                                </a>
-                            </div>
-                        </li>
-                        <li class="post">
-                            <div class="post-content">
-                                <a href="JobSeekerViewProf.html">
-                                    <h3>Rahaf Naif</h3>
-                                    <svg class="location-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="18px" height="18px"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                                    <span class="icon-side">Riyadh, Saudi Arabia</span><br>
-                                    <svg class="major-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="18px" height="18px"><path d="M0 0h24v24H0z" fill="none"/><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg>
-                                    <span>Software Engineering</span>
-                                    <h5>About Job seeker :</h5>
-                                    <p class="descrption">Saudi, Female</p>
-                                    <ol id="skills">Skills :
-                                        <li>Web Development</li>
-                                        <li>Mobile Development</li>
-                                    </ol>
-                                </a>
-                            </div>
-                        </li>
-                        <li class="post">
-                            <div class="post-content">
-                                <a href="JobSeekerViewProf.html">
-                                    <h3>Rahaf Naif</h3>
-                                    <svg class="location-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="18px" height="18px"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                                    <span class="icon-side">Riyadh, Saudi Arabia</span><br>
-                                    <svg class="major-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="18px" height="18px"><path d="M0 0h24v24H0z" fill="none"/><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg>
-                                    <span>Software Engineering</span>
-                                    <h5>About Job seeker :</h5>
-                                    <p class="descrption">Saudi, Female</p>
-                                    <ol id="skills">Skills :
-                                        <li>Web Development</li>
-                                        <li>Mobile Development</li>
-                                    </ol>
-                                </a>
-                            </div>
-                        </li>
-                        <li class="post">
-                            <div class="post-content">
-                                <a href="JobSeekerViewProf.html">
-                                    <h3>Rahaf Naif</h3>
-                                    <svg class="location-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="18px" height="18px"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                                    <span class="icon-side">Riyadh, Saudi Arabia</span><br>
-                                    <svg class="major-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="18px" height="18px"><path d="M0 0h24v24H0z" fill="none"/><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg>
-                                    <span>Software Engineering</span>
-                                    <h5>About Job seeker :</h5>
-                                    <p class="descrption">Saudi, Female</p>
-                                    <ol id="skills">Skills :
-                                        <li>Web Development</li>
-                                        <li>Mobile Development</li>
-                                    </ol>
-                                </a>
-                            </div>
-                        </li>
-                        <li class="post">
-                            <div class="post-content">
-                                <a href="JobSeekerViewProf.html">
-                                    <h3>Rahaf Naif</h3>
-                                    <svg class="location-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="18px" height="18px"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                                    <span class="icon-side">Riyadh, Saudi Arabia</span><br>
-                                    <svg class="major-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="18px" height="18px"><path d="M0 0h24v24H0z" fill="none"/><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg>
-                                    <span>Software Engineering</span>
-                                    <h5>About Job seeker :</h5>
-                                    <p class="descrption">Saudi, Female</p>
-                                    <ol id="skills">Skills :
-                                        <li>Web Development</li>
-                                        <li>Mobile Development</li>
-                                    </ol>
-                                </a>
-                            </div>
-                        </li>
-                        <li class="post">
-                            <div class="post-content">
-                                <a href="JobSeekerViewProf.html">
-                                    <h3>Rahaf Naif</h3>
-                                    <svg class="location-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="18px" height="18px"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                                    <span class="icon-side">Riyadh, Saudi Arabia</span><br>
-                                    <svg class="major-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="18px" height="18px"><path d="M0 0h24v24H0z" fill="none"/><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg>
-                                    <span>Software Engineering</span>
-                                    <h5>About Job seeker :</h5>
-                                    <p class="descrption">Saudi, Female</p>
-                                    <ol id="skills">Skills :
-                                        <li>Web Development</li>
-                                        <li>Mobile Development</li>
-                                    </ol>
-                                </a>
-                            </div>
-                        </li>
+                    <?php
+                            $result = mysqli_query($database, $query);
+                            if ($result) {
+                                while ($data = mysqli_fetch_assoc($result)) {
+                                    print '<li class="post">';
+                                    print '<div class="post-content">';
+                                    print '<a href="JobSeekerViewProf.html">';
+                                    print '<h3>'. $data['firstName'] .' '.$data['lastName'].'</h3>';
+                                    print '<svg class="location-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="18px" height="18px"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>';
+                                    print '<span class="icon-side">'. $data['city'] .'</span><br>';
+                                    print '<svg class="major-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="18px" height="18px"><path d="M0 0h24v24H0z" fill="none"/><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg>';
+                                    print '<span class="icon-side">'.$data['major'].'</span>';
+                                    print '<h5>About Job seeker :</h5>';
+                                    print '<p class="descrption">'.$data['nationality'].', '.$data['gender'].'</p>';
+                                    print '<ol id="skills">Skills :';
+                                    $email = $data['email'];
+                
+                                    $query2 = "select skillName from skills WHERE JobSeeker_email='".$email."'";
+                                    $result2 = mysqli_query($database, $query2);
+                                    if($result2){
+                                        $i= 0;
+                                        while ($data2 = mysqli_fetch_assoc($result2)) {
+                                            if($i<2){
+                                                print '<li>'.$data2['skillName'].'</li>';
+                                                $i++;
+                                            }
+                                        }
+
+                                    }
+                                    print '</ol>';
+                                    print '</a>';
+                                    print '</div>';
+                                    print '</li>';
+                                }
+                            }
+                        ?>
+                        
                     </ul>
                 </div>
             </div>

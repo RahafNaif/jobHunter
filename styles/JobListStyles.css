@@ -53,8 +53,8 @@ main {
 
 .lists {
   margin-top: 10px;
-  margin-left: 50px;
-  margin-right: 50px;
+  margin-left: 40px;
+  margin-right: 10px;
   display: flex;
 
   flex-direction: column;
@@ -64,7 +64,7 @@ main {
 
 .list {
   display: flex;
-  min-width: 1140px;
+  min-width: 1130px;
   height: 40vh;
   background: rgba(234, 243, 250, 0.8);
   margin-bottom: 20px;
@@ -532,6 +532,19 @@ transform: translate(-50%,-50%);
   display: inline;
 }
 
+.edit1{
+  width: 98px;
+  height: 90px;
+  background: transparent;
+  border: 2px solid #fa9746;
+  color: #fa9746;
+  
+  border-radius: 7px;
+  
+  font-size:x-small;
+  text-align: center;
+
+}
 
 
 

@@ -39,10 +39,10 @@ $(document).ready(function () {
         }
     }
 
-    $('#form').on('submit', function (e) {
+    $('form').on('submit', function (e) {
         if ((!checkPassword || !checkPhone)) {
             e.preventDefault();
-            $('.alert').css('display', 'block');
+            alert("Error\n Fill all the fields correctly!");
         }
 
     });

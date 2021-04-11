@@ -63,16 +63,16 @@ if (isset($_POST['update'])) {
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/Notifications.css" />
     <link rel="stylesheet" href="styles/NavbarStyles.css" />
     <link rel="stylesheet" href="styles/Footer.css" />
-    <link rel="stylesheet" href="styles/Buttons.css" />
     <link rel="stylesheet" href="styles/EmployerProfileEdit.css" />
+    <link rel="stylesheet" href="styles/Forms.css" />
     <script src="js/Notification.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="js/EmployerProfileValidation.js"></script>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <link rel="icon" href="img/icon.png" />
     <title>Employer | Profile</title>
 </head>
@@ -148,29 +148,30 @@ if (isset($_POST['update'])) {
             </ul>
         </nav>
     </header>
-    <h1>Update Company Information</h1>
-    <div class="line"></div>
-    <div class="alert" hidden>
-        <h6 class="error">Error, Fill out all the fields correctly </h6>
-    </div>
     <main>
-        <div class="form">
-            <form action="EmployerProfileEdit.php" method="POST" id="form">
-                <label>Company Name:<input required id="name" type="text" name="employerName" value=<?php echo $name; ?>></label>
-                <label>Company Scope: <input required id="scope" type="text" name="employerScope" value=<?php echo $scope; ?>></label>
-                <label>Company Phone Number:<input required id="phone" type="text" name="employerPhone" value=<?php echo $phone; ?>></label>
+        <form form action="EmployerProfileEdit.php" method="POST" id="form">
+            <fieldset>
+                <legend>Update General Information</legend>
+                <label> Name </label> <input required id="name" type="text" name="employerName" value=<?php echo $name; ?>>
+                <label> Scope </label><input required id="scope" type="text" name="employerScope" value=<?php echo $scope; ?>>
+                <label> Phone </label><input required id="phone" type="text" name="employerPhone" value=<?php echo $phone; ?>>
                 <small id="phone_error"></small>
-                <label>Company Password:<input required id="password" type="password" name="password" value=<?php echo $pass; ?>></label>
+                <label> Email</label><input required id="email" type="email" name="employerEmail" value=<?php echo $email; ?>></label>
+                <label> Password</label><input required id="password" type="password" name="password" value=<?php echo $pass; ?>></label>
                 <small id="password_error"></small>
-                <label>Company Email: <input required id="email" type="email" name="employerEmail" value=<?php echo $email; ?>></label>
-                <label>Company Address:<input required id="address" type="text" name="employerAddress" value=<?php echo $address; ?>></label>
-                <label>Descripition of Company:<textarea required id="des" name="employerDescription"><?php echo $description; ?> </textarea></label>
-                <label>Mission of Company:<textarea required id="mission" name="employerMission"><?php echo $mission; ?> </textarea></label>
-                <label>Vision of Company:<textarea required id="vision" name="employerVision"><?php echo $vision; ?> </textarea></label>
-                <input type="submit"  name="update" id="submit">
-                <input type="submit"  name="cancel" value="cancel" id="submit" formaction="EmployerProfile.php">
-            </form>
-        </div>
+                <label> Address</label><input required id="address" type="text" name="employerAddress" value=<?php echo $address; ?>></label>
+                <div class="buttons">
+                    <input type="submit" name="update" id="submit" value="Update">
+                    <input type="submit" name="cancel" value="cancel" id="submit" formaction="EmployerProfile.php">
+                </div>
+            </fieldset>
+            <fieldset class="extra">
+            <legend>Update Company Details</legend>
+                <label>Descripition</label></label><textarea required id="des" name="employerDescription"><?php echo $description; ?> </textarea>
+                <label>Mission </label><textarea required id="mission" name="employerMission"><?php echo $mission; ?> </textarea>
+                <label>Vision </label><textarea required id="vision" name="employerVision"><?php echo $vision; ?> </textarea>
+            </fieldset>
+        </form>
     </main>
     <!-- Footer -->
     <div class="footer">

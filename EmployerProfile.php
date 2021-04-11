@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['email']) || $_SESSION['role'] == 1) { //i edit this one to restrict jobsseker from enter the emplyer page
+if (!isset($_SESSION['email']) ) { //i edit this one to restrict jobsseker from enter the emplyer page
     header("location: LogIn.php");
     exit();
 }
@@ -105,7 +105,9 @@ if (!isset($_SESSION['email']) || $_SESSION['role'] == 1) { //i edit this one to
 
         if (!mysqli_select_db($database, "jobhunter"))
             die("<p>Could not open URL database</p>");
-
+            if(isset($_POST['viewi']))
+                $email=$_POST['viewinfo'];
+            else
         $email = $_SESSION['email'];
         $query = "select * from employer WHERE email='$email'";
         $result = mysqli_query($database, $query);
@@ -151,7 +153,7 @@ if (!isset($_SESSION['email']) || $_SESSION['role'] == 1) { //i edit this one to
                     if ($_SESSION['role'] == 1)
                         //print employer info
                     ?>
-                    <a href="mailto: <?php echo $_SESSION['email'] ?>"> <i class="material-icons">email</i> </a>
+                    <a href="mailto: <?php echo $email ?>"> <i class="material-icons">email</i> </a>
                 </div>
             </div>
             <?php

@@ -137,6 +137,7 @@ if (!isset($_SESSION['email']) ){
                 $salary = $data['salary'];
                 $applay_job=$data['applay_ID'];
                 $statusj=$data['statusjob'];
+                $emaillem=$data['employer_email'];
                 $applay=1;
                
                 ?>
@@ -145,9 +146,19 @@ if (!isset($_SESSION['email']) ){
             <!-- Job List -->
             
             <div class="list">
-                <div>
-                    <img src="img/company.svg" alt="company default logo" class="defaultCompany" />
-                </div>
+                <form action="EmployerProfile.php" method="post">
+                    <input type="hidden" name="viewinfo" value="<?php echo $emaillem ?> ">
+                <div><button name="viewi" style="outline: none;
+ 
+ background-color: rgba(234, 243, 250, 0.8);;
+  border: none;
+  padding: 1%;
+  background-repeat: no-repeat;
+width: 150px;
+height: 180px;
+"  >
+                    <img src="img/company.svg" style="margin: 1%;" alt="company default logo" class="defaultCompany" />
+                </div></button></form>
                 <!-- job description -->
                 <a href="EmployerProf_edit.html">
                 <div class="jobInfo">

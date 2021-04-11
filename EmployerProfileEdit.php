@@ -162,11 +162,11 @@ if (isset($_POST['update'])) {
                 <label> Address</label><input required id="address" type="text" name="employerAddress" value=<?php echo $address; ?>></label>
                 <div class="buttons">
                     <input type="submit" name="update" id="submit" value="Update">
-                    <input type="submit" name="cancel" value="cancel" id="submit" formaction="EmployerProfile.php">
+                    <input type="reset" name="cancel" value="cancel" id="reset">
                 </div>
             </fieldset>
             <fieldset class="extra">
-            <legend>Update Company Details</legend>
+                <legend>Update Company Details</legend>
                 <label>Descripition</label></label><textarea required id="des" name="employerDescription"><?php echo $description; ?> </textarea>
                 <label>Mission </label><textarea required id="mission" name="employerMission"><?php echo $mission; ?> </textarea>
                 <label>Vision </label><textarea required id="vision" name="employerVision"><?php echo $vision; ?> </textarea>

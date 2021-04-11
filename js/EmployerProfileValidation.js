@@ -35,15 +35,27 @@ $(document).ready(function () {
             $('#phone').css('border-color', 'red');
             $('#phone_error').text('Phone number should be 10 digits');
             $('#phone_error').css('visibility', 'visible');
-         
+
         }
     }
 
-    $('form').on('submit', function (e) {
-        if ((!checkPassword || !checkPhone)) {
+    $('#form').on('submit', function (e) {
+        if (!checkPhone) {
             e.preventDefault();
-            alert("Error\n Fill all the fields correctly!");
+            $('#phone').css('border-color', 'red');
+            $('#phone_error').text('Phone number should be 10 digits');
+            $('#phone_error').css('visibility', 'visible');
+        }
+        if (!checkPassword) {
+            e.preventDefault();
+            $('#password').css('border-color', 'red');
+            $('#password_error').text('password should be 8 digits or more');
+            $('#password_error').css('visibility', 'visible');
         }
 
+    });
+    
+    $('#form').on('reset', function (e) {
+        window.location='EmployerProfile.php';
     });
 });

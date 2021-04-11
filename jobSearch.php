@@ -12,7 +12,7 @@
 
         <title>Job Hunter</title>
     </head>
-    <body>
+    <body>  
         <div class="container">
             <div class="custom-shape-divider-top-1612286857">
                 <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
@@ -151,6 +151,11 @@
                                 while ($data = mysqli_fetch_assoc($result)) {
                                     print '<li class="post">';
                                     print '<div class="post-content">';
+
+                                    print '<form method="GET" action="JobDetailsPopUp.php">';
+                                    print '<input type="hidden" name="JOB_ID" value="'.$data['ID'].'"/>';
+                                    print '<input type="hidden" name="thePage" value="jobSearch"/>';
+
                                     print '<a class="JobDetails">';
                                     print '<h4  style="font-weight :bolder" >'. $data['position'] .'</h4>';
                                     print '<svg class="location-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="18px" height="18px"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>';
@@ -159,6 +164,9 @@
                                     print '<p class="descrption">' . $data['description'] .'</p>';
                                     print '<p class="time"><span class="material-icons">work</span>'. $data['jobType'] . '</p><br>';
                                     print '</a>';
+
+                                    print '</form>';
+
                                     print '</div>';
                                     print '</li>';
                                 }
@@ -180,8 +188,6 @@
                 </svg></div>
             </div>
         </div>
-        <?php 
-            include_once 'JobDetailsPopUp.php';
-        ?>
+
     </body>
 </html>

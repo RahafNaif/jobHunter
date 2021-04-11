@@ -1,0 +1,167 @@
+
+.jobDeatailsContainer {
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+      "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    color: #192d50;
+    z-index: 200000;
+    position: absolute;
+    background-color: white;
+    border: 5px solid white;
+    border-radius: 20px;
+    left: 50%;
+    top: 150%;
+    transform: translate(-50%,-50%);
+    height:max-content;
+    width: 70%;
+    padding-bottom: 2rem;
+  
+  
+  }
+  
+  .jobDeatailsContainer #companySVG,
+  .companySVG {
+    text-align: center;
+  }
+  
+  .jobDeatailsContainer .JobHeader h1 {
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: 400;
+    padding: 0.9rem 0;
+  }
+  .jobDeatailsContainer .JobHeader h5 {
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 400;
+    padding: 0.5rem;
+  }
+  
+  .jobDeatailsContainer .details {
+    position: relative;
+    float: left;
+    list-style: none;
+    width: 50%;
+    height: fit-content;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 1.25rem;
+    font-size: 1rem;
+    padding: 1rem;
+    margin-top: 1.25rem;
+    margin-left: 5%;
+    margin-right: 0.5rem;
+    background-color: rgba(234, 243, 250, 0.8);
+    padding-bottom: 1rem;
+  }
+  .jobDeatailsContainer .details li {
+    text-align: justify;
+    width: 80%;
+    margin-bottom: 1.1rem;
+    position: relative;
+  }
+  .jobDeatailsContainer .details p{
+    position: relative;
+  }
+  .jobDeatailsContainer .sideBar {
+    display: inline-block;
+    position: relative;
+    float: right;
+    height: fit-content;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 20px;
+    font-size: 1rem;
+    padding: 15px;
+    margin-top: 20px;
+    background-color: rgba(234, 243, 250, 0.8);
+    margin-right: 5%;
+    width: 30%;
+  }
+  .jobDeatailsContainer .titleAndValueDiv {
+    margin: 2rem 0.2rem;
+  }
+  .jobDeatailsContainer .titleAndValueDiv h5 {
+    font-size: smaller;
+    font-weight: 400;
+    padding-bottom: 0.2rem;
+  }
+  .jobDeatailsContainer .titleAndValueDiv,
+  .jobDeatailsContainer .details h6 {
+    font-size: large;
+    font-weight: bold;
+  }
+  .jobDeatailsContainer .details h4 {
+    font-size: larger;
+    padding-bottom: 2rem;
+  }
+  
+  .jobDeatailsContainer .applyBtn button {
+    background-color: burlywood;
+    margin-top: 2rem;
+    padding: 1rem;
+    margin-left: 70%;
+    margin-bottom: 3%;
+    height: 50px;
+    width: 100px;
+    border-radius: 50px;
+    background-color: #fa9746;
+    outline: none;
+    border-style: none;
+    color: white;
+    font-size: 18px;
+  }
+  .jobDeatailsContainer ol,.jobDeatailsContainer ul {
+    position: relative;
+    padding: 1rem;
+    padding-right: 0;
+    text-align: justify;
+    width: fit-content;
+  
+  }
+  
+  .jobDeatailsContainer li {
+    text-indent: -1.3em;
+    padding-left: 3em;
+  }
+  
+  .jobDeatailsContainer button {
+    position: relative;
+    margin: 10px;
+    margin-left: 80px;
+    margin-right: 10px;
+    border-radius: 20px;
+    width: 100px;
+    height: 30px;
+    font-size: 12px;
+    color: rgb(234, 243, 250);
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: #fa9746;
+    overflow: hidden;
+  }
+  
+  .jobDeatailsContainer button:hover {
+    transition: 0.3s ease-in;
+    background: transparent;
+    border: 1px solid rgb(138, 177, 244);
+    color: #8cb3f4;
+    transform: scale(1.2);
+  }
+  
+  .jobDeatailsContainer button:focus {
+    color: #8cb3f4;
+    border: 1px solid #8cb3f4;
+    background: rgba(234, 243, 250, 0.8);
+  }
+  .jobDeatailsContainer .details h6 {
+    font-weight: 400;
+  }
+  
+  .jobDeatailsContainer .closeIcon {
+    position: absolute;
+    top: 1%;
+    left: 95%;
+    z-index: 1;
+  }
+  .jobDeatailsContainer .closeIcon:hover {
+    fill: darkorange;
+  }

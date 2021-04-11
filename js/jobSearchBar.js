@@ -26,7 +26,13 @@ $(document).ready(function () {
         $('#time').val('Part time');
     });
 
-    
+    $('#male').click(function(){
+        $('#gender').val('male');
+    });
+
+    $('#female').click(function(){
+        $('#gender').val('female');
+    });
 
 
 });

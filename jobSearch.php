@@ -8,7 +8,7 @@
         <link rel="icon" href="img/icon.png">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="js/SearchBar.js"></script>
+        <script src="js/jobSearchBar.js"></script>
 
         <title>Job Hunter</title>
     </head>
@@ -86,7 +86,6 @@
                 $op1 = $_GET['op1'];
                 $time = $_GET['time'];
 
-                
 
                 if($search==''){ //all
                     $query = "select city, position, jobType, description from job";
@@ -127,7 +126,6 @@
                     $query = "select city, position, jobType, description from job WHERE companyName='".$search."' AND city='".$city."' AND jobType='".$time."'";
                   
                 }else{
-                    echo $op1;
                     echo "There is no jobs";
                 }
                 

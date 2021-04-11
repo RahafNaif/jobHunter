@@ -105,7 +105,7 @@ $x=0;
 if (!mysqli_select_db($database, "jobhunter"))
     die("<p>Could not open URL database</p>");
     
-    $query="UPDATE appointment SET statuss=1  WHERE appointment_ID ='$idapoo'";              
+    $query="UPDATE appointment SET statuss=2  WHERE appointment_ID ='$idapoo'";              
     $result = mysqli_query($database, $query);
     
      if ($result) {

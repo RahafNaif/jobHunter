@@ -1,3 +1,8 @@
+* {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #2B468B;
+}
+
 main {
     width: 100%;
     height: 100%;
@@ -44,20 +49,66 @@ h1 {
     margin-bottom: 15px;
 }
 
-.form input[type="text"],
-.form input[type="email"],
-.form textarea {
-    color: #192d50;
-    width: 585px;
-    padding: 8px;
-    font-size: 14px;
-    border-radius: 10px;
-    border: 2px solid #fff;
-    box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.33);
-}
-
 .form input[type="text"]:focus,
 .form input[type="email"]:focus,
-.form textarea :focus{
- outline: none;
+.form textarea :focus {
+    outline: none;
+}
+
+
+input[type="text"],
+input[type="number"],
+input[type="password"],
+input[type="email"],
+textarea {
+    width: 400px;
+    padding: 12px 20px;
+    margin-top: 10px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: none;
+}
+
+.alert {
+    background-color: rgb(255, 223, 223);
+    border-radius: 4px;
+    padding: 3%;
+    margin-bottom: 3%;
+    margin-left: 2%;
+    color: darkred;
+    text-align: center;
+}
+
+.error {
+    position: absolute;
+    background-color: rgb(255, 223, 223);
+    border-radius: 4px;
+    padding: 3%;
+    margin-bottom: 3%;
+    margin-left: 2%;
+    color: darkred;
+    text-align: center;
+}
+
+form small {
+    color: red;
+    visibility: hidden;
+    padding-left: 15px;
+}
+
+form {
+    margin-top: 20px;
+}
+
+form input {
+    margin-bottom: 0px;
+}
+
+form .error input {
+    border-color: red;
+}
+
+form .error small {
+    visibility: visible;
 }

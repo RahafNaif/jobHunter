@@ -1,13 +1,62 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['email']) || $_SESSION['role'] == 1) { //i edit this one to restrict jobsseker from enter the emplyer page
+if (!isset($_SESSION['email']) || $_SESSION['role'] == 1) {
     header("location: LogIn.php");
     exit();
 }
 
-?>
+if (!($database = mysqli_connect("localhost", "root", "")))
+    die("<p>Could not connect to database</p>");
 
+if (!mysqli_select_db($database, "jobhunter"))
+    die("<p>Could not open URL database</p>");
+
+$email = $_SESSION['email'];
+$query = "select * from employer WHERE email='$email'";
+$result = mysqli_query($database, $query);
+
+if ($result) {
+    $data = mysqli_fetch_assoc($result);
+    $name = $data['name'];
+    $address = $data['address'];
+    $scope = $data['scope'];
+    $phone = $data['phone'];
+    $description = $data['description'];
+    $mission = $data['mission'];
+    $vision = $data['vision'];
+    $pass = $data['password'];
+} else {
+    echo "There is no info.";
+    exit();
+}
+
+if (isset($_POST['update'])) {
+    $employerName = $_POST['employerName'];
+    $employerAddress = $_POST['employerAddress'];
+    $employerScope = $_POST['employerScope'];
+    $employerEmail = $_POST['employerEmail'];
+    $employerPhone = $_POST['employerPhone'];
+    $employerDescription = $_POST['employerDescription'];
+    $employerMission = $_POST['employerMission'];
+    $employerVision = $_POST['employerVision'];
+    $employerPassword = $_POST['password'];
+
+    $email = $_SESSION['email'];
+    $query = "UPDATE employer SET name = '$employerName', address = '$employerAddress', email = '$employerEmail', phone = '$employerPhone', scope = '$employerScope', description = '$employerDescription', mission = '$employerMission', vision = '$employerVision', password = '$employerPassword' WHERE email = '$email'";
+    $result = mysqli_query($database, $query);
+
+    if ($result) {
+?>
+        <script>
+            window.location = "EmployerProfile.php";
+        </script>
+<?php } else {
+        print 'Error';
+        exit();
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,19 +64,18 @@ if (!isset($_SESSION['email']) || $_SESSION['role'] == 1) { //i edit this one to
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/EmployerProfileEdit.css" />
     <link rel="stylesheet" href="styles/Notifications.css" />
-    <link rel="stylesheet" href="styles/Buttons.css" />
     <link rel="stylesheet" href="styles/NavbarStyles.css" />
     <link rel="stylesheet" href="styles/Footer.css" />
+    <link rel="stylesheet" href="styles/Buttons.css" />
+    <link rel="stylesheet" href="styles/EmployerProfileEdit.css" />
     <script src="js/Notification.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="js/EmployeeValidation.js"></script>
+    <script src="js/EmployerProfileValidation.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <link rel="icon" href="img/icon.png" />
     <title>Employer | Profile</title>
 </head>
-
 
 <body>
     <!-- popup for notifications -->
@@ -100,59 +148,27 @@ if (!isset($_SESSION['email']) || $_SESSION['role'] == 1) { //i edit this one to
             </ul>
         </nav>
     </header>
-    <?php
-    if (!($database = mysqli_connect("localhost", "root", "")))
-        die("<p>Could not connect to database</p>");
-
-    if (!mysqli_select_db($database, "jobhunter"))
-        die("<p>Could not open URL database</p>");
-
-
-    $email = $_SESSION['email'];
-
-    $query = "select * from employer WHERE email='$email'";
-    $result = mysqli_query($database, $query);
-
-    if ($result) {
-        $data = mysqli_fetch_assoc($result);
-        $name = $data['name'];
-        $address = $data['address'];
-        $scope = $data['scope'];
-        $phone = $data['phone'];
-        $description = $data['description'];
-        $mission = $data['mission'];
-        $vision = $data['vision'];
-    } else {
-        echo "There are no info.";
-        exit();
-    }
-
-    ?>
-
     <h1>Update Company Information</h1>
     <div class="line"></div>
+    <div class="alert" hidden>
+        <h6 class="error">Error, Fill out all the fields correctly </h6>
+    </div>
     <main>
-    <div class="alert" hidden> Error , Full out all the fiels correctly</div>
         <div class="form">
-            <form action="#" method="POST">
-                <label>Company Name:<input id = "name" type="text" name="employerName" value=<?php echo $name; ?>></label>
-                <small id="name_error">Error message</small>
-                <label>Company Address:<input id = "address" type="text" name="employerAddress" value=<?php echo $address; ?>></label>
-                <small id="address_error">Error message</small>
-                <label>Company Scope: <input id = "scope" type="text" name="employerScope" value=<?php echo $scope; ?>></label>
-                <small id="scope_error">Error message</small>
-                <label>Company Email: <input id = "email" type="email" name="employerEmail" value=<?php echo $email; ?>></label>
-                <small id="email_error">Error message</small>
-                <label>Company Phone Number:<input id = "phone" type="text" name="employerPhone" value=<?php echo $phone; ?>></label>
-                <small id="phone_error">Error message</small>
-                <label>Descripition of Company:<textarea id = "des" name="employerDescription"><?php echo $description; ?> </textarea></label>
-                <small id="des_error">Error message</small>
-                <label>Mission of Company:<textarea id = "mission"  name="employerMission"><?php echo $mission; ?> </textarea></label>
-                <small id="mission_error">Error message</small>
-                <label>Vision of Company:<textarea id = "vision"  name="employerVision"><?php echo $vision; ?> </textarea></label>
-                <small id="vision_error">Error message</small>
-                <button name="submit" id = "submit"> Update  </button>
-                <a href="EmployerProfile.php"> <button name="cance">Cancel </button></a>
+            <form action="EmployerProfileEdit.php" method="POST" id="form">
+                <label>Company Name:<input required id="name" type="text" name="employerName" value=<?php echo $name; ?>></label>
+                <label>Company Scope: <input required id="scope" type="text" name="employerScope" value=<?php echo $scope; ?>></label>
+                <label>Company Phone Number:<input required id="phone" type="text" name="employerPhone" value=<?php echo $phone; ?>></label>
+                <small id="phone_error"></small>
+                <label>Company Password:<input required id="password" type="password" name="password" value=<?php echo $pass; ?>></label>
+                <small id="password_error"></small>
+                <label>Company Email: <input required id="email" type="email" name="employerEmail" value=<?php echo $email; ?>></label>
+                <label>Company Address:<input required id="address" type="text" name="employerAddress" value=<?php echo $address; ?>></label>
+                <label>Descripition of Company:<textarea required id="des" name="employerDescription"><?php echo $description; ?> </textarea></label>
+                <label>Mission of Company:<textarea required id="mission" name="employerMission"><?php echo $mission; ?> </textarea></label>
+                <label>Vision of Company:<textarea required id="vision" name="employerVision"><?php echo $vision; ?> </textarea></label>
+                <input type="submit"  name="update" id="submit">
+                <input type="submit"  name="cancel" value="cancel" id="submit" formaction="EmployerProfile.php">
             </form>
         </div>
     </main>
@@ -172,30 +188,3 @@ if (!isset($_SESSION['email']) || $_SESSION['role'] == 1) { //i edit this one to
 </body>
 
 </html>
-
-<?php
-if (isset($_POST['update'])) {
-    $employerName = $_POST['employerName'];
-    $employerAddress = $_POST['employerAddress'];
-    $employerScope = $_POST['employerScope'];
-    $employerEmail = $_POST['employerEmail'];
-    $employerPhone = $_POST['employerPhone'];
-    $employerDescription = $_POST['employerDescription'];
-    $employerMission = $_POST['employerMission'];
-    $employerVision = $_POST['employerVision'];
-
-    $query = "UPDATE employer SET name = '$employerName', address = '$employerAddress', email = '$employerEmail', phone = '$employerPhone', scope = '$employerScope', description = '$employerDescription', mission = '$employerMission', vision = '$employerVision' WHERE email = '$email'";
-    $result = mysqli_query($database, $query);
-
-    if ($result) {
-?>
-        <script>
-            window.location = "EmployerProfile.php";
-        </script>
-<?php
-    } else {
-        print 'Error';
-        exit();
-    }
-}
-?>

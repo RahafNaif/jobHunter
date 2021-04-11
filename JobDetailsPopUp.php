@@ -1,4 +1,33 @@
+<?php
 
+
+
+if (!($database = mysqli_connect("localhost", "root", "")))
+  die("<p>Could not connect to database</p>");
+
+if (!mysqli_select_db($database, "JobHunter"))
+  die("<p>Could not open URL database</p>");
+  if(isset($_POST['Apply'])){
+    $jobSeekerEmail =$_SESSION['email'];
+      $jobID = $_SESSION['jobID'];
+      $query = "INSERT INTO `jobseeker_apply_job`(`JobSeeker_email`,
+       `Job_ID`) 
+      VALUES ('$jobSeekerEmail,'$jobID',) WHERE Job_ID = '$jobID'";
+
+      $result = mysqli_query($database, $query);
+  if($result){
+    header("location: home.php");
+
+}
+header("location: home.php");
+exit();
+}//end  if(isset($_POST['Apply']))
+else{
+  $jobID = $_POST['JOB_ID'];
+  $_SESSION['jobID'] = $jobID;
+}
+
+?>
 <html lang="en">
 <head>
 
@@ -118,9 +147,6 @@
   position: relative;
   padding: 1rem;
   padding-right: 0;
-
-
-
   text-align: justify;
   width: fit-content;
 
@@ -208,11 +234,7 @@ $(".closeBtn").click(
 </script>
 </head>
 <body>
-<?php
-if(isset($_POST['Apply'])){
-  
-}
-?>    
+ 
 <div class="jobDeatailsContainer" >
                   <div class="closeBtn">
       
@@ -256,7 +278,7 @@ if(isset($_POST['Apply'])){
                       
                       <!-- end Company svg -->
                       <h1  style="font-weight :bolder" >Graphic Designer </h1>
-                      <h5><a href="EmployerProfile.html">STC</a> For information Technology | Riyadh, Saudi Arabia</h5>
+                      <h5><a href="EmployerProfile.php">STC</a> For information Technology | Riyadh, Saudi Arabia</h5>
                   </div>
             
             
@@ -297,7 +319,7 @@ if(isset($_POST['Apply'])){
                                               <!-- apply Buttton -->
                                               <div class="applyBtn">
             <form action="JobDetailsPopUp.php" method="POST">
-            <a href="/Myapplicationlist.html"> <button> <input name="Apply" type="submit"/> Apply </button> </a>
+             <button> <input name="Apply" type="submit"/> Apply </button>
 
             </form>
                                               </div>

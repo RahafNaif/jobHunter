@@ -41,50 +41,42 @@
             <div class="jobs">
                 <p>Posted Jobs</p>
                 <div class="line"></div>
-                <div class="posts">
-                    <ul>
-                        <li class="post">
-                            <div class="post-content">
-                                <img class="post-img" src="img/person.svg" alt="">
-                                <h4  style="font-weight :bolder" >Graphic Designer</h4>
-                                <svg class="location-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="18px" height="18px"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                                <span class="icon-side">Riyadh, Saudi Arabia</span><br>
-                                <!-- <svg class="major-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="18px" height="18px"><path d="M0 0h24v24H0z" fill="none"/><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg>
-                                <span>Software Engineering</span> -->
-                                <h5>About Job :</h5>
-                                <p class="descrption">  We're looking for a very talented Graphic Designer to be part of our Rebel team! </p>
-                                <p class="salary">Salary : from 11,000 SR</p><br>
-                                <a><button class="job-content JobDetails">For more details</button></a>
-                            </div>
-                        </li>
-                        <li class="post">
-                            <div class="post-content">
-                                <img class="post-img" src="img/person.svg" alt="">                                <h4  style="font-weight :bolder" >Graphic Designer</h4>
-                                <svg class="location-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="18px" height="18px"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                                <span class="icon-side">Riyadh, Saudi Arabia</span><br>
-                                <!-- <svg class="major-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="18px" height="18px"><path d="M0 0h24v24H0z" fill="none"/><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg>
-                                <span>Software Engineering</span> -->
-                                <h5>About Job :</h5>
-                                <p class="descrption">  We're looking for a very talented Graphic Designer to be part of our Rebel team! </p>
-                                <p class="salary">Salary : from 11,000 SR</p><br>
-                                <a><button class="job-content JobDetails">For more details</button></a>
-                            </div>
-                        </li>
-                        <li class="post">
-                            <div class="post-content">
-                                <img class="post-img" src="img/person.svg" alt="">                                <h4  style="font-weight :bolder" >Graphic Designer</h4>
-                                <svg class="location-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="18px" height="18px"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                                <span class="icon-side">Riyadh, Saudi Arabia</span><br>
-                                <!-- <svg class="major-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="18px" height="18px"><path d="M0 0h24v24H0z" fill="none"/><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg>
-                                <span>Software Engineering</span> -->
-                                <h5>About Job :</h5>
-                                <p class="descrption">  We're looking for a very talented Graphic Designer to be part of our Rebel team! </p>
-                                <p class="salary">Salary : from 11,000 SR</p><br>
-                                <a><button class="job-content JobDetails">For more details</button></a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
+               
+                    <?php
+                      if (!($database = mysqli_connect("localhost", "root", "")))
+                       die("<p>Could not connect to database</p>");
+
+                      if (!mysqli_select_db($database, "jobhunter"))
+                       die("<p>Could not open URL database</p>");
+
+                      $email = $_SESSION['email'];
+                      $query = "select * from job";
+                      $result = mysqli_query($database, $query);
+                      if ($result) {
+                          print ' <div class="posts">';
+                          print '<ul>';
+                        while ($data = mysqli_fetch_assoc($result)) {
+                            print '<li class="post">';
+                            print '<div class="post-content">';
+                            print '<img class="post-img" src="img/person.svg" alt="">';
+                            print '<h4  style="font-weight :bolder" >'.$data['position'].'</h4>';
+                            print '<svg class="location-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="18px" height="18px"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>';
+                            print '<span class="icon-side">'.$data['city'].'</span><br>';
+                            print '<h5>About Job :</h5>';
+                            print '<p class="descrption">'.$data['description'].'</p>';
+                            print '<p class="salary">Salary : from '.$data['salary'].' SR</p><br>';   
+                            print'<a><button class="job-content JobDetails">For more details</button></a>';                                                                                 
+                            print '</div>';
+                            print '</li>';
+
+                        }
+                        print '</ul>';
+                        print '</div>';
+
+                      } else {
+                        echo '<div class="posts">There are no jobs./div>';
+                    }
+                    ?>                                                        
                <a href="jobSearch.html" class="job-link">more jobs<span class="material-icons">keyboard_arrow_right</span></a>
             </div>
             <div class="advices">

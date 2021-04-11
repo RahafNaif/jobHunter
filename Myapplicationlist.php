@@ -136,6 +136,7 @@ if (!isset($_SESSION['email']) ){
                 $description = $data['description'];
                 $salary = $data['salary'];
                 $applay_job=$data['applay_ID'];
+                $statusj=$data['statusjob'];
                 $applay=1;
                
                 ?>
@@ -200,26 +201,51 @@ if (!isset($_SESSION['email']) ){
                 <!-- buttons  -->
                 <div class="buttons">
                 
-                      
+                <?php
+             
+                $query1 = "SELECT * FROM appointment,jobseeker_apply_job WHERE applay_JID=applay_ID AND applay_ID='$applay_job'";
+                       
+                $result1 = mysqli_query($database, $query1);
+                $enter=0;
+                $nothingg=0;
+                 if ($result1) {
+                   $datetake;
+                   $timetake;
+                        while ($data1= mysqli_fetch_assoc($result1)) {
+                          $status1 = $data1['statuss'];
+                          if($status1==2)
+                          $enter=1;
+                          $datetake1 = $data1['date'];
+                          $datetake = date("d-m-Y", strtotime( $datetake1));
+                          $timetake = $data1['time'];
+                          $nothingg = 1;
+                        }
+                        if($nothingg==0)
+                        echo " <br>";
+                        else 
+                          if($enter==0){
+                              
+               
+                        ?>
                        
                         <form  action="popselect.php" method="POST">
                         <input type="hidden" name="applayID" value="<?php echo   $applay_job ; ?>">
                         <button  class="applicants" name="selectapp"  >Select Appointment</button>  </form>
-                    
+                   <?php } else{ echo '<br><button class="edit1"> Your Apoointment:<br>    Date:'.$datetake.'<br>    Time:'.$timetake.'<br> </button>' ; ?> <?php }}?>
                     <form  action="Myapplicationlist.php" method="POST">
                         <input type="hidden" name="applayID" value="<?php echo   $applay_job ; ?>">
                         <button class="edit" name="cancel">Cancel</button> </form>
                     
                 </div>
             </div></a>    
-       <?php }  if($applay ==0) {?>
+       <?php  if($applay ==0) {?>
         <div class="lists">
             <!-- Job List -->
             <br> <br>  
             <div class="listno">  you don't have any applications job!! </div></div> 
 
        <?php
-}}
+}}}
 
 
 else echo "you don't have any applications job!!";

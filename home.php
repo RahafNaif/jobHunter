@@ -65,7 +65,16 @@
                             print '<h5>About Job :</h5>';
                             print '<p class="descrption">'.$data['description'].'</p>';
                             print '<p class="salary">Salary : from '.$data['salary'].' SR</p><br>';   
-                            print'<a><button class="job-content JobDetails">For more details</button></a>';                                                                                 
+
+                            print '<form method= "GET" action="JobDetailsPopUp.php">';     
+                            print '<input type="hidden" name="JOB_ID" value="'.$data['ID'].'" />';  
+                            print '<input type="hidden" name="thePage" value="home"/>';
+                            print '<input type="submit" style="display:none;"/>';
+
+                            print '<a><button class="job-content JobDetails">For more details</button></a>'; 
+
+                            print '</form>';
+
                             print '</div>';
                             print '</li>';
 
@@ -198,8 +207,5 @@
             </div>
             
         </div>
-        <?php
-            include_once 'JobDetailsPopUp.php';
-        ?>
     </body>
 </html>

@@ -7,6 +7,8 @@
         <link rel="icon" href="img/icon.png">
         <link rel="stylesheet" href="styles\Buttons.css" />
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="js/jobSeekerSearch.js"></script>
 
         <title>Employer | Job Seekers</title>
     </head>
@@ -35,52 +37,61 @@
             </div>
     
             <div class="search">
-                <div class="search-box">
-                    <span class="material-icons" class="search-icon">search</span>
-                    <input type="text" class="input" placeholder="Search">
-                    <div class="dropdown">
-                        <div class="default_option">gender</div>  
-                        <ul>
-                          <li>male</li>
-                          <li>female</li>
-                        </ul>
-                    </div>
-                    <div class="dropdown">
-                        <div class="default_option">skill</div>
-                        <div class="city-form">
-                            <div class="form-content">
-                                <label>Skill :</label>
-                                <input type="text" class="form-input">
+                <form>
+                    <div class="search-box">
+                        <span class="material-icons" class="search-icon">search</span>
+                        <input type="text" class="input" placeholder="Search" name="search">
+                        <div class="dropdown">
+                            <div class="default_option"><input type="text" name="gender" value="male" id="gender" style="background-color:transparent;border:none; outline:none; cursor:pointer;font-size: 16px;color:#192d50;" readonly></div>  
+                            <ul>
+                            <li id="male">male</li>
+                            <li id="female">female</li>
+                            </ul>
+                        </div>
+                        <div class="dropdown">
+                            <div class="default_option">skill</div>
+                            <div class="city-form">
+                                <div class="form-content">
+                                    <label>Skill :</label>
+                                    <input type="text" class="form-input" id="skill" name="skill">
+                                </div>
+                                <div class="form-content">
+                                    <label>nationality :</label>
+                                    <input type="text" class="form-input" id="nati" name="nation">
+                                </div>
+                                
+                                <button>Apply</button>
                             </div>
-                            <div class="form-content">
-                                <label>nationality :</label>
-                                <input type="text" class="form-input">
+                        </div>
+                        <div class="dropdown">
+                            <div class="default_option">major</div>  
+                            <div class="city-form">
+                                <div class="form-content">
+                                    <label>Major :</label>
+                                    <input type="text" class="form-input" id="major">
+                                </div>
+                                <button>Apply</button>
                             </div>
-                            
-                            <button>Apply</button>
+                            <!-- <ul>
+                                <li > Select a major</li>
+                                <li> Accounting & Finance</li>
+                                <li> Agriculture & Forestry</li>
+                                <li> Archaeology</li>
+                                <li> Architecture</li>
+                                <li> Art</li>
+                                <li> Biological Sciences</li>
+                                <li> Business & Management</li>
+                                <li> Chemical Engineering</li>
+                                <li> Chemistry</li>
+                                <li> Civil Engineering</li>
+                                <li> Communication & Media Studies</li>
+                                <li> Computer Science</li>
+                                <li> Economics & Econometrics</li>
+                                <li> Education</li>
+                            </ul> -->
                         </div>
                     </div>
-                    <div class="dropdown2">
-                        <div class="default_option">major</div>  
-                        <ul>
-                          <li > Select a major</li>
-                          <li> Accounting & Finance</li>
-                          <li> Agriculture & Forestry</li>
-                          <li> Archaeology</li>
-                          <li> Architecture</li>
-                          <li> Art</li>
-                          <li> Biological Sciences</li>
-                          <li> Business & Management</li>
-                          <li> Chemical Engineering</li>
-                          <li> Chemistry</li>
-                          <li> Civil Engineering</li>
-                          <li> Communication & Media Studies</li>
-                          <li> Computer Science</li>
-                          <li> Economics & Econometrics</li>
-                          <li> Education</li>
-                        </ul>
-                    </div>
-                </div>
+                </form>
             </div>
             <div class="jobs">
             <?php
@@ -91,11 +102,21 @@
                     die("<p>Could not open URL database</p>");
                 
                 $search = $_GET['search'];
-                $city = $_GET['city'];
-                $op1 = $_GET['op1'];
-                $time = $_GET['time'];
+                $gender = $_GET['gender'];
+                $skill = $_GET['skill'];
+                $nation = $_GET['nation'];
+                $major = $_GET['major'];
 
-                $query = "select firstName, lastName, email, gender, nationality, city, major from jobseeker";
+                if($search==''){
+                    $query = "select firstName, lastName, email, gender, nationality, city, major from jobseeker";
+                }elseif(!empty($search) && ($skill=='') && ($nation=='') &&($major=='') &&($gender=='male')){
+                    $query = "select firstName, lastName, email, gender, nationality, city, major from jobseeker WHERE gender='".$gender."'";
+
+                }else{
+                    echo 'There is no job seekers';
+                }
+
+                
             
             ?>
                 <div class="job-posts">

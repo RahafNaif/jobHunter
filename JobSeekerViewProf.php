@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['email']) || $_SESSION['role'] == 2) { //i edit this one to restrict jobsseker from enter the emplyer page
+if (!isset($_SESSION['email']) ) { //i edit this one to restrict jobsseker from enter the emplyer page
     header("location: LogIn.php");
     exit();
 }
@@ -83,12 +83,16 @@ if (!isset($_SESSION['email']) || $_SESSION['role'] == 2) { //i edit this one to
             <path d="M-15.58,-15.49 C-16.70,110.81 186.45,57.52 502.48,59.50 L500.00,0.00 L0.00,0.00 Z"
                 style="stroke: none; fill: #8CB3F4;"></path>
         </svg></div>
-    <header>
+        <header>
         <nav>
             <ul class="navLinks1">
-                <li><a href="home.html">Home</a></li>
-                <li><a href="jobSearch.html">Jobs</a></li>
-                <li><a href="EmployerSearch.html">Employers </a>
+                <li><a href="home.php">Home</a></li>
+                
+                <li><a href="#">Jobs</a><ul>
+                <li style="font-sixe=4px;"><a href="Myapplicationlist.php">      My Applicants</a></li>
+                <li><a href="jobSearch.php">      Jobs</a>
+                </ul></li>
+                <li><a href="EmployerSearch.php">Employers </a>
 
                 </li>
             </ul>
@@ -96,8 +100,9 @@ if (!isset($_SESSION['email']) || $_SESSION['role'] == 2) { //i edit this one to
                 <li><a href="#popup" class="notification"><i class="material-icons">notifications</i></a></li>
                 <li><a href="#"><i class="material-icons">person</i></a>
                     <ul>
-                        <li><a href="EmployerProfile_Eidt.html">Profile</a></li>
-                        <a href="http:signout.php">logout</a>
+                        <li><a href="JobSeekerViewProf.php">Profile</a></li>
+                       
+                        <li><a href="http:signout.php">logout</a></li>
                     </ul>
                 </li>
             </ul>

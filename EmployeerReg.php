@@ -38,7 +38,7 @@
             $test = "INSERT INTO employer(name, email, password, phone,address, scope, description, mission, vision) VALUES('".$name."','".$email."','".$password."','".$phone."','".$address."', '".$scope."',  '".$description."', '".$mission."', '".$vision."');";
             $res=mysqli_query($database,$test);
             if($res){
-                header("Location: home.html");
+                header("Location: home.php");
             }
             
         }
@@ -53,9 +53,9 @@
     <header>
         <nav>
             <ul class="navLinks1">
-                <li><a href="home.html">Home</a></li>
-                <li><a href="jobSearch.html">Jobs</a></li>
-                <li><a href="LogIn.html">Login</a></li>
+                <li><a href="home.php">Home</a></li>
+                <li><a href="jobSearch.php">Jobs</a></li>
+                <li><a href="LogIn.php">Login</a></li>
             </ul>
         </nav>
     </header>

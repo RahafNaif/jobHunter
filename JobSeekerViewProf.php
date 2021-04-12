@@ -1,10 +1,44 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['email']) ) { //i edit this one to restrict jobsseker from enter the emplyer page
-    header("location: LogIn.php");
+if (!isset($_SESSION['email']) || $_SESSION['role'] == 2) { //i edit this one to restrict jobsseker from enter the emplyer page
+    header("location: logIn.php");
     exit();
 }
+
+echo $_GET["delete"];
+if($_GET['delete'] == true){
+    echo "start deleting";
+    $email=$_SESSION['email'];
+    $query = "DELETE FROM jobseeker WHERE email=\"$email\"";
+    echo $query;
+
+    if (!($database = mysqli_connect("localhost", "root", "")))
+     die("<p>Could not connect to database</p>");
+
+ if (!mysqli_select_db($database, "jobhunter"))
+     die("<p>Could not open URL database</p>");
+
+ $result = mysqli_query($database, $query);
+ 
+    echo $result ;
+   header("location: home.php");
+   exit();
+  }
+
+
+?>
+<?php
+
+if (!($database = mysqli_connect("localhost", "root", "")))
+die("<p>Could not connect to database</p>");
+
+if (!mysqli_select_db($database, "jobhunter"))
+die("<p>Could not open URL database</p>");
+
+$result = mysqli_query($database, $query);
+
+echo $result ;
 
 ?>
 
@@ -40,8 +74,6 @@ if (!isset($_SESSION['email']) ) { //i edit this one to restrict jobsseker from 
  <!-- header and logo -->
 
 <body>
-
-
 
     <!-- popup for notifications -->
     <div class="popup" id="popup">
@@ -83,15 +115,11 @@ if (!isset($_SESSION['email']) ) { //i edit this one to restrict jobsseker from 
             <path d="M-15.58,-15.49 C-16.70,110.81 186.45,57.52 502.48,59.50 L500.00,0.00 L0.00,0.00 Z"
                 style="stroke: none; fill: #8CB3F4;"></path>
         </svg></div>
-        <header>
+    <header>
         <nav>
             <ul class="navLinks1">
                 <li><a href="home.php">Home</a></li>
-                
-                <li><a href="#">Jobs</a><ul>
-                <li style="font-sixe=4px;"><a href="Myapplicationlist.php">      My Applicants</a></li>
-                <li><a href="jobSearch.php">      Jobs</a>
-                </ul></li>
+                <li><a href="jobSearch.php">Jobs</a></li>
                 <li><a href="EmployerSearch.php">Employers </a>
 
                 </li>
@@ -100,9 +128,8 @@ if (!isset($_SESSION['email']) ) { //i edit this one to restrict jobsseker from 
                 <li><a href="#popup" class="notification"><i class="material-icons">notifications</i></a></li>
                 <li><a href="#"><i class="material-icons">person</i></a>
                     <ul>
-                        <li><a href="JobSeekerViewProf.php">Profile</a></li>
-                       
-                        <li><a href="http:signout.php">logout</a></li>
+                        <li><a href="EmployerProfile_Eidt.html">Profile</a></li>
+                        <a href="http:signout.php">logout</a>
                     </ul>
                 </li>
             </ul>
@@ -182,10 +209,9 @@ if (!isset($_SESSION['email']) ) { //i edit this one to restrict jobsseker from 
  $email = $_SESSION['email'];
  $query = "select * from jobseeker WHERE email='$email'";
  $result = mysqli_query($database, $query);
-
  if ($result) {
      while ($data = mysqli_fetch_assoc($result)) {
-        $firstName=$date['firstName'];
+        $firstName=$data['firstName'];
         $lastName=$data['lastName'];
         $email=$data ['email'];
         $password=$date['password'];
@@ -198,25 +224,15 @@ if (!isset($_SESSION['email']) ) { //i edit this one to restrict jobsseker from 
         $experince=$data['experince'];
         $skills=$data['skills'];
         $currentJob=$data['currentJob'];
+        $Website=$date['Website'];
+        $Github=$date['Github'];
+        $Instagram=$date['Instagram'];
+        $Facebook=$date['Facebook'];
      }
  } else {
      echo "There are no info.";
      exit();
  }
- if(isset($_POST['delete'])){
-    $myquery = "DELETE FROM `jobseeker`
-    WHERE email='$email';
-    ";
-            $result = mysqli_query($database, $myquery);
-
-            if ($result) {
-              header("location: home.php");
-            } else
-              echo "An error occured while updating the job.";
-    
-          header("location: home.php");
-          exit();
-  }
  ?>
 
 
@@ -224,57 +240,55 @@ if (!isset($_SESSION['email']) ) { //i edit this one to restrict jobsseker from 
 
             <div class="details">
                 <img src="img/person_JobDetails.svg" alt="Admin" class="circle" style="width:128px;height:128px;" >
-                <h4><?php echo $firstName; ?><?php echo $lastName; ?></h4>
+                <h4><?php echo $firstName . " " . $lastName; ?> </h4>
                 <h4><?php echo $currentJob; ?> </h4>
                 <p><?php echo $city; ?></p>
                 <div class="profile-buttons">
                 <?php
                     if ($_SESSION['role'] == 2)
-                        //print employer info
-                    ?>
-                    <a href="mailto: <?php echo $_SESSION['email'] ?>"><button class="applyBtn">email</button></a>
-                    <a href="setAppointment.html"><button class="applyBtn">Set Appointment</button></a>
-                </div>
-            </div>
-            <?php
-            if ($_SESSION['role'] == 2)
-                print '<div class="buttons"><a href="JobSeekerProf_edit.php"><button>edit</button></a><button>delete</button></div>';
+                    print '<div class="buttons"><a href="setAppointment.php"><button>Set Appotmaint</button></a><button a href="<?php echo $email?>">>contact me</button></div>';
+                 
+                
+           else if ($_SESSION['role'] == 1)
+                print '<div class="buttons"><a href="JobSeekerProf_edit.php"><button>edit</button></a>
+                <a class="buttons"><a href="JobSeekerViewProf.php?delete=ture"><button>delete</button></a></div>';
             ?>
 
                 </div>
             </div>
        
-            <div class="details1">
+            <!-- <div class="details1">
                 
-                    <ul>
+                  
                       <li class="group-list-item display-flex justify-between align-center  flex-wrap">
                         <h6 class="margin-bottom-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-globe margin-right-2 icon-inline"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>Website</h6>
-                        <span class="gray-color">https://Rahaf.com</span>
-                      </li>
-                      <li class="group-list-item display-flex justify-between align-center  flex-wrap">
+                        <p class="gray-color" name="Website"><?php echo $Website?></p>
+                      </li> 
+                       <li class="group-list-item display-flex justify-between align-center  flex-wrap">
                         <h6 class="margin-bottom-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github margin-right-2 icon-inline"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>Github</h6>
-                        <span class="gray-color">@Rahaf</span>
-                      </li>
+                        <p class="gray-color" name="Github"><?php echo $Github?></p>
+                    
                     
                       <li class="group-list-item display-flex justify-between align-center  flex-wrap">
                         <h6 class="margin-bottom-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-instagram margin-right-2 icon-inline text-danger"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>Instagram</h6>
-                        <span class="gray-color">@Rahaf</span>
-                      </li>
-                      <li class="group-list-item display-flex justify-between align-center  flex-wrap">
+                        <span class="gray-color"name="Instagram"><?php echo $Instagram?></span>
+                      </li> 
+                       <li class="group-list-item display-flex justify-between align-center  flex-wrap"> 
                         <h6 class="margin-bottom-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook margin-right-2 icon-inline text-primary"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>Facebook</h6>
-                        <span class="gray-color">@Rahaf</span>
-                      </li>
-                    </ul>
-                  </div>
+                        <p class="gray-color" name= "Facebook"><?php echo $Facebook?></p>
+                       </li> 
+                
+                  </div> -->
             </div>
   
         
             <div class="sideBar">
                 <div class="titleAndValueDiv">            
                     <h3>Full Name</h3>
-                    <p><?php echo $firstName; ?><?php echo $lastName; ?></p></div>
+                    <p><?php echo $firstName . " " . $lastName; ?></p>
+                </div>
                 <div class="titleAndValueDiv">
-                    <h3>Birth Date </h3>
+                    <h3>Birth Date</h3>
                     <p><?php echo $birthDate ?></p>    
                 </div>
                 <div class="titleAndValueDiv">
@@ -284,9 +298,7 @@ if (!isset($_SESSION['email']) ) { //i edit this one to restrict jobsseker from 
                 <div class="titleAndValueDiv">            
                     <h3>Phone</h3>
                     <p><?php echo $phone ?></p></div>
-                    <div class="titleAndValueDiv">            
-                        <h3>Gender</h3>
-                        <p><?php echo $gender ?></p></div>
+                 
                     <div class="titleAndValueDiv">
                         <h3>Current Job</h3>
                         <p><?php echo $currentJob?><</p>    
@@ -303,12 +315,11 @@ if (!isset($_SESSION['email']) ) { //i edit this one to restrict jobsseker from 
                     <div class="column-6 margin-bottom-3">
                       <div class="card h-100">
                         <div class="card-body">
-                          <h3 class="display-flex align-center  margin-bottom-3"><i class="material-icons text-info margin-right-2"> </i>Exprince <span style="position: absolute;left: 90%;top:2%;cursor: pointer;"><br><h3>+</h3></span></h3><span style="position: absolute;left: 90%;top:2%;cursor: pointer;"></span>
+                          <h3 class="display-flex align-center  margin-bottom-3"><i class="material-icons text-info margin-right-2"> </i>Exprince </span>
                           <h4><?php echo $experince ?> </h4>
-                        
                           <div class="progress margin-bottom-3" style="height: 5px">
 
-      
+                          </div>
 
                           
                          
@@ -318,9 +329,12 @@ if (!isset($_SESSION['email']) ) { //i edit this one to restrict jobsseker from 
                     <div class="column-5 margin-bottom-3">
                       <div class="card h-100">
                         <div class="card-body">
-                          <h4 class="display-flex align-center  margin-bottom-3"><i class="material-icons text-info margin-right-2">  </i> Skills <span style="position: absolute;left: 90%;top:2%;cursor: pointer;"><br><h3>+</h3></span> </h4><span style="position: absolute;left: 90%;top:2%;cursor: pointer;"></span>
-                          <small><?php echo $skills ?></small>
-  
+                          <h4 class="display-flex align-center  margin-bottom-3"><i class="material-icons text-info margin-right-2">  </i> Skills <span style="position: absolute;left: 90%;top:2%;cursor: pointer;"><br><h3></h3></span> </h4><span style="position: absolute;left: 90%;top:2%;cursor: pointer;"></span>
+                          
+                        //print
+                     
+                    
+
                           </div>
                         </div>
                       </div>
@@ -329,11 +343,7 @@ if (!isset($_SESSION['email']) ) { //i edit this one to restrict jobsseker from 
             </div>
                    
     </main>
-    <div class="deleteEditBtns" style=" margin-left:950px; margin-top: 720px;">
-        <a href="/home.html">
-            <button  class="applyBtn" style="transform: translateX(2020px, 800px); " >Delete</button></a>
-          <a href="/JobSeekerProf_edit.html">
-            <button  class="applyBtn">Edit</button></a> 
+   <br><br><br><br><br><br><br><br> <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     </div>
 
         <!-- Footer -->
@@ -352,4 +362,3 @@ if (!isset($_SESSION['email']) ) { //i edit this one to restrict jobsseker from 
 
 </body>
 </html>
-

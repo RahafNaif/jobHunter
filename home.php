@@ -25,10 +25,10 @@
                         <img src="img/logo.png">
                     </div>
                     <div class="navbar-items">
-                        <a href="home.html" class="navbar-item">Home</a>
-                        <a href="jobSearch.html" class="navbar-item">Jobs</a>
-                        <a href="EmployerSearch.html" class="navbar-item">Employers</a>
-                        <a href="LogIn.html" class="navbar-item-span">Log in</a>
+                        <a href="home.php" class="navbar-item">Home</a>
+                        <a href="jobSearch.php" class="navbar-item">Jobs</a>
+                        <a href="EmployerSearch.php" class="navbar-item">Employers</a>
+                        <a href="LogIn.php" class="navbar-item-span">Log in</a>
                     </div>
                 </nav>
                 
@@ -105,7 +105,7 @@
                                   the job you are applying for. </p>
                 
                           <p class="writtenBy">
-                            written by <a href="/LastEMPProf.2html.html" style="font-weight:bold;"> Sabic Company</a>
+                            written by <a href="#" style="font-weight:bold;"> Sabic Company</a>
                           </p>    
                     </div>
                           <!-- end of  advice-slide-->

@@ -5,6 +5,26 @@ if (!isset($_SESSION['email']) ) { //i edit this one to restrict jobsseker from 
     header("location: LogIn.php");
     exit();
 }
+echo $_GET["delete"];
+if($_GET['delete'] == true){
+    echo "start deleting";
+    $email=$_SESSION['email'];
+    $query = "DELETE FROM jobseeker WHERE email=\"$email\"";
+    echo $query;
+
+    if (!($database = mysqli_connect("localhost", "root", "")))
+     die("<p>Could not connect to database</p>");
+
+ if (!mysqli_select_db($database, "jobhunter"))
+     die("<p>Could not open URL database</p>");
+
+ $result = mysqli_query($database, $query);
+ 
+    echo $result ;
+   header("location: home.php");
+   exit();
+  }
+
 
 ?>
 <!DOCTYPE html>
@@ -71,8 +91,8 @@ if (!isset($_SESSION['email']) ) { //i edit this one to restrict jobsseker from 
     <header>
         <nav>
             <ul class="navLinks1">
-                <li><a href="home.html">Home</a></li>
-                <li><a href="jobSeekerSearch.html">Job Seekers</a></li>
+                <li><a href="home.php">Home</a></li>
+                <li><a href="jobSeekerSearch.php">Job Seekers</a></li>
                 <li>
                     <a href="#">My Jobs</a>
                     <ul>
@@ -158,7 +178,7 @@ if (!isset($_SESSION['email']) ) { //i edit this one to restrict jobsseker from 
             </div>
             <?php
             if ($_SESSION['role'] == 2)
-                print '<div class="buttons"><a href="EmployerProfileEdit.php"><button>edit</button></a><button>delete</button></div>';
+                print '<div class="buttons"><a href="EmployerProfileEdit.php"><button>edit</button></a><button><a href="EmployerProfile.php?delete=ture">delete</button></div>';
             ?>
         </div>
         <div class="company-info-card">

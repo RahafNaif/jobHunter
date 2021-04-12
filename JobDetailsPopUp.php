@@ -19,7 +19,7 @@ $jobID = $_SESSION['jobID'];
 $Page = $_SESSION['Page'];
 
 
-$query = "INSERT INTO jobseeker_apply_job (JobSeeker_email, JOB_ID) VALUES ('".$jobSeekerEmail."','".$jobID."');";
+$query = "INSERT INTO jobseeker_apply_job (JobSeeker_email, JOB_ID) VALUES ('".$jobSeekerEmail."','".$_POST['JOB_ID']."');";
 if (isset($_POST['Apply'])) {
   $result = mysqli_query($database, $query);
   if ($result) {

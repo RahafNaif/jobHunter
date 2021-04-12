@@ -154,7 +154,7 @@
                                     print '<form method="GET" action="JobDetailsPopUp.php">';
                                     print '<input type="hidden" name="JOB_ID" value="'.$data['ID'].'"/>';
                                     print '<input type="hidden" name="thePage" value="jobSearch"/>';
-                                    print '<input type="submit" name="getForm" value ="" style="background-color:transparent; height: 4 00%; width:100%;"/>';
+                                    print '<button type="submit" name="getForm" value ="" style="background-color:transparent;border:none; height: 200%; width:100%;margin: 0; cursor: pointer;"/>';
 
 
                                     print '<h4  style="font-weight :bolder" >'. $data['position'] .'</h4>';
@@ -165,6 +165,7 @@
                                     print '<p class="time"><span class="material-icons">work</span>'. $data['jobType'] . '</p><br>';
                                     print '</a>';
 
+                                    print '</button>';
                                     print '</form>';
 
                                     print '</div>';

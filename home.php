@@ -105,7 +105,7 @@
                                   the job you are applying for. </p>
                 
                           <p class="writtenBy">
-                            written by <a href="/LastEMPProf.2html.html" style="font-weight:bold;"> Sabic Company</a>
+                            written by <a href="#" style="font-weight:bold;"> Sabic Company</a>
                           </p>    
                     </div>
                           <!-- end of  advice-slide-->

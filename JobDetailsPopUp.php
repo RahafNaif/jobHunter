@@ -18,9 +18,9 @@ $_SESSION['Page'] = $_GET['thePage'];
 $jobID = $_SESSION['jobID'];
 $Page = $_SESSION['Page'];
 
-$query = "INSERT INTO jobseeker_apply_job
-(JobSeeker_email, Job_ID) 
-VALUES ('$jobSeekerEmail','$jobID',)";
+
+
+$query = "INSERT INTO jobseeker_apply_job (JobSeeker_email, Job_ID) VALUES ('".$jobSeekerEmail."','".$jobID."')";
 if (isset($_POST['Apply'])) {
   $result = mysqli_query($database, $query);
   if ($result) {
@@ -29,9 +29,7 @@ if (isset($_POST['Apply'])) {
   } else {
     echo "An error occured while applying to the job.";
   }
-  
-  header("location: Myapplicationlist.php");
-  exit();
+
 } //end  if(isset($_POST['Apply']))
 
 $query2 = "SELECT * FROM job WHERE ID = '$jobID'";

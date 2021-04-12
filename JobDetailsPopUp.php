@@ -1,3 +1,71 @@
+<?php
+session_start();
+
+if (!($database = mysqli_connect("localhost", "root", "")))
+  die("<p>Could not connect to database</p>");
+
+if (!mysqli_select_db($database, "JobHunter"))
+  die("<p>Could not open URL database</p>");
+
+$jobSeekerEmail = $_SESSION['email'];
+
+if (isset($_GET['getForm'])) {
+
+  $jobID = $_GET['JOB_ID'];
+  $_SESSION['jobID'] = $jobID;
+
+  $Page = $_GET['thePage'];
+  $_SESSION['Page'] = $Page;
+
+
+  $query2 = "SELECT * FROM job WHERE ID = '$jobID'";
+  $result2 = mysqli_query($database, $query2);
+  if ($result2) {
+    while ($data = mysqli_fetch_assoc($result2)) {
+      $city = $data['city'];
+      $_SESSION['city'] = $city;
+      $major = $data['major'];
+      $_SESSION['major'] = $major;
+      $position = $data['position'];
+      $_SESSION['position'] = $position;
+      $jobType = $data['jobType'];
+      $_SESSION['jobType'] = $jobType;
+      $companyName = $data['companyName'];
+      $_SESSION['companyName'] = $companyName;
+      $title = $data['title'];
+      $_SESSION['title'] = $title;
+      $description = $data['description'];
+      $_SESSION['description'] = $description;
+      $skills = $data['skills'];
+      $_SESSION['skills'] = $skills;
+      $qualifications = $data['qualifications'];
+      $_SESSION['qualifications'] = $qualifications;
+      $gender = $data['gender'];
+      $_SESSION['gender'] = $gender;
+      $salary = $data['salary'];
+      $_SESSION['salary'] = $salary;
+    }
+  }
+} //end if (isset($_GET['getForm']))
+if (!empty($_SESSION['Page']))
+  include_once $_SESSION['Page'] . '.php';
+
+if (isset($_POST['Apply'])) {
+  $query = "INSERT INTO jobseeker_apply_job
+  (`JobSeeker_email`, `Job_ID`) 
+  VALUES ('$jobSeekerEmail','$jobID',)";
+
+  $result = mysqli_query($database, $query);
+  if ($result) {
+    if (!empty($_SESSION['Page']))
+      header($_SESSION['Page'] . '.php');
+    exit();
+  } else {
+    echo "An error occured while applying to the job.";
+  }
+} //end  if(isset($_POST['Apply']))
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,67 +81,27 @@
       background-color: rgba(0, 0, 0, 0.5);
       z-index: 100;
     }
+
+    .jobDeatailsContainer .applyBtn input[type="submit"] {
+
+      margin: 2% 0% 2% 77%;
+
+    }
   </style>
   <script src="js/Jquery.js"></script>
 
 </head>
 
 <body>
-  <?php
-  $jobID = $_GET['JOB_ID'];
-  $_SESSION['jobID'] = $jobID;
-  $Page = $_GET['thePage'];
-  $_SESSION['Page'] = $Page;
-  include_once $_SESSION['Page'] . '.php';
-  if (!($database = mysqli_connect("localhost", "root", "")))
-    die("<p>Could not connect to database</p>");
 
-  if (!mysqli_select_db($database, "JobHunter"))
-    die("<p>Could not open URL database</p>");
-
-  if (isset($_POST['Apply'])) {
-    $jobSeekerEmail = $_SESSION['email'];
-    $jobID = $_SESSION['jobID'];
-    $query = "INSERT INTO `jobseeker_apply_job`(`JobSeeker_email`,
-     `Job_ID`) 
-    VALUES ('$jobSeekerEmail','$jobID',) WHERE Job_ID = '$jobID'";
-
-    $result = mysqli_query($database, $query);
-    if ($result) {
-      unset($_SESSION['jobID']);
-      header("location: " . $_SESSION['Page'] . ".php");
-      unset($_SESSION['Page']);
-      exit();
-    }
-  } //end  if(isset($_POST['Apply']))
-
-  else {
-
-    $query2 = "SELECT * FROM job WHERE ID = '$jobID'";
-    $result2 = mysqli_query($database, $query2);
-    if ($result2) {
-      while ($data = mysqli_fetch_assoc($result2)) {
-        $city = $data['city'];
-        $major = $data['major'];
-        $position = $data['position'];
-        $jobType = $data['jobType'];
-        $companyName = $data['companyName'];
-        $title = $data['title'];
-        $description = $data['description'];
-        $skills = $data['skills'];
-        $qualifications = $data['qualifications'];
-        $gender = $data['gender'];
-        $salary = $data['salary'];
-      }
-    }
-  }
-
-  ?>
 
   <div class="jobDeatailsContainer">
     <div class="closeBtn">
 
-      <a class="closeIcon" href="<?php echo '' . $_SESSION['Page'] . '.php'; ?>"><svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="30">
+      <a class="closeIcon" href="<?php
+                                  if (!empty($_SESSION['Page']))
+                                    echo '' . $_SESSION['Page'] . '.php'; ?>">
+        <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="30">
           <g>
             <path d="M0,0h24v24H0V0z" fill="none" />
           </g>
@@ -110,55 +138,83 @@
       </div>
 
       <!-- end Company svg -->
-      <h1 style="font-weight :bolder"> <?php echo '' . $title; ?></h1>
-      <h5><a href="EmployerProfile.php"> <?php echo '' . $companyName; ?></a> | <?php echo '' . $city; ?></h5>
+      <h1 style="font-weight :bolder"> <?php
+                                        if (!empty($_SESSION['title']))
+
+                                          echo '' . $_SESSION['title']; ?></h1>
+      <h5><a href="EmployerProfile.php"> <?php
+                                          if (!empty($_SESSION['companyName']))
+
+                                            echo '' . $_SESSION['companyName']; ?>
+        </a> | <?php
+                if (!empty($_SESSION['city']))
+
+                  echo '' . $_SESSION['city']; ?>
+      </h5>
     </div>
 
 
     <div class="details">
       <h4 style="font-weight:bolder ;">Job Description</h4>
       <p>
-        <?php echo '' . $description; ?>
+        <?php
+        if (!empty($_SESSION['description']))
+          echo '' . $_SESSION['description']; ?>
       </p>
-      <h6>Required Skills</h6>
+      <h6 style="font-weight: bold;">Required Skills</h6>
       <p>
-        <?php echo '' . $skills; ?>
+        <?php
+        if (!empty($_SESSION['skills']))
+          echo '' . $_SESSION['skills']; ?>
       </p>
-      <h6>Rrequired Qualifications</h6>
+      <h6 style="font-weight: bold;">Rrequired Qualifications</h6>
       <p id="QualificationsP">
-        <?php echo '' . $qualifications; ?>
+        <?php
+        if (!empty($_SESSION['qualifications']))
+          echo '' . $_SESSION['qualifications']; ?>
       </p>
       <!-- apply Buttton -->
-      <div class="applyBtn">
 
-        <form action="JobDetailsPopUp.php" method="POST">
-          <input type="hidden" name="JOB_ID" value="<?php echo '' . $jobID; ?>">
-          <button>Apply</button>
-          <input name="Apply" type="submit" style="display: none;" />
-        </form>
-      </div>
+      <form action="JobDetailsPopUp.php" method="POST">
+        <input type="hidden" name="JOB_ID" value="<?php
+                                                  if (!empty($_SESSION['jobID']))
+
+                                                    echo '' . $_SESSION['jobID']; ?>">
+        <div class="applyBtn">
+          <input name="Apply" value="Apply" type="submit" />
+      </form>
+    </div>
+  </div>
+
+
+  <div class="sideBar">
+    <div class="titleAndValueDiv">
+      <h5>Job Type</h5>
+      <p><?php
+          if (!empty($_SESSION['jobType']))
+            echo '' . $_SESSION['jobType']; ?></p>
+    </div>
+    <div class="titleAndValueDiv">
+      <h5>Gender</h5>
+      <p><?php
+          if (!empty($_SESSION['gender']))
+            echo '' . $_SESSION['gender']; ?></p>
+    </div>
+    <div class="titleAndValueDiv">
+      <h5>Location</h5>
+      <p><?php
+          if (!empty($_SESSION['city']))
+            echo '' . $_SESSION['city']; ?></p>
+    </div>
+    <div class="titleAndValueDiv">
+      <h5>Salary Starts From</h5>
+      <p> <?php
+          if (!empty($_SESSION['salary']))
+
+            echo '' . $_SESSION['salary']; ?>SR</p>
     </div>
 
-
-    <div class="sideBar">
-      <div class="titleAndValueDiv">
-        <h5>Job Type</h5>
-        <p><?php echo '' . $jobType; ?></p>
-      </div>
-      <div class="titleAndValueDiv">
-        <h5>Gender</h5>
-        <p><?php echo '' . $gender; ?></p>
-      </div>
-      <div class="titleAndValueDiv">
-        <h5>Location</h5>
-        <p><?php echo '' . $city; ?></p>
-      </div>
-      <div class="titleAndValueDiv">
-        <h5>Salary Starts From</h5>
-        <p> <?php echo '' . $salary; ?>SR</p>
-      </div>
-
-    </div>
+  </div>
 
   </div>
   <div class="overlay"></div>

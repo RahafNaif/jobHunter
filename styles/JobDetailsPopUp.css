@@ -93,21 +93,7 @@
     padding-bottom: 2rem;
   }
   
-  .jobDeatailsContainer .applyBtn button {
-    background-color: burlywood;
-    margin-top: 2rem;
-    padding: 1rem;
-    margin-left: 70%;
-    margin-bottom: 3%;
-    height: 50px;
-    width: 100px;
-    border-radius: 50px;
-    background-color: #fa9746;
-    outline: none;
-    border-style: none;
-    color: white;
-    font-size: 18px;
-  }
+
   .jobDeatailsContainer ol,.jobDeatailsContainer ul {
     position: relative;
     padding: 1rem;
@@ -121,37 +107,7 @@
     text-indent: -1.3em;
     padding-left: 3em;
   }
-  
-  .jobDeatailsContainer button {
-    position: relative;
-    margin: 10px;
-    margin-left: 80px;
-    margin-right: 10px;
-    border-radius: 20px;
-    width: 100px;
-    height: 30px;
-    font-size: 12px;
-    color: rgb(234, 243, 250);
-    cursor: pointer;
-    border: none;
-    outline: none;
-    background: #fa9746;
-    overflow: hidden;
-  }
-  
-  .jobDeatailsContainer button:hover {
-    transition: 0.3s ease-in;
-    background: transparent;
-    border: 1px solid rgb(138, 177, 244);
-    color: #8cb3f4;
-    transform: scale(1.2);
-  }
-  
-  .jobDeatailsContainer button:focus {
-    color: #8cb3f4;
-    border: 1px solid #8cb3f4;
-    background: rgba(234, 243, 250, 0.8);
-  }
+
   .jobDeatailsContainer .details h6 {
     font-weight: 400;
   }
@@ -164,4 +120,12 @@
   }
   .jobDeatailsContainer .closeIcon:hover {
     fill: darkorange;
+  }
+  
+  .jobDeatailsContainer input[type="submit"] {
+    height: 0;
+    width: 0;
+    padding: 0;
+    margin: 0;
+
   }

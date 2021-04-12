@@ -118,9 +118,9 @@ echo $result ;
     <header>
         <nav>
             <ul class="navLinks1">
-                <li><a href="home.html">Home</a></li>
-                <li><a href="jobSearch.html">Jobs</a></li>
-                <li><a href="EmployerSearch.html">Employers </a>
+                <li><a href="home.php">Home</a></li>
+                <li><a href="jobSearch.php">Jobs</a></li>
+                <li><a href="EmployerSearch.php">Employers </a>
 
                 </li>
             </ul>

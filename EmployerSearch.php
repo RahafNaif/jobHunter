@@ -27,10 +27,10 @@
             <nav class="navbar">
                 <span class="logo"><img src="img/logo.PNG" alt="logo"></span>
                 <div class="navbar-items">
-                    <a href="home.html" class="navbar-item">Home</a>
-                    <a href="jobSearch.html" class="navbar-item">Jobs</a>
+                    <a href="home.php" class="navbar-item">Home</a>
+                    <a href="jobSearch.php" class="navbar-item">Jobs</a>
                     <a href="#" class="navbar-item">Employers</a>
-                    <a href="LogIn.html" class="navbar-item-span"><span>Log in</span></a>
+                    <a href="LogIn.php" class="navbar-item-span"><span>Log in</span></a>
                 </div>
             </nav>
             <img src="img/search.png" class="home-img">

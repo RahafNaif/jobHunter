@@ -188,7 +188,7 @@ if(isset($_GET['skillName'])){
                 <li><a href="#"><i class="material-icons">person</i></a>
                     <ul>
                         <li><a href="EmployerProfile_Eidt.html">Profile</a></li>
-                        <li><a href="home.html">Log out</a></li>
+                        <li><a href="http:signout.php">logout</a></li>
                     </ul>
                 </li>
             </ul>

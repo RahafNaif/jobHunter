@@ -91,8 +91,8 @@ if($_GET['delete'] == true){
     <header>
         <nav>
             <ul class="navLinks1">
-                <li><a href="home.html">Home</a></li>
-                <li><a href="jobSeekerSearch.html">Job Seekers</a></li>
+                <li><a href="home.php">Home</a></li>
+                <li><a href="jobSeekerSearch.php">Job Seekers</a></li>
                 <li>
                     <a href="#">My Jobs</a>
                     <ul>

@@ -233,18 +233,18 @@ $result = mysqli_query($database, $query);
 
     if (!$iserror) {
 
-        // If we strip tags
+      // If we strip tags
 
-        $major=  $_POST['major'];
-        $position= $_POST['position'];
-        $jobDescription=  $_POST['jobDescription'];
-        $requiredSkills=  $_POST['requiredSkills'];
-        $requiredQ=  $_POST['requiredQualifications'];
-        $location= $_POST['location'];
-        $jobType= $_POST['jobType'];
-        $gender= $_POST['gender'];
-        $salary=$_POST['salary'];
-        $myquery = "UPDATE `job` SET 
+      $major =  $_POST['major'];
+      $position = $_POST['position'];
+      $jobDescription =  $_POST['jobDescription'];
+      $requiredSkills =  $_POST['requiredSkills'];
+      $requiredQ =  $_POST['requiredQualifications'];
+      $location = $_POST['location'];
+      $jobType = $_POST['jobType'];
+      $gender = $_POST['gender'];
+      $salary = $_POST['salary'];
+      $myquery = "UPDATE `job` SET 
             city='$location',
             major='$major',
             position='$position',
@@ -256,37 +256,37 @@ $result = mysqli_query($database, $query);
             salary='$salary'
             WHERE ID='$jobID';
             ";
-        $result = mysqli_query($database, $myquery);
+      $result = mysqli_query($database, $myquery);
 
-        if ($result) {
-          header("location: jobLisiting.php");
-        } else
-          echo "An error occured while updating the job.";
+      if ($result) {
+        header("location: jobLisiting.php");
+      } else
+        echo "An error occured while updating the job.";
 
       header("location: JobListing.php");
       exit();
     } // end if(!$iserror)
 
   } // end if(isset($_POST['save']))
-  if(isset($_POST['delete'])){
+  if (isset($_POST['delete'])) {
     $myquery = "DELETE FROM `job`
     WHERE ID='$jobID';
     ";
-            $result = mysqli_query($database, $myquery);
+    $result = mysqli_query($database, $myquery);
 
-            if ($result) {
-              header("location: jobLisiting.php");
-            } else
-              echo "An error occured while updating the job.";
-    
-          header("location: JobListing.php");
-          exit();
-  }// end ifif(isset($_POST['delete']))
+    if ($result) {
+      header("location: jobLisiting.php");
+    } else
+      echo "An error occured while updating the job.";
+
+    header("location: JobListing.php");
+    exit();
+  } // end ifif(isset($_POST['delete']))
   ?>
 
 
   <form action="EditAJob.php" method="POST">
-  <input type="hidden" name="JOB_ID" value='<?php echo $jobID;?>'/>
+    <input type="hidden" name="JOB_ID" value='<?php echo $jobID; ?>' />
     <fieldset>
       <legend class="postLegend">Edit A Job</legend>
       <!-- 
@@ -311,10 +311,10 @@ $result = mysqli_query($database, $query);
       <div class="inputDiv" id="majorDiv">
         <label for="major">Major </label>
         <script>
-        $( document ).ready(function() {
+          $(document).ready(function() {
 
-          $("#major").val('<?php echo $major;?>');
-        });
+            $("#major").val('<?php echo $major; ?>');
+          });
         </script>
         <select id="major" required name="major">
 
@@ -397,21 +397,21 @@ $result = mysqli_query($database, $query);
       <fieldset>
         <legend class="notFormHeader">Job Type</legend>
         <script>
-        $( document ).ready(function() {
-          if ('<?php echo $jobType ;?>' == "FullTime") {
-            $('#FullTime').attr('checked', 'checked');
-          } else {
-            $('#partTime').attr('checked', 'checked');
-          }
-        });
+          $(document).ready(function() {
+            if ('<?php echo $jobType; ?>' == "Full Time") {
+              $('#Full_Time').attr('checked', 'checked');
+            } else {
+              $('#Part_Time').attr('checked', 'checked');
+            }
+          });
         </script>
         <label class="rLabel">
-          <input type="radio" required name="jobType" id="FullTime" value="FullTime" />
+          <input type="radio" required name="jobType" id="Full_Time" value="Full Time" />
           Full-time
         </label>
 
         <label class="rLabel">
-          <input type="radio" required name="jobType" id="partTime" value="partTime" />
+          <input type="radio" required name="jobType" id="Part_Time" value="Part Time" />
           Part-time
         </label>
       </fieldset>
@@ -426,13 +426,13 @@ $result = mysqli_query($database, $query);
       <fieldset>
         <legend>Gender</legend>
         <script>
-        $( document ).ready(function() {
-          if ('<?php echo $gender ;?>' == "Female") {
-            $('#Female').attr('checked', 'checked');
-          } else {
-            $('#Male').attr('checked', 'checked');
-          }
-        });
+          $(document).ready(function() {
+            if ('<?php echo $gender; ?>' == "Female") {
+              $('#Female').attr('checked', 'checked');
+            } else {
+              $('#Male').attr('checked', 'checked');
+            }
+          });
         </script>
         <label class="rLabel">
           <input required type="radio" required name="gender" value="Female" id="Female" />
@@ -463,10 +463,10 @@ $result = mysqli_query($database, $query);
 
         ?>
       </div>
-<form method="post" action="EditAJob.php">
-<input type="submit" value="Delete" name="delete" />
-</form>
-      
+      <form method="post" action="EditAJob.php">
+        <input type="submit" value="Delete" name="delete" />
+      </form>
+
       <input type="submit" value="Save" name="save" />
 
     </fieldset>
@@ -486,4 +486,5 @@ $result = mysqli_query($database, $query);
     </div>
   </div>
 </body>
+
 </html>

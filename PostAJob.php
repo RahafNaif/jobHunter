@@ -365,12 +365,12 @@ if (!isset($_SESSION['email']) || $_SESSION['role'] == 1) {
         <legend class="notFormHeader">Job Type</legend>
 
         <label class="rLabel">
-          <input type="radio" name="jobType" required checked="checked" value="FullTime" />
+          <input type="radio" name="jobType" required checked="checked" value="Full Time" />
           Full-time
         </label>
 
         <label class="rLabel">
-          <input type="radio" name="jobType" required value="partTime" />
+          <input type="radio" name="jobType" required value="Part Time" />
           Part-time
         </label>
 

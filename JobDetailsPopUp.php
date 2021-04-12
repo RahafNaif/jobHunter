@@ -35,7 +35,7 @@ $query2 = "SELECT * FROM job WHERE ID = '$jobID'";
 $result2 = mysqli_query($database, $query2);
 if ($result2) {
   while ($data = mysqli_fetch_assoc($result2)) {
-    $city = $data['city'];
+
     $major = $data['major'];
     $position = $data['position'];
     $jobType = $data['jobType'];
@@ -46,6 +46,7 @@ if ($result2) {
     $qualifications = $data['qualifications'];
     $gender = $data['gender'];
     $salary = $data['salary'];
+    $city = $data['city'];
   }
 }
 

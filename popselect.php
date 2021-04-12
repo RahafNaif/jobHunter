@@ -181,10 +181,10 @@ if (!mysqli_select_db($database, "jobhunter"))
     
      if ($result) {
    
-    
-    print( "<script>x=alert('Thanks, your appointiment is confirmed');
+    //x=alert('Thanks, your appointiment is confirmed'
+    print( "<script>
     window.location.href = 'Myapplicationlist.php';
-                                                     </script>");
+                                                   </script>");
     
 } }  
 

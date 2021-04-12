@@ -94,8 +94,12 @@ if (!isset($_SESSION['email']) ){
         <nav>
             <ul class="navLinks1">
                 <li><a href="home.php">Home</a></li>
-                <li><a href="jobSearch.php">Jobs</a></li>
-                <li><a href="EmployerSearch.html">Employers </a>
+                
+                <li><a href="#">Jobs</a><ul>
+                <li style="font-sixe=4px;"><a href="Myapplicationlist.php">My Applicants</a></li>
+                <li><a href="jobSearch.php">Jobs</a>
+                </ul></li>
+                <li><a href="EmployerSearch.php">Employers </a>
 
                 </li>
             </ul>
@@ -103,7 +107,8 @@ if (!isset($_SESSION['email']) ){
                 <li><a href="#popup" class="notification"><i class="material-icons">notifications</i></a></li>
                 <li><a href="#"><i class="material-icons">person</i></a>
                     <ul>
-                        <li><a href="EmployerProfile_Eidt.html">Profile</a></li>
+                        <li><a href="JobSeekerViewProf.php">Profile</a></li>
+                       
                         <li><a href="http:signout.php">logout</a></li>
                     </ul>
                 </li>
@@ -137,6 +142,7 @@ if (!isset($_SESSION['email']) ){
                 $salary = $data['salary'];
                 $applay_job=$data['applay_ID'];
                 $statusj=$data['statusjob'];
+                $emaillem=$data['employer_email'];
                 $applay=1;
                
                 ?>
@@ -145,11 +151,13 @@ if (!isset($_SESSION['email']) ){
             <!-- Job List -->
             
             <div class="list">
-                <div>
-                    <img src="img/company.svg" alt="company default logo" class="defaultCompany" />
-                </div>
+                <form action="EmployerProfile.php" method="post">
+                    <input type="hidden" name="viewinfo" value="<?php echo $emaillem ?> ">
+                <div><button name="viewi" style="outline: none; background-color: rgba(234, 243, 250, 0.8); border: none; padding: 1%;background-repeat: no-repeat;width: 150px;height: 180px;curser:pointrt;" >
+                    <img src="img/company.svg" style="margin: 1%;" alt="company default logo" class="defaultCompany" />
+                </div></button></form>
                 <!-- job description -->
-                <a href="EmployerProf_edit.html">
+                
                 <div class="jobInfo">
                     <h2> <?php echo $name;?> </h2>
                     <span>
@@ -237,7 +245,7 @@ if (!isset($_SESSION['email']) ){
                         <button class="edit" name="cancel">Cancel</button> </form>
                     
                 </div>
-            </div></a>    
+            </div>   
        <?php  if($applay ==0) {?>
         <div class="lists">
             <!-- Job List -->

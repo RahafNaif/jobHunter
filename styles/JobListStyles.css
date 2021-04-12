@@ -326,7 +326,7 @@ a {
 
 /* Modal Content */
 .modal-content {
-  background-color: #EAF3FA;
+  background-color: #c8e1f5;
   margin: auto;
   padding: 20px;
   border: 1px solid #888;
@@ -536,11 +536,11 @@ transform: translate(-50%,-50%);
   width: 98px;
   height: 90px;
   background: transparent;
-  border: 2px solid #fa9746;
-  color: #fa9746;
+  border: 2px solid rgb(138, 177, 244);
+  color: #8cb3f4;
   
   border-radius: 7px;
-  
+  cursor: none;
   font-size:x-small;
   text-align: center;
 

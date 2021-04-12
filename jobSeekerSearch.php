@@ -59,11 +59,15 @@
                                     <label>nationality :</label>
                                     <input type="text" class="form-input" id="nati" name="nation">
                                 </div>
+                                <div class="form-content">
+                                    <label>Major :</label>
+                                    <input type="text" class="form-input" id="major">
+                                </div>
                                 
                                 <button>Apply</button>
                             </div>
                         </div>
-                        <div class="dropdown">
+                        <!-- <div class="dropdown">
                             <div class="default_option">major</div>  
                             <div class="city-form">
                                 <div class="form-content">
@@ -71,7 +75,7 @@
                                     <input type="text" class="form-input" id="major">
                                 </div>
                                 <button>Apply</button>
-                            </div>
+                            </div> -->
                             <!-- <ul>
                                 <li > Select a major</li>
                                 <li> Accounting & Finance</li>
@@ -107,53 +111,104 @@
                 $nation = $_GET['nation'];
                 $major = $_GET['major'];
 
-                if($search==''){
-                    $query = "select firstName, lastName, email, gender, nationality, city, major from jobseeker";
-                }elseif(!empty($search) && ($skill=='') && ($nation=='') &&($major=='') &&($gender=='male')){
-                    $query = "select firstName, lastName, email, gender, nationality, city, major from jobseeker WHERE gender='".$gender."'";
-
-                }else{
-                    echo 'There is no job seekers';
-                }
-
-                
-            
             ?>
                 <div class="job-posts">
                     <ul>
                     <?php
-                            $result = mysqli_query($database, $query);
+
+                        if($search==''){
+                            $query = "select firstName, lastName, email, gender, nationality, city, major from jobseeker";
+                        }elseif(!empty($search) && ($skill=='') && ($nation=='') &&($major=='') &&($gender=='male')){
+                            $query = "select firstName, lastName, email, gender, nationality, city, major from jobseeker WHERE gender='".$gender."' AND (firstName='".$search."' OR lastName='".$search."')";
+
+                        }elseif(!empty($search) && ($skill=='') && ($nation=='') &&($major=='') &&($gender=='female')){
+                            $query = "select firstName, lastName, email, gender, nationality, city, major from jobseeker WHERE gender='".$gender."' AND (firstName='".$search."' OR lastName='".$search."')";
+
+                        }elseif(!empty($search) && ($skill=='') && !empty($nation) &&($major=='') &&($gender=='female')){
+                            $query = "select firstName, lastName, email, gender, nationality, city, major from jobseeker WHERE gender='".$gender."' AND (firstName='".$search."' OR lastName='".$search."') AND nationality='".$nation."'";
+
+                        }elseif(!empty($search) && ($skill=='') && !empty($nation) &&($major=='') &&($gender=='male')){
+                            $query = "select firstName, lastName, email, gender, nationality, city, major from jobseeker WHERE gender='".$gender."' AND (firstName='".$search."' OR lastName='".$search."') AND nationality='".$nation."'";
+
+                        }elseif(!empty($search) && ($skill=='') && ($nation=='') && !empty($major) &&($gender=='male')){
+                            $query = "select firstName, lastName, email, gender, nationality, city, major from jobseeker WHERE gender='".$gender."' AND (firstName='".$search."' OR lastName='".$search."') AND major='".$major."'";
+
+                        }elseif(!empty($search) && ($skill=='') && ($nation=='') && !empty($major) &&($gender=='female')){
+                            $query = "select firstName, lastName, email, gender, nationality, city, major from jobseeker WHERE gender='".$gender."' AND (firstName='".$search."' OR lastName='".$search."') AND major='".$major."'";
+
+                        }elseif(!empty($search) && ($skill=='') && !empty($nation) && !empty($major) &&($gender=='female')){
+                            $query = "select firstName, lastName, email, gender, nationality, city, major from jobseeker WHERE gender='".$gender."' AND (firstName='".$search."' OR lastName='".$search."') AND major='".$major."' AND nationality='".$nation."'";
+
+                        }elseif(!empty($search) && ($skill=='') && !empty($nation) && !empty($major) &&($gender=='male')){
+                            $query = "select firstName, lastName, email, gender, nationality, city, major from jobseeker WHERE gender='".$gender."' AND (firstName='".$search."' OR lastName='".$search."') AND major='".$major."' AND nationality='".$nation."'";
+
+                        }elseif(!empty($search) && !empty($skill) && ($nation=='') &&($major=='') &&($gender=='female')){
+                            $query = "select firstName, lastName, email, gender, nationality, city, major from jobseeker WHERE gender='".$gender."' AND (firstName='".$search."' OR lastName='".$search."')";
+                        
+                        }elseif(!empty($search) && !empty($skill) && ($nation=='') &&($major=='') &&($gender=='male')){
+                            $query = "select firstName, lastName, email, gender, nationality, city, major from jobseeker WHERE gender='".$gender."' AND (firstName='".$search."' OR lastName='".$search."')";
+                        
+                        }elseif(!empty($search) && !empty($skill) && !empty($nation) &&($major=='') &&($gender=='female')){
+                            $query = "select firstName, lastName, email, gender, nationality, city, major from jobseeker WHERE gender='".$gender."' AND (firstName='".$search."' OR lastName='".$search."') AND nationality='".$nation."'";
+                        
+                        }elseif(!empty($search) && !empty($skill) && !empty($nation) &&($major=='') &&($gender=='male')){
+                            $query = "select firstName, lastName, email, gender, nationality, city, major from jobseeker WHERE gender='".$gender."' AND (firstName='".$search."' OR lastName='".$search."') AND nationality='".$nation."'";
+                        
+                        }elseif(!empty($search) && !empty($skill) && !empty($nation) && !empty($major) &&($gender=='female')){
+                            $query = "select firstName, lastName, email, gender, nationality, city, major from jobseeker WHERE gender='".$gender."' AND (firstName='".$search."' OR lastName='".$search."') AND nationality='".$nation."' AND major='".$major."'";
+                        
+                        }elseif(!empty($search) && !empty($skill) && !empty($nation) && !empty($major) &&($gender=='male')){
+                            $query = "select firstName, lastName, email, gender, nationality, city, major from jobseeker WHERE gender='".$gender."' AND (firstName='".$search."' OR lastName='".$search."') AND nationality='".$nation."' AND major='".$major."'";
+                        
+                        }elseif(!empty($search) && !empty($skill) && ($nation=='') && !empty($major) &&($gender=='male')){
+                            $query = "select firstName, lastName, email, gender, nationality, city, major from jobseeker WHERE gender='".$gender."' AND (firstName='".$search."' OR lastName='".$search."') AND major='".$major."'";
+                        
+                        }elseif(!empty($search) && !empty($skill) && ($nation=='') && !empty($major) &&($gender=='female')){
+                            $query = "select firstName, lastName, email, gender, nationality, city, major from jobseeker WHERE gender='".$gender."' AND (firstName='".$search."' OR lastName='".$search."') AND major='".$major."'";
+                        
+                        }else{
+                            echo 'There is no job seekers';
+                        }
+                        $result = mysqli_query($database, $query);
                             if ($result) {
                                 while ($data = mysqli_fetch_assoc($result)) {
-                                    print '<li class="post">';
-                                    print '<div class="post-content">';
-                                    print '<a href="JobSeekerViewProf.html">';
-                                    print '<h3>'. $data['firstName'] .' '.$data['lastName'].'</h3>';
-                                    print '<svg class="location-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="18px" height="18px"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>';
-                                    print '<span class="icon-side">'. $data['city'] .'</span><br>';
-                                    print '<svg class="major-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="18px" height="18px"><path d="M0 0h24v24H0z" fill="none"/><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg>';
-                                    print '<span class="icon-side">'.$data['major'].'</span>';
-                                    print '<h5>About Job seeker :</h5>';
-                                    print '<p class="descrption">'.$data['nationality'].', '.$data['gender'].'</p>';
-                                    print '<ol id="skills">Skills :';
                                     $email = $data['email'];
-                
-                                    $query2 = "select skillName from skills WHERE JobSeeker_email='".$email."'";
-                                    $result2 = mysqli_query($database, $query2);
-                                    if($result2){
-                                        $i= 0;
-                                        while ($data2 = mysqli_fetch_assoc($result2)) {
-                                            if($i<2){
-                                                print '<li>'.$data2['skillName'].'</li>';
-                                                $i++;
-                                            }
-                                        }
 
+                                    $skillQuery = "select skillName from skills WHERE JobSeeker_email='".$email."' AND skillName='".$skill."'";
+                                    $resultSkills = mysqli_query($database, $skillQuery);
+                                    $rowcount=mysqli_num_rows($resultSkills);
+
+                                    if($rowcount>0 || ($skill=='')){
+                                        print '<li class="post">';
+                                        print '<div class="post-content">';
+                                        print '<a href="JobSeekerViewProf.html">';
+                                        print '<h3>'. $data['firstName'] .' '.$data['lastName'].'</h3>';
+                                        print '<svg class="location-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="18px" height="18px"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>';
+                                        print '<span class="icon-side">'. $data['city'] .'</span><br>';
+                                        print '<svg class="major-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="18px" height="18px"><path d="M0 0h24v24H0z" fill="none"/><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg>';
+                                        print '<span class="icon-side">'.$data['major'].'</span>';
+                                        print '<h5>About Job seeker :</h5>';
+                                        print '<p class="descrption">'.$data['nationality'].', '.$data['gender'].'</p>';
+                                        print '<ol id="skills">Skills :';
+                                        
+                    
+                                        $query2 = "select skillName from skills WHERE JobSeeker_email='".$email."'";
+                                        $result2 = mysqli_query($database, $query2);
+                                        if($result2){
+                                            $i= 0;
+                                            while ($data2 = mysqli_fetch_assoc($result2)) {
+                                                if($i<2){
+                                                    print '<li>'.$data2['skillName'].'</li>';
+                                                    $i++;
+                                                }
+                                            }
+
+                                        }
+                                        print '</ol>';
+                                        print '</a>';
+                                        print '</div>';
+                                        print '</li>';
                                     }
-                                    print '</ol>';
-                                    print '</a>';
-                                    print '</div>';
-                                    print '</li>';
                                 }
                             }
                         ?>

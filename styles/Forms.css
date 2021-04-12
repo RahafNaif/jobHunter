@@ -1,0 +1,164 @@
+form {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    color: #192D50;
+}
+
+form legend {
+    text-align: center;
+    color: #FA9746;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+form fieldset {
+    padding: 15px;
+    border: none;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 600px;
+    background: rgba(234, 243, 250, 0.8);
+    border-radius: 25px;
+    box-shadow: 5px 3px 3px rgba(43, 70, 139, 0.1);
+    margin: 20px;
+}
+
+
+form fieldset.extra {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    justify-content: center;
+    padding-left: 25px;
+}
+
+hr {
+    height: 1.5px;
+    border-width: 0;
+    color: #FA9746;
+    background-color: #FA9746;
+    margin: 0 10px;
+    margin-bottom: 15px;
+}
+
+form label {
+    display: block;
+    margin: 0px 25px;
+    font-size: 18px;
+    font-weight: normal;
+    color: #2B468B;
+}
+
+form h4,
+form h1 {
+    margin: 10px;
+}
+
+form h1 {
+    font-size: 28px;
+}
+
+form h4 {
+    font-size: 22px;
+}
+
+form input {
+    color: #192D50;
+    font-size: 16px;
+    background-color: #ffffff;
+    margin: 10px 25px;
+    padding: 10px;
+    border: 0;
+    border-radius: 5px;
+    width: 400px;
+}
+
+form input[type=date],
+form input[type=time] {
+    background-color: #ffffff;
+    width: 600px;
+}
+
+form input[type=checkbox],
+form input[type=radio] {
+    margin-right: 0;
+    width: fit-content;
+}
+
+form .buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+form input[type=reset],
+form input[type=submit] {
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bolder;
+    text-transform: uppercase;
+    width: 150px;
+    height: 40px;
+    padding: 10px;
+    border: 0;
+    border-radius: 50px;
+}
+
+form input[type=reset] {
+    color: #8cb3f4;
+    border: 3px solid #8cb3f4;
+    background: rgba(234, 243, 250, 0.8);
+}
+
+form input[type=submit] {
+    background: #fa9746;
+    color: #ffffff;
+}
+
+form input[type=submit]:hover,
+form input[type=reset]:hover {
+    transition: all 0.3s ease-in-out;
+    background: transparent;
+    border: 3px solid #8cb3f4;
+    color: #8cb3f4;
+    cursor: pointer;
+}
+
+form input[type=submit]:focus,
+form input[type=reset]:focus {
+    color: #8cb3f4;
+    border: 3px solid #8cb3f4;
+    background: rgba(234, 243, 250, 0.8);
+}
+
+form textarea {
+    color: #192D50;
+    font-size: 16px;
+    width: 800px;
+    height: 150px;
+    margin: 10px 25px;
+    border: 0;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #ffffff;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+}
+
+
+form small {
+    color: red;
+    visibility: hidden;
+    padding-left: 25px;
+}
+
+form {
+    margin-top: 20px;
+}

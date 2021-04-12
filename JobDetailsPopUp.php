@@ -66,9 +66,7 @@ if (isset($_POST['Apply'])) {
     }
 
     .jobDeatailsContainer .applyBtn input[type="submit"] {
-
       margin: 2% 0% 2% 77%;
-
     }
   </style>
   <script src="js/Jquery.js"></script>

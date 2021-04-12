@@ -52,12 +52,7 @@
     background-color: rgba(234, 243, 250, 0.8);
     padding-bottom: 1rem;
   }
-  .jobDeatailsContainer .details li {
-    text-align: justify;
-    width: 80%;
-    margin-bottom: 1.1rem;
-    position: relative;
-  }
+
   .jobDeatailsContainer .details p{
     position: relative;
   }
@@ -94,19 +89,6 @@
   }
   
 
-  .jobDeatailsContainer ol,.jobDeatailsContainer ul {
-    position: relative;
-    padding: 1rem;
-    padding-right: 0;
-    text-align: justify;
-    width: fit-content;
-  
-  }
-  
-  .jobDeatailsContainer li {
-    text-indent: -1.3em;
-    padding-left: 3em;
-  }
 
   .jobDeatailsContainer .details h6 {
     font-weight: 400;
@@ -123,9 +105,33 @@
   }
   
   .jobDeatailsContainer input[type="submit"] {
-    height: 0;
-    width: 0;
-    padding: 0;
-    margin: 0;
-
+    display: block;
+    position: relative;
+    width: 120px;
+    height: 35px;
+    margin: 10px 20px 0px 90px;
+    border-radius: 50px;
+    font-size: 13px;
+    color: white;
+    border: none;
+    outline: none;
+    font-weight: bold;
+    background: #fa9746;
+    cursor: pointer;
   }
+
+  .jobDeatailsContainer input[type="submit"] :hover {
+    transition: all 0.3s ease-in-out;
+    background: transparent;
+    border: 3px solid #8cb3f4;
+    color: #8cb3f4;
+    transform: scale(1.05);
+    cursor: pointer;
+  }
+
+  .jobDeatailsContainer input[type="submit"]:focus{
+    color: #8cb3f4;
+    border: 3px solid #8cb3f4;
+    background: rgba(234, 243, 250, 0.8);
+  }
+  

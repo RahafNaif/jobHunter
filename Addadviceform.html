@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=, initial-scale=1.0" />
@@ -9,108 +10,105 @@
     <link rel="stylesheet" href="styles\Buttons.css" />
 
     <style>
-      * {
-        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-      }
-
-      svg {
-        fill: #fa9746;
-      }
-
-      a {
-        text-decoration: none;
-      }
-
-      div {
-        width: 40%;
-        height: 70%;
-        background-color: #eaf3fa;
-        position: absolute;
-        top: 20%;
-        left: 30%;
-        border-radius: 12px;
-        box-shadow: black;
-      }
-
-      .tybe {
-        position: relative;
-        left: 35%;
-        top: 8%;
-        color: #192d50;
-
-        text-shadow: black;
-        font-size: x-large;
-        font-weight: bolder;
-      }
-
-      .user {
-        position: absolute;
-        top: 80%;
-        left: 30%;
-        cursor: pointer;
-        font-size: large;
-        font-weight: bolder;
-      }
-
-      .closeIcon {
-        position: absolute;
-        top: 22%;
-        left: 67%;
-        z-index: 1;
-      }
-
-      .closeIcon:hover {
-        fill: rgb(4, 4, 71);
-      }
-
-      .line {
-        width: 28%;
-        border-bottom: solid #fa9746;
-        position: relative;
-        top: 5%;
-        left: 35%;
-        height: 1px;
-      }
-
-      form {
-        position: relative;
-        left: 20%;
-        top: 5%;
-      }
-
-      label {
-        color: #192d50;
-        font-weight: bold;
-      }
-
-      svg:hover {
-        cursor: pointer;
-        fill: #192d50;
-      }
-
-      input {
-        border: thin solid #2b468b;
-        border-radius: 7px;
-        height: 25px;
-      }
-
-      textarea {
-        border: thin solid #2b468b;
-        border-radius: 7px;
-        resize: none;
-      }
-
-      .Decrebtion {
-        position: absolute;
-        top: 30%;
-      }
+        * {
+            font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+        }
+        
+        svg {
+            fill: #fa9746;
+        }
+        
+        a {
+            text-decoration: none;
+        }
+        
+        div {
+            width: 40%;
+            height: 70%;
+            background-color: #eaf3fa;
+            position: absolute;
+            top: 20%;
+            left: 30%;
+            border-radius: 12px;
+            box-shadow: black;
+        }
+        
+        .tybe {
+            position: relative;
+            left: 35%;
+            top: 8%;
+            color: #192d50;
+            text-shadow: black;
+            font-size: x-large;
+            font-weight: bolder;
+        }
+        
+        .user {
+            position: absolute;
+            top: 80%;
+            left: 30%;
+            cursor: pointer;
+            font-size: large;
+            font-weight: bolder;
+        }
+        
+        .closeIcon {
+            position: absolute;
+            top: 22%;
+            left: 67%;
+            z-index: 1;
+        }
+        
+        .closeIcon:hover {
+            fill: rgb(4, 4, 71);
+        }
+        
+        .line {
+            width: 28%;
+            border-bottom: solid #fa9746;
+            position: relative;
+            top: 5%;
+            left: 35%;
+            height: 1px;
+        }
+        
+        form {
+            position: relative;
+            left: 20%;
+            top: 5%;
+        }
+        
+        label {
+            color: #192d50;
+            font-weight: bold;
+        }
+        
+        svg:hover {
+            cursor: pointer;
+            fill: #192d50;
+        }
+        
+        input {
+            border: thin solid #2b468b;
+            border-radius: 7px;
+            height: 25px;
+        }
+        
+        textarea {
+            border: thin solid #2b468b;
+            border-radius: 7px;
+            resize: none;
+        }
+        
+        .Decrebtion {
+            position: absolute;
+            top: 30%;
+        }
     </style>
-  </head>
+</head>
 
-  <body>
-    <a href="myAdvices.html" class="closeIcon"
-      ><svg
+<body>
+    <a href="myAdvices.html" class="closeIcon"><svg
         xmlns="http://www.w3.org/2000/svg"
         enable-background="new 0 0 24 24"
         height="24"
@@ -126,22 +124,22 @@
               d="M18.3,5.71L18.3,5.71c-0.39-0.39-1.02-0.39-1.41,0L12,10.59L7.11,5.7c-0.39-0.39-1.02-0.39-1.41,0l0,0 c-0.39,0.39-0.39,1.02,0,1.41L10.59,12L5.7,16.89c-0.39,0.39-0.39,1.02,0,1.41l0,0c0.39,0.39,1.02,0.39,1.41,0L12,13.41l4.89,4.89 c0.39,0.39,1.02,0.39,1.41,0l0,0c0.39-0.39,0.39-1.02,0-1.41L13.41,12l4.89-4.89C18.68,6.73,18.68,6.09,18.3,5.71z"
             />
           </g>
-        </g></svg
-    ></a>
+        </g></svg></a>
     <div>
-      <p class="tybe">New advice</p>
-      <div class="line"></div>
-      <br />
-      <br />
-      <form action="post">
-        <label for="">Title:</label> <br />
-        <input type="text" /> <br />
+        <p class="tybe">New advice</p>
+        <div class="line"></div>
         <br />
         <br />
-        <label class="Decrebtion">Description:</label> <br />
-        <textarea cols="40" rows="10"></textarea>
-      </form>
-      <a class="user" href="myAdvices.html"><button>Add new advice</button></a>
+        <form action="post">
+            <label for="">Title:</label> <br />
+            <input type="text" /> <br />
+            <br />
+            <br />
+            <label class="Decrebtion">Description:</label> <br />
+            <textarea cols="40" rows="10"></textarea>
+        </form>
+        <a class="user" href="myAdvices.html"><button>Add new advice</button></a>
     </div>
-  </body>
+</body>
+
 </html>

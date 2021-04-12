@@ -140,7 +140,9 @@ $result = mysqli_query($database, $query);
         print '<p class="jobDescription">' . $data['experince'] . '</p>';
         print '<p class="jobDescription">' . $data['skills'] . '</p>';
         print '</div>';
-        print '<form  action="#" method="GET"> <div class="buttons"> <button class="accept">Accept</button> <input type = "hidden" name = "applyID" value =' .$data['applay_ID']. '><button name = "reject" class="reject">Reject</button> </a> </form> </div>';
+        print '<div class="buttons">';
+        print '<form  action="setAppointment.php" method="POST"><input type = "hidden" name = "applyID" value =' .$data['applay_ID']. '><input type = "hidden" name = "jobSeekerEmail" value =' .$data['email']. '><button class="accept">Accept</button></form>';
+        print '<form  action="#" method="GET"><input type = "hidden" name = "applyID" value =' .$data['applay_ID']. '><button name = "reject" class="reject">Reject</button></form> </div>';
         print '</div>';
       }
       print '</div>';

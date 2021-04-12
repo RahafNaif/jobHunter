@@ -1,3 +1,29 @@
+<?php
+  session_start();
+
+  if (!isset($_SESSION['email'])) {
+    header("location: login.php");
+    exit();
+  }
+
+  if (!($database = mysqli_connect("localhost", "root", "")))
+    die("<p>Could not connect to database</p>");
+
+  if (!mysqli_select_db($database, "JobHunter"))
+    die("<p>Could not open URL database</p>");
+    
+  //if(isset($_POST['accept'])){
+        $apply_ID = $_POST['applyID'];
+        $jobSeekerEmail = $_POST['jobSeekerEmail'];
+
+  //} 
+  
+  $email  = $_SESSION['email'];
+  echo $jobSeekerEmail;
+  echo $apply_ID;
+
+?>
+
 <!DOCTYPE html>
 <html>
   <head>

@@ -88,42 +88,42 @@
 
 
                 if($search==''){ //all
-                    $query = "select city, position, jobType, description from job";
+                    $query = "select city, position, jobType, description, ID from job";
                 }elseif(!empty($search) && ($op1=='position') && ($city=='') && ($time=='Full Time')){ //default
-                    $query = "select city, position, jobType, description from job WHERE position='".$search."' AND jobType='".$time."'";
+                    $query = "select city, position, jobType, description, ID from job WHERE position='".$search."' AND jobType='".$time."'";
 
                 }elseif(!empty($search) && ($op1=='position') && ($city=='') && ($time=='Part Time')){ 
-                    $query = "select city, position, jobType, description from job WHERE position='".$search."' AND jobType='".$time."'";
+                    $query = "select city, position, jobType, description, ID from job WHERE position='".$search."' AND jobType='".$time."'";
                        
                 }elseif(!empty($search) && ($op1=='position') && !empty($city) && ($time=='Full Time')){
-                    $query = "select city, position, jobType, description from job WHERE position='".$search."' AND city='".$city."' AND jobType='".$time."'";
+                    $query = "select city, position, jobType, description, ID from job WHERE position='".$search."' AND city='".$city."' AND jobType='".$time."'";
 
                 }elseif(!empty($search) && ($op1=='position') && !empty($city) && ($time=='Part Time')){
-                    $query = "select city, position, jobType, description from job WHERE position='".$search."' AND city='".$city."' AND jobType='".$time."'";
+                    $query = "select city, position, jobType, description, ID from job WHERE position='".$search."' AND city='".$city."' AND jobType='".$time."'";
                 
                 }elseif(!empty($search) && ($op1=='major') && ($city=='') && ($time=='Full Time')){
-                    $query = "select city, position, jobType, description from job WHERE major='".$search."' AND jobType='".$time."'";
+                    $query = "select city, position, jobType, description, ID from job WHERE major='".$search."' AND jobType='".$time."'";
                 
                 }elseif(!empty($search) && ($op1=='major') && ($city=='') && ($time=='Part Time')){
-                    $query = "select city, position, jobType, description from job WHERE major='".$search."' AND jobType='".$time."'";
+                    $query = "select city, position, jobType, description, ID from job WHERE major='".$search."' AND jobType='".$time."'";
                 
                 }elseif(!empty($search) && ($op1=='major') && !empty($city) && ($time=='Full Time')){
-                    $query = "select city, position, jobType, description from job WHERE major='".$search."' AND city='".$city."' AND jobType='".$time."'";
+                    $query = "select city, position, jobType, description, ID from job WHERE major='".$search."' AND city='".$city."' AND jobType='".$time."'";
 
                 }elseif(!empty($search) && ($op1=='major') && !empty($city) && ($time=='Part Time')){
-                    $query = "select city, position, jobType, description from job WHERE major='".$search."' AND city='".$city."' AND jobType='".$time."'";
+                    $query = "select city, position, jobType, description, ID from job WHERE major='".$search."' AND city='".$city."' AND jobType='".$time."'";
                 
                 }elseif(!empty($search) && ($op1=='company name') && ($city=='') && ($time=='Full Time')){
-                    $query = "select city, position, jobType, description from job WHERE companyName='".$search."' AND jobType='".$time."'";
+                    $query = "select city, position, jobType, description, ID from job WHERE companyName='".$search."' AND jobType='".$time."'";
                 
                 }elseif(!empty($search) && ($op1=='company name') && ($city=='') && ($time=='Part Time')){
-                    $query = "select city, position, jobType, description from job WHERE companyName='".$search."' AND jobType='".$time."'";
+                    $query = "select city, position, jobType, description, ID from job WHERE companyName='".$search."' AND jobType='".$time."'";
                 
                 }elseif(!empty($search) && ($op1=='company name') && !empty($city) && ($time=='Full Time')){
-                    $query = "select city, position, jobType, description from job WHERE companyName='".$search."' AND city='".$city."' AND jobType='".$time."'";
+                    $query = "select city, position, jobType, description, ID from job WHERE companyName='".$search."' AND city='".$city."' AND jobType='".$time."'";
 
                 }elseif(!empty($search) && ($op1=='company name') && !empty($city) && ($time=='Part Time')){
-                    $query = "select city, position, jobType, description from job WHERE companyName='".$search."' AND city='".$city."' AND jobType='".$time."'";
+                    $query = "select city, position, jobType, description, ID from job WHERE companyName='".$search."' AND city='".$city."' AND jobType='".$time."'";
                   
                 }else{
                     echo "There is no jobs";
@@ -153,6 +153,8 @@
                                     print '<form method="GET" action="JobDetailsPopUp.php">';
                                     print '<input type="hidden" name="JOB_ID" value="'.$data['ID'].'"/>';
                                     print '<input type="hidden" name="thePage" value="jobSearch"/>';
+                                    print '<input type="submit" name="getForm"style="display:none;"/>';
+
 
                                     print '<a class="JobDetails">';
                                     print '<h4  style="font-weight :bolder" >'. $data['position'] .'</h4>';

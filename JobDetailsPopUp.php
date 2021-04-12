@@ -1,3 +1,54 @@
+<?php
+session_start();
+
+if (!($database = mysqli_connect("localhost", "root", "")))
+  die("<p>Could not connect to database</p>");
+
+if (!mysqli_select_db($database, "JobHunter"))
+  die("<p>Could not open URL database</p>");
+
+$jobSeekerEmail = $_SESSION['email'];
+$_SESSION['jobID'] = $_GET['JOB_ID'];
+$_SESSION['Page'] = $_GET['thePage'];
+
+
+$jobID = $_SESSION['jobID'];
+$Page = $_SESSION['Page'];
+$query2 = "SELECT * FROM job WHERE ID = '$jobID'";
+$result2 = mysqli_query($database, $query2);
+if ($result2) {
+  while ($data = mysqli_fetch_assoc($result2)) {
+    $city = $data['city'];
+    $major = $data['major'];
+    $position = $data['position'];
+    $jobType = $data['jobType'];
+    $companyName = $data['companyName'];
+    $title = $data['title'];
+    $description = $data['description'];
+    $skills = $data['skills'];
+    $qualifications = $data['qualifications'];
+    $gender = $data['gender'];
+    $salary = $data['salary'];
+  }
+}
+
+include_once $Page . '.php';
+
+if (isset($_POST['Apply'])) {
+  $query = "INSERT INTO jobseeker_apply_job
+  (`JobSeeker_email`, `Job_ID`) 
+  VALUES ('$jobSeekerEmail','$jobID',)";
+
+  $result = mysqli_query($database, $query);
+  if ($result) {
+    header($Page . '.php');
+    exit();
+  } else {
+    echo "An error occured while applying to the job.";
+  }
+} //end  if(isset($_POST['Apply']))
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,67 +64,23 @@
       background-color: rgba(0, 0, 0, 0.5);
       z-index: 100;
     }
+
+    .jobDeatailsContainer .applyBtn input[type="submit"] {
+      margin: 2% 0% 2% 77%;
+    }
   </style>
   <script src="js/Jquery.js"></script>
 
 </head>
 
 <body>
-  <?php
-  $jobID = $_GET['JOB_ID'];
-  $_SESSION['jobID'] = $jobID;
-  $Page = $_GET['thePage'];
-  $_SESSION['Page'] = $Page;
-  include_once $_SESSION['Page'] . '.php';
-  if (!($database = mysqli_connect("localhost", "root", "")))
-    die("<p>Could not connect to database</p>");
 
-  if (!mysqli_select_db($database, "JobHunter"))
-    die("<p>Could not open URL database</p>");
-
-  if (isset($_POST['Apply'])) {
-    $jobSeekerEmail = $_SESSION['email'];
-    $jobID = $_SESSION['jobID'];
-    $query = "INSERT INTO `jobseeker_apply_job`(`JobSeeker_email`,
-     `Job_ID`) 
-    VALUES ('$jobSeekerEmail','$jobID',) WHERE Job_ID = '$jobID'";
-
-    $result = mysqli_query($database, $query);
-    if ($result) {
-      unset($_SESSION['jobID']);
-      header("location: " . $_SESSION['Page'] . ".php");
-      unset($_SESSION['Page']);
-      exit();
-    }
-  } //end  if(isset($_POST['Apply']))
-
-  else {
-
-    $query2 = "SELECT * FROM job WHERE ID = '$jobID'";
-    $result2 = mysqli_query($database, $query2);
-    if ($result2) {
-      while ($data = mysqli_fetch_assoc($result2)) {
-        $city = $data['city'];
-        $major = $data['major'];
-        $position = $data['position'];
-        $jobType = $data['jobType'];
-        $companyName = $data['companyName'];
-        $title = $data['title'];
-        $description = $data['description'];
-        $skills = $data['skills'];
-        $qualifications = $data['qualifications'];
-        $gender = $data['gender'];
-        $salary = $data['salary'];
-      }
-    }
-  }
-
-  ?>
 
   <div class="jobDeatailsContainer">
     <div class="closeBtn">
 
-      <a class="closeIcon" href="<?php echo '' . $_SESSION['Page'] . '.php'; ?>"><svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="30">
+      <a class="closeIcon" href="<?php echo $Page . '.php'; ?>">
+        <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="30">
           <g>
             <path d="M0,0h24v24H0V0z" fill="none" />
           </g>
@@ -110,55 +117,67 @@
       </div>
 
       <!-- end Company svg -->
-      <h1 style="font-weight :bolder"> <?php echo '' . $title; ?></h1>
-      <h5><a href="EmployerProfile.php"> <?php echo '' . $companyName; ?></a> | <?php echo '' . $city; ?></h5>
+      <h1 style="font-weight :bolder"> <?php
+                                        echo '' . $title; ?></h1>
+      <h5><a href="EmployerProfile.php"> <?php
+                                          echo '' . $companyName; ?>
+        </a> | <?php
+                echo '' . $city; ?>
+      </h5>
     </div>
 
 
     <div class="details">
       <h4 style="font-weight:bolder ;">Job Description</h4>
       <p>
-        <?php echo '' . $description; ?>
+        <?php
+        echo '' . $description; ?>
       </p>
-      <h6>Required Skills</h6>
+      <h6 style="font-weight: bold;">Required Skills</h6>
       <p>
-        <?php echo '' . $skills; ?>
+        <?php
+        echo '' . $skills; ?>
       </p>
-      <h6>Rrequired Qualifications</h6>
+      <h6 style="font-weight: bold;">Rrequired Qualifications</h6>
       <p id="QualificationsP">
-        <?php echo '' . $qualifications; ?>
+        <?php
+        echo '' . $qualifications; ?>
       </p>
       <!-- apply Buttton -->
-      <div class="applyBtn">
 
-        <form action="JobDetailsPopUp.php" method="POST">
-          <input type="hidden" name="JOB_ID" value="<?php echo '' . $jobID; ?>">
-          <button>Apply</button>
-          <input name="Apply" type="submit" style="display: none;" />
-        </form>
-      </div>
+      <form action="JobDetailsPopUp.php" method="POST">
+        <input type="hidden" name="JOB_ID" value="<?php
+                                                  echo '' . $jobID; ?>">
+        <div class="applyBtn">
+          <input name="Apply" value="Apply" type="submit" />
+      </form>
+    </div>
+  </div>
+
+
+  <div class="sideBar">
+    <div class="titleAndValueDiv">
+      <h5>Job Type</h5>
+      <p><?php
+          echo '' . $jobType; ?></p>
+    </div>
+    <div class="titleAndValueDiv">
+      <h5>Gender</h5>
+      <p><?php
+          echo '' . $gender; ?></p>
+    </div>
+    <div class="titleAndValueDiv">
+      <h5>Location</h5>
+      <p><?php
+          echo '' . $city; ?></p>
+    </div>
+    <div class="titleAndValueDiv">
+      <h5>Salary Starts From</h5>
+      <p> <?php
+          echo '' . $salary; ?>SR</p>
     </div>
 
-
-    <div class="sideBar">
-      <div class="titleAndValueDiv">
-        <h5>Job Type</h5>
-        <p><?php echo '' . $jobType; ?></p>
-      </div>
-      <div class="titleAndValueDiv">
-        <h5>Gender</h5>
-        <p><?php echo '' . $gender; ?></p>
-      </div>
-      <div class="titleAndValueDiv">
-        <h5>Location</h5>
-        <p><?php echo '' . $city; ?></p>
-      </div>
-      <div class="titleAndValueDiv">
-        <h5>Salary Starts From</h5>
-        <p> <?php echo '' . $salary; ?>SR</p>
-      </div>
-
-    </div>
+  </div>
 
   </div>
   <div class="overlay"></div>

@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['email'])) {
-  header("location: login.php");
+if (!isset($_SESSION['email']) || $_SESSION['role'] == 1) {
+  header("location: LogIn.php");
   exit();
 }
 

@@ -184,18 +184,6 @@ ul {
   margin-right: -60%;
 }
 
-/* .search-box input{
-    width: 500px;
-    height: 50px;
-    border-radius: 10px;
-    border-style: none;
-    background-color: rgba(234, 243, 250, 0.8);
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    text-align: center;
-    font-size: 20px;
-    outline: none;
-} */
-
 .search-box {
   background-color: #EAF3FA;
   width: 800px;
@@ -229,18 +217,18 @@ ul {
   color: #192d50;
   z-index: 100;
   padding-top: 15px;
-  padding-left: 20px;
+  margin-left: 120px;
   width: 100px;
   border-right: 1px solid #2b468b;
   cursor: pointer;
 }
 
-.search-box .dropdown .city-form {
+.search-box .dropdown2 .city-form {
   display: none;
   position: absolute;
   background: #EAF3FA;
   width: 300px;
-  height: 150px;
+  height: 180px;
   padding: 15px;
   border-radius: 5px;
   margin-left: -8px;
@@ -248,7 +236,7 @@ ul {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.search-box .dropdown .city-form input {
+.search-box .dropdown2 .city-form input {
   margin-left: 20px;
   border-radius: 5px;
   height: 30px;
@@ -263,20 +251,20 @@ ul {
   padding-bottom: 10px;
 }
 
-.search-box .dropdown .city-form button {
+.search-box .dropdown2 .city-form button {
   outline: none;
   background-color: #fa9746;
   color: white;
   border: none;
   border-radius: 20px;
   height: 30px;
-  width: 60px;
+  width: 70px;
   margin-top: 20px;
   margin-left: 35%;
 }
 
 
-.search-box .dropdown .city-form button:hover {
+.search-box .dropdown2 .city-form button:hover {
   transition: 0.3s ease-in;
   background: transparent;
   border: 1px solid rgb(138, 177, 244);
@@ -310,7 +298,7 @@ ul {
 .search-box .dropdown ul {
   display: none;
   position: absolute;
-  background: rgba(234, 243, 250, 0.8);
+  background: #EAF3FA;
   width: 140px;
   border-radius: 5px;
   margin-top: 20px;
@@ -335,7 +323,7 @@ ul {
 
 .search-box .dropdown:hover ul,
 .search-box .dropdown2:hover ul,
-.search-box .dropdown:hover .city-form {
+.search-box .dropdown2:hover .city-form {
   display: block;
 }
 

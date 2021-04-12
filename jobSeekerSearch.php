@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="styles/job-seeker.css">
+        <link rel="stylesheet" href="styles/jobSeekerSearch.css">
         <link rel="stylesheet" href="styles/NavbarStyles.css">
         <link rel="icon" href="img/icon.png">
         <link rel="icon" href="img/icon.png">
@@ -48,8 +48,8 @@
                             <li id="female">female</li>
                             </ul>
                         </div>
-                        <div class="dropdown">
-                            <div class="default_option">skill</div>
+                        <div class="dropdown2">
+                            <div class="default_option">search by</div>
                             <div class="city-form">
                                 <div class="form-content">
                                     <label>Skill :</label>
@@ -169,6 +169,7 @@
                         }else{
                             echo 'There is no job seekers';
                         }
+
                         $result = mysqli_query($database, $query);
                             if ($result) {
                                 while ($data = mysqli_fetch_assoc($result)) {

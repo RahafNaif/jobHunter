@@ -1,6 +1,11 @@
 <?php
 session_start();
 
+if (!isset($_SESSION['email']) ){
+  header("location: LogIn.php");
+  exit();
+}
+
 if (!($database = mysqli_connect("localhost", "root", "")))
   die("<p>Could not connect to database</p>");
 
@@ -10,10 +15,25 @@ if (!mysqli_select_db($database, "JobHunter"))
 $jobSeekerEmail = $_SESSION['email'];
 $_SESSION['jobID'] = $_GET['JOB_ID'];
 $_SESSION['Page'] = $_GET['thePage'];
-
-
 $jobID = $_SESSION['jobID'];
 $Page = $_SESSION['Page'];
+
+$query = "INSERT INTO jobseeker_apply_job
+(JobSeeker_email, Job_ID) 
+VALUES ('$jobSeekerEmail','$jobID',)";
+if (isset($_POST['Apply'])) {
+  $result = mysqli_query($database, $query);
+  if ($result) {
+    header( 'location: Myapplicationlist.php');
+    exit();
+  } else {
+    echo "An error occured while applying to the job.";
+  }
+  
+  header("location: Myapplicationlist.php");
+  exit();
+} //end  if(isset($_POST['Apply']))
+
 $query2 = "SELECT * FROM job WHERE ID = '$jobID'";
 $result2 = mysqli_query($database, $query2);
 if ($result2) {
@@ -34,191 +54,13 @@ if ($result2) {
 
 include_once $Page . '.php';
 
-if (isset($_POST['Apply'])) {
-  $query = "INSERT INTO jobseeker_apply_job
-  (`JobSeeker_email`, `Job_ID`) 
-  VALUES ('$jobSeekerEmail','$jobID',)";
-
-  $result = mysqli_query($database, $query);
-  if ($result) {
-    header($Page . '.php');
-    exit();
-  } else {
-    echo "An error occured while applying to the job.";
-  }
-} //end  if(isset($_POST['Apply']))
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <style>
-    .jobDeatailsContainer {
-      font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-      color: #192d50;
-      z-index: 200000;
-      position: absolute;
-      background-color: white;
-      border: 5px solid white;
-      border-radius: 20px;
-      left: 50%;
-      top: 150%;
-      transform: translate(-50%, -50%);
-      height: max-content;
-      width: 70%;
-      padding-bottom: 2rem;
-
-
-    }
-
-    .jobDeatailsContainer #companySVG,
-    .companySVG {
-      text-align: center;
-    }
-
-    .jobDeatailsContainer .JobHeader h1 {
-      text-align: center;
-      font-size: 2.2rem;
-      font-weight: 400;
-      padding: 0.9rem 0;
-    }
-
-    .jobDeatailsContainer .JobHeader h5 {
-      text-align: center;
-      font-size: 1rem;
-      font-weight: 400;
-      padding: 0.5rem;
-    }
-
-    .jobDeatailsContainer .details {
-      position: relative;
-      float: left;
-      list-style: none;
-      width: 50%;
-      height: fit-content;
-      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-      border-radius: 1.25rem;
-      font-size: 1rem;
-      padding: 1rem;
-      margin-top: 1.25rem;
-      margin-left: 5%;
-      margin-right: 0.5rem;
-      background-color: rgba(234, 243, 250, 0.8);
-      padding-bottom: 1rem;
-    }
-
-    .jobDeatailsContainer .details p {
-      position: relative;
-    }
-
-    .jobDeatailsContainer .sideBar {
-      display: inline-block;
-      position: relative;
-      float: right;
-      height: fit-content;
-      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-      border-radius: 20px;
-      font-size: 1rem;
-      padding: 15px;
-      margin-top: 20px;
-      background-color: rgba(234, 243, 250, 0.8);
-      margin-right: 5%;
-      width: 30%;
-    }
-
-    .jobDeatailsContainer .titleAndValueDiv {
-      margin: 2rem 0.2rem;
-    }
-
-    .jobDeatailsContainer .titleAndValueDiv h5 {
-      font-size: smaller;
-      font-weight: 400;
-      padding-bottom: 0.2rem;
-    }
-
-    .jobDeatailsContainer .titleAndValueDiv,
-    .jobDeatailsContainer .details h6 {
-      font-size: large;
-      font-weight: bold;
-    }
-
-    .jobDeatailsContainer .details h4 {
-      font-size: larger;
-      padding-bottom: 2rem;
-    }
-
-    .jobDeatailsContainer .sideBar p {
-      font-weight: bolder;
-    }
-
-
-
-    .jobDeatailsContainer .details h6 {
-      font-weight: 400;
-    }
-
-    .jobDeatailsContainer .closeIcon {
-      position: absolute;
-      top: 1%;
-      left: 95%;
-      z-index: 1;
-    }
-
-    .jobDeatailsContainer .closeIcon:hover {
-      fill: darkorange;
-    }
-
-    .jobDeatailsContainer input[type="submit"] {
-      display: block;
-      position: relative;
-      width: 120px;
-      height: 35px;
-      margin: 10px 20px 0px 90px;
-      border-radius: 50px;
-      font-size: 13px;
-      color: white;
-      border: none;
-      outline: none;
-      font-weight: bold;
-      background: #fa9746;
-      cursor: pointer;
-    }
-
-    .jobDeatailsContainer input[type="submit"] :hover {
-      transition: all 0.3s ease-in-out;
-      background: transparent;
-      border: 3px solid #8cb3f4;
-      color: #8cb3f4;
-      transform: scale(1.05);
-      cursor: pointer;
-    }
-
-    .jobDeatailsContainer input[type="submit"]:focus {
-      color: #8cb3f4;
-      border: 3px solid #8cb3f4;
-      background: rgba(234, 243, 250, 0.8);
-    }
-
-
-
-    .overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: rgba(0, 0, 0, 0.5);
-      z-index: 100;
-    }
-
-    .jobDeatailsContainer .applyBtn input[type="submit"] {
-      margin: 2% 0% 2% 77%;
-    }
-  </style>
-  <script src="js/Jquery.js"></script>
-
+<link rel="stylesheet" href="styles/JobDetailsPopUp.css" />
 </head>
 
 <body>

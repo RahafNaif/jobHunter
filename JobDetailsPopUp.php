@@ -105,7 +105,7 @@ include_once $Page . '.php';
 
       <!-- end Company svg -->
       <h1 style="font-weight :bolder"> <?php
-                                        echo '' . $title; ?></h1>
+                                        echo '' . $position; ?></h1>
       <h5><a href="EmployerProfile.php"> <?php
                                           echo '' . $companyName; ?>
         </a> | <?php

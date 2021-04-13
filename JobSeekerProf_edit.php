@@ -37,8 +37,9 @@ $result = mysqli_query($database, $query);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $fullName = explode(" ", $_POST['fullName']);
-    $firstName = $fullName[1];
-    $lastName = $fullName[2];
+    $firstName = $fullName[0];
+    $lastName = $fullName[1];
+    print_r($fullName);
     $birthDate = $_POST['birthDate'];
     $gender = $_POST['gender'];
     $nationality = $_POST['nationality'];
@@ -81,10 +82,21 @@ WHERE jobseeker.email = '$email' ";
         exit();
     }
 }
-if (isset($_GET['skillName'])) {
-    echo $_GET['skillName'];
-    exit();
 
+
+if(isset($_GET['skillName'])){
+
+    $skillName = $_GET['skillName'];
+    $email = $_SESSION['email'];
+    $query = "INSERT INTO skills (skillName, JobSeeker_email) VALUE ('$skillName', '$email')";
+
+    if (mysqli_query($database, $query)) {
+        header("Location: JobSeekerViewProf.php");
+    } else {
+        echo $query;
+        echo " $database->error";
+        exit();
+    }
 
 }
 ?>
@@ -285,7 +297,7 @@ if (isset($_GET['skillName'])) {
                 <img src="img/person_JobDetails.svg" alt="Admin" class="circle" style="width:128px;height:128px;">
                 <h4><?php echo $firstName . " " . $lastName; ?></h4>
                 <h4><?php echo $currentJob ?></h4>
-                <p><?php echo $city ?></p>
+                <p><?php  echo $city?></p>
                 <img style="transform:translateY(40%)" src="img/Screen Shot 1442-07-16 at 4.29.48 PM.png" alt="Admin" class="circle" width="50">
             </div>
 
@@ -299,14 +311,14 @@ if (isset($_GET['skillName'])) {
                                 <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
                                 </path>
                             </svg>Website</h6>
-                        <span class="gray-color"><input type="text" id="Website" name="Website " value=<?php echo $Website; ?>> </span>
+                        <span class="gray-color"><input type="text" id="Website" name="Website " value=<?php echo $Website; ?>></input></span>
                     </li>
                     <li class="group-list-item display-flex justify-between align-center  flex-wrap">
                         <h6 class="margin-bottom-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github margin-right-2 icon-inline">
                                 <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
                                 </path>
                             </svg>Github</h6>
-                        <span class="gray-color"><input type="text" id="Github" name="Github " value=<?php echo $Github; ?>> </span>
+                        <span class="gray-color"><input type="text" id="Github" name="Github " value=<?php echo $Github; ?>></input></span>
                     </li>
 
                    <li class="group-list-item display-flex justify-between align-center  flex-wrap">
@@ -315,13 +327,13 @@ if (isset($_GET['skillName'])) {
                                 <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
                                 <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
                             </svg>Instagram</h6>
-                            <span class="gray-color"><input type="text" id="Instgram" name="Instgram " value=<?php echo $Instgram; ?>> </span>
+                            <span class="gray-color"><input type="text" id="Instgram" name="Instgram " value=<?php echo $Instgram; ?>></input></span>
                     </li> 
                     <li class="group-list-item display-flex justify-between align-center  flex-wrap">
                         <h6 class="margin-bottom-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook margin-right-2 icon-inline text-primary">
                                 <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
                             </svg>Facebook</h6>
-                        <span class="gray-color"><input type="text" id="Faceboock" name="Facebook " value=<?php echo $Faceboock; ?>> </span>
+                        <span class="gray-color"><input type="text" id="Faceboock" name="Facebook " value=<?php echo $Faceboock; ?>></input></span>
                     </li>
                 </ul>
             </div> -->
@@ -331,32 +343,32 @@ if (isset($_GET['skillName'])) {
             <div class="sideBar">
                 <div class="titleAndValueDiv">
                     <h3>Full Name</h3>
-                    <input type="text" name="fullName" value="<?php echo $firstName . " " . $lastName; ?>" style="width:100%; height: 50%; font-size: medium;">
+                    <input type="text" name="fullName" value="<?php echo $firstName . " " . $lastName; ?>" style="width:100%; height: 50%; font-size: medium;"></input>
                 </div>
                 <div class="titleAndValueDiv">
                     <h3>Birth Date</h3>
-                    <input type="date" name="birthDate" value="<?php echo $birthDate; ?>" style="width:100%; height: 50%; font-size: medium;">
+                    <input type="date" name="birthDate" value="<?php echo $birthDate; ?>" style="width:100%; height: 50%; font-size: medium;"></input>
                 </div>
                 <div class="titleAndValueDiv">
                     <h3>Nationality</h3>
-                    <input type="text" name="nationality" value=<?php echo $nationality; ?> style="width:100%; height: 50%; font-size: medium;">
+                    <input type="text" name="nationality" value=<?php echo $nationality; ?> style="width:100%; height: 50%; font-size: medium;"> </input>
                 </div>
                 <div class="titleAndValueDiv">
                     <h3>City</h3>
-                    <input type="text" name="city" value=<?php echo $city; ?> style="width:100%; height: 50%; font-size: medium;">
+                    <input type="text" name="city" value=<?php echo $city; ?> style="width:100%; height: 50%; font-size: medium;"> </input>
                 </div>
                 <div class="titleAndValueDiv">
                     <h3>Phone</h3>
-                    <input type="text" id="phone" name="phone" value=<?php echo $phone; ?> style="width:100%; height: 50%; font-size: medium;">
+                    <input type="text" id="phone" name="phone" value=<?php echo $phone; ?> style="width:100%; height: 50%; font-size: medium;"></input>
 
                     <div class="titleAndValueDiv">
                         <h3>Current Job</h3>
-                        <input type="text" name="currentJob" style="width:100%; height: 50%; font-size: medium;" value="<?php echo $currentJob ?>" />
+                        <input type="text" name="currentJob" style="width:100%; height: 50%; font-size: medium;" value=<?php echo $currentJob ?> ></input>
                     </div>
                 </div>
                 <div class="titleAndValueDiv">
                     <h3>Major</h3>
-                    <input type="text" id="major" name="major" value=<?php echo $major; ?> style="width:100%; height: 50%; font-size: medium;">
+                    <input type="text" id="major" name="major" value=<?php echo $major; ?> style="width:100%; height: 50%; font-size: medium;"></input>
                 </div>
             </div>
             </div>
@@ -366,7 +378,7 @@ if (isset($_GET['skillName'])) {
                         <div class="card h-100">
                             <div class="card-body">
                                 <h3> Exprince </h3>
-                                <textarea id="vision" name="experince"><?php echo $vision; ?> </textarea>
+                                <textarea id="vision" name="experince"><?php echo $experince; ?> </textarea>
 
                             </div>
                         </div>
@@ -377,7 +389,7 @@ if (isset($_GET['skillName'])) {
                         <div class="card h-100">
                             <div class="card-body">
                                 <h3> skills </h3>
-                                <input type="text" id="skillName" style="width:100%; height: 50%; font-size: medium;">
+                                <input type="text" id= "skillName"  style="width:100%; height: 50%; font-size: medium;" ></input>
                                 <button type="button" onclick=addskill()> +</button>
 
                             </div>
@@ -387,18 +399,18 @@ if (isset($_GET['skillName'])) {
                 <input type="submit" value="updateProfile" name="editProf" />
             </div> <br>
 
-
+            
             </div>
     </main>
 
     </form>
     <script>
-        function addskill() {
+    function addskill(){
 
-            skillName = document.getElementById("skillName").value;
-            window.location = "JobSeekerProf_edit.php?skillName=" + skillName;
-        }
-        
+    skillName= document.getElementById("skillName").value;
+    window.location = "JobSeekerProf_edit.php?skillName="+skillName;
+    }
+    
     </script>
 </body>
 

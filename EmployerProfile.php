@@ -4,6 +4,26 @@ session_start();
 if (!isset($_SESSION['email']) ) { //i edit this one to restrict jobsseker from enter the emplyer page
     header("location: LogIn.php");
     exit();
+
+echo $_GET["delete"];
+if($_GET['delete'] == true){
+    echo "start deleting";
+    $email=$_SESSION['email'];
+    $query = "DELETE FROM employeer WHERE email=\"$email\"";
+    echo $query;
+
+    if (!($database = mysqli_connect("localhost", "root", "")))
+     die("<p>Could not connect to database</p>");
+
+ if (!mysqli_select_db($database, "jobhunter"))
+     die("<p>Could not open URL database</p>");
+
+ $result = mysqli_query($database, $query);
+ 
+    echo $result ;
+   header("location: home.php");
+   exit();
+  }
 }
 //echo $_GET["delete"];
 //if($_GET['delete'] == true){
@@ -125,6 +145,7 @@ if (!isset($_SESSION['email']) ) { //i edit this one to restrict jobsseker from 
                 delete</button>
                         </form></div>'
                 ;
+                // print '<div class="buttons"><a href="EmployerProfileEdit.php"><button>edit</button></a><button><a href="EnployerProfile.php?delete=ture">delete</button></a></div>';
             ?>
         </div>
         <div class="company-info-card">

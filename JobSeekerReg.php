@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="styles\Buttons.css" />
     <link rel="stylesheet" href="styles\NavbarStyles.css" />
     <link rel="stylesheet" href="styles\form.css" />
-    <script src="js/jobseekerValdition.js"></script>
+
 </head>
 
 <body>
@@ -18,7 +18,7 @@
     if (!($database = mysqli_connect("localhost", "root", "")))
         die("<p>Could not connect to database</p>");
 
-    if (!mysqli_select_db($database, "JobHunter"))
+    if (!mysqli_select_db($database, "jobhunter"))
         die("<p>Could not open URL database</p>");
 
 
@@ -35,14 +35,16 @@
         $phone = $_POST['phone'];
         $major = $_POST['major'];
         $experince = $_POST['experince'];
-        $skills = $_POST['skills'];
         $currentJob = $_POST['currentJob'];
 
-
-        $test = "INSERT INTO jobseeker(firstName, lastName,email,password, birthDate, gender,  nationality , city , phone,major, currentJob )VALUES('" . $firstName . "','" . $lastName . "','" . $email . "','" . $password . "','" . $birthDate . "','" . $gender . "','" . $nationality . "','" . $city . "','" . $phone . "','" . $major . "','" . $currentJob . "');";
-        $res = mysqli_query($database, $test);
-        if ($res) {
-            header("Location: home.php");
+        $query = "INSERT INTO jobseeker(firstName, lastName,email,password, birthDate, gender,  nationality , city , phone,major,experince ,currentJob )VALUES('$firstName','$lastName','$email','$password','$birthDate','$gender','$nationality','$city','$phone','$major','$experince','$currentJob')";
+        $result = mysqli_query($database, $query);
+        if ($result) {
+            header('Location: home.php');
+        } else {
+            echo "Error: can not create new user!";
+            echo  $database->error;
+            exit();
         }
     }
     ?>
@@ -70,29 +72,29 @@
                         <h2 id="employerReg">Job Seeker Regestration </h2>
 
                         <form action="JobSeekerReg.php" method="POST">
-                            <label for="first_name">First name</label>
-                            <input type="text" class="form-input" name="firstName" id="first_name" placeholder="Your first name.. " />
-                            <label for="last_name">Last name</label>
-                            <input type="text" class="form-input" name="lastName" id="last_name" placeholder="Your last name.. " />
-                            <label for="birth_date">Birth date</label>
+                            <label for="last_name">First Name</label>
+                            <input type="text" class="form-input" name="firstName" id="last_name" placeholder="Your first name.. " Required /><br><br>
+                            <label for="last_name">last Name</label>
+                            <input type="text" class="form-input" name="lastName" id="last_name" placeholder="Your last name.. " Required /><br><br>
+                            <label for="birth_date">Birth date</label><br><br>
                             <input type="date" class="form-input" name="birthDate" id="birth_date" placeholder="MM-DD-YYYY" />
+                            <br><br>
+                            <label for="gender" Required>Select yoru Gender</label>
                             <br>
-                            <label for="gender">Select yoru Gender</label>
-                            <br>
-                            <input type="radio" name="gender" value="male" id="male" checked="checked" />
+                            <input type="radio" name="gender" value="m" id="male" checked="checked" />
                             <label for="male">Male</label>
-                            <input type="radio" name="gender" value="female" id="female" />
+                            <input type="radio" name="gender" value="f" id="female" />
                             <label for="female">Female</label><br><br>
                             <label for="phone">Phone number</label>
-                            <input type="text" class="form-input" name="phone" id="phone" placeholder="Your phone number" />
+                            <input type="text" class="form-input" name="phone" id="phone" placeholder="Your phone number" pattern="[0]{1}[5]{1}[0-9]{8}" required="required" />
                             <br>
                             <label for="password">Password</label>
-                            <input type="password" class="form-input" name="password" id="password" placeholder="Your password" />
+                            <input type="password" class="form-input" name="password" id="password" placeholder="Your password" Required />
                             <br> <label for="re_password">Repeat your password</label>
-                            <input type="password" class="form-input" name="re_password" id="re_password" placeholder="Repeat your password" />
+                            <input type="password" class="form-input" name="re_password" id="re_password" placeholder="Repeat your password" Required />
                             <br> <label for="last_name">email</label>
-                            <input type="text" class="form-input" name="email" id="last_name" placeholder="Your email..." />
-                            <br> <label for="last_name">nationality</label>
+                            <input type="text" class="form-input" name="email" id="last_name" placeholder="Your email..." Required />
+                            <br> <label for="last_name" Required>nationality</label>
                             <!-- <input type="text" class="form-input" name="last_name" id="last_name"
                                 placeholder="Your nationality..." /> -->
                             <select id="major" class="form-input" style=" 
@@ -103,9 +105,6 @@
                                 border: 1px solid #ccc;
                                 border-radius: 4px;
                                 box-sizing: border-box;
-                              
-                              
-                              
                                 width: 100%;
                                 background-color: #4CAF50;
                                 color: black;
@@ -114,17 +113,11 @@
                                 border: none;
                                 border-radius: 4px;
                                 cursor: pointer;
-                        
-
                                 background-color:white;
-  
-                              
-                    
                                 border-radius: 5px;
                                 width: 110%;
-                              
-                              "></select>
-                            <select id="nationality" name="nationality">
+                              ">
+
                                 <option selected> Select a nationality</option>
                                 <option value="Saudi"> Saudi</option>
                                 <option value="Brazilian"> Brazilian</option>
@@ -136,14 +129,12 @@
                                 <option value="Italian"> Italian</option>
                                 <option value="Other"> Other</option>
                             </select>
-                            <br> <label for="last_name">city</label>
-                            <input type="text" class="form-input" name="city" id="last_name" placeholder="Your city..." />
+                            <br> <label for="city">city</label>
+                            <input type="text" class="form-input" name="city" id="city" placeholder="Your city..." />
                             <br> <label for="last_name">current job</label>
                             <input type="text" class="form-input" name="currentJob" id="last_name" placeholder="Your current job..." />
                             <br> <label for="last_name">experince</label>
                             <input type="text" class="form-input" name="experince" id="experince" placeholder="Your current job..." />
-                            <br> <label for="last_name">skliis</label>
-                            <input type="text" class="form-input" name="skills" id="skills" placeholder="Your current job..." />
                             <br><label for="last_name">major</label>
                             <select id="major" class="form-input" name="major" style=" 
                                 width: 100%;
@@ -174,6 +165,7 @@
                                 width: 110%;
                               
                               ">
+
                                 <option value="">Select a major</option>
                                 <option value="Accounting & Finance">Accounting & Finance</option>
                                 <option value="Agriculture & Forestry">Agriculture & Forestry</option>
@@ -200,7 +192,16 @@
                             </select>
                             <!--  -->
 
+                            <?php
+                            function email_validation($email)
+                            {
+                                return (!preg_match("^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$^", $$email)) ? FALSE : TRUE;
+                            }
+                            if ($_POST['password'] != $_POST['re_password']) {
+                                echo ("Oops! Password did not match! Try again. ");
+                            }
 
+                            ?>
                             <div class="buttons">
 
                                 <input type="submit" class="applicants" name="create" id="submit">
@@ -208,6 +209,7 @@
                         </a>
                     </div>
                 </div>
+            </div>
             </div>
             </div>
             </div>

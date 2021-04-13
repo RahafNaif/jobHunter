@@ -22,13 +22,18 @@ if (!isset($_SESSION['email']) ){
   
 </head>
 <body>
+    
      
-            <div id="myModal" class="modal" style="background-color:#e5e8eb; border: 3px solid black;">
+            <div id="myModal" class="modal" style="background-color:#cfe6f7; ">
+            <div class="do">
+
+
+            </div>
      <!-- header and logo -->
     
                 <!-- Modal content -->
-                <div class="modal-content" style=" width: 80%;
-    height: 400px;">
+                <div class="modal-content" style=" width: 70%;
+    height: 350px; border: 2px solid #c3dff5;">
                     <div class="lineapp"></div>
                  <a href="Myapplicationlist.php"> <span class="close">&times;</span></a>
                   

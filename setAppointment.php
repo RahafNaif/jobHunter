@@ -128,8 +128,15 @@
       <?php
         $query = "SELECT * FROM appointment WHERE  applay_JID='".$apply_ID."' AND jobSeeker_email='".$jobSeekerEmail."'";                
         $result = mysqli_query($database, $query);
-
+        $result1 = mysqli_query($database, $query);
+        $result2 = mysqli_query($database, $query);
+        $result3 = mysqli_query($database, $query);
+        $result4 = mysqli_query($database, $query);
         if($result){
+          print '<input type="radio" id="tabfree" name="mytabs" checked="checked" />';
+          print '<label for="tabfree">Sun</label>';
+          print '<div class="tab">';
+          print '<ul class="items">';
           while($data= mysqli_fetch_assoc($result)){
             $date = $data['date'];
             $timestamp = strtotime($date);
@@ -146,10 +153,7 @@
             $time = substr($time,0,5);
             $time=$time.$t;
             
-            print '<input type="radio" id="tabfree" name="mytabs" checked="checked" />';
-            print '<label for="tabfree">Sun</label>';
-            print '<div class="tab">';
-            print '<ul class="items">';
+            
             if ($day=='Sun'){
               print '<li class="item">';
               print '<p class="item-content">Interview</p>';
@@ -157,13 +161,30 @@
               print '<p class="item-content">'.$time.'</p>';
               print '</li>';
             }
-            print '</ul>';
-            print '</div>';
-
+          
+          }
+          print '</ul>';
+          print '</div>';
             print '<input type="radio" id="tabsilver" name="mytabs" />';
             print '<label for="tabsilver">Mon</label>';
             print '<div class="tab">';
             print '<ul class="items">';
+            while($data= mysqli_fetch_assoc($result1)){
+              $date = $data['date'];
+              $timestamp = strtotime($date);
+              $day = date('D', $timestamp);
+              $dayNum = date('d', $timestamp);
+              $month = date('M', $timestamp);
+              $time = $data['time']; 
+              $t='';
+              $check =  substr($time,0,2);
+              if ($check>=12)
+                $t=" PM";
+              else
+                $t=" AM";
+              $time = substr($time,0,5);
+              $time=$time.$t;
+
             if ($day=='Mon'){
               print '<li class="item">';
               print '<p class="item-content">Interview</p>';
@@ -171,13 +192,31 @@
               print '<p class="item-content">'.$time.'</p>';
               print '</li>';
             }
-            print '</ul>';
-            print '</div>';
-
+          
+          }
+          print '</ul>';
+          print '</div>';
             print '<input type="radio" id="tabgold" name="mytabs" />';
             print '<label for="tabgold">Tue</label>';
             print '<div class="tab">';
             print '<ul class="items">';
+          
+            while($data= mysqli_fetch_assoc($result2)){
+              $date = $data['date'];
+              $timestamp = strtotime($date);
+              $day = date('D', $timestamp);
+              $dayNum = date('d', $timestamp);
+              $month = date('M', $timestamp);
+              $time = $data['time']; 
+              $t='';
+              $check =  substr($time,0,2);
+              if ($check>=12)
+                $t=" PM";
+              else
+                $t=" AM";
+              $time = substr($time,0,5);
+              $time=$time.$t;
+            
             if($day=='Tue'){
               print '<li class="item">';
               print '<p class="item-content">Interview</p>';
@@ -185,13 +224,30 @@
               print '<p class="item-content">'.$time.'</p>';
               print '</li>';
             }
-            print '</ul>';
-            print '</div>';
-
+           
+          }
+          print '</ul>';
+          print '</div>';
             print '<input type="radio" id="tabwed" name="mytabs" />';
             print '<label for="tabwed">Wed</label>';
             print '<div class="tab">';
             print '<ul class="items">';
+          
+            while($data= mysqli_fetch_assoc($result3)){
+              $date = $data['date'];
+              $timestamp = strtotime($date);
+              $day = date('D', $timestamp);
+              $dayNum = date('d', $timestamp);
+              $month = date('M', $timestamp);
+              $time = $data['time']; 
+              $t='';
+              $check =  substr($time,0,2);
+              if ($check>=12)
+                $t=" PM";
+              else
+                $t=" AM";
+              $time = substr($time,0,5);
+              $time=$time.$t;
             if($day=='Wed'){
               print '<li class="item">';
               print '<p class="item-content">Interview</p>';
@@ -199,13 +255,31 @@
               print '<p class="item-content">'.$time.'</p>';
               print '</li>';
             }
-            print '</ul>';
-            print '</div>';
-
+            
+          }
+          print '</ul>';
+          print '</div>';
             print '<input type="radio" id="tabthu" name="mytabs" />';
             print '<label for="tabthu">Thu</label>';
             print '<div class="tab">';
             print '<ul class="items">';
+
+            while($data= mysqli_fetch_assoc($result4)){
+              $date = $data['date'];
+              $timestamp = strtotime($date);
+              $day = date('D', $timestamp);
+              $dayNum = date('d', $timestamp);
+              $month = date('M', $timestamp);
+              $time = $data['time']; 
+              $t='';
+              $check =  substr($time,0,2);
+              if ($check>=12)
+                $t=" PM";
+              else
+                $t=" AM";
+              $time = substr($time,0,5);
+              $time=$time.$t;
+
             if($day=='Thu'){
               print '<li class="item">';
               print '<p class="item-content">Interview</p>';
@@ -213,10 +287,11 @@
               print '<p class="item-content">'.$time.'</p>';
               print '</li>';
             }
-            print '</ul>';
-            print '</div>';
-
+            
           }
+          print '</ul>';
+          print '</div>';
+
         }else {
           echo 'There is no seted Appointments , Add one';
         }
@@ -285,7 +360,7 @@
             <br/>
             <label for="">Select Time:</label>
             <input type="time" name="addtime"/>
-            <input type="submit" value="Add Appointment" name="add">
+            <input type="submit" value="Add Appointment" name="add" class="addbtn">
           </form>
           
           
@@ -303,9 +378,9 @@
               echo $dateformat;
               
                 $query2 = "INSERT INTO appointment(jobSeeker_email,date,time,applay_JID) VALUES('".$jobSeekerEmail."','".$dateformat."','".$newtime."','".$apply_ID."');";
-                $result2 = mysqli_query($database,$query2);
-                if($result2){
-                  header("Location: Applicants.php");
+                $res = mysqli_query($database,$query2);
+                if($res){
+                  header("location: Applicants.php");
                 }else {
                   echo $result2;
                 }

@@ -1,17 +1,17 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['email']) || $_SESSION['role'] == 2) { //i edit this one to restrict jobsseker from enter the emplyer page
+if (!isset($_SESSION['email']) ) { //i edit this one to restrict jobsseker from enter the emplyer page
     header("location: logIn.php");
     exit();
-}
-
-echo $_GET["delete"];
-if($_GET['delete'] == true){
-    echo "start deleting";
-    $email=$_SESSION['email'];
-    $query = "DELETE FROM jobseeker WHERE email=\"$email\"";
-    echo $query;
+} ?>
+<?php
+//echo $_GET["delete"];
+//if($_GET['delete'] == true){
+  //  echo "start deleting";
+    //$email=$_SESSION['email'];
+    //$query = "DELETE FROM jobseeker WHERE email=\"$email\"";
+  /*  echo $query;
 
     if (!($database = mysqli_connect("localhost", "root", "")))
      die("<p>Could not connect to database</p>");
@@ -40,6 +40,7 @@ $result = mysqli_query($database, $query);
 
 echo $result ;
 
+?>*/
 ?>
 
 <!DOCTYPE html>
@@ -214,7 +215,7 @@ echo $result ;
         $firstName=$data['firstName'];
         $lastName=$data['lastName'];
         $email=$data ['email'];
-        $password=$date['password'];
+        $password=$data['password'];
         $birthDate=$data['birthDate'];
         $gender=$data['gender'];
         $nationality=$data['nationality'];
@@ -224,10 +225,10 @@ echo $result ;
         $experince=$data['experince'];
         $skills=$data['skills'];
         $currentJob=$data['currentJob'];
-        $Website=$date['Website'];
-        $Github=$date['Github'];
-        $Instagram=$date['Instagram'];
-        $Facebook=$date['Facebook'];
+       // $Website=$data['Website'];
+        //$Github=$data['Github'];
+        //$Instagram=$data['Instagram'];
+        //$Facebook=$data['Facebook'];
      }
  } else {
      echo "There are no info.";
@@ -251,12 +252,18 @@ echo $result ;
                 
            else if ($_SESSION['role'] == 1)
                 print '<div class="buttons"><a href="JobSeekerProf_edit.php"><button>edit</button></a>
-                <a class="buttons"><a href="JobSeekerViewProf.php?delete=ture"><button>delete</button></a></div>';
+                
+                <form  action="JobSeekerViewProf.php" method="POST">
+                <button  name="delete">
+                delete</button>
+                        </form>
+                
+                </div>';
             ?>
 
                 </div>
             </div>
-       
+            
             <!-- <div class="details1">
                 
                   
@@ -361,4 +368,30 @@ echo $result ;
       </div>
 
 </body>
+<?php
+if(isset($_POST['delete'])){
+            $myquery = "delete  from jobseeker
+            WHERE email='$email' ";
+                    $result = mysqli_query($database, $myquery);
+        
+                    if ($result) {
+                        
+                       session_destroy();
+                      //header("location: signout.php"); ?>
+
+<script>
+   window.onload = function() {
+	if(!window.location.hash) {
+		window.location = window.location + '#loaded';
+		window.location.reload();
+	}
+}
+</script>
+<?php }
+                     else
+                      echo "An error occured while updating the job.";
+            
+                 
+          }
+        ?>
 </html>

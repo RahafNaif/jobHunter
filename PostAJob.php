@@ -34,6 +34,7 @@ if (!mysqli_select_db($database, "JobHunter"))
 
   <?php
   $major = isset($_POST['major']) ? $_POST['major'] : "";
+  $jobTitle = isset($_POST['jobTitle']) ? $_POST['jobTitle'] : "";
   $position = isset($_POST['position']) ? $_POST['position'] : "";
   $jobDescription = isset($_POST['jobDescription']) ? $_POST['jobDescription'] : "";
   $requiredSkills = isset($_POST['requiredSkills']) ? $_POST['requiredSkills'] : "";
@@ -63,10 +64,10 @@ if (!mysqli_select_db($database, "JobHunter"))
 
 
       $query = "INSERT INTO `job`(`city`, `major`, `position`, `jobType`,
-           `description`, `skills`, `qualifications`, `gender`, `salary`,`companyName`, `employer_email`) 
+           `description`, `skills`, `qualifications`, `gender`, `salary`,`companyName`, `employer_email`,title ) 
            VALUES (' $location','$major','$position','$jobType',
           '$jobDescription','$requiredSkills', '$requiredQualifications',
-          '$gender','$salary','$result3','$sessionEmail')";
+          '$gender','$salary','$result3','$sessionEmail','$jobTitle')";
       $result = mysqli_query($database, $query);
 
       if ($result)
@@ -89,11 +90,16 @@ if (!mysqli_select_db($database, "JobHunter"))
   <form action="PostAJob.php" method="post">
     <fieldset>
       <legend class="postLegend">Post A Job</legend>
-
+      
       <div class="inputDiv">
         <label for="position">Job Position</label>
         <input autofocus required id="position" name="position" type="text" placeholder="e.g. Software Engineer, Sales Manager" />
       </div>
+ 
+        <div class="inputDiv">
+          <label class="theTitle" for="jobTitle"> Job Title </label>
+          <input required id="jobTitle" type="text" name="jobTitle" placeholder="Add a descriptive job title"/>
+        </div> 
 
       <div class="inputDiv" id="majorDiv">
         <label for="major"> Major </label>

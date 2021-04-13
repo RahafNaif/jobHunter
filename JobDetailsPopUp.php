@@ -47,6 +47,7 @@ if ($result2) {
     $salary = $data['salary'];
     $city = $data['city'];
     $emaillem = $data['employer_email'];
+    $title=$data['title'];
   }
 }
 
@@ -120,6 +121,11 @@ if ($result2) {
 
 
     <div class="details">
+      <h4 style="font-weight:bolder ;">Job Title</h4>
+      <p>
+        <?php
+        echo '' . $title; ?>
+      </p>
       <h4 style="font-weight:bolder ;">Job Description</h4>
       <p>
         <?php

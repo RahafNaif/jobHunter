@@ -76,7 +76,6 @@
 .jobDeatailsContainer .titleAndValueDiv h5 {
     font-size: smaller;
     font-weight: 400;
-    padding-bottom: 0.2rem;
 }
 
 .jobDeatailsContainer .titleAndValueDiv,
@@ -87,7 +86,6 @@
 
 .jobDeatailsContainer .details h4 {
     font-size: larger;
-    padding-bottom: 2rem;
 }
 
 .jobDeatailsContainer .sideBar p {

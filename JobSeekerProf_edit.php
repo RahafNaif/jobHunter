@@ -400,7 +400,7 @@ if(isset($_GET['skillName'])){
                         </div>
                     </div>
                 </div>
-                <input type="submit" value="updateProfile" name="editProf" />
+                <button type="submit" value="updateProfile" name="editProf"> updateProfile</button>
             </div> <br>
 
             

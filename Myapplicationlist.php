@@ -26,13 +26,16 @@ if (!isset($_SESSION['email']) ){
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     
+   
+    
+    
     <script>
         
     
      //   $(document).ready(function(){
         
       //  $('.applicants').click(function () { 
-            $('.modal').css('display','block');
+         //   $('.modal').css('display','block');
           // 
       //  });
         
@@ -146,7 +149,7 @@ if (!isset($_SESSION['email']) ){
                 <div class="buttons">
                 
                 <?php
-             
+             ///////////to view or no select button
                 $query1 = "SELECT * FROM appointment,jobseeker_apply_job WHERE applay_JID=applay_ID AND applay_ID='$applay_job'";
                        
                 $result1 = mysqli_query($database, $query1);

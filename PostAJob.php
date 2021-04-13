@@ -98,7 +98,7 @@ if (!mysqli_select_db($database, "JobHunter"))
       <div class="inputDiv" id="majorDiv">
         <label for="major"> Major </label>
         <select id="major" required name="major">
-          <option value="">Select a major</option>
+          <option disabled value="">Select a major</option>
           <option value="Accounting & Finance">Accounting & Finance</option>
           <option value="Agriculture & Forestry">Agriculture & Forestry</option>
           <option value="Archaeology">Archaeology</option>

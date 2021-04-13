@@ -164,11 +164,11 @@
                                     print '<h5>About Job :</h5>';
                                     print '<p class="descrption">' . $data['description'] .'</p>';
                                     print '<p class="time"><span class="material-icons">work</span>'. $data['jobType'] . '</p><br>';
-                                    print '</a>';
 
                                     print '</button>';
                                     print '</form>';
 
+                                    print '</a>';
                                     print '</div>';
                                     print '</li>';
                                 }

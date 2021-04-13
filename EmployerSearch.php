@@ -93,10 +93,10 @@
                 print '<h5> About Company:</h5>';
                 print '<p class="descrption">' . $data['description'] . '</p>';
 //              print '<p class="descrption">' . $data['description'] . '</p></a>';                
-                print '</div></li>';
-
+                
                 print '</button></form>';
 
+                print '</div></li>';
             }
             print '</ul>';
             print '</div></div>';

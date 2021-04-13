@@ -82,9 +82,9 @@
 //              print '<a href="EmployerProfile_Eidt.html">';
 
 
-                print '<form action="EmployerProfile.php" method="post" style="display: inline;">';
+                print '<form action="EmployerProfile.php" method="post" style="position:relative;" >';
                 print '<input type="hidden" name="viewinfo" value="'.$data['email'].'" />';
-                print '<button type="submit" name="viewi" style="margin:0;outline: none; background-color:transparent; border: none; padding: 0;width:fit-content;cursor:pointer;color: #192d50; display: inline;">';
+                print '<button type="submit" name="viewi" style="all: unset; cursor:pointer; height: 100%; width: 100%; position: absolute; right: 0; top: 0;">';
 
                 print '<h4 id="companyName" style="font-weight:bold;">' . $data['name'] . '</h4>';
                 print '<span class="material-icons" style="color: #fa9746; font-size:28px; margin: 0; margin-left: 75px;">location_on</span>';

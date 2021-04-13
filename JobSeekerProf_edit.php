@@ -54,23 +54,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $Faceboock = $_POST['Facebook'];
 
     $query = "UPDATE `jobseeker`
-   SET
-firstName = '$firstName',
-lastName = '$lastName', 
-email = '$email',
-birthDate = '$birthDate', 
-gender = '$gender',
-nationality = '$nationality',
-city = '$city',
-phone = '$phone',
-major = '$major',
-experince = '$experince',
-currentJob = '$currentJob',
-Website='$Website',
-Github='$Github',
+              SET
+                firstName = '$firstName',
+                lastName = '$lastName', 
+                email = '$email',
+                birthDate = '$birthDate', 
+                gender = '$gender',
+                nationality = '$nationality',
+                city = '$city',
+                phone = '$phone',
+                major = '$major',
+                experince = '$experince',
+                currentJob = '$currentJob',
+                Website='$Website',
+                Github='$Github',
                 Instagram='$Instagram',
-Facebook='$Faceboock'
-WHERE jobseeker.email = '$email' ";
+                Facebook='$Faceboock'
+            WHERE jobseeker.email = '$email' ";
 
     if (mysqli_query($database, $query)) {
         header("Location: JobSeekerViewProf.php");

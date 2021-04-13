@@ -86,7 +86,7 @@
                         echo '<div class="posts">There are no jobs./div>';
                     }
                     ?>                                                        
-               <a href="jobSearch.html" class="job-link">more jobs<span class="material-icons">keyboard_arrow_right</span></a>
+               <a href="jobSearch.php" class="job-link">more jobs<span class="material-icons">keyboard_arrow_right</span></a>
             </div>
             <div class="advices">
                 <div class="advice-container">

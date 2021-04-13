@@ -47,6 +47,8 @@ if ($result2) {
     $gender = $data['gender'];
     $salary = $data['salary'];
     $city = $data['city'];
+    $emaillem=$data['employer_email'];
+
   }
 }
 
@@ -107,9 +109,10 @@ include_once $Page . '.php';
       <!-- end Company svg -->
       <h1 style="font-weight :bolder"> <?php
                                         echo '' . $position; ?></h1>
-      <h5><a href="EmployerProfile.php"> <?php
-                                          echo '' . $companyName; ?>
-        </a> | <?php
+      <h5> <form action="EmployerProfile.php" method="post" style="display: inline;">
+      <input type="hidden" name="viewinfo" value="<?php echo $emaillem ?> ">
+        <button name="viewi" style="outline: none; background-color:transparent; border: none; padding: 0;width:fit-content;cursor:pointer;color: #192d50; display: inline;" > 
+        <?php echo '' . $companyName; ?></button></form> | <?php
                 echo '' . $city; ?>
       </h5>
     </div>

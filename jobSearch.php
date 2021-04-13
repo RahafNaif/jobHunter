@@ -126,7 +126,7 @@
                     $query = "select city, position, jobType, description, ID from job WHERE companyName='".$search."' AND city='".$city."' AND jobType='".$time."'";
                   
                 }else{
-                    echo '<p style="color: #192d50;font-size: 18px;text-align: center;">There is no jobs</p>';
+                    echo '<p style="color: #192d50;font-size: 18px;text-align: center;margin-left:42%;">There is no jobs</p>';
                 }
                 
                 // $result = mysqli_query($database, $query);
@@ -173,7 +173,7 @@
                                     print '</li>';
                                 }
                             }else {
-                                print'<p style="color: #192d50;font-size: 18px;text-align: center;">There is no jobs</p>';
+                                print'<p style="color: #192d50;font-size: 18px;text-align: center;margin-left:42%;">There is no jobs</p>';
                             }
                         ?>
                     </ul>

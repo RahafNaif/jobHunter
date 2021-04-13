@@ -48,7 +48,7 @@
                         </ul>
                     </div>
                 </div>
-                <input type="submit" name="submit" value="search">
+                <input type="submit" name = "submit" style="position: absolute; left: -9999px"/>
             </form>
         </div>
 

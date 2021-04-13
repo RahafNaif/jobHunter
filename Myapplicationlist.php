@@ -96,11 +96,10 @@ if (!isset($_SESSION['email']) ){
                 <li><a href="home.php">Home</a></li>
                 
                 <li><a href="#">Jobs</a><ul>
-                <li style="font-sixe=4px;"><a href="Myapplicationlist.php">My Applicants</a></li>
+                <li style="font-size: 4px;"><a href="Myapplicationlist.php">My Applicants</a></li>
                 <li><a href="jobSearch.php">Jobs</a>
                 </ul></li>
                 <li><a href="EmployerSearch.php">Employers </a>
-
                 </li>
             </ul>
             <ul class="navLinks2">

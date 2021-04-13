@@ -124,7 +124,7 @@
                                 width: 110%;
                               
                               "></select>
-                            <select id="nationality" required name="nationality">
+                            <select id="nationality" name="nationality">
                                 <option selected> Select a nationality</option>
                                 <option value="Saudi"> Saudi</option>
                                 <option value="Brazilian"> Brazilian</option>
@@ -145,7 +145,7 @@
                             <br> <label for="last_name">skliis</label>
                             <input type="text" class="form-input" name="skills" id="skills" placeholder="Your current job..." />
                             <br><label for="last_name">major</label>
-                            <select id="major" class="form-input" required name="major" style=" 
+                            <select id="major" class="form-input" name="major" style=" 
                                 width: 100%;
                                 padding: 12px 20px;
                                 margin: 8px 0;

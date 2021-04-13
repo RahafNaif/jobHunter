@@ -166,7 +166,7 @@
                                         print '<p class="about">About Company :</p>';
                                         print '<p class="company">Scope : '.$data['scope'].'</p>';
                                         print '<p class="company">'.$data['vision'].' </p><br>';
-                                        print '<a href="EmployerProfile"><button class="job-content">View Profile</button></a>';
+                                        print '<a href="EmployerProfile.php"><button class="job-content">View Profile</button></a>';
                                         print '</div>';
                                         print '</li>';
                                         $i++;

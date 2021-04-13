@@ -3,6 +3,7 @@ session_start();
 
 if (!isset($_SESSION['email']) ) { //i edit this one to restrict jobsseker from enter the emplyer page
     header("location: logIn.php");
+    $email2 = $_SESSION['email'];
     exit();
 } ?>
 <?php
@@ -277,12 +278,21 @@ echo $result ;
                     <div class="column-5 margin-bottom-3">
                       <div class="card h-100">
                         <div class="card-body">
-                          <h4 class="display-flex align-center  margin-bottom-3"><i class="material-icons text-info margin-right-2">  </i> Skills <span style="position: absolute;left: 90%;top:2%;cursor: pointer;"><br><h3></h3></span> </h4><span style="position: absolute;left: 90%;top:2%;cursor: pointer;"></span>
-                          
-                        //print
-                     
-                    
-
+                          <h4 class="display-flex align-center  margin-bottom-3">
+                            <i class="material-icons text-info margin-right-2"></i> 
+                            Skills <span style="position: absolute;left: 90%;top:2%;cursor: pointer;"><br><h3></h3></span>
+                            </h4><span style="position: absolute;left: 90%;top:2%;cursor: pointer;"></span>
+                             <?php
+                                $skills = "SELECT * FROM skills WHERE JobSeeker_email='".$email."'";
+                                $res = mysqli_query($database, $skills);
+                                if($res){
+                                  while ($data = mysqli_fetch_assoc($res)){
+                                    print '<p>'.$data['skillName'].'</p>';
+                                  }
+                                }else{
+                                  echo '<p>no skills</p>';
+                                }
+                             ?>
                           </div>
                         </div>
                       </div>

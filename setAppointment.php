@@ -284,8 +284,8 @@
             <label for="">Select Date:</label> <input type="date" name="adddate"/><br/>
             <br/>
             <label for="">Select Time:</label>
-            <input type="time" name="addtime" id="time"/>
-            <input type="submit" value="Add Appointment" id="test" name="add">
+            <input type="time" name="addtime"/>
+            <input type="submit" value="Add Appointment" name="add">
           </form>
           
           
@@ -306,9 +306,9 @@
                 $result2 = mysqli_query($database,$query2);
                 if($result2){
                   header("Location: Applicants.php");
+                }else {
+                  echo $result2;
                 }
-            }else{
-              echo'ggggg';
             }
           ?>
 

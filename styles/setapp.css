@@ -483,3 +483,9 @@ font-weight: bold;
   outline: none;
   margin-left: 10px;
 } 
+
+.addbtn{
+  background-color: #FA9746;
+  border: none;
+  border-radius: 10px;
+}

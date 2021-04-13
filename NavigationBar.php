@@ -56,7 +56,7 @@
           </ul>
           <ul class="navLinks2">
               <?php
-                if ($_SESSION['role'] == 1 || $_SESSION['role'] == 2) {
+                if ( $_SESSION['role'] == 2) {
                     print '<li><a href="#" id="notification" class="notificationIcon" onclick="showNotifications()"><i class="material-icons">notifications</i></a></li>';
                 }
                 ?>

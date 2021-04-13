@@ -20,7 +20,7 @@ form fieldset {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 600px;
+    height: fit-content;
     background: rgba(234, 243, 250, 0.8);
     border-radius: 25px;
     box-shadow: 5px 3px 3px rgba(43, 70, 139, 0.1);
@@ -66,7 +66,8 @@ form h4 {
     font-size: 22px;
 }
 
-form input {
+form input,select,
+option {
     color: #192D50;
     font-size: 16px;
     background-color: #ffffff;
@@ -95,7 +96,7 @@ form .buttons {
     justify-content: center;
 }
 
-form input[type=reset],
+form input[type=reset],#deleteBtn,
 form input[type=submit] {
     cursor: pointer;
     font-size: 15px;
@@ -108,7 +109,7 @@ form input[type=submit] {
     border-radius: 50px;
 }
 
-form input[type=reset] {
+form input[type=reset],#deleteBtn {
     color: #8cb3f4;
     border: 3px solid #8cb3f4;
     background: rgba(234, 243, 250, 0.8);

@@ -12,15 +12,9 @@
   if (!mysqli_select_db($database, "JobHunter"))
     die("<p>Could not open URL database</p>");
     
-  //if(isset($_POST['accept'])){
-        $apply_ID = $_POST['applyID'];
-        $jobSeekerEmail = $_POST['jobSeekerEmail'];
-
-  //} 
-  
+  $apply_ID = $_POST['applyID'];
+  $jobSeekerEmail = $_POST['jobSeekerEmail'];
   $email  = $_SESSION['email'];
-  echo $jobSeekerEmail;
-  echo $apply_ID;
 
 ?>
 
@@ -130,150 +124,106 @@
         <div class="line"></div>
       </div>
       <div class="mytabs">
-        <input type="radio" id="tabfree" name="mytabs" checked="checked" />
-        <label for="tabfree">Sun</label>
-        <div class="tab">
-          <ul class="items">
-            <li class="item">
-              <p class="item-content">Interview</p>
-              <p class="item-content">21Feb</p>
-              <p class="item-content">3:30pm</p>
-            </li>
-            <li class="item">
-              <p class="item-content">Interview</p>
-              <p class="item-content">21Feb</p>
-              <p class="item-content">3:30pm</p>
-            </li>
-            <li class="item">
-              <p class="item-content">Interview</p>
-              <p class="item-content">21Feb</p>
-              <p class="item-content">3:30pm</p>
-            </li>
-            <li class="item">
-              <p class="item-content">Interview</p>
-              <p class="item-content">21Feb</p>
-              <p class="item-content">3:30pm</p>
-            </li>
-          </ul>
-        </div>
+      
+      <?php
+        $query = "SELECT * FROM appointment WHERE  applay_JID='".$apply_ID."' AND jobSeeker_email='".$jobSeekerEmail."'";                
+        $result = mysqli_query($database, $query);
 
-        <input type="radio" id="tabsilver" name="mytabs" />
-        <label for="tabsilver">Mon</label>
-        <div class="tab">
-          <ul class="items">
-            <li class="item">
-              <p class="item-content">Interview</p>
-              <p class="item-content">20Feb</p>
-              <p class="item-content">3:30pm</p>
-            </li>
-            <li class="item">
-              <p class="item-content">Interview</p>
-              <p class="item-content">20Feb</p>
-              <p class="item-content">3:30pm</p>
-            </li>
-            <li class="item">
-              <p class="item-content">Interview</p>
-              <p class="item-content">20Feb</p>
-              <p class="item-content">3:30pm</p>
-            </li>
-            <li class="item">
-              <p class="item-content">Interview</p>
-              <p class="item-content">20Feb</p>
-              <p class="item-content">3:30pm</p>
-            </li>
-          </ul>
-        </div>
+        if($result){
+          while($data= mysqli_fetch_assoc($result)){
+            $date = $data['date'];
+            $timestamp = strtotime($date);
+            $day = date('D', $timestamp);
+            $dayNum = date('d', $timestamp);
+            $month = date('M', $timestamp);
+            $time = $data['time']; 
+            $t='';
+            $check =  substr($time,0,2);
+            if ($check>=12)
+              $t=" PM";
+            else
+              $t=" AM";
+            $time = substr($time,0,5);
+            $time=$time.$t;
+            
+            print '<input type="radio" id="tabfree" name="mytabs" checked="checked" />';
+            print '<label for="tabfree">Sun</label>';
+            print '<div class="tab">';
+            print '<ul class="items">';
+            if ($day=='Sun'){
+              print '<li class="item">';
+              print '<p class="item-content">Interview</p>';
+              print '<p class="item-content">'.$dayNum.''.$month.'</p>';
+              print '<p class="item-content">'.$time.'</p>';
+              print '</li>';
+            }
+            print '</ul>';
+            print '</div>';
 
-        <input type="radio" id="tabgold" name="mytabs" />
-        <label for="tabgold">Tue</label>
-        <div class="tab">
-          <ul class="items">
-            <li class="item">
-              <p class="item-content">Interview</p>
-              <p class="item-content">20Feb</p>
-              <p class="item-content">4:30pm</p>
-            </li>
-            <li class="item">
-              <p class="item-content">Interview</p>
-              <p class="item-content">20Feb</p>
-              <p class="item-content">4:30pm</p>
-            </li>
-            <li class="item">
-              <p class="item-content">Interview</p>
-              <p class="item-content">20Feb</p>
-              <p class="item-content">4:30pm</p>
-            </li>
-            <li class="item">
-              <p class="item-content">Interview</p>
-              <p class="item-content">20Feb</p>
-              <p class="item-content">4:30pm</p>
-            </li>
-          </ul>
-        </div>
+            print '<input type="radio" id="tabsilver" name="mytabs" />';
+            print '<label for="tabsilver">Mon</label>';
+            print '<div class="tab">';
+            print '<ul class="items">';
+            if ($day=='Mon'){
+              print '<li class="item">';
+              print '<p class="item-content">Interview</p>';
+              print '<p class="item-content">'.$dayNum.''.$month.'</p>';
+              print '<p class="item-content">'.$time.'</p>';
+              print '</li>';
+            }
+            print '</ul>';
+            print '</div>';
 
-        <input type="radio" id="tabwed" name="mytabs" />
-        <label for="tabwed">Wed</label>
-        <div class="tab">
-          <ul class="items">
-            <li class="item">
-              <p class="item-content">Interview</p>
-              <p class="item-content">20Feb</p>
-              <p class="item-content">3:30pm</p>
-            </li>
-            <li class="item">
-              <p class="item-content">Interview</p>
-              <p class="item-content">20Feb</p>
-              <p class="item-content">3:30pm</p>
-            </li>
-            <li class="item">
-              <p class="item-content">Interview</p>
-              <p class="item-content">20Feb</p>
-              <p class="item-content">3:30pm</p>
-            </li>
-            <li class="item">
-              <p class="item-content">Interview</p>
-              <p class="item-content">20Feb</p>
-              <p class="item-content">3:30pm</p>
-            </li>
-            <li class="item">
-              <p class="item-content">Interview</p>
-              <p class="item-content">20Feb</p>
-              <p class="item-content">3:30pm</p>
-            </li>
-            <li class="item">
-              <p class="item-content">Interview</p>
-              <p class="item-content">20Feb</p>
-              <p class="item-content">3:30pm</p>
-            </li>
-          </ul>
-        </div>
+            print '<input type="radio" id="tabgold" name="mytabs" />';
+            print '<label for="tabgold">Tue</label>';
+            print '<div class="tab">';
+            print '<ul class="items">';
+            if($day=='Tue'){
+              print '<li class="item">';
+              print '<p class="item-content">Interview</p>';
+              print '<p class="item-content">'.$dayNum.''.$month.'</p>';
+              print '<p class="item-content">'.$time.'</p>';
+              print '</li>';
+            }
+            print '</ul>';
+            print '</div>';
 
-        <input type="radio" id="tabthu" name="mytabs" />
-        <label for="tabthu">Thu</label>
-        <div class="tab">
-          <ul class="items">
-            <li class="item">
-              <p class="item-content">Interview</p>
-              <p class="item-content">20Feb</p>
-              <p class="item-content">3:30pm</p>
-            </li>
-            <li class="item">
-              <p class="item-content">Interview</p>
-              <p class="item-content">20Feb</p>
-              <p class="item-content">3:30pm</p>
-            </li>
-            <li class="item">
-              <p class="item-content">Interview</p>
-              <p class="item-content">20Feb</p>
-              <p class="item-content">3:30pm</p>
-            </li>
-            <li class="item">
-              <p class="item-content">Interview</p>
-              <p class="item-content">20Feb</p>
-              <p class="item-content">3:30pm</p>
-            </li>
-          </ul>
-        </div>
+            print '<input type="radio" id="tabwed" name="mytabs" />';
+            print '<label for="tabwed">Wed</label>';
+            print '<div class="tab">';
+            print '<ul class="items">';
+            if($day=='Wed'){
+              print '<li class="item">';
+              print '<p class="item-content">Interview</p>';
+              print '<p class="item-content">'.$dayNum.''.$month.'</p>';
+              print '<p class="item-content">'.$time.'</p>';
+              print '</li>';
+            }
+            print '</ul>';
+            print '</div>';
+
+            print '<input type="radio" id="tabthu" name="mytabs" />';
+            print '<label for="tabthu">Thu</label>';
+            print '<div class="tab">';
+            print '<ul class="items">';
+            if($day=='Thu'){
+              print '<li class="item">';
+              print '<p class="item-content">Interview</p>';
+              print '<p class="item-content">'.$dayNum.''.$month.'</p>';
+              print '<p class="item-content">'.$time.'</p>';
+              print '</li>';
+            }
+            print '</ul>';
+            print '</div>';
+
+          }
+        }else {
+          echo 'There is no seted Appointments , Add one';
+        }
+
+      ?>
+
+        
       </div>
       <div class="add">
         <button class="addbtn">Add Appointment</button>
@@ -327,15 +277,30 @@
           <div class="line"></div>
           <br />
           <br />
-          <form action="post">
-            <label for="">Select Date:</label> <input type="date" /> <br />
-            <br />
+        
+          <form method="POST">
+            <label for="">Select Date:</label> <input type="date" name="adddate"/><br/>
+            <br/>
             <label for="">Select Time:</label>
-            <input type="time" name="" id="" />
+            <input type="time" name="addtime"/>
+            <input type="submit" value="Add Appointment" name="add">
           </form>
-          <a class="user" href="setAppointment.html"
-            ><button>Add Appointment</button></a
-          >
+          
+          <?php
+            $newDate = $_POST['adddate'];
+            $newtime = $_POST['addtime'];
+
+            if(isset($_POST['add'])){
+              $query2 = "INSERT INTO appointment(jobSeeker_email,date,time,applay_JID) VALUES('".$jobSeekerEmail."','".$newDate."','".$newtime."','".$apply_ID."');";
+              $result2 = mysqli_query($database,$query);
+              echo 'rfrf';
+              if($result2){
+                echo 'ffg';
+                header("Location: Applicants.php");
+              }
+            }
+          ?>
+
         </div>
       </div>
     </div>

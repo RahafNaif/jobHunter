@@ -37,8 +37,9 @@ $result = mysqli_query($database, $query);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $fullName = explode(" ", $_POST['fullName']);
-    $firstName = $fullName[1];
-    $lastName = $fullName[2];
+    $firstName = $fullName[0];
+    $lastName = $fullName[1];
+    print_r($fullName);
     $birthDate = $_POST['birthDate'];
     $gender = $_POST['gender'];
     $nationality = $_POST['nationality'];
@@ -81,10 +82,21 @@ WHERE jobseeker.email = '$email' ";
         exit();
     }
 }
-if(isset($_GET['skillName'])){
-    echo $_GET['skillName'];
-    exit();
 
+
+if(isset($_GET['skillName'])){
+
+    $skillName = $_GET['skillName'];
+    $email = $_SESSION['email'];
+    $query = "INSERT INTO skills (skillName, JobSeeker_email) VALUE ('$skillName', '$email')";
+
+    if (mysqli_query($database, $query)) {
+        header("Location: JobSeekerViewProf.php");
+    } else {
+        echo $query;
+        echo " $database->error";
+        exit();
+    }
 
 }
 ?>
@@ -366,7 +378,7 @@ if(isset($_GET['skillName'])){
                         <div class="card h-100">
                             <div class="card-body">
                                 <h3> Exprince </h3>
-                                <textarea id="vision" name="experince"><?php echo $vision; ?> </textarea>
+                                <textarea id="vision" name="experince"><?php echo $experince; ?> </textarea>
 
                             </div>
                         </div>

@@ -152,10 +152,10 @@
                                     print '<div class="post-content">';
                                     print '<a class="JobDetails">';
 
-                                    print '<form method="GET" action="JobDetailsPopUp.php">';
+                                    print '<form method="GET" action="JobDetailsPopUp.php" style="position:relative;">';
                                     print '<input type="hidden" name="JOB_ID" value="'.$data['ID'].'"/>';
                                     print '<input type="hidden" name="thePage" value="jobSearch"/>';
-                                    print '<button type="submit" name="getForm" value ="" style="background-color:transparent;border:none; height: 200%; width:100%;margin: 0; cursor: pointer;"/>';
+                                    print '<button type="submit" name="getForm" value ="" style="all: unset; cursor:pointer; height: 100%; width: 100%; position: absolute; right: 0; top: 0;"/>';
 
 
                                     print '<h4  style="font-weight :bolder" >'. $data['position'] .'</h4>';
@@ -164,11 +164,11 @@
                                     print '<h5>About Job :</h5>';
                                     print '<p class="descrption">' . $data['description'] .'</p>';
                                     print '<p class="time"><span class="material-icons">work</span>'. $data['jobType'] . '</p><br>';
-                                    print '</a>';
 
                                     print '</button>';
                                     print '</form>';
 
+                                    print '</a>';
                                     print '</div>';
                                     print '</li>';
                                 }

@@ -50,7 +50,7 @@ if ($result2) {
   }
 }
 
-include_once $Page . '.php';
+
 
 ?>
 
@@ -160,8 +160,7 @@ include_once $Page . '.php';
     </div>
     <div class="titleAndValueDiv">
       <h5>Location</h5>
-      <p><?php
-          echo '' . $city; ?></p>
+      <p><?php echo '' . $city; ?></p>
     </div>
     <div class="titleAndValueDiv">
       <h5>Salary Starts From</h5>
@@ -173,7 +172,7 @@ include_once $Page . '.php';
 
   </div>
   <div class="overlay"></div>
-
+  <?php include_once $Page . '.php'; ?>
 </body>
 
 </html>

@@ -126,7 +126,7 @@
                     $query = "select city, position, jobType, description, ID from job WHERE companyName='".$search."' AND city='".$city."' AND jobType='".$time."'";
                   
                 }else{
-                    echo "There is no jobs";
+                    echo '<p style="color: #192d50;font-size: 18px;text-align: center;">There is no jobs</p>';
                 }
                 
                 // $result = mysqli_query($database, $query);
@@ -145,7 +145,8 @@
                     <ul>
                         <?php
                             $result = mysqli_query($database, $query);
-                            if ($result) {
+                            $rowcount=mysqli_num_rows($result);
+                            if ($result && $rowcount>0) {
                                 while ($data = mysqli_fetch_assoc($result)) {
                                     print '<li class="post">';
                                     print '<div class="post-content">';
@@ -171,6 +172,8 @@
                                     print '</div>';
                                     print '</li>';
                                 }
+                            }else {
+                                print'<p style="color: #192d50;font-size: 18px;text-align: center;">There is no jobs</p>';
                             }
                         ?>
                     </ul>

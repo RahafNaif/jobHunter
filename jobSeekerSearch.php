@@ -167,11 +167,12 @@
                             $query = "select firstName, lastName, email, gender, nationality, city, major from jobseeker WHERE gender='".$gender."' AND (firstName='".$search."' OR lastName='".$search."') AND major='".$major."'";
                         
                         }else{
-                            echo 'There is no job seekers';
+                            echo '<p style="color: #192d50;font-size: 18px;text-align: center;">There is no job seekers</p>';
                         }
 
                         $result = mysqli_query($database, $query);
-                            if ($result) {
+                        $rowcount=mysqli_num_rows($result);
+                            if ($result && $rowcount>0) {
                                 while ($data = mysqli_fetch_assoc($result)) {
                                     $email = $data['email'];
 
@@ -211,6 +212,8 @@
                                         print '</li>';
                                     }
                                 }
+                            }else{
+                                echo '<p style="color: #192d50;font-size: 18px;text-align: center;">There is no job seekers</p>';
                             }
                         ?>
                         

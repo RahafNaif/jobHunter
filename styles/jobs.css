@@ -352,3 +352,9 @@ ul {
   transform: scale(1.1);
   transition: 0.3s ease-in;
 }
+
+.error {
+  color: #192d50;
+  font-size: 18px;
+  text-align: center;
+}

@@ -19,16 +19,15 @@ $jobID = $_SESSION['jobID'];
 $Page = $_SESSION['Page'];
 
 
-$query = "INSERT INTO jobseeker_apply_job (JobSeeker_email, JOB_ID) VALUES ('".$jobSeekerEmail."','".$_POST['JOB_ID']."');";
+$query = "INSERT INTO jobseeker_apply_job (JobSeeker_email, JOB_ID) VALUES ('" . $jobSeekerEmail . "','" . $_POST['JOB_ID'] . "');";
 if (isset($_POST['Apply'])) {
   $result = mysqli_query($database, $query);
   if ($result) {
-    header( 'location: Myapplicationlist.php');
+    header('location: Myapplicationlist.php');
     exit();
   } else {
     echo "An error occured while applying to the job.";
   }
-
 } //end  if(isset($_POST['Apply']))
 
 $query2 = "SELECT * FROM job WHERE ID = '$jobID'";
@@ -47,8 +46,7 @@ if ($result2) {
     $gender = $data['gender'];
     $salary = $data['salary'];
     $city = $data['city'];
-    $emaillem=$data['employer_email'];
-
+    $emaillem = $data['employer_email'];
   }
 }
 
@@ -60,7 +58,7 @@ include_once $Page . '.php';
 <html lang="en">
 
 <head>
-<link rel="stylesheet" href="styles/JobDetailsPopUp.css" />
+  <link rel="stylesheet" href="styles/JobDetailsPopUp.css" />
 </head>
 
 <body>
@@ -109,11 +107,14 @@ include_once $Page . '.php';
       <!-- end Company svg -->
       <h1 style="font-weight :bolder"> <?php
                                         echo '' . $position; ?></h1>
-      <h5> <form action="EmployerProfile.php" method="post" style="display: inline;">
-      <input type="hidden" name="viewinfo" value="<?php echo $emaillem ?> ">
-        <button name="viewi" style="outline: none; background-color:transparent; border: none; padding: 0;width:fit-content;cursor:pointer;color: #192d50; display: inline;" > 
-        <?php echo '' . $companyName; ?></button></form> | <?php
-                echo '' . $city; ?>
+      <h5>
+        <form action="EmployerProfile.php" method="post" style="display: inline;">
+          <input type="hidden" name="viewinfo" value="<?php echo $emaillem ?> ">
+          <button name="viewi" style="margin:0;outline: none; background-color:transparent; border: none; padding: 0;width:fit-content;cursor:pointer;color: #192d50; display: inline;">
+            <?php echo '' . $companyName; ?>
+          </button>
+        </form> | <?php
+                  echo '' . $city; ?>
       </h5>
     </div>
 

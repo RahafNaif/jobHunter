@@ -221,8 +221,10 @@ echo $result ;
                 <p><?php echo $city; ?></p>
                 <div class="profile-buttons">
                 <?php
+                
                     if ($_SESSION['role'] == 2)
-                    print '<div class="buttons"><a href="setAppointment.php"><button>Set Appotmaint</button></a><button a href="<?php echo $email?>">>contact me</button></div>';
+                    print '<div class="buttons"><a href="setAppointment.php"><button>Set Appotmaint</button></a>
+                    <a href="mailto: <?php echo $email ?>"> <i class="material-icons">email</i> </a></div>';
                  
                 
            else if ($_SESSION['role'] == 1)
@@ -324,6 +326,7 @@ echo $result ;
                                     print '<p>'.$data['skillName'].'</p>';
                                   }
                                 }else{
+                                  echo $database->error;
                                   echo '<p>no skills</p>';
                                 }
                              ?>

@@ -118,7 +118,7 @@
                                 width: 110%;
                               ">
 
-                                <option selected> Select a nationality</option>
+                                <option selected disabled value="" Required> Select a nationality</option>
                                 <option value="Saudi"> Saudi</option>
                                 <option value="Brazilian"> Brazilian</option>
                                 <option value="German"> German</option>
@@ -166,7 +166,7 @@
                               
                               ">
 
-                                <option value="">Select a major</option>
+                                <option value="" disabled selected Required>Select a major</option>
                                 <option value="Accounting & Finance">Accounting & Finance</option>
                                 <option value="Agriculture & Forestry">Agriculture & Forestry</option>
                                 <option value="Archaeology">Archaeology</option>

@@ -1,7 +1,7 @@
 <?php
   session_start();
 
-  if (!isset($_SESSION['email'])) {
+  if (!isset($_SESSION['email']) || $_SESSION['role'] == 1) {
     header("location: login.php");
     exit();
   }
@@ -226,7 +226,9 @@
         
       </div>
       <div class="add">
+        <form action="addAppointment.php" method="GET">
         <button class="addbtn">Add Appointment</button>
+        </form>
       </div>
 
       <div class="footer">
@@ -251,7 +253,7 @@
         </div>
       </div>
     </div>
-    <div class="addForm-parent">
+    <!-- <div class="addForm-parent">
       <div class="addForm">
         <a href="setAppointment.html" class="closeIcon"
           ><svg
@@ -286,23 +288,23 @@
             <input type="submit" value="Add Appointment" name="add">
           </form>
           
-          <?php
-            $newDate = $_POST['adddate'];
-            $newtime = $_POST['addtime'];
+          <!-- <?php
+            // $newDate = $_POST['adddate'];
+            // $newtime = $_POST['addtime'];
 
-            if(isset($_POST['add'])){
-              $query2 = "INSERT INTO appointment(jobSeeker_email,date,time,applay_JID) VALUES('".$jobSeekerEmail."','".$newDate."','".$newtime."','".$apply_ID."');";
-              $result2 = mysqli_query($database,$query);
-              echo 'rfrf';
-              if($result2){
-                echo 'ffg';
-                header("Location: Applicants.php");
-              }
-            }
-          ?>
+            // if(isset($_POST['add'])){
+            //   $query2 = "INSERT INTO appointment(jobSeeker_email,date,time,applay_JID) VALUES('".$jobSeekerEmail."','".$newDate."','".$newtime."','".$apply_ID."');";
+            //   $result2 = mysqli_query($database,$query);
+            //   echo 'rfrf';
+            //   if($result2){
+            //     echo 'ffg';
+            //     header("Location: Applicants.php");
+            //   }
+            // }
+          ?> -->
 
-        </div>
+        <!-- </div>
       </div>
-    </div>
+    </div> -->
   </body>
 </html>

@@ -484,8 +484,26 @@ font-weight: bold;
   margin-left: 10px;
 } 
 
-.addbtn{
-  background-color: #FA9746;
+form input[type=submit] {
+  display: block;
+  position: relative;
+  width: 130px;
+  height: 35px;
+  margin: 10px 20px 0px 90px;
+  border-radius: 50px;
+  font-size: 13px;
+  color: white;
   border: none;
-  border-radius: 10px;
+  outline: none;
+  font-weight: bold;
+  background: #fa9746;
+  cursor: pointer;
+}
+
+form input[type=submit]:hover {
+  transition: all 0.3s ease-in-out;
+  background: transparent;
+  border: 3px solid #8cb3f4;
+  color: #8cb3f4;
+  cursor: pointer;
 }

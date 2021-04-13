@@ -21,7 +21,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="styles/setapp.css" />
+    <link rel="stylesheet" href="styles/setapp.css?<?php echo time(); ?>" />
     <link rel="stylesheet" href="styles/NavbarStyles.css" />
     <link rel="icon" href="img/icon.png" />
     <link rel="stylesheet" href="styles/Buttons.css" />
@@ -355,12 +355,14 @@
           <br />
           <br />
         
-          <form method="GET" action="setAppointment.php">
+          <form method="POST" action="setAppointment.php">
             <label for="">Select Date:</label> <input type="date" name="adddate"/><br/>
+            <?php print '<input type="hidden" name="em" value='.$jobSeekerEmail.'>';
+            print '<input type="hidden" name="id" value='.$apply_ID.'>';?>
             <br/>
             <label for="">Select Time:</label>
-            <input type="time" name="addtime"/>
-            <input type="submit" value="Add Appointment" name="add" class="addbtn">
+            <input type="time" name="addtime"/><br><br>
+            <input type="submit" value="Add Appointment" name="add" >
           </form>
           
           
@@ -368,16 +370,11 @@
            if(isset($_POST['add'])){
               $newDate = $_POST['adddate'];
               $newtime = $_POST['addtime'];
+              $em= $_POST['em'];
+              $id= $_POST['id'];
               $newtime = ''.substr($newtime,0,5).':00';
-              echo ''.$newtime .' ';
-              $year = substr($newDate,6);
-              $days = substr($newDate,0,2);
-              $months = substr($newDate,3,2);
-
-              $dateformat = ''.$year.'-'.$months.'-'.$days.'';
-              echo $dateformat;
               
-                $query2 = "INSERT INTO appointment(jobSeeker_email,date,time,applay_JID) VALUES('".$jobSeekerEmail."','".$dateformat."','".$newtime."','".$apply_ID."');";
+                $query2 = "INSERT INTO appointment(jobSeeker_email,date,time,applay_JID) VALUES('".$em."','".$newDate."','".$newtime."','".$id."');";
                 $res = mysqli_query($database,$query2);
                 if($res){
                   header("location: Applicants.php");

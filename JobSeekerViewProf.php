@@ -307,8 +307,9 @@ echo $result ;
                     <p><?php echo $phone ?></p></div>
                  
                     <div class="titleAndValueDiv">
+                        <?php if(!empty($currentJob)){?>
                         <h3>Current Job</h3>
-                        <p><?php echo $currentJob?><</p>    
+                        <p><?php echo $currentJob?></p>  <?php }?>  
                     </div>
                     <div class="titleAndValueDiv">
                         <h3>Major</h3>    

@@ -90,12 +90,12 @@
       <header>
         <nav>
           <ul class="navLinks1">
-            <li><a href="home.html">Home</a></li>
-            <li><a href="employerSearch.html">Search</a></li>
+            <li><a href="home.php">Home</a></li>
+            <li><a href="employerSearch.php">Search</a></li>
             <li>
               <a href="#">My Jobs</a>
               <ul>
-                <li><a href="JobListing.html">All Jobs</a></li>
+                <li><a href="JobListing.php">All Jobs</a></li>
                 <li><a href="PostAJob.php">Post a Job</a></li>
               </ul>
             </li>
@@ -111,7 +111,7 @@
             <li>
               <a href="#"><i class="material-icons">person</i></a>
               <ul>
-                <li><a href="EmployerProfile_Eidt.html">Profile</a></li>
+                <li><a href="EmployerProfile.php">Profile</a></li>
                 <li><a href="http:signout.php">Log out</a></li>
               </ul>
             </li>

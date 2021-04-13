@@ -50,27 +50,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $currentJob = $_POST['currentJob'];
     $Website = $_POST['Website'];
     $Github = $_POST['Github'];
-    // $Instgram = $_POST['Instgram'];
+    $Instagram = $_POST['Instagram'];
     $Faceboock = $_POST['Facebook'];
 
     $query = "UPDATE `jobseeker`
-   SET
-firstName = '$firstName',
-lastName = '$lastName', 
-email = '$email',
-birthDate = '$birthDate', 
-gender = '$gender',
-nationality = '$nationality',
-city = '$city',
-phone = '$phone',
-major = '$major',
-experince = '$experince',
-currentJob = '$currentJob',
-Website='$Website',
-Github='$Github',
--- Instgram='$Instgram',
-Facebook='$Faceboock'
-WHERE jobseeker.email = '$email' ";
+              SET
+                firstName = '$firstName',
+                lastName = '$lastName', 
+                email = '$email',
+                birthDate = '$birthDate', 
+                gender = '$gender',
+                nationality = '$nationality',
+                city = '$city',
+                phone = '$phone',
+                major = '$major',
+                experince = '$experince',
+                currentJob = '$currentJob',
+                Website='$Website',
+                Github='$Github',
+                Instagram='$Instagram',
+                Facebook='$Faceboock'
+            WHERE jobseeker.email = '$email' ";
 
     if (mysqli_query($database, $query)) {
         header("Location: JobSeekerViewProf.php");
@@ -269,6 +269,10 @@ if(isset($_GET['skillName'])){
                 $experince = $data['experince'];
                 $skills = $data['skills'];
                 $currentJob = $data['currentJob'];
+                $Website=$data['Website'];
+                $Github=$data['Github'];
+                $Instagram=$data['Instagram'];
+                $Facebook=$data['Facebook'];
             } else {
                 echo "There are no info.";
                 exit();
@@ -301,7 +305,7 @@ if(isset($_GET['skillName'])){
                 <img style="transform:translateY(40%)" src="img/Screen Shot 1442-07-16 at 4.29.48 PM.png" alt="Admin" class="circle" width="50">
             </div>
 
-            <!-- <div class="details1">
+            <div class="details1">
 
                 <ul>
                     <li class="group-list-item display-flex justify-between align-center  flex-wrap">
@@ -311,14 +315,14 @@ if(isset($_GET['skillName'])){
                                 <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
                                 </path>
                             </svg>Website</h6>
-                        <span class="gray-color"><input type="text" id="Website" name="Website " value=<?php echo $Website; ?>></input></span>
+                        <span class="gray-color"><input type="text" id="Website" name="Website" value=<?php echo $Website; ?>></input></span>
                     </li>
                     <li class="group-list-item display-flex justify-between align-center  flex-wrap">
                         <h6 class="margin-bottom-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github margin-right-2 icon-inline">
                                 <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
                                 </path>
                             </svg>Github</h6>
-                        <span class="gray-color"><input type="text" id="Github" name="Github " value=<?php echo $Github; ?>></input></span>
+                        <span class="gray-color"><input type="text" id="Github" name="Github" value=<?php echo $Github; ?>></input></span>
                     </li>
 
                    <li class="group-list-item display-flex justify-between align-center  flex-wrap">
@@ -327,16 +331,16 @@ if(isset($_GET['skillName'])){
                                 <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
                                 <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
                             </svg>Instagram</h6>
-                            <span class="gray-color"><input type="text" id="Instgram" name="Instgram " value=<?php echo $Instgram; ?>></input></span>
+                            <span class="gray-color"><input type="text" id="Instagram" name="Instagram" value=<?php echo $Instagram; ?>></input></span>
                     </li> 
                     <li class="group-list-item display-flex justify-between align-center  flex-wrap">
                         <h6 class="margin-bottom-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook margin-right-2 icon-inline text-primary">
                                 <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
                             </svg>Facebook</h6>
-                        <span class="gray-color"><input type="text" id="Faceboock" name="Facebook " value=<?php echo $Faceboock; ?>></input></span>
+                        <span class="gray-color"><input type="text" id="Faceboock" name="Facebook" value=<?php echo $Facebook; ?>></input></span>
                     </li>
                 </ul>
-            </div> -->
+            </div> 
             </div>
 
 

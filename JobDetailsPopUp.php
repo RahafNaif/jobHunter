@@ -47,10 +47,11 @@ if ($result2) {
     $salary = $data['salary'];
     $city = $data['city'];
     $emaillem = $data['employer_email'];
+    $title=$data['title'];
   }
 }
 
-include_once $Page . '.php';
+
 
 ?>
 
@@ -120,6 +121,11 @@ include_once $Page . '.php';
 
 
     <div class="details">
+      <h4 style="font-weight:bolder ;">Job Title</h4>
+      <p>
+        <?php
+        echo '' . $title; ?>
+      </p>
       <h4 style="font-weight:bolder ;">Job Description</h4>
       <p>
         <?php
@@ -160,8 +166,7 @@ include_once $Page . '.php';
     </div>
     <div class="titleAndValueDiv">
       <h5>Location</h5>
-      <p><?php
-          echo '' . $city; ?></p>
+      <p><?php echo '' . $city; ?></p>
     </div>
     <div class="titleAndValueDiv">
       <h5>Salary Starts From</h5>
@@ -173,7 +178,7 @@ include_once $Page . '.php';
 
   </div>
   <div class="overlay"></div>
-
+  <?php include_once $Page . '.php'; ?>
 </body>
 
 </html>

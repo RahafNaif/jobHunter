@@ -272,7 +272,7 @@ if (isset($_POST['delete'])) {
         <div class="column-6 margin-bottom-3">
           <div class="card h-100">
             <div class="card-body">
-              <h3 class="display-flex align-center  margin-bottom-3"><i class="material-icons text-info margin-right-2"> </i>Exprince </span>
+              <h3 class="display-flex align-center  margin-bottom-3"><i class="material-icons text-info margin-right-2"> </i> Experience </span>
                 <h4><?php echo $experince ?> </h4>
                 <div class="progress margin-bottom-3" style="height: 5px">
 

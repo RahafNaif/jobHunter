@@ -157,7 +157,8 @@ echo $result ;
         $lastName=$data['lastName'];
         $email=$data ['email'];
         $password=$data['password'];
-        $birthDate=$data['birthDate'];
+        $bDate=$data['birthDate'];
+        $birthDate = date("d-m-Y", strtotime($bDate));
         $gender=$data['gender'];
         $nationality=$data['nationality'];
         $city=$data['city'];
@@ -287,7 +288,7 @@ echo $result ;
                                 $res = mysqli_query($database, $skills);
                                 if($res){
                                   while ($data = mysqli_fetch_assoc($res)){
-                                    print '<p>'.$data['skillName'].'</p>';
+                                    print( '<p>'.$data['skillName'].'</p>');
                                   }
                                 }else{
                                   echo '<p>no skills</p>';

@@ -28,6 +28,40 @@ if (!isset($_SESSION['email']) ) { //i edit this one to restrict jobsseker from 
   }
 
 
+echo $_GET["delete"];
+if($_GET['delete'] == true){
+    echo "start deleting";
+    $email=$_SESSION['email'];
+    $query = "DELETE FROM jobseeker WHERE email=\"$email\"";
+    echo $query;
+
+    if (!($database = mysqli_connect("localhost", "root", "")))
+     die("<p>Could not connect to database</p>");
+
+ if (!mysqli_select_db($database, "jobhunter"))
+     die("<p>Could not open URL database</p>");
+
+ $result = mysqli_query($database, $query);
+ 
+    echo $result ;
+   header("location: home.php");
+   exit();
+  }
+
+
+?>
+<?php
+
+if (!($database = mysqli_connect("localhost", "root", "")))
+die("<p>Could not connect to database</p>");
+
+if (!mysqli_select_db($database, "jobhunter"))
+die("<p>Could not open URL database</p>");
+
+$result = mysqli_query($database, $query);
+
+echo $result ;
+
 ?>
 <?php
 
@@ -166,10 +200,10 @@ echo $result ;
         $experince=$data['experince'];
         $skills=$data['skills'];
         $currentJob=$data['currentJob'];
-       // $Website=$data['Website'];
-        //$Github=$data['Github'];
-        //$Instagram=$data['Instagram'];
-        //$Facebook=$data['Facebook'];
+        $Website=$date['Website'];
+        $Github=$date['Github'];
+        $Instagram=$date['Instagram'];
+        $Facebook=$date['Facebook'];
      }
  } else {
      echo "There are no info.";

@@ -48,6 +48,7 @@ if (!mysqli_select_db($database, "JobHunter"))
       $position = $data['position'];
       //5
       //6
+      $jobTitle=$data['title'];
       //7
       $jobType = $data['jobType'];
       //8
@@ -76,6 +77,8 @@ if (!mysqli_select_db($database, "JobHunter"))
     $jobType = $_POST['jobType'];
     $gender = $_POST['gender'];
     $salary = $_POST['salary'];
+    $jobTitle=$_POST['jobTitle'];
+
 
     $myquery = "UPDATE `job` SET 
             city='$location',
@@ -86,7 +89,8 @@ if (!mysqli_select_db($database, "JobHunter"))
             skills='$requiredSkills',
             qualifications='$requiredQ',
             gender='$gender',
-            salary='$salary'
+            salary='$salary',
+            title='$jobTitle'
             WHERE ID='$jobID';
             ";
     $result = mysqli_query($database, $myquery);
@@ -123,10 +127,17 @@ if (!mysqli_select_db($database, "JobHunter"))
     <input type="hidden" name="JOB_ID" value='<?php echo $jobID; ?>' />
     <fieldset>
       <legend class="postLegend">Edit A Job</legend>
+      
       <div class="inputDiv">
         <label for="position">Job Position</label>
-        <input autofocus required id="position" name="position" type="text" value="<?php print $position; ?>" />
+        <input  autofocus required id="position" name="position" type="text" value="<?php print $position; ?>" />
       </div>
+
+      <div class="inputDiv">
+          <label class="theTitle" for="jobTitle"> Job Title </label>
+          <input required id="jobTitle" type="text" name="jobTitle" value="<?php print $jobTitle; ?>"/>
+        </div> 
+
 
       <div class="inputDiv" id="majorDiv">
         <label for="major">Major </label>

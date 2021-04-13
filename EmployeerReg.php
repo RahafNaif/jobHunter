@@ -5,11 +5,11 @@
 <head>
     <meta charset="UTF-8" />
     <title>Employer Registration</title>
-    <link rel="stylesheet" href="styles\JobListingStylesFay.css" />
+    <link rel="stylesheet" href="styles/JobListingStylesFay.css" />
     <link rel="icon" href="img/icon.png">
-    <link rel="stylesheet" href="styles\Buttons.css" />
-    <link rel="stylesheet" href="styles\NavbarStyles.css" />
-    <link rel="stylesheet" href="styles\form.css" />
+    <link rel="stylesheet" href="styles/Buttons.css" />
+    <link rel="stylesheet" href="styles/NavbarStyles.css" />
+    <link rel="stylesheet" href="styles/form.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="js/EmployeeValidation.js"></script>
 </head>

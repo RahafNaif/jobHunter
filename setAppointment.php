@@ -280,30 +280,35 @@
           <br />
           <br />
         
-          <form method="POST" action="setAppointment.php">
+          <form method="GET" action="setAppointment.php">
             <label for="">Select Date:</label> <input type="date" name="adddate"/><br/>
             <br/>
             <label for="">Select Time:</label>
-            <input type="time" name="addtime"/>
-            <input type="submit" value="Add Appointment" name="add">
+            <input type="time" name="addtime" id="time"/>
+            <input type="submit" value="Add Appointment" id="test" name="add">
           </form>
           
           
            <?php
-           if (!($database = mysqli_connect("localhost", "root", "")))
-           die("<p>Could not connect to database</p>");
-       
-         if (!mysqli_select_db($database, "JobHunter"))
-           die("<p>Could not open URL database</p>");
-            $newDate = $_POST['adddate'];
-            $newtime = $_POST['addtime'];
+           if(isset($_POST['add'])){
+              $newDate = $_POST['adddate'];
+              $newtime = $_POST['addtime'];
+              $newtime = ''.substr($newtime,0,5).':00';
+              echo ''.$newtime .' ';
+              $year = substr($newDate,6);
+              $days = substr($newDate,0,2);
+              $months = substr($newDate,3,2);
 
-            if(isset($_POST['add'])){
-              $query2 = "INSERT INTO appointment(jobSeeker_email,date,time,applay_JID) VALUES('".$jobSeekerEmail."','".$newDate."','".$newtime."','".$apply_ID."');";
-              $result2 = mysqli_query($database,$query2);
-              if($result2){
-                header("Location: Applicants.php");
-              }
+              $dateformat = ''.$year.'-'.$months.'-'.$days.'';
+              echo $dateformat;
+              
+                $query2 = "INSERT INTO appointment(jobSeeker_email,date,time,applay_JID) VALUES('".$jobSeekerEmail."','".$dateformat."','".$newtime."','".$apply_ID."');";
+                $result2 = mysqli_query($database,$query2);
+                if($result2){
+                  header("Location: Applicants.php");
+                }
+            }else{
+              echo'ggggg';
             }
           ?>
 

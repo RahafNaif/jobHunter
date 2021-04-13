@@ -5,14 +5,14 @@ if (!isset($_SESSION['email']) ) { //i edit this one to restrict jobsseker from 
     header("location: LogIn.php");
     exit();
 }
-echo $_GET["delete"];
-if($_GET['delete'] == true){
-    echo "start deleting";
-    $email=$_SESSION['email'];
-    $query = "DELETE FROM jobseeker WHERE email=\"$email\"";
-    echo $query;
+//echo $_GET["delete"];
+//if($_GET['delete'] == true){
+  //  echo "start deleting";
+    //$email=$_SESSION['email'];
+    //$query = "DELETE FROM jobseeker WHERE email=\"$email\"";
+    //echo $query;
 
-    if (!($database = mysqli_connect("localhost", "root", "")))
+  /*  if (!($database = mysqli_connect("localhost", "root", "")))
      die("<p>Could not connect to database</p>");
 
  if (!mysqli_select_db($database, "jobhunter"))
@@ -22,8 +22,8 @@ if($_GET['delete'] == true){
  
     echo $result ;
    header("location: home.php");
-   exit();
-  }
+   //exit();*/
+  
 
 
 ?>
@@ -147,18 +147,28 @@ if($_GET['delete'] == true){
             exit();
         }
         if(isset($_POST['delete'])){
-            $myquery = "DELETE FROM `employer`
-            WHERE email='$email';
-            ";
+            $myquery = "delete  from employer
+            WHERE email='$email' ";
                     $result = mysqli_query($database, $myquery);
         
                     if ($result) {
-                      header("location: home.php");
-                    } else
+                        
+                       session_destroy();
+                      //header("location: signout.php"); ?>
+
+<script>
+   window.onload = function() {
+	if(!window.location.hash) {
+		window.location = window.location + '#loaded';
+		window.location.reload();
+	}
+}
+</script>
+<?php }
+                     else
                       echo "An error occured while updating the job.";
             
-                  header("location: home.php");
-                  exit();
+                 
           }
         ?>
         <div class="company-card">
@@ -178,7 +188,12 @@ if($_GET['delete'] == true){
             </div>
             <?php
             if ($_SESSION['role'] == 2)
-                print '<div class="buttons"><a href="EmployerProfileEdit.php"><button>edit</button></a><button><a href="EmployerProfile.php?delete=ture">delete</button></div>';
+                print '<div class="buttons"><a href="EmployerProfileEdit.php"><button>edit</button></a>
+                <form  action="EmployerProfile.php" method="POST">
+                <button  name="delete">
+                delete</button>
+                        </form></div>'
+                ;
             ?>
         </div>
         <div class="company-info-card">

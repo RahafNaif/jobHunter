@@ -93,7 +93,9 @@ $(document).ready(function () {
 
     function check_phone(){
         var phone = $('#phone').val();
-        if(phone.length!==10){
+        var isPhone = phone_validate(phone);
+
+        if(!isPhone || phone.length!==10){
             $('#phone').css('border-color','red');
             $('#phone_error').text('Phone number should be 10 digits');
             $('#phone_error').css('visibility','visible');
@@ -103,6 +105,11 @@ $(document).ready(function () {
             checkPhone = true;
         }
     }
+
+    function phone_validate(phno) { 
+        var regexPattern=new RegExp(/^[0-9-+]+$/);    // regular expression pattern
+        return regexPattern.test(phno); 
+    } 
 
     function check_address(){
         var address= $('#address').val();

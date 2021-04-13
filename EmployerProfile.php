@@ -48,7 +48,7 @@ if (!isset($_SESSION['email']) ) { //i edit this one to restrict jobsseker from 
 </head>
 
 <body>
-<?php include('./NavigationBar.php') ?>
+<?php include('./NavigationBar.php'); ?>
     <main>
         <?php
         if (!($database = mysqli_connect("localhost", "root", "")))

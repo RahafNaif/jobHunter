@@ -56,7 +56,7 @@ $result = mysqli_query($database, $query);
 </head>
 
 <body>
-<?php include('./NavigationBar.php') ?>
+<?php include('./NavigationBar.php'); ?>
   <h1>All Applicants</h1>
   <div class="line"></div>
   <main>

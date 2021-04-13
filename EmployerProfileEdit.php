@@ -79,7 +79,7 @@ if (isset($_POST['update'])) {
 </head>
 
 <body>
-    <?php include('./NavigationBar.php') ?>
+    <?php include('./NavigationBar.php'); ?>
     <main>
         <form form action="EmployerProfileEdit.php" method="POST" id="form">
             <fieldset>

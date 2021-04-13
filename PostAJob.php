@@ -19,6 +19,7 @@ if (!isset($_SESSION['email']) || $_SESSION['role'] == 1) {
   <link rel="icon" href="img/icon.png" />
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
   <link type="text/css" href="styles/postEditJob.css" rel="stylesheet" />
+  <script src="js/Notification.js"></script>
   <script src="js/Jquery.js"></script>
   <title>Post A Job</title>
 </head>
@@ -177,7 +178,7 @@ if (!isset($_SESSION['email']) || $_SESSION['role'] == 1) {
   ?>
 
 
-     <?php include('./NavigationBar.php') ?>
+     <?php include('./NavigationBar.php'); ?>
 
   <form action="PostAJob.php" method="post">
     <fieldset>

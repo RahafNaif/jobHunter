@@ -25,7 +25,7 @@ if (!isset($_SESSION['email']) || $_SESSION['role'] == 1) {
 </head>
 
 <body>
-<?php include('./NavigationBar.php') ?>
+<?php include('./NavigationBar.php'); ?>
   <h1>All Posted Jobs</h1>
   <div class="line"></div>
   <main>

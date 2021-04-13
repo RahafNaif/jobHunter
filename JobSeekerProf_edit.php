@@ -381,7 +381,7 @@ if(isset($_GET['skillName'])){
                     <div class="column-6 margin-bottom-3">
                         <div class="card h-100">
                             <div class="card-body">
-                                <h3> Exprince </h3>
+                                <h3> Experience </h3>
                                 <textarea id="vision" name="experince"><?php echo $experince; ?> </textarea>
 
                             </div>
@@ -392,7 +392,7 @@ if(isset($_GET['skillName'])){
                     <div class="column-6 margin-bottom-3">
                         <div class="card h-100">
                             <div class="card-body">
-                                <h3> skills </h3>
+                                <h3> Skills </h3>
                                 <input type="text" id= "skillName"  style="width:100%; height: 50%; font-size: medium;" ></input>
                                 <button type="button" onclick=addskill()> +</button>
 
@@ -400,7 +400,7 @@ if(isset($_GET['skillName'])){
                         </div>
                     </div>
                 </div>
-                <button type="submit" value="updateProfile" name="editProf"> updateProfile</button>
+                <button type="submit" value="updateProfile" name="editProf"> UPDATE </button>
             </div> <br>
 
             

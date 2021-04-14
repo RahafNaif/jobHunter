@@ -138,8 +138,17 @@ if (isset($_POST['delete'])) {
 
     </div>
 
-    <?php
 
+    <?php
+       if (!($database = mysqli_connect("localhost", "root", "")))
+       die("<p>Could not connect to database</p>");
+
+   if (!mysqli_select_db($database, "jobhunter"))
+       die("<p>Could not open URL database</p>");
+   if (isset($_POST['viewi']))
+       $email = $_POST['viewinfo'];
+
+else
     $email = $_SESSION['email'];
     if(isset($_GET['applicantID'])){
       $email = $_GET['applicantID'];

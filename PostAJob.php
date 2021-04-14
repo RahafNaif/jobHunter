@@ -23,7 +23,7 @@ if (!mysqli_select_db($database, "JobHunter"))
   <link rel="stylesheet" href="styles/Notifications.css" />
   <link rel="stylesheet" href="styles/NavbarStyles.css" />
   <link rel="stylesheet" href="styles/Footer.css" />
-  <link type="text/css" href="styles/forms.css" rel="stylesheet" />
+  <link type="text/css" href="styles/Forms.css" rel="stylesheet" />
   <script src="js/Notification.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
@@ -88,7 +88,7 @@ if (!mysqli_select_db($database, "JobHunter"))
   <?php include('./NavigationBar.php'); ?>
 
   <form action="PostAJob.php" method="post">
-    <fieldset>
+    <fieldset class=" left">
       <legend class="postLegend">Post A Job</legend>
       
       <div class="inputDiv">
@@ -164,6 +164,8 @@ if (!mysqli_select_db($database, "JobHunter"))
         <input required type="radio" name="gender" value="Male" />
         Male
       </label>
+    </fieldset>
+    <fieldset class="right">
       <div class="inputDiv">
         <label for="jobDescription"> Job Description</label>
         <textarea required style="resize: none" name="jobDescription" id="jobDescription" placeholder="Describe the responsibilities for this job"></textarea>
@@ -203,4 +205,12 @@ if (!mysqli_select_db($database, "JobHunter"))
   </div>
 </body>
 
+<script>
+  window.onload = function() {
+    if (!window.location.hash) {
+      window.location = window.location + '#loaded';
+      window.location.reload();
+    }
+  }
+</script>
 </html>

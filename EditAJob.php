@@ -125,7 +125,7 @@ if (!mysqli_select_db($database, "JobHunter"))
 
   <form action="EditAJob.php" method="POST">
     <input type="hidden" name="JOB_ID" value='<?php echo $jobID; ?>' />
-    <fieldset>
+    <fieldset class="left">
       <legend class="postLegend">Edit A Job</legend>
       
       <div class="inputDiv">
@@ -228,9 +228,8 @@ if (!mysqli_select_db($database, "JobHunter"))
         <input required type="radio" name="gender" id="Male" value="Male" />
         Male
       </label>
-
-
-
+    </fieldset>
+    <fieldset class="right">
       <div class="inputDiv">
         <label for="jobDescription"> Job Description</label>
         <textarea required id="jobDescription" name="jobDescription" style="resize: none">
@@ -272,4 +271,12 @@ if (!mysqli_select_db($database, "JobHunter"))
   </div>
 </body>
 
+<script>
+  window.onload = function() {
+    if (!window.location.hash) {
+      window.location = window.location + '#loaded';
+      window.location.reload();
+    }
+  }
+</script>
 </html>

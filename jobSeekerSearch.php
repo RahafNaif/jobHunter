@@ -38,7 +38,7 @@
             </div>
     
             <div class="search">
-                <form>
+                <form method="GET">
                     <div class="search-box">
                         <span class="material-icons" class="search-icon">search</span>
                         <input type="text" class="input" placeholder="Search" name="search">
@@ -68,54 +68,29 @@
                                 <button>Apply</button>
                             </div>
                         </div>
-                        <!-- <div class="dropdown">
-                            <div class="default_option">major</div>  
-                            <div class="city-form">
-                                <div class="form-content">
-                                    <label>Major :</label>
-                                    <input type="text" class="form-input" id="major">
-                                </div>
-                                <button>Apply</button>
-                            </div> -->
-                            <!-- <ul>
-                                <li > Select a major</li>
-                                <li> Accounting & Finance</li>
-                                <li> Agriculture & Forestry</li>
-                                <li> Archaeology</li>
-                                <li> Architecture</li>
-                                <li> Art</li>
-                                <li> Biological Sciences</li>
-                                <li> Business & Management</li>
-                                <li> Chemical Engineering</li>
-                                <li> Chemistry</li>
-                                <li> Civil Engineering</li>
-                                <li> Communication & Media Studies</li>
-                                <li> Computer Science</li>
-                                <li> Economics & Econometrics</li>
-                                <li> Education</li>
-                            </ul> -->
-                        </div>
+                        
                     </div>
+                    <!-- <input type="submit" name="enter" style="visibility: hidden;"> -->
                 </form>
             </div>
             <div class="jobs">
+            <div class="job-posts">
+                    <ul>
             <?php
                 if (!($database = mysqli_connect("localhost", "root", "")))
                     die("<p>Could not connect to database</p>");
 
                 if (!mysqli_select_db($database, "JobHunter"))
                     die("<p>Could not open URL database</p>");
-                
-                $search = $_GET['search'];
-                $gender = isset($_GET['gender']) ? $_GET['gender'] : "gender";
-                $skill = $_GET['skill'];
-                $nation = $_GET['nation'];
-                $major = $_GET['major'];
 
-            ?>
-                <div class="job-posts">
-                    <ul>
-                    <?php
+                    //if(isset($_GET['enter'])){
+                
+                        $search = isset($_GET['search']) ? $_GET['search'] : '';
+                        $gender = isset($_GET['gender']) ? $_GET['gender'] : "gender";
+                        $skill = isset($_GET['skill']) ? $_GET['skill'] :'';
+                        $nation = isset($_GET['nation']) ? $_GET['nation'] : '';
+                        $major = isset($_GET['major']) ? $_GET['major'] : '';
+
 
                         if(($search=='') && ($gender=='gender')){
                             $query = "select firstName, lastName, email, gender, nationality, city, major from jobseeker";
@@ -176,6 +151,9 @@
                         }else{
                             echo '<p style="color: #192d50;font-size: 18px;text-align: center;margin-left:42%;">There is no job seekers</p>';
                         }
+                    // }else {
+                    //     $query = "select firstName, lastName, email, gender, nationality, city, major from jobseeker";
+                    // }
 
                         $result = mysqli_query($database, $query);
                         $rowcount=mysqli_num_rows($result);

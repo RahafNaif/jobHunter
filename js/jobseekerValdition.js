@@ -65,7 +65,7 @@ $(document).ready(function () {
 
     function check_fname(){
         var name = $('#firstName').val();
-        if(name == ''){
+        if(name ==''){
             $('#firstName').css('border-color','red');
             $('#firstName_error').text('first Name name can not be empty');
             $('#firstName_error').css('visibility','visible');
@@ -78,7 +78,7 @@ $(document).ready(function () {
 
     function check_lastName(){
         var name = $('#lastName').val();
-        if(name == ''){
+        if(name ==''){
             $('#lastName').css('border-color','red');
             $('#lastName_error').text('last Name can not be empty');
             $('#lastName_error').css('visibility','visible');
@@ -108,7 +108,7 @@ $(document).ready(function () {
 
     function check_city(){
         var city = $('#city').val();
-        if(city == ''){
+        if(city ==''){
             $('#city').css('border-color','red');
             $('#city_error').text('city can not be empty');
             $('#city_error').css('visibility','visible');
@@ -134,7 +134,7 @@ $(document).ready(function () {
 
     function check_birthDate(){
         var birthDate= $('#birthDate').val();
-        if(birthDate == ''){
+        if(birthDate ==''){
             $('#birthDate').css('border-color','red');
             $('#birthDate_error').text('birth Date can not be empty');
             $('#birthDate_error').css('visibility','visible');
@@ -149,7 +149,7 @@ $(document).ready(function () {
 
     function check_nationality(){
         var nationality= $('#nationality').val();
-        if(nationality == ''){
+        if(nationality ==''){
             $('#nationality').css('border-color','red');
             $('#nationality_error').text('nationality can not be empty');
             $('#nationality_error').css('visibility','visible');
@@ -163,7 +163,7 @@ $(document).ready(function () {
 
     function check_major(){
         var major= $('#major').val();
-        if(major == ''){
+        if(major ==''){
             $('#major').css('border-color','red');
             $('#major_error').text('major can not be empty');
             $('#major_error').css('visibility','visible');
@@ -176,7 +176,7 @@ $(document).ready(function () {
 
     function check_experince(){
         var experince= $('#experince').val();
-        if(experince == ''){
+        if(experince ==''){
             $('#experince').css('border-color','red');
             $('#experince_error').text('experince can not be empty');
             $('#experince_error').css('visibility','visible');
@@ -189,7 +189,7 @@ $(document).ready(function () {
 
     function check_skills(){
         var skills= $('#skills ').val();
-        if(skills == ''){
+        if(skills ==''){
             $('#skills ').css('border-color','red');
             $('#skills_error').text('skills can not be empty');
             $('#skills_error').css('visibility','visible');
@@ -202,7 +202,7 @@ $(document).ready(function () {
 
     function check_currentJob(){
         var currentJob= $('#currentJob ').val();
-        if(currentJob == ''){
+        if(currentJob ==''){
             $('#currentJob').css('border-color','red');
             $('#currentJob_error').text('current Job can not be empty');
             $('#currentJob_error').css('visibility','visible');
@@ -242,12 +242,11 @@ $(document).ready(function () {
 
     $('#form').on('create', function(e) {
         
-        if((checkFname!==true) || (checkLname!==true)  || (checkPassword!==true) || (checkRe_password!==true) || (checkNationality!==true)  || (checkCity!==true)  || (checkMajor !==true)  || (checkExperince!==true)  || (checkSkills!==true)  || (checkPhone!==true)|| (checkCurrentJob!==true)|| (checkCity!==true)){ 
+        if((checkFname!==true) || (checkLname!==true) || (checkEmail!==true) || (checkPassword!==true) || (checkRe_password!==true) || (checkNationality!==true)  || (checkCity!==true)  || (checkMajor !==true)  || (checkExperince!==true)  || (checkSkills!==true)  || (checkPhone!==true)|| (checkCurrentJob!==true)){ 
             e.preventDefault();
             $('.alert').css('display','block');
         }
   
     });
-
 
 });

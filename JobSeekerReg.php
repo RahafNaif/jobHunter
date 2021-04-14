@@ -9,7 +9,7 @@
     <link rel="icon" href="img/icon.png">
     <link rel="stylesheet" href="styles\Buttons.css" />
     <link rel="stylesheet" href="styles\NavbarStyles.css" />
-    <link rel="stylesheet" href="styles\form.css" />
+    <link rel="stylesheet" href="styles\form.css?<?php echo time(); ?>" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
         .custom-shape-divider-bottom-1612535207 {

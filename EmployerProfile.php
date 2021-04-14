@@ -85,6 +85,8 @@ if (!isset($_SESSION['email'])) { //i edit this one to restrict jobsseker from e
             $result = mysqli_query($database, $myquery);
 
             if ($result) {
+                $query="DELETE from job WHERE employer_email='$email' ";
+                $result2 = mysqli_query($database, $myquery);
 
                 session_destroy();
                 //header("location: signout.php"); 
@@ -98,7 +100,7 @@ if (!isset($_SESSION['email'])) { //i edit this one to restrict jobsseker from e
                     }
                 </script>
         <?php } else
-                echo "An error occured while updating the job.";
+                echo "An error occured while deleting the account.";
         }
         ?>
         <div class="company-card">

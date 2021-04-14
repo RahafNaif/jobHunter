@@ -141,6 +141,9 @@ if (isset($_POST['delete'])) {
     <?php
 
     $email = $_SESSION['email'];
+    if(isset($_GET['applicantID'])){
+      $email = $_GET['applicantID'];
+    }
     $query = "select * from jobseeker WHERE email='$email'";
     $result = mysqli_query($database, $query);
     if ($result) {
@@ -169,9 +172,6 @@ if (isset($_POST['delete'])) {
       exit();
     }
     ?>
-
-
-
 
     <div class="details">
       <img src="img/person_JobDetails.svg" alt="Admin" class="circle" style="width:128px;height:128px;">
@@ -272,7 +272,7 @@ if (isset($_POST['delete'])) {
         <div class="column-6 margin-bottom-3">
           <div class="card h-100">
             <div class="card-body">
-              <h3 class="display-flex align-center  margin-bottom-3"><i class="material-icons text-info margin-right-2"> </i>Exprince </span>
+              <h3 class="display-flex align-center  margin-bottom-3"><i class="material-icons text-info margin-right-2"> </i> Experience </span>
                 <h4><?php echo $experince ?> </h4>
                 <div class="progress margin-bottom-3" style="height: 5px">
 

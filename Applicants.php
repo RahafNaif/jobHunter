@@ -11,24 +11,23 @@ if (!($database = mysqli_connect("localhost", "root", "")))
 
 if (!mysqli_select_db($database, "JobHunter"))
   die("<p>Could not open URL database</p>");
-  
-if(isset($_GET['reject'])){
-      $apply_ID = $_GET['applyID'];
-      $query = "DELETE FROM jobseeker_apply_job  WHERE applay_ID = '$apply_ID'";
 
-      $result = mysqli_query($database, $query);
-  if($result){ ?>
-  <script>
-  window.onload = function() {
-    if(!window.location.hash) {
-      window.location = window.location + '#loaded';
-      window.location.reload();
-    }
-  }
-  </script>
-  <?php }
-} 
-else{
+if (isset($_GET['reject'])) {
+  $apply_ID = $_GET['applyID'];
+  $query = "DELETE FROM jobseeker_apply_job  WHERE applay_ID = '$apply_ID'";
+
+  $result = mysqli_query($database, $query);
+  if ($result) { ?>
+    <script>
+      window.onload = function() {
+        if (!window.location.hash) {
+          window.location = window.location + '#loaded';
+          window.location.reload();
+        }
+      }
+    </script>
+<?php }
+} else {
   $jobID = $_POST['JOB_ID'];
   $_SESSION['jobID'] = $jobID;
 }
@@ -56,16 +55,20 @@ $result = mysqli_query($database, $query);
 </head>
 
 <body>
-<?php include('./NavigationBar.php'); ?>
+  <?php include('./NavigationBar.php'); ?>
   <h1>All Applicants</h1>
   <div class="line"></div>
   <main>
     <?php
-    if ($result) {
+    $rowcount = mysqli_num_rows($result);
+
+
+
+    if ($result && $rowcount > 0) {
       print '<div class="lists">';
       while ($data = mysqli_fetch_assoc($result)) {
         print '<div class="list">';
-        print '<div> <img style="width: 125px" src="img/person.svg" alt="person default logo" class="defaultCompany" /> </div>';
+        print '<div><form action="JobSeekerViewProf.php" method="GET"> <button type="submit" name="viewProfile" style="all: unset; cursor:pointer; height: 100%; width: 100%; right: 0; top: 0;"><img style="width: 125px" src="img/person.svg" alt="person default logo" class="defaultCompany" /><input  type="hidden" value="' . $data['email'] . '" name="applicantID" /></button></form></div>';
         print '<div class="jobInfo"> <h2>' . $data['firstName'] . $data['lastName'] . '</h2> <i class="material-icons">location_on</i>';
         print '<h6 class="location"> ' . $data['city'] . '</h6>';
         print '<i class="material-icons">book</i> <h6 class="major"> ' . $data['major'] . '</h6>';
@@ -73,13 +76,13 @@ $result = mysqli_query($database, $query);
         print '<p class="jobDescription">' . $data['skills'] . '</p>';
         print '</div>';
         print '<div class="buttons">';
-        print '<form  action="setAppointment.php" method="POST"><input type = "hidden" name = "applyID" value =' .$data['applay_ID']. '><input type = "hidden" name = "jobSeekerEmail" value =' .$data['email']. '><button class="accept">Accept</button></form>';
-        print '<form  action="#" method="GET"><input type = "hidden" name = "applyID" value =' .$data['applay_ID']. '><button name = "reject" class="reject">Reject</button></form> </div>';
+        print '<form  action="setAppointment.php" method="POST"><input type = "hidden" name = "applyID" value =' . $data['applay_ID'] . '><input type = "hidden" name = "jobSeekerEmail" value =' . $data['email'] . '><button class="accept">Accept</button></form>';
+        print '<form  action="#" method="GET"><input type = "hidden" name = "applyID" value =' . $data['applay_ID'] . '><button name = "reject" class="reject">Reject</button></form> </div>';
         print '</div>';
       }
       print '</div>';
     } else
-      echo "There are no emplyees.";
+      echo '<div class="lists"><h2>There are no applicants.</h2></div>';
     ?>
   </main>
   <!-- Footer -->
@@ -96,4 +99,5 @@ $result = mysqli_query($database, $query);
     </div>
   </div>
 </body>
+
 </html>

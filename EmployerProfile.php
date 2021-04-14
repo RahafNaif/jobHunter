@@ -1,51 +1,30 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['email']) ) { //i edit this one to restrict jobsseker from enter the emplyer page
+if (!isset($_SESSION['email'])) { //i edit this one to restrict jobsseker from enter the emplyer page
     header("location: LogIn.php");
     exit();
 
-echo $_GET["delete"];
-if($_GET['delete'] == true){
-    echo "start deleting";
-    $email=$_SESSION['email'];
-    $query = "DELETE FROM employeer WHERE email=\"$email\"";
-    echo $query;
+    echo $_GET["delete"];
+    if ($_GET['delete'] == true) {
+        echo "start deleting";
+        $email = $_SESSION['email'];
+        $query = "DELETE FROM employeer WHERE email=\"$email\"";
+        echo $query;
 
-    if (!($database = mysqli_connect("localhost", "root", "")))
-     die("<p>Could not connect to database</p>");
+        if (!($database = mysqli_connect("localhost", "root", "")))
+            die("<p>Could not connect to database</p>");
 
- if (!mysqli_select_db($database, "jobhunter"))
-     die("<p>Could not open URL database</p>");
+        if (!mysqli_select_db($database, "jobhunter"))
+            die("<p>Could not open URL database</p>");
 
- $result = mysqli_query($database, $query);
- 
-    echo $result ;
-   header("location: home.php");
-   exit();
-  }
+        $result = mysqli_query($database, $query);
+
+        echo $result;
+        header("location: home.php");
+        exit();
+    }
 }
-//echo $_GET["delete"];
-//if($_GET['delete'] == true){
-  //  echo "start deleting";
-    //$email=$_SESSION['email'];
-    //$query = "DELETE FROM jobseeker WHERE email=\"$email\"";
-    //echo $query;
-
-  /*  if (!($database = mysqli_connect("localhost", "root", "")))
-     die("<p>Could not connect to database</p>");
-
- if (!mysqli_select_db($database, "jobhunter"))
-     die("<p>Could not open URL database</p>");
-
- $result = mysqli_query($database, $query);
- 
-    echo $result ;
-   header("location: home.php");
-   //exit();*/
-  
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -68,7 +47,7 @@ if($_GET['delete'] == true){
 </head>
 
 <body>
-<?php include('./NavigationBar.php'); ?>
+    <?php include('./NavigationBar.php'); ?>
     <main>
         <?php
         if (!($database = mysqli_connect("localhost", "root", "")))
@@ -76,10 +55,10 @@ if($_GET['delete'] == true){
 
         if (!mysqli_select_db($database, "jobhunter"))
             die("<p>Could not open URL database</p>");
-            if(isset($_POST['viewi']))
-                $email=$_POST['viewinfo'];
-            else
-        $email = $_SESSION['email'];
+        if (isset($_POST['viewi']))
+            $email = $_POST['viewinfo'];
+        else
+            $email = $_SESSION['email'];
         $query = "select * from employer WHERE email='$email'";
         $result = mysqli_query($database, $query);
 
@@ -97,30 +76,27 @@ if($_GET['delete'] == true){
             echo "There are no info.";
             exit();
         }
-        if(isset($_POST['delete'])){
+        if (isset($_POST['delete'])) {
             $myquery = "delete  from employer
             WHERE email='$email' ";
-                    $result = mysqli_query($database, $myquery);
-        
-                    if ($result) {
-                        
-                       session_destroy();
-                      //header("location: signout.php"); ?>
+            $result = mysqli_query($database, $myquery);
 
-<script>
-   window.onload = function() {
-	if(!window.location.hash) {
-		window.location = window.location + '#loaded';
-		window.location.reload();
-	}
-}
-</script>
-<?php }
-                     else
-                      echo "An error occured while updating the job.";
-            
-                 
-          }
+            if ($result) {
+
+                session_destroy();
+                //header("location: signout.php"); 
+        ?>
+                <script>
+                    window.onload = function() {
+                        if (!window.location.hash) {
+                            window.location = window.location + '#loaded';
+                            window.location.reload();
+                        }
+                    }
+                </script>
+        <?php } else
+                echo "An error occured while updating the job.";
+        }
         ?>
         <div class="company-card">
             <img class="company-logo" src="img/company.svg">
@@ -130,22 +106,16 @@ if($_GET['delete'] == true){
                 <h5><?php echo $scope; ?></h5>
                 <div class="socials">
                     <br>
-                    <?php
-                    if ($_SESSION['role'] == 1)
-                        //print employer info
-                    ?>
                     <a href="mailto: <?php echo $email ?>"> <i class="material-icons">email</i> </a>
                 </div>
             </div>
             <?php
-            if ($_SESSION['role'] == 2)
+            if ($_SESSION['role'] == 2 && $_SESSION['email'] ==  $email)
                 print '<div class="buttons"><a href="EmployerProfileEdit.php"><button>edit</button></a>
                 <form  action="EmployerProfile.php" method="POST">
                 <button  name="delete">
                 delete</button>
-                        </form></div>'
-                ;
-                // print '<div class="buttons"><a href="EmployerProfileEdit.php"><button>edit</button></a><button><a href="EnployerProfile.php?delete=ture">delete</button></a></div>';
+                        </form></div>';
             ?>
         </div>
         <div class="company-info-card">

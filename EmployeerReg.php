@@ -10,12 +10,117 @@
     <link rel="stylesheet" href="styles/Buttons.css" />
     <link rel="stylesheet" href="styles/NavbarStyles.css" />
     <link rel="stylesheet" href="styles/form.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="js/EmployeeValidation.js"></script>
+    <style>
+        .custom-shape-divider-bottom-1612535207 {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            transform: rotate(180deg);
+        }
+
+        .custom-shape-divider-bottom-1612535207 svg {
+            position: relative;
+            display: block;
+            width: calc(222% + 1.3px);
+            height: 218px;
+            transform: rotateY(180deg);
+        }
+
+        .custom-shape-divider-bottom-1612535207 .shape-fill {
+            fill: #8cb3f4;
+        }
+
+        .footer-content {
+            position: absolute;
+            padding-left: 100px;
+            padding-top: 100px;
+        }
+
+        .footer {
+            display: inline-block;
+        }
+
+        .company-icon {
+            fill: #2b468b;
+            margin-top: 10px;
+            margin-left: -190px;
+        }
+
+        .company {
+            text-align: left;
+            padding-top: 8px;
+            padding-left: 10px;
+        }
+
+        .shape-footer {
+            transform: rotateX(180deg);
+            width: 100%;
+            position: absolute;
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-content {
+            position: absolute;
+            z-index: 3;
+            font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+                "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+            font-size: 16px;
+            color: #192d50;
+            /* margin-top: 5px; */
+            margin-left: 35%;
+            display: inline-flex;
+        }
+
+        .footer-content span {
+            padding-left: 10px;
+            text-decoration: none;
+            color: #192d50;
+        }
+
+        .footer-content span:hover {
+            color: rgba(234, 243, 250, 0.8);
+            transform: scale(1.1);
+            transition: 0.3s ease-in;
+        }
+
+        #page-container {
+            position: relative;
+            min-height: 200vh;
+        }
+
+        #content-wrap {
+            padding-bottom: 2.5rem;
+            /* Footer height */
+        }
+
+        #footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 2.5rem;
+            /* Footer height */
+        }
+    </style>
+
 </head>
 
 <body>
-    <?php
+
+
+    <div id="page-container">
+   <div id="content-wrap">
+     <!-- all other page content -->
+     <?php
         if (!( $database = mysqli_connect( "localhost", "root", "" )))
             die( "<p>Could not connect to database</p>" );
 
@@ -132,6 +237,25 @@
             </div>
         </section>
     </main>
+   </div>
+   <footer id="footer">
+             <!-- Footer -->
+      <div class="footer">
+                <div class="footer-content">
+                    <p>Contact us</p>
+                    <span class="material-icons">facebook</span>
+                    <a href="mailto:jobhunter@ksu.com"><span class="material-icons">email</span></a>
+                </div>
+                <div class="shape-footer" style="height: 150px; overflow: hidden;"><svg viewBox="0 0 500 150" preserveAspectRatio="none"
+                    style="height: 100%; width: 100%;">
+                    <path d="M-15.58,-15.49 C-16.70,110.81 186.45,57.52 502.48,59.50 L500.00,0.00 L0.00,0.00 Z"
+                        style="stroke: none; fill: #8CB3F4;"></path>
+                </svg></div>
+    </div>
+
+   </footer>
+ </div>
+
 </body>
 
 </html>

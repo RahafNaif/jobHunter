@@ -200,9 +200,10 @@ main {
   display: inline;
 }
 
-li {
-  text-indent: -1.3em;
-  padding-left: 3em;
+
+
+.navLinks1 ul {
+  width:fit-content!important;
 }
 /* button {
         transform: translateX(-130%);

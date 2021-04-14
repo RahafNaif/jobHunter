@@ -38,10 +38,10 @@ if (!isset($_SESSION['email']) || $_SESSION['role'] == 1) {
 
     $email = $_SESSION['email'];
     $query = "select * from job WHERE employer_email='$email'";
-    $result = mysqli_query($database, $query);
+    $result = mysqli_query($database, $query);    
+    $rowcount = mysqli_num_rows($result);
 
-
-    if ($result) {
+    if ($result &&  $rowcount > 0) {
       print '<div class="lists">';
       while ($data = mysqli_fetch_assoc($result)) {
         print '<div class="list">';

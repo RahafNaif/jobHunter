@@ -49,8 +49,8 @@
                     print '<li><a href="myAdvices.html"> My Advices </a></li>';
                 }
                 if ($_SESSION['role'] == 1) {
-                    print '<li><a href="#">Jobs</a><ul><li><a href="EmployerSearch.php"> Employers </a></li><li><a href="jobSearch.php">Jobs</a></li><li><a href="Myapplicationlist.php">Applied Jobs</a></li></ul></li>';
-                    print '<li><a href="myAdvices.html"> My Advices </a></li>';
+                    print '<li><a href="#">Jobs</a><ul><li><a href="jobSearch.php">Jobs</a></li><li><a href="Myapplicationlist.php">Applied Jobs</a></li></ul></li>';
+                    print '<li><a href="EmployerSearch.php"> Employers </a></li>';
                 }
                 ?>
           </ul>

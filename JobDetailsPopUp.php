@@ -19,14 +19,17 @@ $jobID = $_SESSION['jobID'];
 $Page = $_SESSION['Page'];
 
 
-$query = "INSERT INTO jobseeker_apply_job (JobSeeker_email, JOB_ID) VALUES ('" . $jobSeekerEmail . "','" . $_POST['JOB_ID'] . "');";
+//$query = "INSERT INTO jobseeker_apply_job (JobSeeker_email, JOB_ID) VALUES ('" . $jobSeekerEmail . "','" . $_POST['JOB_ID'] . "');";
 if (isset($_POST['Apply'])) {
+  $query = "INSERT INTO jobseeker_apply_job (JobSeeker_email, JOB_ID) VALUES ('" . $jobSeekerEmail . "','" . $_POST['JOB_ID'] . "');";
+
   $result = mysqli_query($database, $query);
   if ($result) {
     header('location: Myapplicationlist.php');
     exit();
   } else {
-    echo "An error occured while applying to the job.";
+    //echo "An error occured while applying to the job.";
+    header('location: Myapplicationlist.php');
   }
 } //end  if(isset($_POST['Apply']))
 
@@ -111,7 +114,7 @@ if ($result2) {
       <h5>
         <form action="EmployerProfile.php" method="post" style="display: inline;">
           <input type="hidden" name="viewinfo" value="<?php echo $emaillem ?> ">
-          <button name="viewi" style="margin:0;outline: none; background-color:transparent; border: none; padding: 0;width:fit-content;cursor:pointer;color: #192d50; display: inline;">
+          <button name="viewi" class="linkButton" >
             <?php echo '' . $companyName; ?>
           </button>
         </form> | <?php

@@ -26,6 +26,10 @@
   border-radius: 5px;
 }
 
+.navLinks2 {
+  left: 150%;
+}
+
 .header {
   background-color: rgba(234, 243, 250, 0.8);
   width: 100%;

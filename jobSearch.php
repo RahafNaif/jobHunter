@@ -1,10 +1,11 @@
+<?php session_start() ?>
+
 <!DOCTYPE html>
 <html>
     <head>
         <link rel="stylesheet" href="styles/jobs.css">
         <link rel="stylesheet" href="styles/NavbarStyles.css">
         <link rel="stylesheet" href="styles/Buttons.css" />
-        <link rel="icon" href="img/icon.png">
         <link rel="icon" href="img/icon.png">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -30,7 +31,29 @@
                         <a href="home.php" class="navbar-item">Home</a>
                         <a href="jobSearch.php" class="navbar-item">Jobs</a>
                         <a href="EmployerSearch.php" class="navbar-item">Employers</a>
-                        <a href="logIn.php" class="navbar-item-span">Log in</a>
+                
+                        <?php
+                            // if (isset($_SESSION['email'])) {
+                            //     print '<ul class="navLinks2">';
+                            //     print '<li>';
+                            //     print '<a href="#"><i class="material-icons">person</i></a>';
+                            //     print '<ul>';
+                            //     if ($_SESSION['role']==1){
+                            //         $profile = 'JobSeekerViewProf.php';
+                            //     }else{
+                            //         $profile = 'EmployerProfile.php';
+                            //     }
+                            //     print '<li><a href="'.$profile.'"> Profile</a></li>';
+                            //    if (isset($_SESSION['role'])) print '<li><a href="http:signout.php">logout</a></li>';
+                            //         else print '<li><a href="http:login.php">login</a></li>';
+                                   
+                            //     print '</ul>';
+                            //     print '</li>';
+                            //     print '</ul>';
+                            // }else {
+                                print '<a href="LogIn.php" class="navbar-item-span">Log in</a>';
+                            //}
+                        ?>
                     </div>
                 </nav>
                 

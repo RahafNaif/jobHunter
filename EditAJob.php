@@ -149,7 +149,7 @@ if (!mysqli_select_db($database, "JobHunter"))
         </script>
         <select id="major" required name="major">
 
-          <option disabled value="">Select a major</option>
+          <option value="">Select a major</option>
           <option value="Accounting & Finance">Accounting & Finance</option>
           <option value="Agriculture & Forestry">Agriculture & Forestry</option>
           <option value="Archaeology">Archaeology</option>

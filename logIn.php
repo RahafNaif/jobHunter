@@ -13,7 +13,48 @@ if (isset($_SESSION['email'])) {
 
 <!DOCTYPE html>
 <html>
+<?php
+if (!($database = mysqli_connect("localhost", "root", "")))
+    die("<p>Could not connect to database</p>");
 
+if (!mysqli_select_db($database, "jobhunter"))
+    die("<p>Could not open URL database</p>");
+
+if (isset($_POST['login'])) {
+    $tybe = $_POST['tybeuser'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    if (empty($_POST['email']) || empty($_POST['password'])) {
+        header("Location: login.php?error=email and password are required");
+        exit();
+    }
+
+    $query;
+    if ($tybe == 2)
+        $query = "select * from employer WHERE email='$email'AND password='$password'";
+    else if ($tybe == 1)
+        $query = "select * from jobseeker WHERE email='$email'AND password='$password'";
+
+    $run = mysqli_query($database, $query);
+
+    $numm = mysqli_num_rows($run);
+    if ($numm > 0) {
+        $_SESSION['email'] = $email;
+        $_SESSION['value'] = $tybe;
+
+        if ($tybe == 1) {
+            $_SESSION['role'] = 1;
+            header("Location:JobSeekerViewProf.php");
+        }
+        if ($tybe == 2) {
+            $_SESSION['role'] = 2;
+            header("Location: EmployerProfile.php");
+        }
+    } else {
+        header("Location: logIn.php?error=Wrong Username/Password");
+    }
+}
+?>
 <head>
     <meta charset="UTF-8" />
     <title>Log in</title>
@@ -196,45 +237,3 @@ if (isset($_SESSION['email'])) {
 
 </html>
 
-<?php
-if (!($database = mysqli_connect("localhost", "root", "")))
-    die("<p>Could not connect to database</p>");
-
-if (!mysqli_select_db($database, "jobhunter"))
-    die("<p>Could not open URL database</p>");
-
-if (isset($_POST['login'])) {
-    $tybe = $_POST['tybeuser'];
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-    if (empty($_POST['email']) || empty($_POST['password'])) {
-        header("Location: login.php?error=email and password are required");
-        exit();
-    }
-
-    $query;
-    if ($tybe == 2)
-        $query = "select * from employer WHERE email='$email'AND password='$password'";
-    else if ($tybe == 1)
-        $query = "select * from jobseeker WHERE email='$email'AND password='$password'";
-
-    $run = mysqli_query($database, $query);
-
-    $numm = mysqli_num_rows($run);
-    if ($numm > 0) {
-        $_SESSION['email'] = $email;
-        $_SESSION['value'] = $tybe;
-
-        if ($tybe == 1) {
-            $_SESSION['role'] = 1;
-            header("Location:JobSeekerViewProf.php");
-        }
-        if ($tybe == 2) {
-            $_SESSION['role'] = 2;
-            header("Location: EmployerProfile.php");
-        }
-    } else {
-        header("Location: logIn.php?error=Wrong Username/Password");
-    }
-}
-?>

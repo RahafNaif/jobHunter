@@ -177,7 +177,7 @@
   transition: 0.3s ease-in;
 }
 
-.popup {
+/* .popup {
   opacity: 0;
   pointer-events: none;
   transition: 0.4s;
@@ -236,7 +236,7 @@
 
 .notificationList .notificationRow {
   margin-bottom: 5px;
-}
+} */
 
 .date {
   margin-left: 40px;

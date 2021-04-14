@@ -2,9 +2,9 @@
 session_start();
 
 if (!isset($_SESSION['email']) || $_SESSION['role'] == 2) {
-  header("location: LogIn.php");
-  exit();
-}
+  $IsEmployer = True;
+} else
+$IsEmployer =False;
 
 if (!($database = mysqli_connect("localhost", "root", "")))
   die("<p>Could not connect to database</p>");
@@ -50,7 +50,7 @@ if ($result2) {
     $salary = $data['salary'];
     $city = $data['city'];
     $emaillem = $data['employer_email'];
-    $title=$data['title'];
+    $title = $data['title'];
   }
 }
 
@@ -63,6 +63,7 @@ if ($result2) {
 
 <head>
   <link rel="stylesheet" href="styles/JobDetailsPopUp.css" />
+  <script src="js/Jquery.js"></script>
 </head>
 
 <body>
@@ -114,7 +115,7 @@ if ($result2) {
       <h5>
         <form action="EmployerProfile.php" method="post" style="display: inline;">
           <input type="hidden" name="viewinfo" value="<?php echo $emaillem ?> ">
-          <button name="viewi" class="linkButton" >
+          <button name="viewi" class="linkButton">
             <?php echo '' . $companyName; ?>
           </button>
         </form> | <?php
@@ -132,7 +133,7 @@ if ($result2) {
       <h4 style="font-weight:bolder ;">Job Description</h4>
       <p>
         <?php
-        echo '' . $description; ?>
+        echo '' . $description; ?> 
       </p>
       <h6 style="font-weight: bold;">Required Skills</h6>
       <p>
@@ -146,42 +147,53 @@ if ($result2) {
       </p>
       <!-- apply Buttton -->
 
-      <form action="JobDetailsPopUp.php" method="POST">
+      <form id="aplyForm" action="JobDetailsPopUp.php" method="POST">
         <input type="hidden" name="JOB_ID" value="<?php
                                                   echo '' . $jobID; ?>">
         <div class="applyBtn">
           <input name="Apply" value="Apply" type="submit" />
+        </div>
       </form>
-    </div>
-  </div>
 
-
-  <div class="sideBar">
-    <div class="titleAndValueDiv">
-      <h5>Job Type</h5>
-      <p><?php
-          echo '' . $jobType; ?></p>
-    </div>
-    <div class="titleAndValueDiv">
-      <h5>Gender</h5>
-      <p><?php
-          echo '' . $gender; ?></p>
-    </div>
-    <div class="titleAndValueDiv">
-      <h5>Location</h5>
-      <p><?php echo '' . $city; ?></p>
-    </div>
-    <div class="titleAndValueDiv">
-      <h5>Salary Starts From</h5>
-      <p> <?php
-          echo '' . $salary; ?> SR</p>
     </div>
 
-  </div>
+    <?php
+if($IsEmployer){
+  echo '<script>
+  $(document).ready(function() {
+      $("#aplyForm").attr("display","none");
+      $(".applyBtn").hide();
+  });
+</script>';
+}
+?>
+    <div class="sideBar">
+      <div class="titleAndValueDiv">
+        <h5>Job Type</h5>
+        <p><?php
+            echo '' . $jobType; ?></p>
+      </div>
+      <div class="titleAndValueDiv">
+        <h5>Gender</h5>
+        <p><?php
+            echo '' . $gender; ?></p>
+      </div>
+      <div class="titleAndValueDiv">
+        <h5>Location</h5>
+        <p><?php echo '' . $city; ?></p>
+      </div>
+      <div class="titleAndValueDiv">
+        <h5>Salary Starts From</h5>
+        <p> <?php
+            echo '' . $salary; ?> SR</p>
+      </div>
+
+    </div>
 
   </div>
   <div class="overlay"></div>
   <?php include_once $Page . '.php'; ?>
 </body>
+
 
 </html>

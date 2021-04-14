@@ -62,7 +62,7 @@ if (isset($_POST['delete'])) {
   <link rel="stylesheet" href="styles\Footer.css" />
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-  <title>Profile | Job Seeeker</title>
+  <title>Profile | Job Seeker</title>
   <style>
     div.absolute {
       position: absolute;
@@ -189,12 +189,13 @@ else
       <h4><?php echo $firstName . " " . $lastName; ?> </h4>
       <h4><?php echo $currentJob; ?> </h4>
       <p><?php echo $city; ?></p>
-      <div class="profile-buttons">
+      <div class="profile-buttons"> <br>
         <?php
 
         if ($_SESSION['role'] == 2)
-          print '<div class="buttons"><a href="setAppointment.php"><button>Set Appotmaint</button></a>
-                    <a href="mailto: <?php echo $email ?>"> <i class="material-icons">email</i> </a></div>';
+       // <a href="setAppointment.php"><button>Set Appotmaint</button></a>
+          print '<div class="buttons">
+                    <a href="mailto: '.$email. '"> <i class="material-icons" >email</i> </a></div> ';
 
 
         else if ($_SESSION['role'] == 1)

@@ -376,9 +376,8 @@ if(isset($_GET['skillName'])){
                     <input Required type="text" id="major" name="major" value=<?php echo $major; ?> style="width:100%; height: 50%; font-size: medium;"></input>
                 </div>
                 <h3>Update password</h3>
-                    <input type="text" id="password" name="password" value=<?php echo $password; ?> style="width:100%; height: 50%; font-size: medium;"></input>
+                    <input type="text" id="password" name="password" value=<?php echo $password; ?> style="width:100%; height: 50%; font-size: medium;">
                 </div>
-            
             </div>
             </div>
             <div class="sideBar1">

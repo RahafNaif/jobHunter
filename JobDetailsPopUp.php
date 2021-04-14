@@ -4,7 +4,7 @@ session_start();
 if (!isset($_SESSION['email']) || $_SESSION['role'] == 2) {
   $IsEmployer = True;
 } else
-$IsEmployer =False;
+  $IsEmployer = False;
 
 if (!($database = mysqli_connect("localhost", "root", "")))
   die("<p>Could not connect to database</p>");
@@ -114,12 +114,12 @@ if ($result2) {
                                         echo '' . $position; ?></h1>
       <h5>
         <form action="EmployerProfile.php" method="post" style="display: inline;">
-          <input type="hidden" name="viewinfo" value="<?php echo $emaillem ?> ">
+          <input type="hidden" name="viewinfo" value=<?php echo $emaillem;?>>
           <button name="viewi" class="linkButton">
             <?php echo '' . $companyName; ?>
           </button>
-        </form> | <?php
-                  echo '' . $city; ?>
+        </form>
+        | <?php echo '' . $city; ?>
       </h5>
     </div>
 
@@ -133,7 +133,7 @@ if ($result2) {
       <h4 style="font-weight:bolder ;">Job Description</h4>
       <p>
         <?php
-        echo '' . $description; ?> 
+        echo '' . $description; ?>
       </p>
       <h6 style="font-weight: bold;">Required Skills</h6>
       <p>
@@ -148,8 +148,7 @@ if ($result2) {
       <!-- apply Buttton -->
 
       <form id="aplyForm" action="JobDetailsPopUp.php" method="POST">
-        <input type="hidden" name="JOB_ID" value="<?php
-                                                  echo '' . $jobID; ?>">
+        <input type="hidden" name="JOB_ID" value="<?php echo '' . $jobID; ?>">
         <div class="applyBtn">
           <input name="Apply" value="Apply" type="submit" />
         </div>
@@ -158,15 +157,15 @@ if ($result2) {
     </div>
 
     <?php
-if($IsEmployer){
-  echo '<script>
+    if ($IsEmployer) {
+      echo '<script>
   $(document).ready(function() {
       $("#aplyForm").attr("display","none");
       $(".applyBtn").hide();
   });
 </script>';
-}
-?>
+    }
+    ?>
     <div class="sideBar">
       <div class="titleAndValueDiv">
         <h5>Job Type</h5>

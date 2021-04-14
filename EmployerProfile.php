@@ -55,10 +55,13 @@ if (!isset($_SESSION['email'])) { //i edit this one to restrict jobsseker from e
 
         if (!mysqli_select_db($database, "jobhunter"))
             die("<p>Could not open URL database</p>");
+
         if (isset($_POST['viewi']))
             $email = $_POST['viewinfo'];
+      
         else
             $email = $_SESSION['email'];
+            
         $query = "select * from employer WHERE email='$email'";
         $result = mysqli_query($database, $query);
 

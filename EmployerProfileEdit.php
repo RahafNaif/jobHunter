@@ -41,10 +41,17 @@ if (isset($_POST['update'])) {
     $employerMission = $_POST['employerMission'];
     $employerVision = $_POST['employerVision'];
     $employerPassword = $_POST['password'];
+    
+    $_SESSION['email'] =  $employerEmail;
 
-    $email = $employerEmail;
     $query = "UPDATE employer SET name = '$employerName', address = '$employerAddress', email = '$employerEmail', phone = '$employerPhone', scope = '$employerScope', description = '$employerDescription', mission = '$employerMission', vision = '$employerVision', password = '$employerPassword' WHERE email = '$email'";
     $result = mysqli_query($database, $query);
+
+    $query =  "UPDATE job SET employer_email = '$employerEmail' WHERE employer_email = '$email'";
+    $result = mysqli_query($database, $query);
+
+    $email = $_SESSION['email'];
+
 
     if ($result) {
 ?>

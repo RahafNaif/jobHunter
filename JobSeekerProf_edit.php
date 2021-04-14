@@ -40,6 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $firstName = $fullName[0];
     $lastName = $fullName[1];
     print_r($fullName);
+    $password=$_POST['password'];
     $birthDate = $_POST['birthDate'];
     $gender = $_POST['gender'];
     $nationality = $_POST['nationality'];
@@ -58,6 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 firstName = '$firstName',
                 lastName = '$lastName', 
                 email = '$email',
+                password='$password',
                 birthDate = '$birthDate', 
                 gender = '$gender',
                 nationality = '$nationality',
@@ -209,7 +211,7 @@ if(isset($_GET['skillName'])){
     <nav></nav>
 
 
-
+  
     <main>
         <div class="JobHeader">
             <!--from github-->
@@ -346,33 +348,34 @@ if(isset($_GET['skillName'])){
             <div class="sideBar">
                 <div class="titleAndValueDiv">
                     <h3>Full Name</h3>
-                    <input type="text" name="fullName" value="<?php echo $firstName . " " . $lastName; ?>" style="width:100%; height: 50%; font-size: medium;"></input>
+                    <input  type="text" name="fullName" value="<?php echo $firstName . " " . $lastName; ?>" style="width:100%; height: 50%; font-size: medium;" ></input>
                 </div>
                 <div class="titleAndValueDiv">
                     <h3>Birth Date</h3>
-                    <input type="date" name="birthDate" value="<?php echo $birthDate; ?>" style="width:100%; height: 50%; font-size: medium;"></input>
+                    <input Required type="date" name="birthDate" value="<?php echo $birthDate; ?>" style="width:100%; height: 50%; font-size: medium;" Required></input>
                 </div>
                 <div class="titleAndValueDiv">
-                    <h3>Nationality</h3>
-                    <input type="text" name="nationality" value=<?php echo $nationality; ?> style="width:100%; height: 50%; font-size: medium;"> </input>
+                    <h3>Nationality </h3>
+                    <input Required type="text" name="nationality" style="width:100%; height: 50%; font-size: medium;" value=<?php echo $nationality; ?> > </input>
                 </div>
                 <div class="titleAndValueDiv">
                     <h3>City</h3>
-                    <input type="text" name="city" value=<?php echo $city; ?> style="width:100%; height: 50%; font-size: medium;"> </input>
+                    <input Required type="text" name="city" value=<?php echo $city; ?> style="width:100%; height: 50%; font-size: medium;"> </input>
                 </div>
                 <div class="titleAndValueDiv">
                     <h3>Phone</h3>
-                    <input type="text" id="phone" name="phone" value=<?php echo $phone; ?> style="width:100%; height: 50%; font-size: medium;"></input>
+                    <input  Required type="text" id="phone" name="phone" pattern="[0]{1}[5]{1}[0-9]{8}" value=<?php echo $phone; ?> style="width:100%; height: 50%; font-size: medium;"></input>
 
                     <div class="titleAndValueDiv">
                         <h3>Current Job</h3>
-                        <input type="text" name="currentJob" style="width:100%; height: 50%; font-size: medium;" value=<?php echo $currentJob ?> ></input>
+                        <input Required type="text" name="currentJob" style="width:100%; height: 50%; font-size: medium;" value=<?php echo $currentJob ?> ></input>
                     </div>
                 </div>
                 <div class="titleAndValueDiv">
                     <h3>Major</h3>
-                    <input type="text" id="major" name="major" value=<?php echo $major; ?> style="width:100%; height: 50%; font-size: medium;"></input>
+                    <input Required type="text" id="major" name="major" value=<?php echo $major; ?> style="width:100%; height: 50%; font-size: medium;"></input>
                 </div>
+            
             </div>
             </div>
             <div class="sideBar1">
@@ -381,7 +384,7 @@ if(isset($_GET['skillName'])){
                         <div class="card h-100">
                             <div class="card-body">
                                 <h3> Experience </h3>
-                                <textarea id="vision" name="experince"><?php echo $experince; ?> </textarea>
+                                <textarea style="width:100%; height: 200%; font-size: medium;" id="vision" name="experince"><?php echo $experince; ?> </textarea>
 
                             </div>
                         </div>

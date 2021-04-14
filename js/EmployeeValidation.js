@@ -58,7 +58,7 @@ $(document).ready(function () {
             $('#name_error').text('Company name can not be empty');
             $('#name_error').css('visibility','visible');
         }else {
-            $('#name').css('border-color','#ccc');
+            $('#name').css('border-color','white');
             $('#name_error').css('visibility','hidden');
             checkName = true;
         }
@@ -72,7 +72,7 @@ $(document).ready(function () {
             $('#email_error').text('Invaild email format');
             $('#email_error').css('visibility','visible');
         }else {
-            $('#email').css('border-color','#ccc');
+            $('#email').css('border','white');
             $('#email_error').css('visibility','hidden');
             checkEmail = true;
         }
@@ -85,7 +85,7 @@ $(document).ready(function () {
             $('#scope_error').text('Company Scope can not be empty');
             $('#scope_error').css('visibility','visible');
         }else {
-            $('#scope').css('border-color','#ccc');
+            $('#scope').css('border-color','white');
             $('#scope_error').css('visibility','hidden');
             checkScope = true;
         }
@@ -100,7 +100,7 @@ $(document).ready(function () {
             $('#phone_error').text('Phone number should be 10 digits');
             $('#phone_error').css('visibility','visible');
         }else {
-            $('#phone').css('border-color','#ccc')
+            $('#phone').css('border-color','white')
             $('#phone_error').css('visibility','hidden')
             checkPhone = true;
         }
@@ -118,7 +118,7 @@ $(document).ready(function () {
             $('#address_error').text('Address can not be empty');
             $('#address_error').css('visibility','visible');
         }else {
-            $('#address').css('border-color','#ccc');
+            $('#address').css('border-color','white');
             $('#address_error').css('visibility','hidden');
             checkAddress = true;
         }
@@ -131,7 +131,7 @@ $(document).ready(function () {
             $('#des_error').text('Description can not be empty');
             $('#des_error').css('visibility','visible');
         }else {
-            $('#des').css('border-color','#ccc');
+            $('#des').css('border-color','white');
             $('#des_error').css('visibility','hidden');
             checkDes = true;
         }
@@ -144,7 +144,7 @@ $(document).ready(function () {
             $('#mission_error').text('mission can not be empty');
             $('#mission_error').css('visibility','visible');
         }else {
-            $('#mission').css('border-color','#ccc');
+            $('#mission').css('border-color','white');
             $('#mission_error').css('visibility','hidden');
             checkMission = true;
         }
@@ -157,7 +157,7 @@ $(document).ready(function () {
             $('#vision_error').text('vision can not be empty');
             $('#vision_error').css('visibility','visible');
         }else {
-            $('#vision').css('border-color','#ccc');
+            $('#vision').css('border-color','white');
             $('#vision_error').css('visibility','hidden');
             checkVision = true;
         }
@@ -170,7 +170,7 @@ $(document).ready(function () {
             $('#password_error').text('password should be 8 digits or more');
             $('#password_error').css('visibility','visible');
         }else {
-            $('#password').css('border-color','#ccc');
+            $('#password').css('border-color','white');
             $('#password_error').css('visibility','hidden');
             checkPassword = true;
         }
@@ -184,7 +184,7 @@ $(document).ready(function () {
             $('#re_password_error').text('passwords did not match');
             $('#re_password_error').css('visibility','visible');
         }else {
-            $('#re_password').css('border-color','#ccc');
+            $('#re_password').css('border-color','white');
             $('#re_password_error').css('visibility','hidden');
             checkRe_password = true;
         }

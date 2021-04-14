@@ -42,10 +42,10 @@
                         <span class="material-icons" class="search-icon">search</span>
                         <input type="text" class="input" placeholder="Search" name="search">
                         <div class="dropdown">
-                            <div class="default_option"><input type="text" name="gender" value="male" id="gender" style="background-color:transparent;border:none; outline:none; cursor:pointer;font-size: 16px;color:#192d50;" readonly></div>  
+                            <div class="default_option"><input type="text" name="gender" value="gender" id="gender" style="background-color:transparent;border:none; outline:none; cursor:pointer;font-size: 16px;color:#192d50;" readonly></div>  
                             <ul>
-                            <li id="male">male</li>
-                            <li id="female">female</li>
+                                <li id="male">male</li>
+                                <li id="female">female</li>
                             </ul>
                         </div>
                         <div class="dropdown2">
@@ -106,7 +106,7 @@
                     die("<p>Could not open URL database</p>");
                 
                 $search = $_GET['search'];
-                $gender = $_GET['gender'];
+                $gender = isset($_GET['gender']) ? $_GET['gender'] : "gender";
                 $skill = $_GET['skill'];
                 $nation = $_GET['nation'];
                 $major = $_GET['major'];
@@ -116,8 +116,14 @@
                     <ul>
                     <?php
 
-                        if($search==''){
+                        if(($search=='') && ($gender=='gender')){
                             $query = "select firstName, lastName, email, gender, nationality, city, major from jobseeker";
+                        }elseif(($search=='') && ($skill=='') && ($nation=='') &&($major=='') &&($gender=='male')){
+                            $query = "select firstName, lastName, email, gender, nationality, city, major from jobseeker WHERE gender='".$gender."'";
+
+                        }elseif(($search=='') && ($skill=='') && ($nation=='') &&($major=='') &&($gender=='female')){
+                            $query = "select firstName, lastName, email, gender, nationality, city, major from jobseeker WHERE gender='".$gender."'";
+
                         }elseif(!empty($search) && ($skill=='') && ($nation=='') &&($major=='') &&($gender=='male')){
                             $query = "select firstName, lastName, email, gender, nationality, city, major from jobseeker WHERE gender='".$gender."' AND (firstName='".$search."' OR lastName='".$search."')";
 

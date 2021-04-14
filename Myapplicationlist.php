@@ -74,7 +74,7 @@ if (!isset($_SESSION['email']) ){
             
             while ($data = mysqli_fetch_assoc($result)) {
                 $name = $data['position'];
-                $companyName = $data['companyName'];
+                $companyName = $data['major'];
                 $city = $data['city'];
                 $tybepart = $data['jobType'];
                 $description = $data['description'];

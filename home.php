@@ -65,7 +65,7 @@
                     <?php 
                         if (!isset($_SESSION['email'])) {
                             print '<p>Job seeker? or an Employeer join us!</p>';
-                            print'<a href="WhoIsYou.html" style="text-decoration: none;"><button class="join-button">Join us!</button></a>';
+                            print'<a href="WhoAreYou.html" style="text-decoration: none;"><button class="join-button">Join us!</button></a>';
                         }
                     ?>
                 </div>

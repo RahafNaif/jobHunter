@@ -10,7 +10,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="js/jobSeekerSearch.js"></script>
 
-        <title>Employer | Job Seekers</title>
+        <title>Employer | Job Seekers Search</title>
     </head>
     <body>
         <div class="container">

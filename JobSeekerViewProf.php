@@ -62,7 +62,7 @@ if (isset($_POST['delete'])) {
   <link rel="stylesheet" href="styles\Footer.css" />
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-  <title>Profile | Job Seeeker</title>
+  <title>Profile | Job Seeker</title>
   <style>
     div.absolute {
       position: absolute;

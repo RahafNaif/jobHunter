@@ -11,7 +11,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="js/jobSearchBar.js"></script>
 
-        <title>Job Hunter</title>
+        <title>Jobs Search</title>
     </head>
     <body>  
         <div class="container">

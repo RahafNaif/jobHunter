@@ -34,7 +34,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="js/setAppointmentForm.js"></script>
 
-    <title>Job Hunter</title>
+    <title>Employer | Set Appointment</title>
   </head>
   <body>
     <!-- popup for notifications -->

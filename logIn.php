@@ -16,7 +16,7 @@ if (isset($_SESSION['email'])) {
 
 <head>
     <meta charset="UTF-8" />
-    <title>Applicants</title>
+    <title>Log in</title>
     <link rel="stylesheet" href="styles\JobListingStylesFay.css" />
     <link rel="icon" href="img/icon.png">
     <link rel="stylesheet" href="styles\Buttons.css" />

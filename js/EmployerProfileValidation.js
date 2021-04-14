@@ -14,7 +14,7 @@ $(document).ready(function () {
         var pass = $('#password').val();
         if (pass.length < 8) {
             checkPassword = false;
-            $('#password').css('border-color', 'red');
+            $('#password').css({'border':'solid 1px red'});
             $('#password_error').text('password should be 8 digits or more');
             $('#password_error').css('visibility', 'visible');
         } else {
@@ -26,18 +26,23 @@ $(document).ready(function () {
 
     function check_phone() {
         var phone = $('#phone').val();
-        if (phone.length == 10) {
+        if (phone.length == 10 && phone_validate(phone)) {
             $('#phone').css('border-color', '#ccc')
             $('#phone_error').css('visibility', 'hidden')
             checkPhone = true;
         } else {
             checkPhone = false;
-            $('#phone').css('border-color', 'red');
-            $('#phone_error').text('Phone number should be 10 digits');
+            $('#phone').css({'border':'solid 1px red'});
+            $('#phone_error').text('Phone number should be 10 digits and without letters');
             $('#phone_error').css('visibility', 'visible');
 
         }
     }
+
+    function phone_validate(phno) { 
+        var regexPattern=new RegExp(/^[0-9-+]+$/);    // regular expression pattern
+        return regexPattern.test(phno); 
+    } 
 
     $('#form').on('submit', function (e) {
         if (!checkPhone) {

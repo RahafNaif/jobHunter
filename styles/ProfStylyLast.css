@@ -7,25 +7,6 @@
   box-sizing: border-box;
 }
 
-/* SCROLL BAR */
-::-webkit-scrollbar {
-  width: 0px;
-  background: transparent;
-}
-
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-::-webkit-scrollable-thumb {
-  background: #fa9746;
-  border-radius: 5px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #fa9746;
-  border-radius: 5px;
-}
 
 body {
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
@@ -54,11 +35,8 @@ main {
   position: relative;
 }
 .details {
-  position: absolute;
   list-style: none;
   width: 30%;
-  height: fit-content;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 1.25rem;
   font-size: 1rem;
   margin: 1rem;
@@ -69,14 +47,17 @@ main {
   background-color: rgba(234, 243, 250, 0.8);
   text-align: center;
   height: 350px;
+  background: rgba(234, 243, 250, 0.8);
+  border-radius: 25px;
+  box-shadow: 5px 3px 3px rgba(43, 70, 139, 0.1);
 }
+
 .details1 {
   position: absolute;
   list-style: none;
   width: 30%;
   height: fit-content;
   height: 320px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 1.25rem;
   font-size: 1rem;
   margin: 10rem;
@@ -90,13 +71,16 @@ main {
   padding: bottom 20px;
   background-color: rgba(234, 243, 250, 0.8);
   text-align: justify;
+  background: rgba(234, 243, 250, 0.8);
+  border-radius: 25px;
+  box-shadow: 5px 3px 3px rgba(43, 70, 139, 0.1);
 }
+
 .details3 {
   position: absolute;
   list-style: none;
   width: 30%;
   height: fit-content;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 1.25rem;
   font-size: 1rem;
   margin: 20rem;
@@ -110,12 +94,16 @@ main {
   padding: bottom 20px;
   background-color: rgba(234, 243, 250, 0.8);
   text-align: justify;
+  background: rgba(234, 243, 250, 0.8);
+  border-radius: 25px;
+  box-shadow: 5px 3px 3px rgba(43, 70, 139, 0.1);
 }
 .details ol,
 .details ul {
   margin: 0.2rem;
   list-style-position: inside;
 }
+
 .details li {
   text-align: justify;
   width: 80%;
@@ -127,7 +115,6 @@ main {
   position: absolute;
   list-style: none;
   height: 700px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 20px;
   font-size: 16px;
   margin: 1px;
@@ -138,6 +125,9 @@ main {
   /* margin-right: 400px; */
   margin-right: 34%;
   width: 30%;
+  background: rgba(234, 243, 250, 0.8);
+  border-radius: 25px;
+  box-shadow: 5px 3px 3px rgba(43, 70, 139, 0.1);
 }
 
 .sideBar1 {
@@ -145,7 +135,6 @@ main {
   position: absolute;
   list-style: none;
   height: 700px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 20px;
   font-size: 16px;
   margin: 1px;
@@ -156,6 +145,9 @@ main {
   margin-right: 1px;
   margin-left: 20px;
   width: 30%;
+  background: rgba(234, 243, 250, 0.8);
+  border-radius: 25px;
+  box-shadow: 5px 3px 3px rgba(43, 70, 139, 0.1);
 }
 
 .titleAndValueDiv {
@@ -205,36 +197,7 @@ main {
 .navLinks1 ul {
   width:fit-content!important;
 }
-/* button {
-        transform: translateX(-130%);
-        position: relative;
-        margin: 20px;
-        margin-left: 40%;
-        border-radius: 20px;
-        width: 100px;
-        height: 30px;
-        font-size: 12px;
-        color: rgb(234, 243, 250);
-        cursor: pointer;
-        border: none;
-        outline: none;
-        background: #FA9746;
-        overflow: hidden;
-    } */
 
-/* button:hover {
-        transition: 0.3s ease-in;
-        background: transparent;
-        border: 1px solid rgb(138, 177, 244);
-        color: #8CB3F4;
-        transform: scale(1.2);
-    }
-    
-    button:focus {
-        color: #8CB3F4;
-        border: 1px solid #8CB3F4;
-        background: rgba(234, 243, 250, 0.8);
-    } */
 
 .applicants {
   text-decoration: none;
@@ -274,11 +237,8 @@ main {
   flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
-
   background-clip: border-box;
-  border: 0 solid rgba(0, 0, 0, 0.125);
   border-radius: 0.25rem;
-  box-shadow: 0 5px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
 }
 
 .card-body {
@@ -622,3 +582,101 @@ a.text-info:focus {
 .navLinks2 {
   margin-right: 7%;
 }
+
+
+form input,
+select,
+option{
+    color: #192D50;
+    font-size: 16px;
+    background-color: #ffffff;
+    border: 0;
+    border-radius: 5px;
+    padding: 5px;
+    width: 300px;
+}
+
+#Instagram, #Github, #Website, #Faceboock{
+  width: 200px;
+}
+
+form input[type=date],
+form input[type=time] {
+    background-color: #ffffff;
+    width: 600px;
+}
+
+form input[type=checkbox],
+form input[type=radio] {
+    margin-right: 0;
+    width: fit-content;
+}
+
+form .buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+form input[type=reset],
+#deleteBtn,
+form input[type=submit] {
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bolder;
+    text-transform: uppercase;
+    width: 150px;
+    height: 40px;
+    padding: 10px;
+    border: 0;
+    border-radius: 50px;
+}
+
+form input[type=reset],
+#deleteBtn {
+    color: #8cb3f4;
+    border: 3px solid #8cb3f4;
+    background: rgba(234, 243, 250, 0.8);
+}
+
+form input[type=submit] {
+    background: #fa9746;
+    color: #ffffff;
+}
+
+select{
+    width: 420px;
+}
+
+form input[type=submit]:hover,
+form input[type=reset]:hover {
+    transition: all 0.3s ease-in-out;
+    background: transparent;
+    border: 3px solid #8cb3f4;
+    color: #8cb3f4;
+    cursor: pointer;
+}
+
+form input[type=submit]:focus,
+form input[type=reset]:focus {
+    color: #8cb3f4;
+    border: 3px solid #8cb3f4;
+    background: rgba(234, 243, 250, 0.8);
+}
+
+form textarea {
+    color: #192D50;
+    font-size: 16px;
+    width: 300px;
+    height: 150px;
+    border: 0;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #ffffff;
+}
+
+input:focus,
+textarea:focus,select:focus {
+    outline: none;
+}
+

@@ -94,27 +94,17 @@ if (isset($_GET['skillName'])) {
     <link rel="icon" href="img/icon.png">
     <link rel="stylesheet" href="styles/Buttons.css" />
     <link rel="stylesheet" href="styles/Notifications.css" />
-    <!-- <link rel="stylesheet" href="styles\JobListingStylesF.css" /> -->
     <link rel="stylesheet" href="styles/NavbarStyles.css" />
-    <!-- <link rel="stylesheet" href="styles\prostylee.css" /> -->
     <link rel="stylesheet" href="styles/Footer.css" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <title>Profile | Job Seeker</title>
-    <style>
-        div.absolute {
-            position: absolute;
-            left: 30px;
-            top: 80px;
-            right: 0;
-        }
-    </style>
+
 
 </head>
 
 
 <body>
-
 
     <?php include('./NavigationBar.php') ?>
 
@@ -122,9 +112,6 @@ if (isset($_GET['skillName'])) {
 
     <main>
         <div class="JobHeader">
-            <!--from github-->
-            <!-- Company svg -->
-
             <div class="companySVG">
                 <g id="surface1">
                     <path style=" stroke:none;fill-rule:nonzero;fill:rgb(16.862745%,27.45098%,54.509804%);fill-opacity:1;" d="M 85.738281 52.195312 C 85.738281 31.246094 68.613281 14.261719 47.492188 14.261719 C 26.371094 14.261719 9.246094 31.246094 9.246094 52.195312 C 9.246094 73.144531 26.371094 90.125 47.492188 90.125 C 68.613281 90.125 85.738281 73.144531 85.738281 52.195312 Z M 85.738281 52.195312 " />
@@ -205,15 +192,6 @@ if (isset($_GET['skillName'])) {
             <div class="details1">
                 <ul>
                     <li class="group-list-item display-flex justify-between align-center  flex-wrap">
-                        <h6 class="margin-bottom-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-globe margin-right-2 icon-inline">
-                                <circle cx="12" cy="12" r="10"></circle>
-                                <line x1="2" y1="12" x2="22" y2="12"></line>
-                                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
-                                </path>
-                            </svg>Website</h6>
-                        <span class="gray-color"><input type="text" id="Website" name="Website" value=<?php echo $Website; ?>></input></span>
-                    </li>
-                    <li class="group-list-item display-flex justify-between align-center  flex-wrap">
                         <h6 class="margin-bottom-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github margin-right-2 icon-inline">
                                 <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
                                 </path>
@@ -268,33 +246,36 @@ if (isset($_GET['skillName'])) {
                     <h3>Major</h3>
                     <input Required type="text" id="major" name="major" value=<?php echo $major; ?> style="width:100%; height: 50%; font-size: medium;"></input>
                 </div>
-                <h3>Update password</h3>
-                <input Required type="text" id="password" name="password" value=<?php echo $password; ?> style="width:100%; height: 50%; font-size: medium;"></input>
             </div>
+
 
             <div class="sideBar1">
                 <div class="row gutters-sm">
                     <div class="column-6 margin-bottom-3">
                         <div class="card h-100">
                             <div class="card-body">
+                                <h3>Update password</h3>
+                                <input Required type="text" id="password" name="password" value=<?php echo $password; ?> style="width:100%; height: 50%; font-size: medium;"></input>
+                                <br><br><br>
                                 <h3> Experience </h3>
                                 <textarea style="width:100%; height: 200%; font-size: medium;" id="vision" name="experince"><?php echo $experince; ?> </textarea>
                             </div>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="row gutters-sm">
                     <div class="column-6 margin-bottom-3">
                         <div class="card h-100">
                             <div class="card-body">
                                 <h3> Skills </h3>
                                 <input type="text" id="skillName" style="width:100%; height: 50%; font-size: medium;"></input>
-                                <button type="button" onclick=addskill()> +</button>
+                            
                             </div>
                         </div>
                     </div>
                 </div>
+                <button type="button" onclick=addskill()> +</button>
                 <button type="submit" value="updateProfile" name="editProf"> UPDATE </button>
             </div> <br>
 

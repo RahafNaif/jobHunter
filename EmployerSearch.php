@@ -86,7 +86,7 @@
                 while ($data = mysqli_fetch_assoc($result)) {
                     print '<li class="post">';
                     print '<div class="post-content">';
-                    print '<form action="EmployerProfile.php" method="post" style="position:relative;" >';
+                    print '<form action="EmployerProfile.php" method="post" style="position:relative; color: #192d50; " >';
                     print '<input type="hidden" name="viewinfo" value="' . $data['email'] . '" />';
                     print '<button type="submit" name="viewi" style="all: unset; cursor:pointer; height: 100%; width: 100%; position: absolute; right: 0; top: 0;">';
                     print '<h4 id="companyName" style="font-weight:bold;">' . $data['name'] . '</h4>';

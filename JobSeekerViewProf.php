@@ -141,6 +141,9 @@ if (isset($_POST['delete'])) {
     <?php
 
     $email = $_SESSION['email'];
+    if(isset($_GET['applicantID'])){
+      $email = $_GET['applicantID'];
+    }
     $query = "select * from jobseeker WHERE email='$email'";
     $result = mysqli_query($database, $query);
     if ($result) {
@@ -169,9 +172,6 @@ if (isset($_POST['delete'])) {
       exit();
     }
     ?>
-
-
-
 
     <div class="details">
       <img src="img/person_JobDetails.svg" alt="Admin" class="circle" style="width:128px;height:128px;">

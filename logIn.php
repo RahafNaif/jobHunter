@@ -103,7 +103,7 @@ if (isset($_SESSION['email'])) {
 
         #page-container {
             position: relative;
-            min-height: 100vh;
+            min-height: 120vh;
         }
 
         #content-wrap {

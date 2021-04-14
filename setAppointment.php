@@ -111,8 +111,18 @@
             <li>
               <a href="#"><i class="material-icons">person</i></a>
               <ul>
-                <li><a href="EmployerProfile.php">Profile</a></li>
-                <li><a href="http:signout.php">Log out</a></li>
+                <!-- <li><a href="EmployerProfile.php">Profile</a></li>
+                <li><a href="http:signout.php">Log out</a></li> -->
+                <?php 
+                  if ($_SESSION['role']==1){
+                    $profile = 'JobSeekerViewProf.php';
+                  }else{
+                    $profile = 'EmployerProfile.php';
+                  }
+                    print '<li><a href="'.$profile.'"> Profile</a></li>';
+                    if (isset($_SESSION['role'])) print '<li><a href="http:signout.php">logout</a></li>';
+                    else print '<li><a href="http:login.php">login</a></li>';
+                ?>
               </ul>
             </li>
           </ul>

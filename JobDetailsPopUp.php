@@ -130,16 +130,19 @@ if ($result2) {
         <?php
         echo '' . $title; ?>
       </p>
+      <br/>
       <h4 style="font-weight:bolder ;">Job Description</h4>
       <p>
         <?php
         echo '' . $description; ?>
       </p>
+      <br/>
       <h6 style="font-weight: bold;">Required Skills</h6>
       <p>
         <?php
         echo '' . $skills; ?>
       </p>
+      <br/>
       <h6 style="font-weight: bold;">Rrequired Qualifications</h6>
       <p id="QualificationsP">
         <?php

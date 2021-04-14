@@ -70,7 +70,7 @@ $(document).ready(function () {
             $('#firstName_error').text('first Name name can not be empty');
             $('#firstName_error').css('visibility','visible');
         }else {
-            $('#firstName').css('border-color','#ccc');
+            $('#firstName').css('border-color','white');
             $('#firstName_error').css('visibility','hidden');
             checkFname = true;
         }
@@ -83,7 +83,7 @@ $(document).ready(function () {
             $('#lastName_error').text('last Name can not be empty');
             $('#lastName_error').css('visibility','visible');
         }else {
-            $('#lastName').css('border-color','#ccc');
+            $('#lastName').css('border-color','white');
             $('#lastName_error').css('visibility','hidden');
             checkLname = true;
         }
@@ -100,7 +100,7 @@ $(document).ready(function () {
             $('#email_error').text('Invaild email format');
             $('#email_error').css('visibility','visible');
         }else {
-            $('#email').css('border-color','#ccc');
+            $('#email').css('border-color','white');
             $('#email_error').css('visibility','hidden');
             checkEmail = true;
         }
@@ -113,7 +113,7 @@ $(document).ready(function () {
             $('#city_error').text('city can not be empty');
             $('#city_error').css('visibility','visible');
         }else {
-            $('#city').css('border-color','#ccc');
+            $('#city').css('border-color','white');
             $('#city_error').css('visibility','hidden');
             checkCity = true;
         }
@@ -126,7 +126,7 @@ $(document).ready(function () {
             $('#phone_error').text('Phone number should be 10 digits');
             $('#phone_error').css('visibility','visible');
         }else {
-            $('#phone').css('border-color','#ccc')
+            $('#phone').css('border-color','white')
             $('#phone_error').css('visibility','hidden')
             checkPhone = true;
         }
@@ -139,7 +139,7 @@ $(document).ready(function () {
             $('#birthDate_error').text('birth Date can not be empty');
             $('#birthDate_error').css('visibility','visible');
         }else {
-            $('#birthDate').css('border-color','#ccc');
+            $('#birthDate').css('border-color','white');
             $('#birthDateerror').css('visibility','hidden');
             checkBirthDate = true;
         }
@@ -154,7 +154,7 @@ $(document).ready(function () {
             $('#nationality_error').text('nationality can not be empty');
             $('#nationality_error').css('visibility','visible');
         }else {
-            $('#nationality').css('border-color','#ccc');
+            $('#nationality').css('border-color','white');
             $('#nationality_error').css('visibility','hidden');
             checkNationality = true;
         }
@@ -168,7 +168,7 @@ $(document).ready(function () {
             $('#major_error').text('major can not be empty');
             $('#major_error').css('visibility','visible');
         }else {
-            $('#major').css('border-color','#ccc');
+            $('#major').css('border-color','white');
             $('#major_error').css('visibility','hidden');
             checkMajor = true;
         }
@@ -181,7 +181,7 @@ $(document).ready(function () {
             $('#experince_error').text('experince can not be empty');
             $('#experince_error').css('visibility','visible');
         }else {
-            $('#experince').css('border-color','#ccc');
+            $('#experince').css('border-color','white');
             $('#experince_error').css('visibility','hidden');
             checkExperince = true;
         }
@@ -194,7 +194,7 @@ $(document).ready(function () {
             $('#skills_error').text('skills can not be empty');
             $('#skills_error').css('visibility','visible');
         }else {
-            $('#skills').css('border-color','#ccc');
+            $('#skills').css('border-color','white');
             $('#skills_error').css('visibility','hidden');
             checkSkills  = true;
         }
@@ -207,7 +207,7 @@ $(document).ready(function () {
             $('#currentJob_error').text('current Job can not be empty');
             $('#currentJob_error').css('visibility','visible');
         }else {
-            $('#currentJob').css('border-color','#ccc');
+            $('#currentJob').css('border-color','white');
             $('#currentJob_error').css('visibility','hidden');
             checkCurrentJob = true;
         }
@@ -220,7 +220,7 @@ $(document).ready(function () {
             $('#password_error').text('password should be 8 digits or more');
             $('#password_error').css('visibility','visible');
         }else {
-            $('#password').css('border-color','#ccc');
+            $('#password').css('border-color','white');
             $('#password_error').css('visibility','hidden');
             checkPassword = true;
         }
@@ -234,7 +234,7 @@ $(document).ready(function () {
             $('#re_password_error').text('passwords did not match');
             $('#re_password_error').css('visibility','visible');
         }else {
-            $('#re_password').css('border-color','#ccc');
+            $('#re_password').css('border-color','white');
             $('#re_password_error').css('visibility','hidden');
             checkRe_password = true;
         }

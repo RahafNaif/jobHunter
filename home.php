@@ -157,6 +157,8 @@
                                 $i=0;
                                 while ($data = mysqli_fetch_assoc($result2)) {
                                     if($i<3){
+                                        print '<input type="hidden" name="viewinfo" value="' . $data['email'] . '" />';
+
                                         print '<li class="post">';
                                         print '<div class="post-content">';
                                         print '<img class="post-img" src="img/company.svg" alt="company img">';
@@ -166,9 +168,12 @@
                                         print '<p class="about">About Company :</p>';
                                         print '<p class="company">Scope : '.$data['scope'].'</p>';
                                         print '<p class="company">'.$data['vision'].' </p><br>';
-                                        print '<a href="EmployerProfile.php"><button class="job-content">View Profile</button></a>';
+                                        print '<form action="EmployerProfile.php" method="post" style="position:relative;" >';
+                                        print '<button type="submit" name="viewi" class="job-content">View Profile</button>';
+                                        print '</form>';
                                         print '</div>';
                                         print '</li>';
+
                                         $i++;
                                     }
                                 }
@@ -179,7 +184,7 @@
                         ?>             
                     </ul>
                 </div>
-               <a href="EmployerSearch.html" class="job-link">more employers<span class="material-icons">keyboard_arrow_right</span></a>
+               <a href="EmployerSearch.php" class="job-link">more employers<span class="material-icons">keyboard_arrow_right</span></a>
             </div>
             
             <div class="footer">

@@ -83,7 +83,7 @@ if (!mysqli_select_db($database, "JobHunter"))
     $result = mysqli_query($database, $myquery);
 
     if ($result) {
-      header("location: jobLisiting.php");
+      header("location: JobListing.php");
       exit();
     } else
       echo "An error occured while updating the job.";
@@ -97,7 +97,7 @@ if (!mysqli_select_db($database, "JobHunter"))
     $result = mysqli_query($database, $myquery);
 
     if ($result) {
-      header("location: jobLisiting.php");
+      header("location: JobListing.php");
       exit();
     } else
       echo "An error occured while updating the job.";

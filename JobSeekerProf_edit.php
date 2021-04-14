@@ -196,7 +196,7 @@ if (isset($_GET['skillName'])) {
                                 <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
                                 </path>
                             </svg>Github</h6>
-                        <span class="gray-color"><input type="text" id="Github" name="Github" value=<?php echo $Github; ?>></input></span>
+                        <span class="gray-color"><input type="text" id="Github" name="Github" value=<?php echo $Github; ?>></span>
                     </li>
                     <li class="group-list-item display-flex justify-between align-center  flex-wrap">
                         <h6 class="margin-bottom-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-instagram margin-right-2 icon-inline text-danger">
@@ -204,13 +204,13 @@ if (isset($_GET['skillName'])) {
                                 <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
                                 <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
                             </svg>Instagram</h6>
-                        <span class="gray-color"><input type="text" id="Instagram" name="Instagram" value=<?php echo $Instagram; ?>></input></span>
+                        <span class="gray-color"><input type="text" id="Instagram" name="Instagram" value=<?php echo $Instagram; ?>></span>
                     </li>
                     <li class="group-list-item display-flex justify-between align-center  flex-wrap">
                         <h6 class="margin-bottom-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook margin-right-2 icon-inline text-primary">
                                 <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
                             </svg>Facebook</h6>
-                        <span class="gray-color"><input type="text" id="Faceboock" name="Facebook" value=<?php echo $Facebook; ?>></input></span>
+                        <span class="gray-color"><input type="text" id="Faceboock" name="Facebook" value=<?php echo $Facebook; ?>></span>
                     </li>
                 </ul>
             </div>
@@ -219,32 +219,32 @@ if (isset($_GET['skillName'])) {
             <div class="sideBar">
                 <div class="titleAndValueDiv">
                     <h3>Full Name</h3>
-                    <input type="text" name="fullName" value="<?php echo $firstName . " " . $lastName; ?>" style="width:100%; height: 50%; font-size: medium;"></input>
+                    <input type="text" name="fullName" value="<?php echo $firstName . " " . $lastName; ?>" style="width:100%; height: 50%; font-size: medium;">
                 </div>
                 <div class="titleAndValueDiv">
                     <h3>Birth Date</h3>
-                    <input Required type="date" name="birthDate" value="<?php echo $birthDate; ?>" style="width:100%; height: 50%; font-size: medium;" Required></input>
+                    <input Required type="date" name="birthDate" value="<?php echo $birthDate; ?>" style="width:100%; height: 50%; font-size: medium;" Required>
                 </div>
                 <div class="titleAndValueDiv">
                     <h3>Nationality </h3>
-                    <input Required type="text" name="nationality" style="width:100%; height: 50%; font-size: medium;" value=<?php echo $nationality; ?>> </input>
+                    <input Required type="text" name="nationality" style="width:100%; height: 50%; font-size: medium;" value=<?php echo $nationality; ?>>
                 </div>
                 <div class="titleAndValueDiv">
                     <h3>City</h3>
-                    <input Required type="text" name="city" value=<?php echo $city; ?> style="width:100%; height: 50%; font-size: medium;"> </input>
+                    <input Required type="text" name="city" value=<?php echo $city; ?> style="width:100%; height: 50%; font-size: medium;">
                 </div>
                 <div class="titleAndValueDiv">
                     <h3>Phone</h3>
-                    <input Required type="text" id="phone" name="phone" pattern="[0]{1}[5]{1}[0-9]{8}" value=<?php echo $phone; ?> style="width:100%; height: 50%; font-size: medium;"></input>
+                    <input Required type="text" id="phone" name="phone" pattern="[0]{1}[5]{1}[0-9]{8}" value=<?php echo $phone; ?> style="width:100%; height: 50%; font-size: medium;">
 
                     <div class="titleAndValueDiv">
                         <h3>Current Job</h3>
-                        <input Required type="text" name="currentJob" style="width:100%; height: 50%; font-size: medium;" value=<?php echo $currentJob ?>></input>
+                        <input Required type="text" name="currentJob" style="width:100%; height: 50%; font-size: medium;" value=<?php echo $currentJob ?>>
                     </div>
                 </div>
                 <div class="titleAndValueDiv">
                     <h3>Major</h3>
-                    <input Required type="text" id="major" name="major" value=<?php echo $major; ?> style="width:100%; height: 50%; font-size: medium;"></input>
+                    <input Required type="text" id="major" name="major" value=<?php echo $major; ?> style="width:100%; height: 50%; font-size: medium;">
                 </div>
             </div>
 
@@ -255,7 +255,7 @@ if (isset($_GET['skillName'])) {
                         <div class="card h-100">
                             <div class="card-body">
                                 <h3>Update password</h3>
-                                <input Required type="text" id="password" name="password" value=<?php echo $password; ?> style="width:100%; height: 50%; font-size: medium;"></input>
+                                <input Required type="text" id="password" name="password" value=<?php echo $password; ?> style="width:100%; height: 50%; font-size: medium;">
                                 <br><br><br>
                                 <h3> Experience </h3>
                                 <textarea style="width:100%; height: 200%; font-size: medium;" id="vision" name="experince"><?php echo $experince; ?> </textarea>
@@ -269,8 +269,8 @@ if (isset($_GET['skillName'])) {
                         <div class="card h-100">
                             <div class="card-body">
                                 <h3> Skills </h3>
-                                <input type="text" id="skillName" style="width:100%; height: 50%; font-size: medium;"></input>
-                            
+                                <input type="text" id="skillName" style="width:100%; height: 50%; font-size: medium;">
+
                             </div>
                         </div>
                     </div>
@@ -281,17 +281,17 @@ if (isset($_GET['skillName'])) {
 
         </form>
     </main>
-  <!-- Footer -->
-  <div class="footer">
-    <div class="footer-content">
-      <p>Contact us</p>
-      <span class="material-icons">facebook</span>
-      <a href="mailto:jobhunter@ksu.com"><span class="material-icons">email</span></a>
+    <!-- Footer -->
+    <div class="footer">
+        <div class="footer-content">
+            <p>Contact us</p>
+            <span class="material-icons">facebook</span>
+            <a href="mailto:jobhunter@ksu.com"><span class="material-icons">email</span></a>
+        </div>
+        <div class="shape-footer" style="height: 150px;"><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
+                <path d="M-15.58,-15.49 C-16.70,110.81 186.45,57.52 502.48,59.50 L500.00,0.00 L0.00,0.00 Z" style="stroke: none; fill: #8CB3F4;"></path>
+            </svg></div>
     </div>
-    <div class="shape-footer" style="height: 150px;"><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
-        <path d="M-15.58,-15.49 C-16.70,110.81 186.45,57.52 502.48,59.50 L500.00,0.00 L0.00,0.00 Z" style="stroke: none; fill: #8CB3F4;"></path>
-      </svg></div>
-  </div>
 
 
     <script>

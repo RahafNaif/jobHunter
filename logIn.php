@@ -208,7 +208,7 @@ if (isset($_POST['login'])) {
                                 <input type="password" class="form-input" name="password" id="password" placeholder="Your password"  required /> <br> <br>
                                 <h4>Don't have an account yet? <a href="WhoIsYou.html">Sign Up </a> </h4>
                                 <br>
-                                <button name="login" class="applicants">Log in</button>
+                                <button name="login" type="submit" class="applicants">Log in</button>
                             </form>
                             
                         </div>

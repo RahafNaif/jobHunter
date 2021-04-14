@@ -11,7 +11,7 @@
     height: max-content;
     width: 70%;
     padding-bottom: 2rem;
-    position: fixed;
+    position: absolute;
 }
 
 .jobDeatailsContainer #companySVG,

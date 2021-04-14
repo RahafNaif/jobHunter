@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="UTF-8" />
-    <title>Applicants</title>
+    <title>Job Seeker Registration</title>
     <link rel="stylesheet" href="styles\JobListingStylesFay.css" />
     <link rel="icon" href="img/icon.png">
     <link rel="stylesheet" href="styles\Buttons.css" />

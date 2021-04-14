@@ -18,7 +18,7 @@ $(document).ready(function () {
         check_fname();
     });
     $('#lastName').mouseleave(function(){
-        check_lname();
+        check_lastName();
     });
 
     $('#email').mouseleave(function(){
@@ -145,18 +145,7 @@ $(document).ready(function () {
         }
     }
 
-    function check_gender(){
-        var gender= $('#gender').val();
-        if(gender == ''){
-            $('#gender').css('border-color','red');
-            $('#gender_error').text('Gender can not be empty');
-            $('#gender_error').css('visibility','visible');
-        }else {
-            $('#gender').css('border-color','#ccc');
-            $('#gender_error').css('visibility','hidden');
-            heckGender = true;
-        }
-    }
+
 
     function check_nationality(){
         var nationality= $('#nationality').val();
@@ -251,9 +240,9 @@ $(document).ready(function () {
         }
     }
 
-    $('#form').on('submit', function(e) {
+    $('#form').on('create', function(e) {
         
-        if((checkName!==true) || (checkEmail!==true)  || (checkPassword!==true) || (checkRe_password!==true) || (checkScope!==true)  || (checkDes!==true)  || (checkAddress!==true)  || (checkMission!==true)  || (checkVision!==true)  || (checkPhone!==true)){
+        if((checkFname!==true) || (checkLname!==true)  || (checkPassword!==true) || (checkRe_password!==true) || (checkNationality!==true)  || (checkCity!==true)  || (checkMajor !==true)  || (checkExperince!==true)  || (checkSkills!==true)  || (checkPhone!==true)|| (checkCurrentJob!==true)|| (checkCity!==true)){ 
             e.preventDefault();
             $('.alert').css('display','block');
         }

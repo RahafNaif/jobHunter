@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="styles\NavbarStyles.css" />
     <link rel="stylesheet" href="styles\form.css" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/jobseekerValdition.js"></script>
     <style>
         .custom-shape-divider-bottom-1612535207 {
             position: absolute;
@@ -19,6 +21,12 @@
             overflow: hidden;
             line-height: 0;
             transform: rotate(180deg);
+        }
+        form small{
+color : red;
+visibility: hidden;
+padding-left: 15 px;
+
         }
 
         .custom-shape-divider-bottom-1612535207 svg {
@@ -173,13 +181,17 @@
                     <div class="jobInfo">
                         <h2 id="employerReg">Job Seeker Regestration </h2>
 
-                        <form action="JobSeekerReg.php" method="POST">
+                        <form action="JobSeekerReg.php" method="POST"  id="form">
                             <label for="last_name">First Name</label>
-                            <input type="text" class="form-input" name="firstName" id="last_name" placeholder="Your first name.. " Required /><br><br>
+                            <input type="text" class="form-input" name="firstName" id="firstName" placeholder="Your first name.. " Required/>
+                            <small id="firstName_error">Error massgagr</small>
+                            <br><br>
                             <label for="last_name">last Name</label>
-                            <input type="text" class="form-input" name="lastName" id="last_name" placeholder="Your last name.. " Required /><br><br>
+                            <input type="text" class="form-input" name="lastName" id="lastName" placeholder="Your last name.. " Required/>
+                            <small id="lastName_error">Error massgagr</small>
+                            <br><br>
                             <label for="birth_date">Birth date</label><br><br>
-                            <input type="date" class="form-input" name="birthDate" id="birth_date" placeholder="MM-DD-YYYY" />
+                            <input type="date" class="form-input" name="birthDate" id="birthDate" placeholder="MM-DD-YYYY" required />
                             <br><br>
                             <label for="gender" Required>Select yoru Gender</label>
                             <br>
@@ -188,14 +200,18 @@
                             <input type="radio" name="gender" value="f" id="female" />
                             <label for="female">Female</label><br><br>
                             <label for="phone">Phone number</label>
-                            <input type="text" class="form-input" name="phone" id="phone" placeholder="Your phone number" pattern="[0]{1}[5]{1}[0-9]{8}" required="required" />
+                            <input type="text" class="form-input" name="phone" id="phone" placeholder="Your phone number" pattern="[0]{1}[5]{1}[0-9]{8}"Required/>
+                            <small id="phone_error">Error massgagr</small>
                             <br>
                             <label for="password">Password</label>
-                            <input type="password" class="form-input" name="password" id="password" placeholder="Your password" Required />
+                            <input type="password" class="form-input" name="password" id="password" placeholder="Your password" Required/>
+                            <small id="password_error">Error massgage</small>
                             <br> <label for="re_password">Repeat your password</label>
                             <input type="password" class="form-input" name="re_password" id="re_password" placeholder="Repeat your password" Required />
+                            <small id="re_password_error">Error massgage</small>
                             <br> <label for="last_name">email</label>
-                            <input type="text" class="form-input" name="email" id="last_name" placeholder="Your email..." Required />
+                            <input type="text" class="form-input" name="email" id="email" placeholder="Your email..." Required />
+                            <small id="email_error">Error massgagr</small>
                             <br> <label for="last_name" Required>nationality</label>
                             <!-- <input type="text" class="form-input" name="last_name" id="last_name"
                                 placeholder="Your nationality..." /> -->
@@ -232,11 +248,14 @@
                                 <option value="Other"> Other</option>
                             </select>
                             <br> <label for="city">city</label>
-                            <input type="text" class="form-input" name="city" id="city" placeholder="Your city..." />
+                            <input type="text" class="form-input" name="city" id="city" placeholder="Your city..." Required/>
+                            <small id="city_error">Error massgagr</small>
                             <br> <label for="last_name">current job</label>
-                            <input type="text" class="form-input" name="currentJob" id="last_name" placeholder="Your current job..." />
+                            <input type="text" class="form-input" name="currentJob" id="currentJob" placeholder="Your current job..." Required  />
+                            <small id="currentJob_error">Error massgagr</small>
                             <br> <label for="last_name">experince</label>
-                            <input type="text" class="form-input" name="experince" id="experince" placeholder="Your current job..." />
+                            <input type="text" class="form-input" name="experince" id="experince" placeholder="Your current job..." Required />
+                            <small id="experince_error">Error massgagr</small>
                             <br><label for="last_name">major</label>
                             <select id="major" class="form-input" name="major" style=" 
                                 width: 100%;
@@ -292,21 +311,11 @@
                                 <option value="Mechanical & Aerospace Engineering">Mechanical & Aerospace Engineering</option>
                                 <option value="Medicine & Dentistry">Medicine & Dentistry</option>
                             </select>
-                            <!--  -->
-
-                            <?php
-                            function email_validation($email)
-                            {
-                                return (!preg_match("^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$^", $$email)) ? FALSE : TRUE;
-                            }
-                            if ($_POST['password'] != $_POST['re_password']) {
-                                echo ("Oops! Password did not match! Try again. ");
-                            }
-
-                            ?>
+                            
+ 
                             <div class="buttons">
 
-                                <input type="submit" class="applicants" name="create" id="submit">
+                                <input type="submit" class="applicants" name="create" id="create">
                         </form>
                         </a>
                     </div>
@@ -335,7 +344,14 @@
             </div>
         </footer>
     </div>
+<?php 
+if ($_POST['password']!= $_POST['re_password'])
+{
+    echo("Oops! Password did not match! Try again. ");
+}
 
+
+?>
 </body>
 
 </html>

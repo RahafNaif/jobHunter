@@ -14,7 +14,7 @@
 
 .post {
   position: relative;
-  left: 7%;
+  left: 0%;
   display: inline-block;
   list-style: none;
   width: 350px;
@@ -274,9 +274,4 @@ ul {
   height: 36px;
 }
 
-.material-icons.md-36 {
-  font-size: 36px;
-  color: #2b468b;
-  
-}
 

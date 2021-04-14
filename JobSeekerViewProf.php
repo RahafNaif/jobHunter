@@ -256,6 +256,10 @@ else
         <p><?php echo $birthDate ?></p>
       </div>
       <div class="titleAndValueDiv">
+        <h3>Gender</h3>
+        <p><?php echo $gender ?></p>
+      </div>
+      <div class="titleAndValueDiv">
         <h3>Nationality</h3>
         <p> <?php echo $nationality ?></p>
       </div>

@@ -201,6 +201,7 @@
                                         print '<p class="company">Scope : '.$data['scope'].'</p>';
                                         print '<p class="company">'.$data['vision'].' </p><br>';
                                         print '<form action="EmployerProfile.php" method="post" style="position:relative;" >';
+                                        print '<input type="hidden" name="viewinfo" value="'.$data['email'].'"/>';
                                         print '<button type="submit" name="viewi" class="job-content">View Profile</button>';
                                         print '</form>';
                                         print '</div>';

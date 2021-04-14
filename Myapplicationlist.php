@@ -68,8 +68,8 @@ if (!isset($_SESSION['email']) ){
         $query = "SELECT * FROM jobseeker_apply_job,jobseeker,job  WHERE email='$email' AND JobSeeker_email=email AND Job_ID=ID ";
          
         $result = mysqli_query($database, $query);
-        
-        if ($result) {
+        $rowcount=mysqli_num_rows($result);
+        if ($result && $rowcount>0) {
             $applay=0;
             
             while ($data = mysqli_fetch_assoc($result)) {
@@ -195,7 +195,12 @@ if (!isset($_SESSION['email']) ){
 }}}
 
 
-else echo "you don't have any applications job!!";
+else  { ?>
+<div class="lists">
+            <!-- Job List -->
+            <br> <br>  <br> <br>
+            <div class="listno">  you don't have any applications job!! </div></div>
+            <?php }
     
 ?>      
 

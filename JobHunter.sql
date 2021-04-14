@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 14, 2021 at 07:54 AM
+-- Generation Time: Apr 14, 2021 at 08:57 AM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -105,9 +105,9 @@ CREATE TABLE `job` (
 --
 
 INSERT INTO `job` (`ID`, `city`, `major`, `position`, `jobType`, `companyName`, `title`, `description`, `skills`, `qualifications`, `gender`, `salary`, `employer_email`) VALUES
-(6, 'Jeddah', 'Software Engineering ', 'Back End Developer', 'Full time', 'KUHKU', '', 'We are looking for an experienced PHP developer to join our startup company', 'PHP', 'Working with git services.', 'm', 20000, '439201236@student.ksu.edu.sa'),
-(333, 'Alkobher', 'Software Engineering ', 'Frontend Developer', 'Full time', 'ewf', '..', 'web and mobile applications for the company. Using JavaScript, HTML, and CSS', 'HTML\r\nCSS\r\nJavaScript', 'Bachelor\'s degree\r\n2 year experience', '', 10000, '439201236@student.ksu.edu.sa'),
-(222222, 'Jeddah', 'Software Engineering ', 'Mobile Development', 'Full time', 'ewf', 'e', 'We are looking for a React Native developer interested in building mobile apps.', 'React Native', '2 year on developing mobile apps.', 'd', 20000, '439201236@student.ksu.edu.sa');
+(6, 'Jeddah', 'Software Engineering ', 'Back End Developer', 'Full time', 'STC', 'Back End Developer', 'We are looking for an experienced PHP developer to join our startup company', 'PHP', 'Working with git services.', 'male', 20000, '439201236@student.ksu.edu.sa'),
+(333, 'Alkobher', 'Software Engineering ', 'Frontend Developer', 'Full time', 'STC', 'Frontend Developer', 'web and mobile applications for the company. Using JavaScript, HTML, and CSS', 'HTML\r\nCSS\r\nJavaScript', 'Bachelor\'s degree\r\n2 year experience', 'female', 10000, '439201236@student.ksu.edu.sa'),
+(222222, 'Jeddah', 'Software Engineering ', 'Mobile Development', 'Full time', 'STC', 'React Native Developer', 'We are looking for a React Native developer interested in building mobile apps.', 'React Native', '2 year on developing mobile apps.', 'd', 20000, '439201236@student.ksu.edu.sa');
 
 -- --------------------------------------------------------
 

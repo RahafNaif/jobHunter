@@ -193,7 +193,6 @@ if(isset($_GET['skillName'])){
 
                 </li>
 
-                <li><a href="myAdvices.html"> My Advices </a></li>
             </ul>
             <ul class="navLinks2">
                 <li><a href="#popup" class="notification"><i class="material-icons">notifications</i></a></li>

@@ -48,60 +48,63 @@
                         </ul>
                     </div>
                 </div>
-                <input type="submit" name = "submit" style="position: absolute; left: -9999px"/>
+                <input type="submit" name="submit" style="position: absolute; left: -9999px" />
             </form>
         </div>
+        <div class="jobs">
+            <?php
+            if (!($database = mysqli_connect("localhost", "root", "")))
+                die("<p>Could not connect to database</p>");
 
-        <?php
-        if (!($database = mysqli_connect("localhost", "root", "")))
-            die("<p>Could not connect to database</p>");
+            if (!mysqli_select_db($database, "JobHunter"))
+                die("<p>Could not open URL database</p>");
 
-        if (!mysqli_select_db($database, "JobHunter"))
-            die("<p>Could not open URL database</p>");
+            $query;
 
-        $query;
+            if (isset($_POST['submit'])) {
+                $search = $_POST['search'];
+                $type = $_POST['type'];
 
-        if (isset($_POST['submit'])) {
-            $search = $_POST['search'];
-            $type = $_POST['type'];
-            if ($type == 'scope')
-                $query = "SELECT * FROM employer WHERE scope = '$search'";
-            if ($type == 'name')
-                $query = "SELECT * FROM employer WHERE name = '$search'";
-        } else {
-            $query = "SELECT * FROM employer";
-        }
+                if ($type == 'scope')
+                    $query = "SELECT * FROM employer WHERE scope = '$search'";
 
-        $result = mysqli_query($database, $query);
-        if ($result) {
-            print '<div class="jobs">';
-            print '<div class="job-posts"><ul>';
-            while ($data = mysqli_fetch_assoc($result)) {
-                print '<li class="post">';
-                print '<div class="post-content">';
-//              print '<a href="EmployerProfile_Eidt.html">';
+                if ($type == 'name')
+                    $query = "SELECT * FROM employer WHERE name = '$search'";
 
-
-                print '<form action="EmployerProfile.php" method="post" style="position:relative;" >';
-                print '<input type="hidden" name="viewinfo" value="'.$data['email'].'" />';
-                print '<button type="submit" name="viewi" style="all: unset; cursor:pointer; height: 100%; width: 100%; position: absolute; right: 0; top: 0;">';
-
-                print '<h4 id="companyName" style="font-weight:bold;">' . $data['name'] . '</h4>';
-                print '<span class="material-icons" style="color: #fa9746; font-size:28px; margin: 0; margin-left: 75px;">location_on</span>';
-                print '<span class="icon-side">' . $data['address'] . '</span>';
-                print '<h4 id="industry">' . $data['scope'] . '</h4>';
-                print '<h5> About Company:</h5>';
-                print '<p class="descrption">' . $data['description'] . '</p>';
-//              print '<p class="descrption">' . $data['description'] . '</p></a>';                
-                
-                print '</button></form>';
-
-                print '</div></li>';
+                if ($search == '')
+                    $query = "SELECT * FROM employer";
+            } else {
+                $query = "SELECT * FROM employer";
             }
-            print '</ul>';
-            print '</div></div>';
-        }
-        ?>
+
+            $result = mysqli_query($database, $query);
+            $rowcount = mysqli_num_rows($result);
+
+            if ($result && $rowcount > 0) {
+                print '<div class="job-posts">';
+                print '<ul>';
+                while ($data = mysqli_fetch_assoc($result)) {
+                    print '<li class="post">';
+                    print '<div class="post-content">';
+                    print '<form action="EmployerProfile.php" method="post" style="position:relative;" >';
+                    print '<input type="hidden" name="viewinfo" value="' . $data['email'] . '" />';
+                    print '<button type="submit" name="viewi" style="all: unset; cursor:pointer; height: 100%; width: 100%; position: absolute; right: 0; top: 0;">';
+                    print '<h4 id="companyName" style="font-weight:bold;">' . $data['name'] . '</h4>';
+                    print '<span class="material-icons" style="color: #fa9746; font-size:28px; margin: 0; margin-left: 75px;">location_on</span>';
+                    print '<span class="icon-side">' . $data['address'] . '</span>';
+                    print '<h4 id="industry">' . $data['scope'] . '</h4>';
+                    print '<h5> About Company:</h5>';
+                    print '<p class="descrption">' . $data['description'] . '</p>';
+                    print '</button></form>';
+                    print '</div></li>';
+                }
+                print '</ul>';
+                print '</div>';
+            } else {
+                print'<p style="color: #192d50;font-size: 18px;text-align: center; padding-top: 35px;">There are no employers with the specified infomation</p>';
+            }
+            ?>
+        </div>
     </div>
     <!-- Footer -->
     <div class="footer">

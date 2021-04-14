@@ -61,7 +61,9 @@ $result = mysqli_query($database, $query);
   <div class="line"></div>
   <main>
     <?php
-    if ($result) {
+    $rowcount = mysqli_num_rows($result);
+
+    if ($result && $rowcount > 0) {
       print '<div class="lists">';
       while ($data = mysqli_fetch_assoc($result)) {
         print '<div class="list">';
@@ -79,7 +81,7 @@ $result = mysqli_query($database, $query);
       }
       print '</div>';
     } else
-      echo "There are no emplyees.";
+    echo '<div class="lists"><h2>There are no applicants.</h2></div>';
     ?>
   </main>
   <!-- Footer -->

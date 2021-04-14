@@ -16,7 +16,6 @@ form legend {
 form fieldset {
     padding: 15px;
     border: none;
-    width: 20%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -27,11 +26,24 @@ form fieldset {
     margin: 20px;
 }
 
-
-form fieldset.extra {
+form fieldset.right {
+    min-height: 600px;
+    max-height: 600px;
+    height: 600px;
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: 40%;
+    justify-content: center;
+    padding-left: 25px;
+}
+
+form fieldset.left {
+    min-height: 600px;
+    max-height: 600px;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    width: 20%;
     justify-content: center;
     padding-left: 25px;
 }
@@ -66,7 +78,8 @@ form h4 {
     font-size: 22px;
 }
 
-form input,select,
+form input,
+select,
 option {
     color: #192D50;
     font-size: 16px;
@@ -96,7 +109,8 @@ form .buttons {
     justify-content: center;
 }
 
-form input[type=reset],#deleteBtn,
+form input[type=reset],
+#deleteBtn,
 form input[type=submit] {
     cursor: pointer;
     font-size: 15px;
@@ -109,7 +123,8 @@ form input[type=submit] {
     border-radius: 50px;
 }
 
-form input[type=reset],#deleteBtn {
+form input[type=reset],
+#deleteBtn {
     color: #8cb3f4;
     border: 3px solid #8cb3f4;
     background: rgba(234, 243, 250, 0.8);
@@ -118,6 +133,10 @@ form input[type=reset],#deleteBtn {
 form input[type=submit] {
     background: #fa9746;
     color: #ffffff;
+}
+
+select{
+    width: 420px;
 }
 
 form input[type=submit]:hover,
@@ -139,8 +158,8 @@ form input[type=reset]:focus {
 form textarea {
     color: #192D50;
     font-size: 16px;
-    width: 800px;
-    height: 150px;
+    width: 600px;
+    height: 100px;
     margin: 10px 25px;
     border: 0;
     border-radius: 10px;
@@ -149,10 +168,9 @@ form textarea {
 }
 
 input:focus,
-textarea:focus {
+textarea:focus,select:focus {
     outline: none;
 }
-
 
 form small {
     color: red;

@@ -82,7 +82,7 @@ if (isset($_POST['update'])) {
     <?php include('./NavigationBar.php'); ?>
     <main>
         <form form action="EmployerProfileEdit.php" method="POST" id="form">
-            <fieldset>
+            <fieldset class="left">
                 <legend>Update General Information</legend>
                 <label> Name </label> <input required id="name" type="text" name="employerName" value=<?php echo $name; ?>>
                 <label> Scope </label><input required id="scope" type="text" name="employerScope" value=<?php echo $scope; ?>>
@@ -97,7 +97,7 @@ if (isset($_POST['update'])) {
                     <input type="submit" name="update" id="submit" value="Update">
                 </div>
             </fieldset>
-            <fieldset class="extra">
+            <fieldset class="right">
                 <legend>Update Company Details</legend>
                 <label>Descripition</label></label><textarea required id="des" name="employerDescription"><?php echo $description; ?> </textarea>
                 <label>Mission </label><textarea required id="mission" name="employerMission"><?php echo $mission; ?> </textarea>

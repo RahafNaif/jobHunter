@@ -17,7 +17,7 @@ if (!mysqli_select_db($database, "JobHunter"))
 <html lang="en">
 
 <head>
-<meta charset="utf-8" />
+  <meta charset="utf-8" />
   <link rel="icon" href="img/icon.png" />
   <link rel="stylesheet" href="styles/Buttons.css" />
   <link rel="stylesheet" href="styles/Notifications.css" />
@@ -49,34 +49,32 @@ if (!mysqli_select_db($database, "JobHunter"))
 
 
 
-      $sessionEmail = $_SESSION['email'];
-      $companyName = "SELECT name FROM employer where email='$sessionEmail'";
-      $result2 = mysqli_query($database, $companyName);
+    $sessionEmail = $_SESSION['email'];
+    $companyName = "SELECT name FROM employer where email='$sessionEmail'";
+    $result2 = mysqli_query($database, $companyName);
 
-      if ($result2) {
-        while ($row = mysqli_fetch_array($result2)) {
-
-
-          $result3 = $row['name'];
-        }
-      } else
-        echo "An error occured while inserting into the job table.";
+    if ($result2) {
+      while ($row = mysqli_fetch_array($result2)) {
 
 
-      $query = "INSERT INTO `job`(`city`, `major`, `position`, `jobType`,
+        $result3 = $row['name'];
+      }
+    } else
+      echo "An error occured while inserting into the job table.";
+
+
+    $query = "INSERT INTO `job`(`city`, `major`, `position`, `jobType`,
            `description`, `skills`, `qualifications`, `gender`, `salary`,`companyName`, `employer_email`,title ) 
            VALUES (' $location','$major','$position','$jobType',
           '$jobDescription','$requiredSkills', '$requiredQualifications',
           '$gender','$salary','$result3','$sessionEmail','$jobTitle')";
-      $result = mysqli_query($database, $query);
+    $result = mysqli_query($database, $query);
 
-      if ($result){
-        header("location: jobLisiting.php");
-        exit();
-      }
-      else
-        echo "An error occured while inserting into the job table.";
-    
+    if ($result) {
+      header("location: jobLisiting.php");
+      exit();
+    } else
+      echo "An error occured while inserting into the job table.";
   } // end if(isset($_POST['postJob']))
 
 
@@ -88,47 +86,47 @@ if (!mysqli_select_db($database, "JobHunter"))
   <form action="PostAJob.php" method="post">
     <fieldset class=" left">
       <legend class="postLegend">Post A Job</legend>
-      
-        <label for="position">Job Position</label>
-        <input autofocus required id="position" name="position" type="text" placeholder="e.g. Software Engineer, Sales Manager" />
- 
 
-          <label class="theTitle" for="jobTitle"> Job Title </label>
-          <input required id="jobTitle" type="text" name="jobTitle" placeholder="Add a descriptive job title"/>
+      <label for="position">Job Position</label>
+      <input autofocus required id="position" name="position" type="text" placeholder="e.g. Software Engineer, Sales Manager" />
 
-        <label for="major"> Major </label>
-        <select id="major" required name="major">
-          <option value="">Select a major</option>
-          <option value="Accounting & Finance">Accounting & Finance</option>
-          <option value="Agriculture & Forestry">Agriculture & Forestry</option>
-          <option value="Archaeology">Archaeology</option>
-          <option value="Architecture">Architecture</option>
-          <option value="Art">Art</option>
-          <option value="Biological Sciences">Biological Sciences</option>
-          <option value="Business & Management">Business & Management</option>
-          <option value="Chemical Engineering">Chemical Engineering</option>
-          <option value="Chemistry">Chemistry</option>
-          <option value="Civil Engineering">Civil Engineering</option>
-          <option value="Communication & Media Studies">Communication & Media Studies</option>
-          <option value="Computer Science">Computer Science</option>
-          <option value="Economics & Econometrics">Economics & Econometrics</option>
-          <option value="Education">Education</option>
-          <option value="Electrical & Electronic Engineering">Electrical & Electronic Engineering</option>
-          <option value="General Engineering">General Engineering</option>
-          <option value="Geography">Geography</option>
-          <option value="Geology, Environmental, Earth & Marine Sciences">Geology, Environmental, Earth & Marine Sciences</option>
-          <option value="Law">Law</option>
-          <option value="Mathematics & Statistics">Mathematics & Statistics</option>
-          <option value="Mechanical & Aerospace Engineering">Mechanical & Aerospace Engineering</option>
-          <option value="Medicine & Dentistry">Medicine & Dentistry</option>
-        </select>
 
-        <label for="location"> Location</label>
-        <input required id="location" name="location" type="text" placeholder="Enter job location" />
+      <label class="theTitle" for="jobTitle"> Job Title </label>
+      <input required id="jobTitle" type="text" name="jobTitle" placeholder="Add a descriptive job title" />
 
-        <label for="salary" id="SalaryL"> Salary Starts From </label>
-        <input required type="number" name="salary" min="0" id="salary" />
-        <!--https://stackoverflow.com/questions/7372067/is-there-any-way-to-prevent-input-type-number-getting-negative-values -->
+      <label for="major"> Major </label>
+      <select id="major" required name="major">
+        <option value="">Select a major</option>
+        <option value="Accounting & Finance">Accounting & Finance</option>
+        <option value="Agriculture & Forestry">Agriculture & Forestry</option>
+        <option value="Archaeology">Archaeology</option>
+        <option value="Architecture">Architecture</option>
+        <option value="Art">Art</option>
+        <option value="Biological Sciences">Biological Sciences</option>
+        <option value="Business & Management">Business & Management</option>
+        <option value="Chemical Engineering">Chemical Engineering</option>
+        <option value="Chemistry">Chemistry</option>
+        <option value="Civil Engineering">Civil Engineering</option>
+        <option value="Communication & Media Studies">Communication & Media Studies</option>
+        <option value="Computer Science">Computer Science</option>
+        <option value="Economics & Econometrics">Economics & Econometrics</option>
+        <option value="Education">Education</option>
+        <option value="Electrical & Electronic Engineering">Electrical & Electronic Engineering</option>
+        <option value="General Engineering">General Engineering</option>
+        <option value="Geography">Geography</option>
+        <option value="Geology, Environmental, Earth & Marine Sciences">Geology, Environmental, Earth & Marine Sciences</option>
+        <option value="Law">Law</option>
+        <option value="Mathematics & Statistics">Mathematics & Statistics</option>
+        <option value="Mechanical & Aerospace Engineering">Mechanical & Aerospace Engineering</option>
+        <option value="Medicine & Dentistry">Medicine & Dentistry</option>
+      </select>
+
+      <label for="location"> Location</label>
+      <input required id="location" name="location" type="text" placeholder="Enter job location" />
+
+      <label for="salary" id="SalaryL"> Salary Starts From </label>
+      <input required type="number" name="salary" min="0" id="salary" />
+      <!--https://stackoverflow.com/questions/7372067/is-there-any-way-to-prevent-input-type-number-getting-negative-values -->
 
       <label>Job Type</label>
 
@@ -156,14 +154,14 @@ if (!mysqli_select_db($database, "JobHunter"))
       </label>
     </fieldset>
     <fieldset class="right">
-        <label for="jobDescription"> Job Description</label>
-        <textarea required style="resize: none" name="jobDescription" id="jobDescription" placeholder="Describe the responsibilities for this job"></textarea>
+      <label for="jobDescription"> Job Description</label>
+      <textarea required style="resize: none" name="jobDescription" id="jobDescription" placeholder="Describe the responsibilities for this job"></textarea>
 
-        <label for="requiredSkills"> Required Skills</label>
-        <textarea required id="requiredSkills" name="requiredSkills" placeholder="Describe the skills required for this job"></textarea>
+      <label for="requiredSkills"> Required Skills</label>
+      <textarea required id="requiredSkills" name="requiredSkills" placeholder="Describe the skills required for this job"></textarea>
 
-        <label for="requiredQ"> Rrequired Qualifications</label>
-        <textarea required id="requiredQ" name="requiredQualifications" placeholder="Describe the qualifications required for this job"></textarea>
+      <label for="requiredQ"> Rrequired Qualifications</label>
+      <textarea required id="requiredQ" name="requiredQualifications" placeholder="Describe the qualifications required for this job"></textarea>
 
 
       <div class="buttons">
@@ -199,4 +197,5 @@ if (!mysqli_select_db($database, "JobHunter"))
     }
   }
 </script>
+
 </html>

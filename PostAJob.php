@@ -71,7 +71,7 @@ if (!mysqli_select_db($database, "JobHunter"))
     $result = mysqli_query($database, $query);
 
     if ($result) {
-      header("location: jobLisiting.php");
+      header("location: JobLisiting.php");
       exit();
     } else
       echo "An error occured while inserting into the job table.";

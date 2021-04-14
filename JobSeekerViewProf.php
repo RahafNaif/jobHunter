@@ -16,6 +16,11 @@ if (!mysqli_select_db($database, "jobhunter"))
 die("<p>Could not open URL database</p>");
 if (isset($_POST['viewi']))
 $email = $_POST['viewinfo'];
+// else
+// $email = $_SESSION['email'];
+// $query = "select * from jobseeker WHERE email='$email'";
+// $result = mysqli_query($database, $query);
+
 
 if (isset($_POST['delete'])) {
   $email = $_SESSION['email'];
@@ -149,6 +154,10 @@ if (isset($_POST['delete'])) {
        die("<p>Could not open URL database</p>");
    if (isset($_POST['viewi']))
        $email = $_POST['viewinfo'];
+//        else
+// $email = $_SESSION['email'];
+// $query = "select * from jobseeker WHERE email='$email'";
+// $result = mysqli_query($database, $query);
 
 else
     $email = $_SESSION['email'];

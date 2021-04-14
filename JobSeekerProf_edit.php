@@ -182,8 +182,32 @@ if(isset($_GET['skillName'])){
     <div style="height: 150px; overflow: hidden;"><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
             <path d="M-15.58,-15.49 C-16.70,110.81 186.45,57.52 502.48,59.50 L500.00,0.00 L0.00,0.00 Z" style="stroke: none; fill: #8CB3F4;"></path>
         </svg></div>
-    
-        <?php include('./NavigationBar.php') ?>
+    <header>
+        <nav>
+            <ul class="navLinks1">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="job-seeker.html">Job Seekers</a></li>
+                <li><a href="#">My Jobs</a>
+                    <ul>
+                        <li><a href="JobListing.php">All Jobs</a></li>
+                        <li><a href="PostAJob.php">Post a Job</a></li>
+                    </ul>
+
+                </li>
+
+            </ul>
+            <ul class="navLinks2">
+                <li><a href="#popup" class="notification"><i class="material-icons">notifications</i></a></li>
+                <li><a href="#"><i class="material-icons">person</i></a>
+                    <ul>
+                        <li><a href="EmployerProfile_Eidt.html">Profile</a></li>
+                        <li><a href="http:signout.php">logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
     <nav></nav>
 
 
@@ -236,7 +260,7 @@ if(isset($_GET['skillName'])){
                 $firstName = $data['firstName'];
                 $lastName = $data['lastName'];
                 $email = $data['email'];
-                $password = $data['password'];
+                $password = $date['password'];
                 $birthDate = $data['birthDate'];
                 $gender = $data['gender'];
                 $nationality = $data['nationality'];
@@ -352,9 +376,8 @@ if(isset($_GET['skillName'])){
                     <input Required type="text" id="major" name="major" value=<?php echo $major; ?> style="width:100%; height: 50%; font-size: medium;"></input>
                 </div>
                 <h3>Update password</h3>
-                    <input type="text" id="password" name="password" value=<?php echo $password; ?> style="width:100%; height: 50%; font-size: medium;"></input>
+                    <input type="text" id="password" name="password" value=<?php echo $password; ?> style="width:100%; height: 50%; font-size: medium;">
                 </div>
-            
             </div>
             </div>
             <div class="sideBar1">

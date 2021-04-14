@@ -14,6 +14,8 @@ die("<p>Could not connect to database</p>");
 
 if (!mysqli_select_db($database, "jobhunter"))
 die("<p>Could not open URL database</p>");
+if (isset($_POST['viewi']))
+$email = $_POST['viewinfo'];
 
 if (isset($_POST['delete'])) {
   $email = $_SESSION['email'];

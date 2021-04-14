@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="styles/jobs.css">
+        <link rel="stylesheet" href="styles/jobs.css?<?php echo time(); ?>">
         <link rel="stylesheet" href="styles/NavbarStyles.css">
         <link rel="stylesheet" href="styles/Buttons.css" />
         <link rel="icon" href="img/icon.png">

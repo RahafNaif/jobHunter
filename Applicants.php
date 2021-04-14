@@ -82,7 +82,7 @@ $result = mysqli_query($database, $query);
       }
       print '</div>';
     } else
-      echo '<div class="lists"><h2>There are no applicants.</h2></div>';
+      echo '<div class="lists"><h2 class = "empty" >There are no applicants.</h2></div>';
     ?>
   </main>
   <!-- Footer -->

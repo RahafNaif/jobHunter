@@ -82,39 +82,8 @@ if (isset($_POST['delete'])) {
 
 <body>
   <?php include('./NavigationBar.php') ?>
-  <!--
-        body
-        header
-            nav
 
-
-        main
-            .JobHeader
-                svg #companySVG
-                h1
-                h5
-            .details
-                h4
-                h6
-                p
-                    ol
-                    li
-                h4
-                p
-                    ul
-                    li
-            .sideBar
-                h5
-                p
-        
-
-    -->
-
-  <nav></nav>
-
-
-
-  <main>
+  <main style="min-height: 70vh;">
     <div class="JobHeader">
       <!--from github-->
       <!-- Company svg -->
@@ -337,7 +306,6 @@ else
     </div>
 
   </main>
-  <br><br><br><br><br><br><br><br> <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
   </div>
 
   <!-- Footer -->

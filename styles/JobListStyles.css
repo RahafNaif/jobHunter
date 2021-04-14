@@ -6,6 +6,9 @@
   font-weight: 400;
 }
 
+main{
+  min-height: 56vh;
+}
 
 
 h1 {
@@ -35,10 +38,9 @@ main {
 
 .lists {
   margin-top: 10px;
-  margin-left: 40px;
-  margin-right: 10px;
+  margin-left: 50px;
+  margin-right: 50px;
   display: flex;
-
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -46,8 +48,8 @@ main {
 
 .list {
   display: flex;
-  min-width: 1130px;
-  height: 40vh;
+  min-width: 1100px;
+  height: 25vh;
   background: rgba(234, 243, 250, 0.8);
   margin-bottom: 20px;
   border-radius: 25px;

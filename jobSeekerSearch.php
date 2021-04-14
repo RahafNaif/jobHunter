@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -28,9 +29,9 @@
                     </div>
                     <div class="navbar-items">
                         <a href="home.php" class="navbar-item">Home</a>
-                        <a href="jobSearch.php" class="navbar-item">Jobs</a>
-                        <a href="EmployerSearch.php" class="navbar-item">Employers</a>
-                        <a href="LogIn.php" class="navbar-item-span">Log in</a>
+                        <a href="jobSeekerSearch.php" class="navbar-item">Job Seekers</a>
+                        <a href="JobListing.php" class="navbar-item">My Jobs</a>
+                        <a href="LogIn.php" class="navbar-item-span">Log in</a>    
                     </div>
                 </nav>
                 <img src="img/search.png" class="home-img">

@@ -111,7 +111,7 @@ if ($result2) {
       <h5>
         <form action="EmployerProfile.php" method="post" style="display: inline;">
           <input type="hidden" name="viewinfo" value="<?php echo $emaillem ?> ">
-          <button name="viewi" style="margin:0;outline: none; background-color:transparent; border: none; padding: 0;width:fit-content;cursor:pointer;color: #192d50; display: inline;">
+          <button name="viewi" class="linkButton" >
             <?php echo '' . $companyName; ?>
           </button>
         </form> | <?php

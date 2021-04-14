@@ -151,3 +151,14 @@
 .jobDeatailsContainer .applyBtn input[type="submit"] {
     margin: 2% 0% 2% 77%;
 }
+
+.linkButton {
+    all: unset;
+    color: #2b468b;
+}
+
+.linkButton:hover {
+    all: unset;
+    color: #8cb3f4;
+    cursor: pointer;
+}

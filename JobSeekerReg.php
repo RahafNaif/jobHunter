@@ -168,9 +168,9 @@
             <header>
                 <nav>
                     <ul class="navLinks1">
-                        <li><a href="/home.php">Home</a></li>
-                        <li><a href="EmployerSearch.html">Employers</a></li>
-                        <li><a href="WhoIsYou.html">Registeration</a></li>
+                        <li><a href="home.php">Home</a></li>
+                        <li><a href="EmployerSearch.php">Employers</a></li>
+                        <li><a href="WhoAreYou.html">Registeration</a></li>
                     </ul>
                 </nav>
             </header>

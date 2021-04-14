@@ -4,7 +4,7 @@ session_start();
 if (!isset($_SESSION['email']) || $_SESSION['role'] == 2) {
   $IsEmployer = True;
 } else
-$IsEmployer =False;
+  $IsEmployer = False;
 
 if (!($database = mysqli_connect("localhost", "root", "")))
   die("<p>Could not connect to database</p>");
@@ -130,16 +130,19 @@ if ($result2) {
         <?php
         echo '' . $title; ?>
       </p>
+      <br/>
       <h4 style="font-weight:bolder ;">Job Description</h4>
       <p>
         <?php
-        echo '' . $description; ?> 
+        echo '' . $description; ?>
       </p>
+      <br/>
       <h6 style="font-weight: bold;">Required Skills</h6>
       <p>
         <?php
         echo '' . $skills; ?>
       </p>
+      <br/>
       <h6 style="font-weight: bold;">Rrequired Qualifications</h6>
       <p id="QualificationsP">
         <?php
@@ -158,15 +161,17 @@ if ($result2) {
     </div>
 
     <?php
-if($IsEmployer){
-  echo '<script>
-  $(document).ready(function() {
-      $("#aplyForm").attr("display","none");
-      $(".applyBtn").hide();
-  });
-</script>';
-}
-?>
+    if ($IsEmployer) {
+      echo '<script>
+            $(document).ready(
+                              function() {
+                                $("#aplyForm").attr("display","none");
+                                $(".applyBtn").hide();
+                              }
+            );
+            </script>';
+     }
+    ?>
     <div class="sideBar">
       <div class="titleAndValueDiv">
         <h5>Job Type</h5>

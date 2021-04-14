@@ -92,7 +92,7 @@
 
         #page-container {
             position: relative;
-            min-height: 150vh;
+            min-height: 250vh;
         }
 
         #content-wrap {

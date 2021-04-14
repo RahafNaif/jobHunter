@@ -52,6 +52,7 @@ if (isset($_POST['login'])) {
         }
     } else {
         header("Location: logIn.php?error=Wrong Username/Password");
+        exit();
     }
 }
 ?>

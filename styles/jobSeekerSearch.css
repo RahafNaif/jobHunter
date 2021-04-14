@@ -6,26 +6,6 @@
   font-weight: 400;
 }
 
-/* SCROLL BAR */
-::-webkit-scrollbar {
-  width: 0px;
-  background: transparent;
-}
-
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-::-webkit-scrollable-thumb {
-  background: #fa9746;
-  border-radius: 5px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #fa9746;
-  border-radius: 5px;
-}
-
 .header {
   background-color: #EAF3FA;
   width: 100%;

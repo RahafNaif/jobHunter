@@ -42,7 +42,7 @@ if (isset($_POST['update'])) {
     $employerVision = $_POST['employerVision'];
     $employerPassword = $_POST['password'];
 
-    $email = $_SESSION['email'];
+    $email = $employerEmail;
     $query = "UPDATE employer SET name = '$employerName', address = '$employerAddress', email = '$employerEmail', phone = '$employerPhone', scope = '$employerScope', description = '$employerDescription', mission = '$employerMission', vision = '$employerVision', password = '$employerPassword' WHERE email = '$email'";
     $result = mysqli_query($database, $query);
 

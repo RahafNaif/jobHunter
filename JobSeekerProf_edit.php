@@ -110,7 +110,7 @@ if (isset($_GET['skillName'])) {
 
 
 
-    <main>
+    <main style="min-height: 100vh;">
         <div class="JobHeader">
             <div class="companySVG">
                 <g id="surface1">
@@ -281,6 +281,17 @@ if (isset($_GET['skillName'])) {
 
         </form>
     </main>
+  <!-- Footer -->
+  <div class="footer">
+    <div class="footer-content">
+      <p>Contact us</p>
+      <span class="material-icons">facebook</span>
+      <a href="mailto:jobhunter@ksu.com"><span class="material-icons">email</span></a>
+    </div>
+    <div class="shape-footer" style="height: 150px;"><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
+        <path d="M-15.58,-15.49 C-16.70,110.81 186.45,57.52 502.48,59.50 L500.00,0.00 L0.00,0.00 Z" style="stroke: none; fill: #8CB3F4;"></path>
+      </svg></div>
+  </div>
 
 
     <script>

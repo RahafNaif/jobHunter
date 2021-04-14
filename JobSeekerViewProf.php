@@ -83,7 +83,7 @@ if (isset($_POST['delete'])) {
 <body>
   <?php include('./NavigationBar.php') ?>
 
-  <main style="min-height: 70vh;">
+  <main style="min-height: 100vh;">
     <div class="JobHeader">
       <!--from github-->
       <!-- Company svg -->
@@ -116,11 +116,7 @@ if (isset($_POST['delete'])) {
 
 
     <?php
-       if (!($database = mysqli_connect("localhost", "root", "")))
-       die("<p>Could not connect to database</p>");
 
-   if (!mysqli_select_db($database, "jobhunter"))
-       die("<p>Could not open URL database</p>");
    if (isset($_POST['viewi']))
        $email = $_POST['viewinfo'];
 //        else
@@ -298,8 +294,8 @@ else
     </div>
     </div>
 
-  </main>
   </div>
+  </main>
 
   <!-- Footer -->
   <div class="footer">

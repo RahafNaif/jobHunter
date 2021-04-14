@@ -21,7 +21,7 @@ if (isset($_SESSION['email'])) {
     <link rel="icon" href="img/icon.png">
     <link rel="stylesheet" href="styles\Buttons.css" />
     <link rel="stylesheet" href="styles\NavbarStyles.css" />
-    <link rel="stylesheet" href="styles\form.css" />
+    <link rel="stylesheet" href="styles\form.css?<?php echo time(); ?>" />
 </head>
 
 <body>

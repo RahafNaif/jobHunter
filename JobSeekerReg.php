@@ -9,7 +9,7 @@
     <link rel="icon" href="img/icon.png">
     <link rel="stylesheet" href="styles\Buttons.css" />
     <link rel="stylesheet" href="styles\NavbarStyles.css" />
-    <link rel="stylesheet" href="styles\form.css" />
+    <link rel="stylesheet" href="styles\form.css?<?php echo time(); ?>" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="js/jobseekerValdition.js"></script>

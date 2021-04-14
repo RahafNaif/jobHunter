@@ -114,12 +114,12 @@ if ($result2) {
                                         echo '' . $position; ?></h1>
       <h5>
         <form action="EmployerProfile.php" method="post" style="display: inline;">
-          <input type="hidden" name="viewinfo" value="<?php echo $emaillem ?> ">
+          <input type="hidden" name="viewinfo" value=<?php echo $emaillem;?>>
           <button name="viewi" class="linkButton">
             <?php echo '' . $companyName; ?>
           </button>
-        </form> | <?php
-                  echo '' . $city; ?>
+        </form>
+        | <?php echo '' . $city; ?>
       </h5>
     </div>
 
@@ -151,8 +151,7 @@ if ($result2) {
       <!-- apply Buttton -->
 
       <form id="aplyForm" action="JobDetailsPopUp.php" method="POST">
-        <input type="hidden" name="JOB_ID" value="<?php
-                                                  echo '' . $jobID; ?>">
+        <input type="hidden" name="JOB_ID" value="<?php echo '' . $jobID; ?>">
         <div class="applyBtn">
           <input name="Apply" value="Apply" type="submit" />
         </div>
@@ -163,14 +162,12 @@ if ($result2) {
     <?php
     if ($IsEmployer) {
       echo '<script>
-            $(document).ready(
-                              function() {
-                                $("#aplyForm").attr("display","none");
-                                $(".applyBtn").hide();
-                              }
-            );
-            </script>';
-     }
+  $(document).ready(function() {
+      $("#aplyForm").attr("display","none");
+      $(".applyBtn").hide();
+  });
+</script>';
+    }
     ?>
     <div class="sideBar">
       <div class="titleAndValueDiv">

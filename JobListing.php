@@ -62,7 +62,7 @@ if (!isset($_SESSION['email']) || $_SESSION['role'] == 1) {
       }
       print '</div>';
     } else
-      echo '<div class="lists"><h2>There are no listed jobs.</h2></div>';
+      echo '<div class="lists"><h2 class = "empty" >There are no listed jobs.</h2></div>';
     ?>
   </main>
   <!-- Footer -->

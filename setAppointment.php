@@ -357,8 +357,8 @@
         
           <form method="POST" action="setAppointment.php">
             <label for="">Select Date:</label> <input type="date" name="adddate"/><br/>
-            <?php print '<input type="hidden" name="em" value='.$jobSeekerEmail.'>';
-            print '<input type="hidden" name="id" value='.$apply_ID.'>';?>
+            <?php print '<input type="hidden" name="jobSeekerEmail" value='.$jobSeekerEmail.'>';
+            print '<input type="hidden" name="applyID" value='.$apply_ID.'>';?>
             <br/>
             <label for="">Select Time:</label>
             <input type="time" name="addtime"/><br><br>
@@ -370,14 +370,14 @@
            if(isset($_POST['add'])){
               $newDate = $_POST['adddate'];
               $newtime = $_POST['addtime'];
-              $em= $_POST['em'];
-              $id= $_POST['id'];
+              $em= $_POST['jobSeekerEmail'];
+              $id= $_POST['applyID'];
               $newtime = ''.substr($newtime,0,5).':00';
               
                 $query2 = "INSERT INTO appointment(jobSeeker_email,date,time,applay_JID) VALUES('".$em."','".$newDate."','".$newtime."','".$id."');";
                 $res = mysqli_query($database,$query2);
                 if($res){
-                  header("location: Applicants.php");
+                  header("Location: Applicants.php");
                 }else {
                   echo $result2;
                 }

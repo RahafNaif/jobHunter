@@ -39,29 +39,16 @@ if (!mysqli_select_db($database, "JobHunter"))
 
   if ($result) {
     while ($data = mysqli_fetch_assoc($result)) {
-      //1
-      //2
       $location = $data['city'];
-      //3
       $major = $data['major'];
-      //4
       $position = $data['position'];
-      //5
-      //6
       $jobTitle=$data['title'];
-      //7
       $jobType = $data['jobType'];
-      //8
       $jobDescription = $data['description'];
-      //9
       $requiredSkills = $data['skills'];
-      //10
       $requiredQ = $data['qualifications'];
-      //11
       $gender = $data['gender'];
-      //12
       $salary = $data['salary'];
-      //13
     } //end while ($data = mysqli_fetch_assoc($result))
   } //end if ($result)
   else
@@ -97,11 +84,11 @@ if (!mysqli_select_db($database, "JobHunter"))
 
     if ($result) {
       header("location: jobLisiting.php");
+      exit();
     } else
       echo "An error occured while updating the job.";
 
-    header("location: JobListing.php");
-    exit();
+    
   } // end if(isset($_POST['save']))
 
 
@@ -113,11 +100,10 @@ if (!mysqli_select_db($database, "JobHunter"))
 
     if ($result) {
       header("location: jobLisiting.php");
+      exit();
     } else
       echo "An error occured while updating the job.";
 
-    header("location: JobListing.php");
-    exit();
   } // end if(isset($_POST['delete']))
   ?>
 
@@ -128,18 +114,13 @@ if (!mysqli_select_db($database, "JobHunter"))
     <fieldset class="left">
       <legend class="postLegend">Edit A Job</legend>
       
-      <div class="inputDiv">
         <label for="position">Job Position</label>
         <input  autofocus required id="position" name="position" type="text" value="<?php print $position; ?>" />
-      </div>
 
-      <div class="inputDiv">
           <label class="theTitle" for="jobTitle"> Job Title </label>
           <input required id="jobTitle" type="text" name="jobTitle" value="<?php print $jobTitle; ?>"/>
-        </div> 
 
 
-      <div class="inputDiv" id="majorDiv">
         <label for="major">Major </label>
         <script>
           $(document).ready(function() {
@@ -147,6 +128,7 @@ if (!mysqli_select_db($database, "JobHunter"))
             $("#major").val('<?php echo $major; ?>');
           });
         </script>
+
         <select id="major" required name="major">
 
           <option value="">Select a major</option>
@@ -173,21 +155,16 @@ if (!mysqli_select_db($database, "JobHunter"))
           <option value="Mechanical & Aerospace Engineering">Mechanical & Aerospace Engineering</option>
           <option value="Medicine & Dentistry">Medicine & Dentistry</option>
         </select>
-        <!--https://stackoverflow.com/questions/8763869/append-input-text-field-with-value-of-a-div  -->
-      </div>
 
-      <div class="inputDiv">
         <label for="location"> Location</label>
         <input required id="location" type="text" name="location" value=<?php echo $location; ?> />
 
-      </div>
-      <div class="inputDiv">
         <label for="salary" id="SalaryL"> Salary Starts From </label>
         <input required type="number" name="salary" min="0" id="salary" value=<?php echo $salary; ?> />
         <!--https://stackoverflow.com/questions/7372067/is-there-any-way-to-prevent-input-type-number-getting-negative-values -->
-      </div>
 
-      <label class="notFormHeader">Job Type</label>
+
+      <label>Job Type</label>
       <script>
         $(document).ready(function() {
           if ('<?php echo $jobType; ?>' == "Full Time") {
@@ -197,12 +174,12 @@ if (!mysqli_select_db($database, "JobHunter"))
           }
         });
       </script>
-      <label class="rLabel">
+      <label>
         <input type="radio" required name="jobType" id="Full_Time" value="Full Time" />
         Full-time
       </label>
 
-      <label class="rLabel">
+      <label>
         <input type="radio" required name="jobType" id="Part_Time" value="Part Time" />
         Part-time
       </label>
@@ -219,32 +196,26 @@ if (!mysqli_select_db($database, "JobHunter"))
           }
         });
       </script>
-      <label class="rLabel">
+      <label>
         <input required type="radio" required name="gender" value="Female" id="Female" />
         Female
       </label>
 
-      <label class="rLabel">
+      <label>
         <input required type="radio" name="gender" id="Male" value="Male" />
         Male
       </label>
     </fieldset>
     <fieldset class="right">
-      <div class="inputDiv">
         <label for="jobDescription"> Job Description</label>
         <textarea required id="jobDescription" name="jobDescription" style="resize: none">
           <?php echo $jobDescription; ?></textarea>
-      </div>
 
-      <div class="inputDiv">
         <label for="requiredSkills"> Required Skills</label>
         <textarea required id="requiredSkills" name="requiredSkills" style="resize: none"><?php echo $requiredSkills; ?></textarea>
-      </div>
 
-      <div class="inputDiv">
         <label for="requiredQ"> Rrequired Qualifications</label>
         <textarea required id="requiredQ" name="requiredQualifications" style="resize: none"><?php echo $requiredQ; ?></textarea>
-      </div>
 
       <div class="buttons">
         <form method="post" action="EditAJob.php" style="display: inline;">

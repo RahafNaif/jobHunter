@@ -47,7 +47,7 @@ if (!mysqli_select_db($database, "JobHunter"))
   if (isset($_POST['postJob'])) {
 
 
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
 
       $sessionEmail = $_SESSION['email'];
       $companyName = "SELECT name FROM employer where email='$sessionEmail'";
@@ -70,15 +70,13 @@ if (!mysqli_select_db($database, "JobHunter"))
           '$gender','$salary','$result3','$sessionEmail','$jobTitle')";
       $result = mysqli_query($database, $query);
 
-      if ($result)
+      if ($result){
         header("location: jobLisiting.php");
-
+        exit();
+      }
       else
         echo "An error occured while inserting into the job table.";
-    } //end if ($_SERVER["REQUEST_METHOD"] == "POST")
-
-    header("location: JobListing.php");
-    exit();
+    
   } // end if(isset($_POST['postJob']))
 
 
@@ -91,17 +89,13 @@ if (!mysqli_select_db($database, "JobHunter"))
     <fieldset class=" left">
       <legend class="postLegend">Post A Job</legend>
       
-      <div class="inputDiv">
         <label for="position">Job Position</label>
         <input autofocus required id="position" name="position" type="text" placeholder="e.g. Software Engineer, Sales Manager" />
-      </div>
  
-        <div class="inputDiv">
+
           <label class="theTitle" for="jobTitle"> Job Title </label>
           <input required id="jobTitle" type="text" name="jobTitle" placeholder="Add a descriptive job title"/>
-        </div> 
 
-      <div class="inputDiv" id="majorDiv">
         <label for="major"> Major </label>
         <select id="major" required name="major">
           <option value="">Select a major</option>
@@ -128,26 +122,22 @@ if (!mysqli_select_db($database, "JobHunter"))
           <option value="Mechanical & Aerospace Engineering">Mechanical & Aerospace Engineering</option>
           <option value="Medicine & Dentistry">Medicine & Dentistry</option>
         </select>
-      </div>
 
-      <div class="inputDiv">
         <label for="location"> Location</label>
         <input required id="location" name="location" type="text" placeholder="Enter job location" />
-      </div>
-      <div class="inputDiv">
+
         <label for="salary" id="SalaryL"> Salary Starts From </label>
         <input required type="number" name="salary" min="0" id="salary" />
         <!--https://stackoverflow.com/questions/7372067/is-there-any-way-to-prevent-input-type-number-getting-negative-values -->
-      </div>
 
-      <label class="notFormHeader">Job Type</label>
+      <label>Job Type</label>
 
-      <label class="rLabel">
+      <label>
         <input type="radio" name="jobType" required checked="checked" value="Full Time" />
         Full-time
       </label>
 
-      <label class="rLabel">
+      <label>
         <input type="radio" name="jobType" required value="Part Time" />
         Part-time
       </label>
@@ -155,31 +145,27 @@ if (!mysqli_select_db($database, "JobHunter"))
 
       <label>Gender</label>
 
-      <label class="rLabel">
+      <label>
         <input required type="radio" name="gender" value="Female" checked="checked" />
         Female
       </label>
 
-      <label class="rLabel" id="Male">
+      <label id="Male">
         <input required type="radio" name="gender" value="Male" />
         Male
       </label>
     </fieldset>
     <fieldset class="right">
-      <div class="inputDiv">
         <label for="jobDescription"> Job Description</label>
         <textarea required style="resize: none" name="jobDescription" id="jobDescription" placeholder="Describe the responsibilities for this job"></textarea>
-      </div>
 
-      <div class="inputDiv">
         <label for="requiredSkills"> Required Skills</label>
         <textarea required id="requiredSkills" name="requiredSkills" placeholder="Describe the skills required for this job"></textarea>
-      </div>
 
-      <div class="inputDiv">
         <label for="requiredQ"> Rrequired Qualifications</label>
         <textarea required id="requiredQ" name="requiredQualifications" placeholder="Describe the qualifications required for this job"></textarea>
-      </div>
+
+
       <div class="buttons">
 
 

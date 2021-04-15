@@ -20,7 +20,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $fullName = explode(" ", $_POST['fullName']);
     $firstName = $fullName[0];
     $lastName = $fullName[1];
-    print_r($fullName);
     $password = $_POST['password'];
     $birthDate = $_POST['birthDate'];
     $gender = $_POST['gender'];
@@ -30,7 +29,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $major = $_POST['major'];
     $experince = $_POST['experince'];
     $currentJob = $_POST['currentJob'];
-    $Website = $_POST['Website'];
     $Github = $_POST['Github'];
     $Instagram = $_POST['Instagram'];
     $Faceboock = $_POST['Facebook'];
@@ -49,7 +47,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 major = '$major',
                 experince = '$experince',
                 currentJob = '$currentJob',
-                Website='$Website',
                 Github='$Github',
                 Instagram='$Instagram',
                 Facebook='$Faceboock'
@@ -156,7 +153,6 @@ if (isset($_GET['skillName'])) {
                 $experince = $data['experince'];
                 $skills = $data['skills'];
                 $currentJob = $data['currentJob'];
-                $Website = $data['Website'];
                 $Github = $data['Github'];
                 $Instagram = $data['Instagram'];
                 $Facebook = $data['Facebook'];

@@ -149,7 +149,6 @@ else
         $experince = $data['experince'];
         $skills = $data['skills'];
         $currentJob = $data['currentJob'];
-        $Website = $data['Website'];
         $Github = $data['Github'];
         $Instagram = $data['Instagram'];
         $Facebook = $data['Facebook'];

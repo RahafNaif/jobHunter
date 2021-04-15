@@ -104,10 +104,10 @@
                 if (!mysqli_select_db($database, "JobHunter"))
                     die("<p>Could not open URL database</p>");
                 
-                $search = $_GET['search'];
-                $city = $_GET['city'];
-                $op1 = $_GET['op1'];
-                $time = $_GET['time'];
+                $search = isset($_GET['search']) ? $_GET['search'] : '';
+                $city = isset($_GET['city']) ? $_GET['city'] : '';
+                $op1 = isset($_GET['op1']) ? $_GET['op1'] : '';
+                $time = isset($_GET['time']) ? $_GET['time'] : '';
 
 
                 if($search==''){ //all
@@ -152,15 +152,15 @@
                     echo '<p style="color: #192d50;font-size: 18px;text-align: center;margin-left:42%;">There is no jobs</p>';
                 }
                 
-                // $result = mysqli_query($database, $query);
-                // if ($result) {
-                //     while ($data = mysqli_fetch_assoc($result)) {
-                //         $position = $data['position'];
-                //         $city = $data['city'];
-                //         $jobType = $data['jobType'];
-                //         $description = $data['description'];
-                //     }
-                // }
+                $result = mysqli_query($database, $query);
+                if ($result) {
+                    while ($data = mysqli_fetch_assoc($result)) {
+                        $position = $data['position'];
+                        $city = $data['city'];
+                        $jobType = $data['jobType'];
+                        $description = $data['description'];
+                    }
+                }
                 
             ?>
 

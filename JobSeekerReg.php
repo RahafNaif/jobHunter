@@ -217,7 +217,7 @@
                                     <br> <label for="last_name" Required>nationality</label>
                                     <!-- <input type="text" class="form-input" name="last_name" id="last_name"
                                 placeholder="Your nationality..." /> -->
-                                    <select id="major" class="form-input" style=" 
+                                    <select id="nationality"  name="nationality" class="form-input" style=" 
                                 width: 100%;
                                 padding: 12px 20px;
                                 margin: 8px 0;
@@ -259,6 +259,7 @@
                                     <input type="text" class="form-input" name="experince" id="experince" placeholder="Your current job..." Required />
                                     <small id="experince_error">Error massgagr</small>
                                     <br><label for="last_name">major</label>
+
                                     <select id="major" class="form-input" name="major" style=" 
                                 width: 100%;
                                 padding: 12px 20px;

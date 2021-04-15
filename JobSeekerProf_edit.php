@@ -222,24 +222,24 @@ if (isset($_GET['skillName'])) {
                 </div>
                 <div class="titleAndValueDiv">
                     <h3>Nationality </h3>
-                    <input Required type="text" name="nationality" style="width:100%; height: 50%; font-size: medium;" value=<?php echo $nationality; ?>>
+                    <input Required type="text" name="nationality" style="width:100%; height: 50%; font-size: medium;" value='<?php echo $nationality; ?>'>
                 </div>
                 <div class="titleAndValueDiv">
                     <h3>City</h3>
-                    <input Required type="text" name="city" value=<?php echo $city; ?> style="width:100%; height: 50%; font-size: medium;">
+                    <input Required type="text" name="city" value='<?php echo $city; ?>' style="width:100%; height: 50%; font-size: medium;">
                 </div>
                 <div class="titleAndValueDiv">
                     <h3>Phone</h3>
-                    <input Required type="text" id="phone" name="phone" pattern="[0]{1}[5]{1}[0-9]{8}" value=<?php echo $phone; ?> style="width:100%; height: 50%; font-size: medium;">
+                    <input Required type="text" id="phone" name="phone" pattern="[0]{1}[5]{1}[0-9]{8}" value='<?php echo $phone; ?>' style="width:100%; height: 50%; font-size: medium;">
 
                     <div class="titleAndValueDiv">
                         <h3>Current Job</h3>
-                        <input Required type="text" name="currentJob" style="width:100%; height: 50%; font-size: medium;" value=<?php echo $currentJob ?>>
+                        <input Required type="text" name="currentJob" style="width:100%; height: 50%; font-size: medium;" value='<?php echo $currentJob ?>'>
                     </div>
                 </div>
                 <div class="titleAndValueDiv">
                     <h3>Major</h3>
-                    <input Required type="text" id="major" name="major" value=<?php echo $major; ?> style="width:100%; height: 50%; font-size: medium;">
+                    <input Required type="text" id="major" name="major" value='<?php echo $major; ?>' style="width:100%; height: 50%; font-size: medium;">
                 </div>
             </div>
 

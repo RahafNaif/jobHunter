@@ -156,51 +156,55 @@
                     // }
 
                         $result = mysqli_query($database, $query);
-                        $rowcount=mysqli_num_rows($result);
-                            if ($result && $rowcount>0) {
-                                while ($data = mysqli_fetch_assoc($result)) {
-                                    $email = $data['email'];
+                        if($result){
+                            $rowcount=mysqli_num_rows($result);
+                                if ($result && $rowcount>0) {
+                                    while ($data = mysqli_fetch_assoc($result)) {
+                                        $email = $data['email'];
 
-                                    $skillQuery = "select skillName from skills WHERE JobSeeker_email='".$email."' AND skillName='".$skill."'";
-                                    $resultSkills = mysqli_query($database, $skillQuery);
-                                    $rowcount=mysqli_num_rows($resultSkills);
+                                        $skillQuery = "select skillName from skills WHERE JobSeeker_email='".$email."' AND skillName='".$skill."'";
+                                        $resultSkills = mysqli_query($database, $skillQuery);
+                                        $rowcount=mysqli_num_rows($resultSkills);
 
-                                    if($rowcount>0 || ($skill=='')){
-                                        print '<li class="post">';
-                                        print '<div class="post-content">';
-                                       //print '<a href="JobSeekerViewProf.html">';
-                                        print '<form action="JobSeekerViewProf.php" method="post" style="position:relative;" >';
-                                        print '<input type="hidden" name="viewinfo" value="' . $data['email'] . '" />';
-                                        print '<button type="submit" name="viewi" style="all: unset; cursor:pointer; height: 100%; color: #192d50;  width: 100%; position: relative;">';
-                                        print '<h3>'. $data['firstName'] .' '.$data['lastName'].'</h3>';
-                                        print '<svg class="location-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="18px" height="18px"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>';
-                                        print '<span class="icon-side">'. $data['city'] .'</span><br>';
-                                        print '<svg class="major-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="18px" height="18px"><path d="M0 0h24v24H0z" fill="none"/><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg>';
-                                        print '<span class="icon-side">'.$data['major'].'</span>';
-                                        print '<h5>About Job seeker :</h5>';
-                                        print '<p class="descrption">'.$data['nationality'].', '.$data['gender'].'</p>';
-                                        print '<ol id="skills">Skills :';
-                                        
-                    
-                                        $query2 = "select skillName from skills WHERE JobSeeker_email='".$email."'";
-                                        $result2 = mysqli_query($database, $query2);
-                                        if($result2){
-                                            $i= 0;
-                                            while ($data2 = mysqli_fetch_assoc($result2)) {
-                                                if($i<2){
-                                                    print '<li>'.$data2['skillName'].'</li>';
-                                                    $i++;
+                                        if($rowcount>0 || ($skill=='')){
+                                            print '<li class="post">';
+                                            print '<div class="post-content">';
+                                        //print '<a href="JobSeekerViewProf.html">';
+                                            print '<form action="JobSeekerViewProf.php" method="post" style="position:relative;" >';
+                                            print '<input type="hidden" name="viewinfo" value="' . $data['email'] . '" />';
+                                            print '<button type="submit" name="viewi" style="all: unset; cursor:pointer; height: 100%; color: #192d50;  width: 100%; position: relative;">';
+                                            print '<h3>'. $data['firstName'] .' '.$data['lastName'].'</h3>';
+                                            print '<svg class="location-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="18px" height="18px"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>';
+                                            print '<span class="icon-side">'. $data['city'] .'</span><br>';
+                                            print '<svg class="major-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="18px" height="18px"><path d="M0 0h24v24H0z" fill="none"/><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg>';
+                                            print '<span class="icon-side">'.$data['major'].'</span>';
+                                            print '<h5>About Job seeker :</h5>';
+                                            print '<p class="descrption">'.$data['nationality'].', '.$data['gender'].'</p>';
+                                            print '<ol id="skills">Skills :';
+                                            
+                        
+                                            $query2 = "select skillName from skills WHERE JobSeeker_email='".$email."'";
+                                            $result2 = mysqli_query($database, $query2);
+                                            if($result2){
+                                                $i= 0;
+                                                while ($data2 = mysqli_fetch_assoc($result2)) {
+                                                    if($i<2){
+                                                        print '<li>'.$data2['skillName'].'</li>';
+                                                        $i++;
+                                                    }
                                                 }
-                                            }
 
+                                            }
+                                            print '</ol>';
+                                            print '</button></form>';
+                                            print '</div>';
+                                            print '</li>';
                                         }
-                                        print '</ol>';
-                                        print '</button></form>';
-                                        print '</div>';
-                                        print '</li>';
                                     }
+                                }else{
+                                    echo '<p style="color: #192d50;font-size: 18px;text-align: center;margin-left:42%;">There is no job seekers</p>';
                                 }
-                            }else{
+                            }else {
                                 echo '<p style="color: #192d50;font-size: 18px;text-align: center;margin-left:42%;">There is no job seekers</p>';
                             }
                         ?>

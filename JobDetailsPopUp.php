@@ -16,22 +16,7 @@ if (!mysqli_select_db($database, "JobHunter"))
   $_SESSION['Page'] = $_GET['thePage'];
   $jobID = $_SESSION['jobID'];
   $Page = $_SESSION['Page'];
-  
-  if (!isset($_SESSION['email']) || $_SESSION['role'] == 2) {
-    $IsEmployer = True;
-  } else{
-    $IsEmployer = False;
-
-}
-  
-  $jobSeekerEmail = $_SESSION['email'];
-  $_SESSION['jobID'] = $_GET['JOB_ID'];
-  $_SESSION['Page'] = $_GET['thePage'];
-  $jobID = $_SESSION['jobID'];
-  $Page = $_SESSION['Page'];
-  
-
-
+ 
 
 //$query = "INSERT INTO jobseeker_apply_job (JobSeeker_email, JOB_ID) VALUES ('" . $jobSeekerEmail . "','" . $_POST['JOB_ID'] . "');";
 if (isset($_POST['Apply'])) {

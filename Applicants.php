@@ -73,7 +73,6 @@ $result = mysqli_query($database, $query);
         print '<h6 class="location"> ' . $data['city'] . '</h6>';
         print '<i class="material-icons">book</i> <h6 class="major"> ' . $data['major'] . '</h6>';
         print '<p class="jobDescription">' . $data['experince'] . '</p>';
-        print '<p class="jobDescription">' . $data['skills'] . '</p>';
         print '</div>';
         print '<div class="buttons">';
         print '<form  action="setAppointment.php" method="POST"><input type = "hidden" name = "applyID" value =' . $data['applay_ID'] . '><input type = "hidden" name = "jobSeekerEmail" value =' . $data['email'] . '><button class="accept">Accept</button></form>';

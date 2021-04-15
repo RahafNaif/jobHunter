@@ -81,7 +81,6 @@
                       if (!mysqli_select_db($database, "jobhunter"))
                        die("<p>Could not open URL database</p>");
                        if( isset($_SESSION["email"]) ){
-
                       $email = $_SESSION['email'];
                     }
                       $query = "select * from job";

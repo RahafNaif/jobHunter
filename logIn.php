@@ -117,7 +117,7 @@ if (isset($_POST['login'])) {
                         <div class="list">
                             <div class="jobInfo">
                                 <br> <br>
-                                <img class="regimg" src="img/undraw_Login_re_4vu2.png" alt="v">
+                                <img class="regimg" src="img/login-img.png" alt="v">
                                 <h2 id="employerReg">Log in </h2> <br>
                                 <div id="f-div">
                                     <form action="logIn.php" method="POST">

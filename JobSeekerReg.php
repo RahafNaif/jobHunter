@@ -107,7 +107,7 @@ if (isset($_SESSION['email'])) {
                 <section class="background">
                     <div class="lists">
                         <div class="list">
-                            <img class="regimg" src="img/5236.jpg" alt="v">
+                            <img class="regimg" src="img/jobSeekerReg-img.jpg" alt="v">
                             <div class="jobInfo">
                                 <h2 id="employerReg">Job Seeker Regestration </h2>
 

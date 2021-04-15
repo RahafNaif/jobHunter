@@ -104,7 +104,7 @@ if (isset($_SESSION['email'])) {
                 <section class="background">
                     <div class="lists">
                         <div class="list">
-                            <img class="regimg" src="img/6671.jpg" alt="v">
+                            <img class="regimg" src="img/EmployerReg-img.jpg" alt="v">
                             <div class="jobInfo">
                                 <h2 id=employerReg>Employer Regstration </h2>
                                 <div class="alert" hidden> Error , Full out all the fiels correctly</div>

@@ -33,6 +33,11 @@ if (!mysqli_select_db($database, "JobHunter"))
 
 <body>
   <?php
+  if(isset($_POST['JOB_ID'])){}
+  else{
+    header("location: JobListing.php");
+    exit();
+  }
   $jobID = $_POST['JOB_ID'];
   $query = "SELECT * FROM job WHERE ID = '$jobID' ";
   $result = mysqli_query($database, $query);
@@ -51,8 +56,11 @@ if (!mysqli_select_db($database, "JobHunter"))
       $salary = $data['salary'];
     } //end while ($data = mysqli_fetch_assoc($result))
   } //end if ($result)
-  else
+  else{
     echo "Query Error";
+    header("location: JobListing.php");
+    exit();
+  }
 
   if (isset($_POST['save'])) {
     $major =  $_POST['major'];
@@ -88,6 +96,7 @@ if (!mysqli_select_db($database, "JobHunter"))
     } else
       echo "An error occured while updating the job.";
   } // end if(isset($_POST['save']))
+  
 
 
   if (isset($_POST['delete'])) {

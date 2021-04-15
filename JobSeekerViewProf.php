@@ -10,12 +10,12 @@ if (!isset($_SESSION['email'])) { //i edit this one to restrict jobsseker from e
 <?php
 
 if (!($database = mysqli_connect("localhost", "root", "")))
-die("<p>Could not connect to database</p>");
+  die("<p>Could not connect to database</p>");
 
 if (!mysqli_select_db($database, "jobhunter"))
-die("<p>Could not open URL database</p>");
+  die("<p>Could not open URL database</p>");
 if (isset($_POST['viewi']))
-$email = $_POST['viewinfo'];
+  $email = $_POST['viewinfo'];
 // else
 // $email = $_SESSION['email'];
 // $query = "select * from jobseeker WHERE email='$email'";
@@ -29,15 +29,15 @@ if (isset($_POST['delete'])) {
 
     $deleteSkills = "DELETE FROM skills WHERE JobSeeker_email='$email' ";
     $result = $database->query($deleteSkills);
-    if(!$result) throw new Error($database->error);
+    if (!$result) throw new Error($database->error);
 
     $deleteApplyJobs = "DELETE FROM jobseeker_apply_job WHERE JobSeeker_email='$email' ";
     $result = $database->query($deleteApplyJobs);
-    if(!$result) throw new Error($database->error);
+    if (!$result) throw new Error($database->error);
 
     $deleteJobseekers = "DELETE FROM jobseeker WHERE email='$email' ";
     $result = $database->query($deleteJobseekers);
-    if(!$result) throw new Error($database->error);
+    if (!$result) throw new Error($database->error);
 
     $database->commit();
     header("Location: signout.php");
@@ -57,7 +57,7 @@ if (isset($_POST['delete'])) {
 
 <head>
   <meta charset="utf-8" />
-  <link type="text/css" href="styles/ProfStylyLast.css" rel="stylesheet" />
+  <link type="text/css" href="styles/JobSeekerProfile.css" rel="stylesheet" />
   <link rel="icon" href="img/icon.png">
   <link rel="icon" href="img/icon.png">
   <link rel="stylesheet" href="styles/Buttons.css" />
@@ -119,16 +119,16 @@ if (isset($_POST['delete'])) {
 
     <?php
 
-   if (isset($_POST['viewi']))
-       $email = $_POST['viewinfo'];
-//        else
-// $email = $_SESSION['email'];
-// $query = "select * from jobseeker WHERE email='$email'";
-// $result = mysqli_query($database, $query);
+    if (isset($_POST['viewi']))
+      $email = $_POST['viewinfo'];
+    //        else
+    // $email = $_SESSION['email'];
+    // $query = "select * from jobseeker WHERE email='$email'";
+    // $result = mysqli_query($database, $query);
 
-else
-    $email = $_SESSION['email'];
-    if(isset($_GET['applicantID'])){
+    else
+      $email = $_SESSION['email'];
+    if (isset($_GET['applicantID'])) {
       $email = $_GET['applicantID'];
     }
     $query = "select * from jobseeker WHERE email='$email'";
@@ -168,9 +168,9 @@ else
         <?php
 
         if ($_SESSION['role'] == 2)
-       // <a href="setAppointment.php"><button>Set Appotmaint</button></a>
+          // <a href="setAppointment.php"><button>Set Appotmaint</button></a>
           print '<div class="buttons">
-                    <a href="mailto: '.$email. '"> <i class="material-icons" >email</i> </a></div> ';
+                    <a href="mailto: ' . $email . '"> <i class="material-icons" >email</i> </a></div> ';
 
 
         else if ($_SESSION['role'] == 1)
@@ -190,7 +190,7 @@ else
     <div class="details1">
 
 
-   
+
       <li class="group-list-item display-flex justify-between align-center  flex-wrap">
         <h6 class="margin-bottom-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github margin-right-2 icon-inline">
             <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
@@ -295,7 +295,7 @@ else
     </div>
     </div>
 
-  </div>
+    </div>
   </main>
 
   <!-- Footer -->
@@ -320,4 +320,5 @@ else
     }
   }
 </script>
+
 </html>

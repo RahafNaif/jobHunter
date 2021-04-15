@@ -116,10 +116,10 @@ INSERT INTO `job` (`ID`, `city`, `major`, `position`, `jobType`, `companyName`, 
 (2, 'Alkobher', 'Software Engineering ', 'Frontend Developer', 'Full time', 'STC', 'Frontend Developer', 'web and mobile applications for the company. Using JavaScript, HTML, and CSS', 'HTML\r\nCSS\r\nJavaScript', 'Bachelor\s degree\r\n2 year experience', 'female', 10000, 'STC@gmail.com'),
 (3, 'Jeddah', 'Software Engineering ', 'Mobile Development', 'Full time', 'STC', 'React Native Developer', 'We are looking for a React Native developer interested in building mobile apps.', 'React Native', '2 year on developing mobile apps.', 'd', 20000, 'STC@gmail.com');
 
-INSERT INTO `jobseeker` ( `firstName`, `lastName`, `email`, `password`, `birthDate`, `gender`, `nationality`, `city`, `phone`, `major`, `experince`, `skills`, `currentJob`, `role`,  `Github`, `Instagram`, `Facebook`) VALUES
-('Fisal', 'Naif', 'fisal@gmail.com', '12345678', '2021-04-20', 'male', 'saudi', 'Riyadh', '0509222864', 'Computer Science ', NULL, '', NULL, 1,  '', '', ''),
-('Rahaf', 'Naif', 'rahafnaif0@gmail.com', '12345678', '2021-04-20', 'Female', 'saudi', 'Riyadh', '0509222864', 'Software Engineering ', '2 years in web dev', '', 'web developer', 1, '', '', ''),
-('Dalal', 'Naif', 'naif@gmail.com', '12345678', '2021-04-07', '', 'Greek', 'Jeddah', '050333444', 'Accounting', '  ', '', 'Finance', 1, '', '', '');
+INSERT INTO `jobseeker` ( `firstName`, `lastName`, `email`, `password`, `birthDate`, `gender`, `nationality`, `city`, `phone`, `major`, `experince`, `currentJob`, `role`,  `Github`, `Instagram`, `Facebook`) VALUES
+('Fisal', 'Naif', 'fisal@gmail.com', '12345678', '2021-04-20', 'male', 'saudi', 'Riyadh', '0509222864', 'Computer Science ', NULL, NULL, 1,  '', '', ''),
+('Rahaf', 'Naif', 'rahafnaif0@gmail.com', '12345678', '2021-04-20', 'Female', 'saudi', 'Riyadh', '0509222864', 'Software Engineering ', '2 years in web dev', 'web developer', 1, '', '', ''),
+('Dalal', 'Naif', 'naif@gmail.com', '12345678', '2021-04-07', '', 'Greek', 'Jeddah', '050333444', 'Accounting', '  ', 'Finance', 1, '', '', '');
 
 
 INSERT INTO `appointment` (`appointment_ID`, `jobSeeker_email`, `date`, `time`, `applay_JID`, `statuss`) VALUES

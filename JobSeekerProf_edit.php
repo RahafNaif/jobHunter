@@ -250,7 +250,7 @@ if (isset($_GET['skillName'])) {
                         <div class="card h-100">
                             <div class="card-body">
                                 <h3>Update password</h3>
-                                <input Required type="text" id="password" name="password" value=<?php echo $password; ?> style="width:100%; height: 50%; font-size: medium;">
+                                <input Required type="text" id="password" name="password" value='<?php echo $password; ?>' style="width:100%; height: 50%; font-size: medium;">
                                 <br><br><br>
                                 <h3> Experience </h3>
                                 <textarea style="width:100%; height: 200%; font-size: medium;" id="vision" name="experince"><?php echo $experince; ?> </textarea>

@@ -98,7 +98,7 @@ if (!isset($_SESSION['email'])) { //i edit this one to restrict jobsseker from e
                     }
                 </script>
         <?php } else
-                echo "An error occured while updating the job.";
+                echo "An error occured while deleting the account.";
         }
         ?>
         <div class="company-card">

@@ -28,7 +28,6 @@ if (isset($_POST['Apply'])) {
     header('location: Myapplicationlist.php');
     exit();
   } else {
-    //echo "An error occured while applying to the job.";
     header('location: Myapplicationlist.php');
   }
 } //end  if(isset($_POST['Apply']))

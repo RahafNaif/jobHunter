@@ -197,9 +197,9 @@
                                     <br><br>
                                     <label for="gender" Required>Select yoru Gender</label>
                                     <br>
-                                    <input type="radio" name="gender" value="m" id="male" checked="checked" />
+                                    <input type="radio" name="gender" value="Male" id="male" checked="checked" />
                                     <label for="male">Male</label>
-                                    <input type="radio" name="gender" value="f" id="female" />
+                                    <input type="radio" name="gender" value="Female" id="female" />
                                     <label for="female">Female</label><br><br>
                                     <label for="phone">Phone number</label>
                                     <input type="text" class="form-input" name="phone" id="phone" placeholder="Your phone number" pattern="[0]{1}[5]{1}[0-9]{8}" Required />

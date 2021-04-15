@@ -102,7 +102,6 @@
                         }elseif(!empty($search) && ($skill=='') && ($nation=='') &&($major=='') &&($gender=='gender')){
                             $query = "select firstName, lastName, email, gender, nationality, city, major from jobseeker WHERE (firstName='".$search."' OR lastName='".$search."')";
 
-
                         }elseif(!empty($search) && ($skill=='') && ($nation=='') &&($major=='') &&($gender=='male')){
                             $query = "select firstName, lastName, email, gender, nationality, city, major from jobseeker WHERE gender='".$gender."' AND (firstName='".$search."' OR lastName='".$search."')";
 
@@ -111,12 +110,18 @@
 
                         }elseif(!empty($search) && ($skill=='') && !empty($nation) &&($major=='') &&($gender=='female')){
                             $query = "select firstName, lastName, email, gender, nationality, city, major from jobseeker WHERE gender='".$gender."' AND (firstName='".$search."' OR lastName='".$search."') AND nationality='".$nation."'";
+                        
+                        }elseif(!empty($search) && ($skill=='') && !empty($nation) &&($major=='') &&($gender=='gender')){
+                            $query = "select firstName, lastName, email, gender, nationality, city, major from jobseeker WHERE (firstName='".$search."' OR lastName='".$search."') AND nationality='".$nation."'";
 
                         }elseif(!empty($search) && ($skill=='') && !empty($nation) &&($major=='') &&($gender=='male')){
                             $query = "select firstName, lastName, email, gender, nationality, city, major from jobseeker WHERE gender='".$gender."' AND (firstName='".$search."' OR lastName='".$search."') AND nationality='".$nation."'";
 
                         }elseif(!empty($search) && ($skill=='') && ($nation=='') && !empty($major) &&($gender=='male')){
                             $query = "select firstName, lastName, email, gender, nationality, city, major from jobseeker WHERE gender='".$gender."' AND (firstName='".$search."' OR lastName='".$search."') AND major='".$major."'";
+                        
+                        }elseif(!empty($search) && ($skill=='') && ($nation=='') && !empty($major) &&($gender=='gender')){
+                            $query = "select firstName, lastName, email, gender, nationality, city, major from jobseeker WHERE (firstName='".$search."' OR lastName='".$search."') AND major='".$major."'";
 
                         }elseif(!empty($search) && ($skill=='') && ($nation=='') && !empty($major) &&($gender=='female')){
                             $query = "select firstName, lastName, email, gender, nationality, city, major from jobseeker WHERE gender='".$gender."' AND (firstName='".$search."' OR lastName='".$search."') AND major='".$major."'";
@@ -126,6 +131,9 @@
 
                         }elseif(!empty($search) && ($skill=='') && !empty($nation) && !empty($major) &&($gender=='male')){
                             $query = "select firstName, lastName, email, gender, nationality, city, major from jobseeker WHERE gender='".$gender."' AND (firstName='".$search."' OR lastName='".$search."') AND major='".$major."' AND nationality='".$nation."'";
+                        
+                        }elseif(!empty($search) && ($skill=='') && !empty($nation) && !empty($major) &&($gender=='gender')){
+                            $query = "select firstName, lastName, email, gender, nationality, city, major from jobseeker WHERE (firstName='".$search."' OR lastName='".$search."') AND major='".$major."' AND nationality='".$nation."'";
 
                         }elseif(!empty($search) && !empty($skill) && ($nation=='') &&($major=='') &&($gender=='female')){
                             $query = "select firstName, lastName, email, gender, nationality, city, major from jobseeker WHERE gender='".$gender."' AND (firstName='".$search."' OR lastName='".$search."')";
@@ -133,11 +141,17 @@
                         }elseif(!empty($search) && !empty($skill) && ($nation=='') &&($major=='') &&($gender=='male')){
                             $query = "select firstName, lastName, email, gender, nationality, city, major from jobseeker WHERE gender='".$gender."' AND (firstName='".$search."' OR lastName='".$search."')";
                         
+                        }elseif(!empty($search) && !empty($skill) && ($nation=='') &&($major=='') &&($gender=='gender')){
+                            $query = "select firstName, lastName, email, gender, nationality, city, major from jobseeker WHERE (firstName='".$search."' OR lastName='".$search."')";
+                        
                         }elseif(!empty($search) && !empty($skill) && !empty($nation) &&($major=='') &&($gender=='female')){
                             $query = "select firstName, lastName, email, gender, nationality, city, major from jobseeker WHERE gender='".$gender."' AND (firstName='".$search."' OR lastName='".$search."') AND nationality='".$nation."'";
                         
                         }elseif(!empty($search) && !empty($skill) && !empty($nation) &&($major=='') &&($gender=='male')){
                             $query = "select firstName, lastName, email, gender, nationality, city, major from jobseeker WHERE gender='".$gender."' AND (firstName='".$search."' OR lastName='".$search."') AND nationality='".$nation."'";
+                        
+                        }elseif(!empty($search) && !empty($skill) && !empty($nation) &&($major=='') &&($gender=='gender')){
+                            $query = "select firstName, lastName, email, gender, nationality, city, major from jobseeker WHERE (firstName='".$search."' OR lastName='".$search."') AND nationality='".$nation."'";
                         
                         }elseif(!empty($search) && !empty($skill) && !empty($nation) && !empty($major) &&($gender=='female')){
                             $query = "select firstName, lastName, email, gender, nationality, city, major from jobseeker WHERE gender='".$gender."' AND (firstName='".$search."' OR lastName='".$search."') AND nationality='".$nation."' AND major='".$major."'";
@@ -145,11 +159,17 @@
                         }elseif(!empty($search) && !empty($skill) && !empty($nation) && !empty($major) &&($gender=='male')){
                             $query = "select firstName, lastName, email, gender, nationality, city, major from jobseeker WHERE gender='".$gender."' AND (firstName='".$search."' OR lastName='".$search."') AND nationality='".$nation."' AND major='".$major."'";
                         
+                        }elseif(!empty($search) && !empty($skill) && !empty($nation) && !empty($major) &&($gender=='gender')){
+                            $query = "select firstName, lastName, email, gender, nationality, city, major from jobseeker WHERE (firstName='".$search."' OR lastName='".$search."') AND nationality='".$nation."' AND major='".$major."'";
+                        
                         }elseif(!empty($search) && !empty($skill) && ($nation=='') && !empty($major) &&($gender=='male')){
                             $query = "select firstName, lastName, email, gender, nationality, city, major from jobseeker WHERE gender='".$gender."' AND (firstName='".$search."' OR lastName='".$search."') AND major='".$major."'";
                         
                         }elseif(!empty($search) && !empty($skill) && ($nation=='') && !empty($major) &&($gender=='female')){
                             $query = "select firstName, lastName, email, gender, nationality, city, major from jobseeker WHERE gender='".$gender."' AND (firstName='".$search."' OR lastName='".$search."') AND major='".$major."'";
+                        
+                        }elseif(!empty($search) && !empty($skill) && ($nation=='') && !empty($major) &&($gender=='gender')){
+                            $query = "select firstName, lastName, email, gender, nationality, city, major from jobseeker WHERE (firstName='".$search."' OR lastName='".$search."') AND major='".$major."'";
                         
                         }else{
                             echo '<p style="color: #192d50;font-size: 18px;text-align: center;margin-left:42%;">There is no job seekers</p>';

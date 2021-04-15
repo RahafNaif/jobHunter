@@ -1,22 +1,33 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['email']) || $_SESSION['role'] == 2) {
-  $IsEmployer = True;
-} else
-  $IsEmployer = False;
 
 if (!($database = mysqli_connect("localhost", "root", "")))
   die("<p>Could not connect to database</p>");
 
 if (!mysqli_select_db($database, "JobHunter"))
   die("<p>Could not open URL database</p>");
-  $jobSeekerEmail = $_SESSION['email'];
-  $_SESSION['jobID'] = $_GET['JOB_ID'];
-  $_SESSION['Page'] = $_GET['thePage'];
-  $jobID = $_SESSION['jobID'];
-  $Page = $_SESSION['Page'];
- 
+$jobSeekerEmail = $_SESSION['email'];
+$_SESSION['jobID'] = $_GET['JOB_ID'];
+$_SESSION['Page'] = $_GET['thePage'];
+$jobID = $_SESSION['jobID'];
+$Page = $_SESSION['Page'];
+$IsEmployer = TRUE;
+if (!isset($_SESSION['email']) || $_SESSION['role'] == 2) {
+  $IsEmployer = True;
+} else {
+  $q = "SELECT * FROM jobseeker_apply_job  WHERE JobSeeker_email ='" . $jobSeekerEmail . "' AND Job_ID =" . $_GET['JOB_ID'] . "";
+  $result = mysqli_query($database, $q);
+  if (mysqli_num_rows($result) == 0) {
+    // no results
+
+    $IsEmployer = FALSE;
+  } else {
+    // there are results in $r
+
+    $IsEmployer = TRUE;
+  }
+}
 
 //$query = "INSERT INTO jobseeker_apply_job (JobSeeker_email, JOB_ID) VALUES ('" . $jobSeekerEmail . "','" . $_POST['JOB_ID'] . "');";
 if (isset($_POST['Apply'])) {
@@ -112,7 +123,7 @@ if ($result2) {
                                         echo '' . $position; ?></h1>
       <h5>
         <form action="EmployerProfile.php" method="post" style="display: inline;">
-          <input type="hidden" name="viewinfo" value=<?php echo $emaillem;?>>
+          <input type="hidden" name="viewinfo" value=<?php echo $emaillem; ?>>
           <button name="viewi" class="linkButton">
             <?php echo '' . $companyName; ?>
           </button>
@@ -128,19 +139,19 @@ if ($result2) {
         <?php
         echo '' . $title; ?>
       </p>
-      <br/>
+      <br />
       <h4 style="font-weight:bolder ;">Job Description</h4>
       <p>
         <?php
         echo '' . $description; ?>
       </p>
-      <br/>
+      <br />
       <h6 style="font-weight: bold;">Required Skills</h6>
       <p>
         <?php
         echo '' . $skills; ?>
       </p>
-      <br/>
+      <br />
       <h6 style="font-weight: bold;">Rrequired Qualifications</h6>
       <p id="QualificationsP">
         <?php

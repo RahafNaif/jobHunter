@@ -1,5 +1,11 @@
 <?php
 session_start();
+
+if (!isset($_SESSION['email']) || $_SESSION['role'] == 2) {
+  $IsEmployer = True;
+} else
+  $IsEmployer = False;
+
 if (!($database = mysqli_connect("localhost", "root", "")))
   die("<p>Could not connect to database</p>");
 
@@ -11,17 +17,19 @@ if (!mysqli_select_db($database, "JobHunter"))
   $jobID = $_SESSION['jobID'];
   $Page = $_SESSION['Page'];
   
- 
-if (!isset($_SESSION['email']) || $_SESSION['role'] == 2) {
-  $IsEmployer = True;
-} else{
-  $q="SELECT * from jobseeker_apply_job WHERE JobSeeker_email ='$jobSeekerEmail' AND Job_ID ='$jobID'";
- if ($r = mysqli_query( $database, $q) && mysqli_num_rows($r) > 0) {
-    // there are results in $result
-} else {
-    // no results
+  if (!isset($_SESSION['email']) || $_SESSION['role'] == 2) {
+    $IsEmployer = True;
+  } else{
     $IsEmployer = False;
-}}
+
+}
+  
+  $jobSeekerEmail = $_SESSION['email'];
+  $_SESSION['jobID'] = $_GET['JOB_ID'];
+  $_SESSION['Page'] = $_GET['thePage'];
+  $jobID = $_SESSION['jobID'];
+  $Page = $_SESSION['Page'];
+  
 
 
 

@@ -4,26 +4,6 @@ session_start();
 if (!isset($_SESSION['email'])) { //i edit this one to restrict jobsseker from enter the emplyer page
     header("location: LogIn.php");
     exit();
-
-    echo $_GET["delete"];
-    if ($_GET['delete'] == true) {
-        echo "start deleting";
-        $email = $_SESSION['email'];
-        $query = "DELETE FROM employeer WHERE email=\"$email\"";
-        echo $query;
-
-        if (!($database = mysqli_connect("localhost", "root", "")))
-            die("<p>Could not connect to database</p>");
-
-        if (!mysqli_select_db($database, "jobhunter"))
-            die("<p>Could not open URL database</p>");
-
-        $result = mysqli_query($database, $query);
-
-        echo $result;
-        header("location: home.php");
-        exit();
-    }
 }
 ?>
 <!DOCTYPE html>
@@ -80,9 +60,28 @@ if (!isset($_SESSION['email'])) { //i edit this one to restrict jobsseker from e
             exit();
         }
         if (isset($_POST['delete'])) {
-            $myquery = "delete  from employer
-            WHERE email='$email' ";
-            $result = mysqli_query($database, $myquery);
+
+            try {
+                $email = $_SESSION['email'];
+
+                $database->begin_transaction();
+                $deleteAllJobs = "DELETE from job WHERE employer_email='$email' ";
+                $result = mysqli_query($database, $deleteAllJobs);
+                if(!$result) throw new Error($database->error);
+
+                $deleteProfile = "DELETE from employer WHERE email='$email' ";
+                $result = mysqli_query($database, $deleteProfile);
+                if(!$result) throw new Error($database->error);
+                $database->commit();
+                header("Location: signout.php");
+            } catch (Throwable $error) {
+                echo "Error: can not delete profile \n";
+                echo $error;
+                $database->rollback();
+                throw $error;
+                exit();
+            }
+        
 
             if ($result) {
 

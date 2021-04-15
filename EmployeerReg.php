@@ -1,3 +1,16 @@
+<?php
+session_start();
+if (isset($_SESSION['email'])) {
+
+    if ($_SESSION['role'] == 1)
+        header("Location:JobSeekerViewProf.php");
+
+    if ($_SESSION['role'] == 2)
+        header("Location: EmployerProfile.php");
+}
+
+?>
+
 <!DOCTYPE html>
 
 <html>

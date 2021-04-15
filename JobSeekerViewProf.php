@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['email'])) { //i edit this one to restrict jobsseker from enter the emplyer page
+if (!isset($_SESSION['email']) || $_SESSION['role'] == 2) { //i edit this one to restrict jobsseker from enter the emplyer page
   header("location: logIn.php");
   $email2 = $_SESSION['email'];
   exit();

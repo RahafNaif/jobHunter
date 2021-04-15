@@ -217,7 +217,7 @@
                                     <br> <label for="last_name" Required>nationality</label>
                                     <!-- <input type="text" class="form-input" name="last_name" id="last_name"
                                 placeholder="Your nationality..." /> -->
-                                    <select id="nationality"  name="nationality" class="form-input" style=" 
+                                    <select id="nationality" name="nationality" class="form-input" style=" 
                                 width: 100%;
                                 padding: 12px 20px;
                                 margin: 8px 0;
@@ -348,8 +348,10 @@
     </footer>
     </div>
     <?php
-    if ($_POST['password'] != $_POST['re_password']) {
-        echo ("Oops! Password did not match! Try again. ");
+    if (isset($_POST['create'])) {
+        if ($_POST['password'] != $_POST['re_password']) {
+            echo ("Oops! Password did not match! Try again. ");
+        }
     }
 
 

@@ -25,20 +25,22 @@ $email = $_POST['viewinfo'];
 if (isset($_POST['delete'])) {
   $email = $_SESSION['email'];
   try {
-    echo "test";
     $database->begin_transaction();
-    $myquery1 = "DELETE FROM skills WHERE JobSeeker_email='$email' ";
-    echo "/n".$myquery1;
-    $result = $database->query($myquery1);
-    
-    echo "1";
-    $myquery2 = "DELETE FROM jobseeker WHERE email='$email' ";
-    $result2 = $database->query($myquery2);
-    echo "/n".$myquery2;
-    echo "2";
+
+    $deleteSkills = "DELETE FROM skills WHERE JobSeeker_email='$email' ";
+    $result = $database->query($deleteSkills);
+    if(!$result) throw new Error($database->error);
+
+    $deleteApplyJobs = "DELETE FROM jobseeker_apply_job WHERE JobSeeker_email='$email' ";
+    $result = $database->query($deleteApplyJobs);
+    if(!$result) throw new Error($database->error);
+
+    $deleteJobseekers = "DELETE FROM jobseeker WHERE email='$email' ";
+    $result = $database->query($deleteJobseekers);
+    if(!$result) throw new Error($database->error);
+
     $database->commit();
     header("Location: signout.php");
-    echo "3";
   } catch (Throwable $error) {
     echo "Error: can not delete profile \n";
     echo $error;

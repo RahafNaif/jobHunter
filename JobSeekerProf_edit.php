@@ -183,7 +183,7 @@ if (isset($_GET['skillName'])) {
                 <h4><?php echo $firstName . " " . $lastName; ?></h4>
                 <h4><?php echo $currentJob ?></h4>
                 <p><?php echo $city ?></p>
-                <img style="transform:translateY(40%)" src="img/Screen Shot 1442-07-16 at 4.29.48 PM.png" alt="Admin" class="circle" width="50">
+                <img style="transform:translateY(40%)" src="img/privateAccount.png" alt="Admin" class="circle" width="50">
             </div>
             <div class="details1">
                 <ul>

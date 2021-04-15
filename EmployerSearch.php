@@ -46,11 +46,10 @@
                                 //print '<li><a href="'.$profile.'"> Profile</a></li>';
                                if (isset($_SESSION['role'])) 
                                     print '<a href="'.$profile.'" class="navbar-item-span">Profile</a>';
-                                    
                                    
-                                // print '</ul>';
-                                // print '</li>';
-                                // print '</ul>';
+                            //     print '</ul>';
+                            //     print '</li>';
+                            //     print '</ul>';
                             }else {
                                 print '<a href="LogIn.php" class="navbar-item-span">Log in</a>';
                             }

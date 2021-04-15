@@ -20,11 +20,9 @@ if (!isset($_SESSION['email']) || $_SESSION['role'] == 2) {
   $result = mysqli_query($database, $q);
   if (mysqli_num_rows($result) == 0) {
     // no results
-
     $IsEmployer = FALSE;
   } else {
     // there are results in $r
-
     $IsEmployer = TRUE;
   }
 }
@@ -40,6 +38,8 @@ if (isset($_POST['Apply'])) {
   } else {
     header('location: Myapplicationlist.php');
   }
+  header('location: Myapplicationlist.php');
+  exit();
 } //end  if(isset($_POST['Apply']))
 
 $query2 = "SELECT * FROM job WHERE ID = '$jobID'";

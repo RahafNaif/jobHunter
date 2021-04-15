@@ -99,6 +99,9 @@
 
                         }elseif(($search=='') && ($skill=='') && ($nation=='') &&($major=='') &&($gender=='female')){
                             $query = "select firstName, lastName, email, gender, nationality, city, major from jobseeker WHERE gender='".$gender."'";
+                        }elseif(!empty($search) && ($skill=='') && ($nation=='') &&($major=='') &&($gender=='gender')){
+                            $query = "select firstName, lastName, email, gender, nationality, city, major from jobseeker WHERE (firstName='".$search."' OR lastName='".$search."')";
+
 
                         }elseif(!empty($search) && ($skill=='') && ($nation=='') &&($major=='') &&($gender=='male')){
                             $query = "select firstName, lastName, email, gender, nationality, city, major from jobseeker WHERE gender='".$gender."' AND (firstName='".$search."' OR lastName='".$search."')";

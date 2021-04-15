@@ -33,26 +33,27 @@
                     <a href="#" class="navbar-item">Employers</a>
                     <!-- <a href="LogIn.php" class="navbar-item-span"><span>Log in</span></a> -->
                     <?php
-                            // if (isset($_SESSION['email'])) {
-                            //     print '<ul class="navLinks2">';
-                            //     print '<li>';
-                            //     print '<a href="#"><i class="material-icons">person</i></a>';
-                            //     print '<ul>';
-                            //     if ($_SESSION['role']==1){
-                            //         $profile = 'JobSeekerViewProf.php';
-                            //     }else{
-                            //         $profile = 'EmployerProfile.php';
-                            //     }
-                            //     print '<li><a href="'.$profile.'"> Profile</a></li>';
-                            //    if (isset($_SESSION['role'])) print '<li><a href="http:signout.php">logout</a></li>';
-                            //         else print '<li><a href="http:login.php">login</a></li>';
+                            if (isset($_SESSION['email'])) {
+                                // print '<ul class="navLinks2">';
+                                // print '<li>';
+                                // print '<a href="#"><i class="material-icons">person</i></a>';
+                                // print '<ul>';
+                                if ($_SESSION['role']==1){
+                                    $profile = 'JobSeekerViewProf.php';
+                                }else{
+                                    $profile = 'EmployerProfile.php';
+                                }
+                                //print '<li><a href="'.$profile.'"> Profile</a></li>';
+                               if (isset($_SESSION['role'])) 
+                                    print '<a href="'.$profile.'" class="navbar-item-span">Profile</a>';
+                                    
                                    
-                            //     print '</ul>';
-                            //     print '</li>';
-                            //     print '</ul>';
-                            // }else {
+                                // print '</ul>';
+                                // print '</li>';
+                                // print '</ul>';
+                            }else {
                                 print '<a href="LogIn.php" class="navbar-item-span">Log in</a>';
-                            //}
+                            }
                     ?>
                 </div>
             </nav>

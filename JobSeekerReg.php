@@ -5,101 +5,16 @@
 <head>
     <meta charset="UTF-8" />
     <title>Job Seeker Registration</title>
-    <link rel="stylesheet" href="styles\JobListingStylesFay.css" />
+    <link rel="stylesheet" href="styles\RegisterLogin.css" />
     <link rel="icon" href="img/icon.png">
     <link rel="stylesheet" href="styles\Buttons.css" />
     <link rel="stylesheet" href="styles\NavbarStyles.css" />
+    <link rel="stylesheet" href="styles/Footer.css">
     <link rel="stylesheet" href="styles\form.css?<?php echo time(); ?>" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="js/jobseekerValdition.js"></script>
     <style>
-        form small {
-            color: red;
-            visibility: hidden;
-            padding-left: 15 px;
-
-        }
-
-        .custom-shape-divider-bottom-1612535207 {
-            position: absolute;
-            left: 0;
-            width: 100%;
-            overflow: hidden;
-            line-height: 0;
-            transform: rotate(180deg);
-        }
-
-
-        .custom-shape-divider-bottom-1612535207 svg {
-            position: relative;
-            display: block;
-            width: calc(222% + 1.3px);
-            height: 218px;
-            transform: rotateY(180deg);
-        }
-
-        .custom-shape-divider-bottom-1612535207 .shape-fill {
-            fill: #8cb3f4;
-        }
-
-        .footer-content {
-            position: absolute;
-            padding-left: 100px;
-            padding-top: 100px;
-        }
-
-        .footer {
-            display: inline-block;
-        }
-
-        .company-icon {
-            fill: #2b468b;
-            margin-top: 10px;
-            margin-left: -190px;
-        }
-
-        .company {
-            text-align: left;
-            padding-top: 8px;
-            padding-left: 10px;
-        }
-
-        .shape-footer {
-            transform: rotateX(180deg);
-            width: 100%;
-            position: absolute;
-        }
-
-        * {
-            padding: 0;
-            margin: 0;
-        }
-
-        .footer-content {
-            position: absolute;
-            z-index: 3;
-            font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-                "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-            font-size: 16px;
-            color: #192d50;
-            /* margin-top: 5px; */
-            margin-left: 35%;
-            display: inline-flex;
-        }
-
-        .footer-content span {
-            padding-left: 10px;
-            text-decoration: none;
-            color: #192d50;
-        }
-
-        .footer-content span:hover {
-            color: rgba(234, 243, 250, 0.8);
-            transform: scale(1.1);
-            transition: 0.3s ease-in;
-        }
-
         #page-container {
             position: relative;
             min-height: 200vh;

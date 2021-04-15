@@ -86,7 +86,7 @@ if (isset($_GET['skillName'])) {
 
 <head>
     <meta charset="utf-8" />
-    <link type="text/css" href="styles/ProfStylyLast.css" rel="stylesheet" />
+    <link type="text/css" href="styles/JobSeekerProfile.css" rel="stylesheet" />
     <link rel="icon" href="img/icon.png">
     <link rel="icon" href="img/icon.png">
     <link rel="stylesheet" href="styles/Buttons.css" />

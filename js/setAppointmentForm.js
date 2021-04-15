@@ -6,6 +6,10 @@ $(document).ready(function(){
     });
 
     $('.addForm-parent').click(function(){
+        $('.addForm-parent').css('display','block');
+    });
+
+    $('.closeIcon').click(function(){
         $('.addForm-parent').css('display','none');
         $('.continer').css('filter','blur(0px)');
     });

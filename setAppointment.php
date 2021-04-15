@@ -297,10 +297,17 @@
               
                 $query2 = "INSERT INTO appointment(jobSeeker_email,date,time,applay_JID) VALUES('".$em."','".$newDate."','".$newtime."','".$id."');";
                 $res = mysqli_query($database,$query2);
-                if($res){
-                  header("Location: Applicants.php");
-                }else {
-                  echo $result2;
+                if($res){ ?>
+                  <script>
+                    window.onload = function() {
+                      if (!window.location.hash) {
+                        window.location = window.location + '#loaded';
+                        window.location.reload();
+                      }
+                     }
+                    </script>
+               <?php }else {
+                 
                 }
             }
           ?>

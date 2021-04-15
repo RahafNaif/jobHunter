@@ -7,7 +7,7 @@
 }
 
 /* SCROLL BAR */
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
   width: 0px;
   background: transparent;
 }
@@ -24,7 +24,7 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #fa9746;
   border-radius: 5px;
-}
+} */
 
 .navLinks2 {
   left: 150%;

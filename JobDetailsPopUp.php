@@ -12,19 +12,20 @@ $_SESSION['jobID'] = $_GET['JOB_ID'];
 $_SESSION['Page'] = $_GET['thePage'];
 $jobID = $_SESSION['jobID'];
 $Page = $_SESSION['Page'];
-$IsEmployer = TRUE;
 if (!isset($_SESSION['email']) || $_SESSION['role'] == 2) {
   $IsEmployer = True;
 } else {
-  $q = "SELECT * FROM jobseeker_apply_job  WHERE JobSeeker_email ='" . $jobSeekerEmail . "' AND Job_ID =" . $_GET['JOB_ID'] . "";
-  $result = mysqli_query($database, $q);
-  if (mysqli_num_rows($result) == 0) {
-    // no results
-    $IsEmployer = FALSE;
-  } else {
-    // there are results in $r
-    $IsEmployer = TRUE;
-  }
+  $IsEmployer = False;
+
+  // $q = "SELECT * FROM jobseeker_apply_job  WHERE JobSeeker_email ='" . $jobSeekerEmail . "' AND Job_ID =" . $_GET['JOB_ID'] . "";
+  // $result = mysqli_query($database, $q);
+  // if (mysqli_num_rows($result) == 0) {
+  //   // no results
+  //   $IsEmployer = FALSE;
+  // } else {
+  //   // there are results in $r
+  //   $IsEmployer = TRUE;
+  // }
 }
 
 //$query = "INSERT INTO jobseeker_apply_job (JobSeeker_email, JOB_ID) VALUES ('" . $jobSeekerEmail . "','" . $_POST['JOB_ID'] . "');";
@@ -37,6 +38,7 @@ if (isset($_POST['Apply'])) {
     exit();
   } else {
     header('location: Myapplicationlist.php');
+    exit();
   }
   header('location: Myapplicationlist.php');
   exit();

@@ -258,7 +258,7 @@ if (isset($_POST['delete'])) {
           <div class="card h-100">
             <div class="card-body">
               <h3 class="display-flex align-center  margin-bottom-3"><i class="material-icons text-info margin-right-2"> </i> Experience </span>
-                <h4><?php echo $experince ?> </h4>
+                <h4 style="margin-left:10px;"><?php echo $experince ?> </h4>
                 <div class="progress margin-bottom-3" style="height: 5px">
 
                 </div>
@@ -282,7 +282,7 @@ if (isset($_POST['delete'])) {
               $res = mysqli_query($database, $skills);
               if ($res) {
                 while ($data = mysqli_fetch_assoc($res)) {
-                  print('<p>' . $data['skillName'] . '</p>');
+                  print('<p style="margin-left:10px;">' . $data['skillName'] . '</p>');
                 }
               } else {
                 echo $database->error;

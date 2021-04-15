@@ -156,7 +156,7 @@ a:hover {
 button {
   position: relative;
   margin: 20px;
-  margin-left: 40%;
+  margin-left: 50%;
   border-radius: 20px;
   width: 100px;
   height: 30px;
@@ -185,6 +185,7 @@ button:focus {
 .applicants {
   text-decoration: none;
   color:white;
+  margin-left:35%;
 }
 
 .jobInfo {

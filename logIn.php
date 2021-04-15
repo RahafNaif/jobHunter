@@ -60,7 +60,7 @@ if (isset($_POST['login'])) {
 <head>
     <meta charset="UTF-8" />
     <title>Log in</title>
-    <link rel="stylesheet" href="styles\RegisterLogin.css" />
+    <link rel="stylesheet" href="styles\RegisterLogin.css?<?php echo time(); ?>" />
     <link rel="icon" href="img/icon.png">
     <link rel="stylesheet" href="styles\Buttons.css" />
     <link rel="stylesheet" href="styles\NavbarStyles.css" />

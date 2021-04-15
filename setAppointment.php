@@ -38,8 +38,10 @@
   </head>
   <body>
     <!-- popup for notifications -->
+    <div class="continer">
     <?php include('./NavigationBar.php'); ?>
 
+    
       <div class="set-app">
         <h2>Set Appointment</h2>
         <div class="line"></div>

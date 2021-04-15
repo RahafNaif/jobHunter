@@ -1,6 +1,10 @@
 <?php
 session_start();
-
+if(isset($_GET['JOB_ID'])){}
+else{
+  header('location: home.php');
+  exit();
+}
 
 if (!($database = mysqli_connect("localhost", "root", "")))
   die("<p>Could not connect to database</p>");
@@ -17,16 +21,16 @@ if (!isset($_SESSION['email']) || $_SESSION['role'] == 2) {
 } else {
   $IsEmployer = False;
 
-  // $q = "SELECT * FROM jobseeker_apply_job  WHERE JobSeeker_email ='" . $jobSeekerEmail . "' AND Job_ID =" . $_GET['JOB_ID'] . "";
-  // $result = mysqli_query($database, $q);
-  // if (mysqli_num_rows($result) == 0) {
-  //   // no results
-  //   $IsEmployer = FALSE;
-  // } else {
-  //   // there are results in $r
-  //   $IsEmployer = TRUE;
-  // }
-}
+    // $q = "SELECT * FROM jobseeker_apply_job  WHERE JobSeeker_email ='" . $jobSeekerEmail . "' AND Job_ID =" . $_GET['JOB_ID'] . "";
+    // $result = mysqli_query($database, $q);
+    // if (mysqli_num_rows($result) == 0) {
+    //   // no results
+    //   $IsEmployer = FALSE;
+    // } else {
+    //   // there are results in $r
+    //   $IsEmployer = TRUE;
+    // }
+ }
 
 //$query = "INSERT INTO jobseeker_apply_job (JobSeeker_email, JOB_ID) VALUES ('" . $jobSeekerEmail . "','" . $_POST['JOB_ID'] . "');";
 if (isset($_POST['Apply'])) {

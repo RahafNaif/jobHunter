@@ -147,7 +147,6 @@ if (isset($_POST['delete'])) {
         $phone = $data['phone'];
         $major = $data['major'];
         $experince = $data['experince'];
-        $skills = $data['skills'];
         $currentJob = $data['currentJob'];
         $Github = $data['Github'];
         $Instagram = $data['Instagram'];

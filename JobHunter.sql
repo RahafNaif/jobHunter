@@ -85,7 +85,7 @@ CREATE TABLE `jobseeker_apply_job` (
   `applay_ID` int(11) NOT NULL AUTO_INCREMENT,
   `JobSeeker_email` varchar(30) NOT NULL,
   `Job_ID` int(11) NOT NULL,
-  `statusjob` int(1) NOT NULL,
+  `statusjob` int(1) NOT NULL DEFAULT 0,
         PRIMARY KEY(`applay_ID`),
         FOREIGN KEY (`JobSeeker_email`)
         REFERENCES `jobseeker` (`email`) ON DELETE CASCADE,         

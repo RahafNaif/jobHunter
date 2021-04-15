@@ -90,6 +90,12 @@ form .form-control small{
   padding-left: 15px;
 }
 
+small {
+  color: red;
+  visibility: hidden;
+  padding-left: 15px;
+}
+
 form .form-control{
   margin-top: 20px;
 }

@@ -114,9 +114,9 @@
                                     <br>
                                     <input type="radio" name="gender" value="Male" id="male" checked="checked" />
                                     <label for="male">Male</label>
-                                    <input type="radio" name="gender" value="Female" id="female" />
+                                    <br><input type="radio" name="gender" value="Female" id="female" />
                                     <label for="female">Female</label><br><br>
-                                    <label for="phone">Phone number</label>
+                                    <br><label for="phone">Phone number</label>
                                     <input type="text" class="form-input" name="phone" id="phone" placeholder="Your phone number" pattern="[0]{1}[5]{1}[0-9]{8}" Required />
                                     <small id="phone_error">Error massgagr</small>
                                     <br>

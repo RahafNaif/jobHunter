@@ -57,7 +57,7 @@ if (isset($_POST['delete'])) {
 
 <head>
   <meta charset="utf-8" />
-  <link type="text/css" href="styles/JobSeekerProfile.css" rel="stylesheet" />
+  <link type="text/css" href="styles/JobSeekerProfile.css?<?php echo time(); ?>" rel="stylesheet" />
   <link rel="icon" href="img/icon.png">
   <link rel="icon" href="img/icon.png">
   <link rel="stylesheet" href="styles/Buttons.css" />
@@ -174,7 +174,8 @@ if (isset($_POST['delete'])) {
 
 
         else if ($_SESSION['role'] == 1)
-          print '<div class="buttons"><a href="JobSeekerProf_edit.php"><button>edit</button></a>
+          print '<div class="buttons"><a href="JobSeekerProf_edit.php">
+                  <button>edit</button></a>
                 
                 <form  action="JobSeekerViewProf.php" method="POST">
                 <button  name="delete">

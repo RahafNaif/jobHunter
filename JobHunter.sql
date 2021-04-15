@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 15, 2021 at 07:23 AM
+-- Generation Time: Apr 15, 2021 at 07:35 AM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -41,19 +41,21 @@ CREATE TABLE `appointment` (
 --
 
 INSERT INTO `appointment` (`appointment_ID`, `jobSeeker_email`, `date`, `time`, `applay_JID`, `statuss`) VALUES
-(19, 'naif@gmail.com', '2021-04-07', '08:09:00', 4, 1),
-(21, 'naif@gmail.com', '2021-04-09', '08:10:00', 4, 1),
-(22, 'naif@gmail.com', '2021-04-09', '08:10:00', 4, 1),
-(23, 'naif@gmail.com', '2021-04-12', '08:09:00', 4, 1),
-(24, 'naif@gmail.com', '2021-04-12', '08:09:00', 4, 1),
-(25, 'naif@gmail.com', '2021-04-12', '08:09:00', 4, 1),
-(26, 'naif@gmail.com', '2021-04-04', '08:11:00', 4, 1),
-(27, 'naif@gmail.com', '2021-04-04', '08:11:00', 4, 1),
-(28, 'naif@gmail.com', '2021-04-04', '08:11:00', 4, 1),
-(29, 'naif@gmail.com', '2021-04-04', '08:11:00', 4, 1),
-(30, 'naif@gmail.com', '2021-04-13', '08:17:00', 4, 1),
-(31, 'naif@gmail.com', '2021-04-13', '08:17:00', 4, 1),
-(32, 'naif@gmail.com', '2021-04-13', '08:17:00', 4, 1);
+(19, '', '2021-04-07', '08:09:00', 0, 1),
+(21, '', '2021-04-09', '08:10:00', 0, 1),
+(22, '', '2021-04-09', '08:10:00', 0, 1),
+(23, '', '2021-04-12', '08:09:00', 0, 1),
+(24, '', '2021-04-12', '08:09:00', 0, 1),
+(25, '', '2021-04-12', '08:09:00', 0, 1),
+(26, '', '2021-04-04', '08:11:00', 0, 1),
+(27, '', '2021-04-04', '08:11:00', 0, 1),
+(28, '', '2021-04-04', '08:11:00', 0, 1),
+(29, '', '2021-04-04', '08:11:00', 0, 1),
+(30, '', '2021-04-13', '08:17:00', 0, 1),
+(31, '', '2021-04-13', '08:17:00', 0, 1),
+(32, '', '2021-04-13', '08:17:00', 0, 1),
+(33, '', '2021-04-15', '08:31:00', 0, 1),
+(34, '', '2021-04-15', '08:31:00', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -206,9 +208,7 @@ INSERT INTO `skills` (`skill_id`, `JobSeeker_email`, `skillName`) VALUES
 ALTER TABLE `appointment`
   ADD PRIMARY KEY (`appointment_ID`),
   ADD UNIQUE KEY `appointment_ID` (`appointment_ID`),
-  ADD UNIQUE KEY `appointment_ID_2` (`appointment_ID`),
-  ADD KEY `jobSeekerEmail` (`jobSeeker_email`),
-  ADD KEY `applayID` (`applay_JID`);
+  ADD UNIQUE KEY `appointment_ID_2` (`appointment_ID`);
 
 --
 -- Indexes for table `employer`
@@ -254,7 +254,7 @@ ALTER TABLE `skills`
 -- AUTO_INCREMENT for table `appointment`
 --
 ALTER TABLE `appointment`
-  MODIFY `appointment_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `appointment_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `job`
@@ -277,13 +277,6 @@ ALTER TABLE `skills`
 --
 -- Constraints for dumped tables
 --
-
---
--- Constraints for table `appointment`
---
-ALTER TABLE `appointment`
-  ADD CONSTRAINT `applayID` FOREIGN KEY (`applay_JID`) REFERENCES `jobseeker_apply_job` (`applay_ID`),
-  ADD CONSTRAINT `jobSeekerEmail` FOREIGN KEY (`jobSeeker_email`) REFERENCES `jobseeker` (`email`);
 
 --
 -- Constraints for table `job`

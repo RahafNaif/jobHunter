@@ -1,5 +1,5 @@
 <p align = "center">
-  <img  width = "400" src="img/logo.png" />
+  <img  width = "400" src="img/image 1.png" />
   <h1 align = "center">Introduction</h1>
 Job Hunter is a project requirement for <b>SWE 381</b> <em>Web Application Development</em> course. is developed to enhance the recruitment opportunities in Saudi Arabia and help to reduce the unemployment rate. 
 It serves two kinds of people, job seekers, and employers.
